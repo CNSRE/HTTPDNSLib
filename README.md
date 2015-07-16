@@ -67,6 +67,67 @@ DomainInfo[] infoList = DNSCache.getInstance().getDomainServerIp( "http://api.we
 
 
 
+
+
+### 更多配置
+
+
+        /**
+         * 是否启用自己家的HTTP_DNS服务器 默认不启用 | 1启用 0不启用
+         */
+        public String IS_MY_HTTP_SERVER = null;
+        /**
+         * 自己家HTTP_DNS服务API地址 使用时直接在字符串后面拼接domain地址 |
+         * 示例（http://xxx.xxx.xxx.xxx/dns?domain=）+ domain
+         */
+        public String HTTPDNS_SERVER_API = null;
+        /**
+         * 是否启用dnspod服务器 默认不启用 | 1启用 0不启用
+         */
+        public String IS_DNSPOD_SERVER = null;
+        /**
+         * DNSPOD HTTP_DNS 服务器API地址 | 默认（http://119.29.29.29/d?ttl=1&dn=）
+         */
+        public String DNSPOD_SERVER_API = null;
+        /**
+         * DNSPOD 企业级ID配置选项 
+         */
+        public String DNSPOD_ID = null;
+        /**
+         * DNSPOD 企业级KEY配置选项 
+         */
+        public String DNSPOD_KEY = null;
+        /**
+         * 是否开启 本地排序插件算法 默认开启 | 1开启 0不开启
+         */
+        public String IS_SORT = null;
+        /**
+         * 速度插件 比重分配值：默认40%
+         */
+        public String SPEEDTEST_PLUGIN_NUM = null;
+        /**
+         * 服务器推荐优先级插件 比重分配：默认30% （需要自家HTTP_DNS服务器支持）
+         */
+        public String PRIORITY_PLUGIN_NUM = null;
+        /**
+         * 历史成功次数计算插件 比重分配：默认10%
+         */
+        public String SUCCESSNUM_PLUGIN_NUM = null;
+        /**
+         * 历史错误次数计算插件 比重分配：默认10%
+         */
+        public String ERRNUM_PLUGIN_NUM = null;
+        /**
+         * 最后一次成功时间计算插件 比重分配：默认10%
+         */
+        public String SUCCESSTIME_PLUGIN_NUM = null;
+        /**
+         * domain对应的测速文件，如果需要对服务器进行测速请给domain设置一个可以下载的资源文件来计算服务器速度
+         */
+        public ArrayList<String> SPEEDPATH_LIST = new ArrayList<String>();
+
+
+
 HttpDns是什么？
 -----------------------------------
 
