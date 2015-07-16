@@ -16,6 +16,26 @@ lib库目前还没有打包成 jar 文件， 大家测试使用的话可以直�
 apk文件夹下内有打包好的对httpDNS库进行测试的程序。 该测试程序模拟了用户使用的场景，并且记录了相关统计数据。以及Lib库的时时的状态信息。
 
  
+ 
+ ### 在AndroidManifest.xml文件中需要配置
+ 
+         <!-- 主要注册一个广播 -->
+        <receiver
+            android:name="com.sina.util.networktype.NetworkStateReceiver"
+            android:label="NetworkConnection" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        
+        <!-- 需要配置的权限 -->
+    	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    	<uses-permission android:name="android.permission.WAKE_LOCK" />
+    	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+ 
 ### 在使用 http dns前 需要初始化一次 
 DNSCache.Init(this);
 
