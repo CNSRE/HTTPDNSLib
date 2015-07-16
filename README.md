@@ -129,6 +129,10 @@ DomainInfo[] infoList = DNSCache.getInstance().getDomainServerIp( "http://api.we
         public ArrayList<String> SPEEDPATH_LIST = new ArrayList<String>();
 
 
+### 动态更新参数
+
+DNSCacheConfig 类下的 ConfigText_API 字段可以配置成自动更新配置参数的接口。 该接口返回json数据类型 具体数据格式详见DNSCacheConfig.Data toJson()方法。
+
 
 HttpDns是什么？
 -----------------------------------
