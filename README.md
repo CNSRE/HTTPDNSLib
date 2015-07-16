@@ -130,8 +130,38 @@ DomainInfo[] infoList = DNSCache.getInstance().getDomainServerIp( "http://api.we
 
 
 ### 动态更新参数
-
 DNSCacheConfig 类下的 ConfigText_API 字段可以配置成自动更新配置参数的接口。 该接口返回json数据类型 具体数据格式详见DNSCacheConfig.Data toJson()方法。
+
+
+### 自己家HttpDNS服务接入
+首先开启 DNSCacheConfig.Data.IS_MY_HTTP_SERVER = 1 ;  然后设定 DNSCacheConfig.Data.HTTPDNS_SERVER_API 接口地址
+示例（http://XXX.XXX.XXX.XXX/dns?domain=）+ domain
+
+该接口返回格式(当然你也可以自定义格式需要重载 com.sina.util.dnscache.httpdns.IJsonParser 类即可):
+{
+    "domain": "api.weibo.cn",
+    "device_ip": "10.209.70.192",
+    "device_sp": "0",
+    "dns": [
+        {
+            "priority": "0",
+            "ip": "123.125.105.231",
+            "ttl": "60"
+        },
+        {
+            "priority": "0",
+            "ip": "123.125.105.246",
+            "ttl": "60"
+        },
+        {
+            "priority": "0",
+            "ip": "202.108.7.133",
+            "ttl": "60"
+        }
+    ]
+}
+PS： priority 字段是服务器推荐优先级。 | device_sp 字段是该设备出口运营商。
+
 
 
 HttpDns是什么？
