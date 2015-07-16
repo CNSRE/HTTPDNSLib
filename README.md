@@ -1,3 +1,7 @@
+该项目是手机微博研发团队和手机微博技术保障部共同努力的成果。 
+在此特别感谢：张杰、王春生、胡波、韩超、赵星宇、聂钰、冯磊等同学的支持。
+感谢大家提出的宝贵意见，感谢大家为该项目付出的努力！
+
 项目中有任何问题欢迎大家来吐槽，一起完善、一起提高、一起使用！<br>
 email：gg.fenglei@gmail.com <br>
 qq:272141888
@@ -8,7 +12,9 @@ qq:272141888
 
 接入说明：
 -----------------------------------
-目前还没有打包成 jar 文件， 大家测试使用的话可以直接将工程包含到自己的工程内即可。 
+由于该工程需要用户自定义部分配置文件，所以建议以源码方式使用。（同时也支持项目中设定lib库的参数）
+lib库目前还没有打包成 jar 文件， 大家测试使用的话可以直接将工程包含到自己的工程内即可。 
+apk文件夹下内有打包好的对httpDNS库进行测试的程序。 该测试程序模拟了用户使用的场景，并且记录了相关统计数据。以及Lib库的时时的状态信息。
 
  
 ### 在使用 http dns前 需要初始化一次 
@@ -76,6 +82,11 @@ HttpDns sdk （android版本）
 
 ### HttpDns lib库交互流程
 [点击看图片](http://gitlab.weibo.cn/msre/Mobile_DNSCache/blob/master/doc/httpdns%20lib%E5%BA%93%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B.png)<br />
+
+https://github.com/SinaMSRE/HTTPDNSLib/blob/master/doc/httpdns%20lib%E5%BA%93%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B.png
+
+ ![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/httpdns%20lib%E5%BA%93%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B.png)
+
 <br>
 <br>
 
