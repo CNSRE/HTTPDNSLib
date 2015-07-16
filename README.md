@@ -162,7 +162,7 @@ HttpDns Test （android版本）
 由于UE，UI都是自己设计，对于表达信息的布局和美观可能还有欠缺，本程序猿的能力有限，大家多多包涵。 <br><br>
 
 你未必会需要“它”，上传几张测试工程的截图，提供参考。<br>
-![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/img/1-0.png) 
+![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/img/1.png) 
 ![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/img/1-2.png) 
 ![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/img/2-0.png) 
 ![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/img/2-1.png) 
