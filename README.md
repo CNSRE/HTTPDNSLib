@@ -17,7 +17,7 @@ apk文件夹下内有打包好的对httpDNS库进行测试的程序。 该测试
 
  
  
- ### 在AndroidManifest.xml文件中需要配置
+### 在AndroidManifest.xml文件中需要配置
  
          <!-- 主要注册一个广播 -->
         <receiver
