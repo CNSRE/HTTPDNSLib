@@ -137,7 +137,8 @@ HttpDns sdk （android版本）
 <br>
 <br>
 PS:给出一副算法计算分数时的细节图，有兴趣的朋友可以一起探讨研究。 <br><br>
-[点击看图片](http://gitlab.weibo.cn/msre/Mobile_DNSCache/blob/master/doc/%E7%AE%97%E6%B3%95%E6%8F%92%E4%BB%B6%E8%AE%A1%E7%AE%97%E5%9B%BE.png)<br />
+![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/%E7%AE%97%E6%B3%95%E6%8F%92%E4%BB%B6%E8%AE%A1%E7%AE%97%E5%9B%BE.png) <br><br>
+
 
 <br><br>
 
