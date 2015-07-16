@@ -1,5 +1,5 @@
 该项目是手机微博研发团队和手机微博技术保障部共同努力的成果。 <br>
-在此特别感谢：
+在此特别感谢： <br>
 张杰 <br>
 王春生 微博:[@平凡的香草](http://weibo.com/chunshengster)<br>
 胡波 微博:[@胡波_](http://weibo.com/coolbor) <br>
