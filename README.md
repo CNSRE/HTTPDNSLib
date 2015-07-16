@@ -82,6 +82,11 @@ HttpDns sdk （android版本）
 
 ### HttpDns lib库交互流程
 [点击看图片](http://gitlab.weibo.cn/msre/Mobile_DNSCache/blob/master/doc/httpdns%20lib%E5%BA%93%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B.png)<br />
+
+https://github.com/SinaMSRE/HTTPDNSLib/blob/master/doc/httpdns%20lib%E5%BA%93%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B.png
+
+ ![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/httpdns%20lib%E5%BA%93%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B.png)
+
 <br>
 <br>
 
