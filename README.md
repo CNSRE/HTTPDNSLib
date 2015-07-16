@@ -29,12 +29,12 @@ apk文件夹下内有打包好的对httpDNS库进行测试的程序。 该测试
             </intent-filter>
         </receiver>
         
-        <!-- 需要配置的权限 -->
-    	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    	<uses-permission android:name="android.permission.WAKE_LOCK" />
-    	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 需要配置的权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
  
 ### 在使用 http dns前 需要初始化一次 
 DNSCache.Init(this);
