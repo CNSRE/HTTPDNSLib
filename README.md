@@ -80,12 +80,14 @@ HttpDns sdk （android版本）
 	HttpDns/ui/DNSCacheTest --- 存放HttpDns测试项目UI源文件以及切图文件。
 
 
-### HttpDns lib库交互流程
-[点击看图片](http://gitlab.weibo.cn/msre/Mobile_DNSCache/blob/master/doc/httpdns%20lib%E5%BA%93%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B.png)<br />
+### HttpDns 交互流程
+![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/httpdns%20lib%E5%BA%93%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B.png)
 
-https://github.com/SinaMSRE/HTTPDNSLib/blob/master/doc/httpdns%20lib%E5%BA%93%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B.png
 
- ![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/httpdns%20lib%E5%BA%93%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B.png)
+
+### HttpDns Lib库交互流程
+![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/DNSLib%E5%BA%93%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
+
 
 <br>
 <br>
@@ -160,9 +162,26 @@ HttpDns Test （android版本）
 由于UE，UI都是自己设计，对于表达信息的布局和美观可能还有欠缺，本程序猿的能力有限，大家多多包涵。 <br><br>
 
 你未必会需要“它”，上传几张测试工程的截图，提供参考。<br>
-[点击看图片](http://gitlab.weibo.cn/msre/Mobile_DNSCache/blob/master/doc/%E9%A6%96%E9%A1%B5.png)<br />
+![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/img/1-0.png)
 <br>
-[点击看图片](http://gitlab.weibo.cn/msre/Mobile_DNSCache/blob/master/doc/%E8%AF%A6%E6%83%85%E9%A1%B5-1.png)<br />
-[点击看图片](http://gitlab.weibo.cn/msre/Mobile_DNSCache/blob/master/doc/%E8%AF%A6%E6%83%85%E9%A1%B5-2.png)<br />
-[点击看图片](http://gitlab.weibo.cn/msre/Mobile_DNSCache/blob/master/doc/%E8%AF%A6%E6%83%85%E9%A1%B5-3.png)<br />
+![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/img/1-2.png)
 <br>
+![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/img/2-0.png)
+<br>
+![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/img/2-1.png)
+<br>
+![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/img/2-2.png)
+<br>
+![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/img/3-0.png)
+<br>
+![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/img/3-1.png)
+<br>
+![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/img/3-2.png)
+<br>
+![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/img/3-3.png)
+<br>
+![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/img/3-4.png)
+<br>
+![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/img/4-0.png)
+<br>
+![image](https://github.com/SinaMSRE/HTTPDNSLib/raw/master/doc/img/4-1.png)
