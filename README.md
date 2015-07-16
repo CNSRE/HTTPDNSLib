@@ -1,12 +1,12 @@
 该项目是手机微博研发团队和手机微博技术保障部共同努力的成果。 <br>
 在此特别感谢：
 张杰 <br>
-王春生 微博链接:http://weibo.com/chunshengster <br>
-胡波 微博链接:http://weibo.com/coolbor <br>
+王春生 微博:[@平凡的香草](http://weibo.com/chunshengster)<br>
+胡波 微博:[@胡波_](http://weibo.com/coolbor) <br>
 韩超<br>
 赵星宇<br>
 聂钰<br>
-冯磊 [@冯磊424](http://weibo.com/myfenglei) <br>
+冯磊 微博:[@冯磊424](http://weibo.com/myfenglei) <br>
 
 等同学的支持。
 感谢大家提出的宝贵意见，感谢大家为该项目付出的努力！
