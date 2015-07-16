@@ -1,0 +1,29 @@
+package com.sina.util.dnscache.httpdns;
+
+import java.util.ArrayList;
+
+import com.sina.util.dnscache.model.HttpDnsPack;
+
+/**
+*
+* 项目名称: DNSCache <br>
+* 类名称: IHttpDns <br>
+* 类描述: HttpDNS 对外接口 <br>
+* 创建人: fenglei <br>
+* 创建时间: 2015-4-15 下午1:10:10 <br>
+* 
+* 修改人:  <br>
+* 修改时间:  <br>
+* 修改备注:  <br>
+* 
+* @version V1.0
+*/
+public interface IHttpDns {
+
+    public HttpDnsPack requestHttpDns(String domain) ;
+    
+    public ArrayList<String> getDebugInfo() ; 
+    
+    public void initDebugInfo() ; 
+
+}

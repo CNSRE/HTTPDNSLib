@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="0dip"
+        android:layout_marginRight="0dip"
+        android:layout_marginTop="1dip"
+        android:layout_marginBottom="1dip"
+        android:background="#e8e8e8"
+        android:orientation="vertical"
+        android:paddingLeft="11dip"
+        android:paddingTop="24dip" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="15dip"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/taskID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="任务ID:1024142"
+                android:textColor="#4b4a4a"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dip"
+                android:text="延迟下降:  "
+                android:textColor="#4b4a4a"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/expendTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="-31"
+                android:textColor="#4b4a4a"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="15dip"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/hostIp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HTTP 推荐:192.168.111.111"
+                android:textColor="#4b4a4a"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/hostCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:text="√"
+                android:textColor="#00c621"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="15dip"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/domainIp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Local推荐:192.168.111.111"
+                android:textColor="#4b4a4a"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/domainCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:text="×"
+                android:textColor="#e90000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="15dip"
+            android:gravity="right"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="13dip"
+                android:text="2014-10-23   08:18:21"
+                android:textColor="#999898"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

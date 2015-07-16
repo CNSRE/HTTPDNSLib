@@ -1,0 +1,3 @@
+sign:    httpdns.keystore
+alias:   httpdns
+pwd:     123456

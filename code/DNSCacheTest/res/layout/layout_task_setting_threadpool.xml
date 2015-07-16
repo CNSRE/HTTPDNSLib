@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dip"
+        android:background="#e8e8e8"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/config_threadpool_concurrent_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="10dip"
+            android:text="并发任务：3个"
+            android:textColor="#4b4a4a"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dip"
+                android:paddingBottom="2dip"
+                android:text="0"
+                android:textColor="#4b4a4a"
+                android:textSize="16sp" />
+
+            <SeekBar
+                android:id="@+id/seekbar_threadpool_concurrent_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:focusable="true"
+                android:max="10"
+                android:maxHeight="2dip"
+                android:minHeight="2dip"
+                android:progress="3"
+                android:progressDrawable="@drawable/seek_bar_bg"
+                android:thumb="@drawable/seek_thumb_bar" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dip"
+                android:paddingBottom="2dip"
+                android:text="10"
+                android:textColor="#4b4a4a"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:background="#ebebeb" >
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/config_threadpool_request_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="10dip"
+            android:text="模拟任务总数：50个"
+            android:textColor="#4b4a4a"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dip"
+                android:paddingBottom="2dip"
+                android:text="0"
+                android:textColor="#4b4a4a"
+                android:textSize="16sp" />
+
+            <SeekBar
+                android:id="@+id/seekbar_threadpool_request_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:focusable="true"
+                android:max="200"
+                android:maxHeight="2dip"
+                android:minHeight="2dip"
+                android:progress="10"
+                android:progressDrawable="@drawable/seek_bar_bg"
+                android:thumb="@drawable/seek_thumb_bar" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="-1dip"
+                android:paddingBottom="2dip"
+                android:text="1000"
+                android:textColor="#4b4a4a"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="#47aff9"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="缓存数据"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dip"
+                android:background="#eeeeee"
+                android:orientation="horizontal" >
+
+                <ImageButton
+                    android:id="@+id/clearBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:layout_marginRight="20dip"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/clear_btn" />
+
+                <ImageButton
+                    android:id="@+id/memory_cache_data_clear_Btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:layout_marginRight="20dip"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/memory_cache_data_clear_btn" />
+
+                <ImageButton
+                    android:id="@+id/db_cache_data_clear_Btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:layout_marginRight="20dip"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/db_cache_data_clear_btn" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dip"
+                android:layout_marginTop="2dip"
+                android:background="#e8e8e8"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#dedede"
+                    android:paddingBottom="7dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="7dip"
+                    android:text="测试任务数据"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/task_list_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.3"
+                    android:paddingBottom="5dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="10dip"
+                    android:text="XXXXXXXXXXXXXXXXXX"
+                    android:textColor="#252525"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dip"
+                android:layout_marginTop="1dip"
+                android:background="#e8e8e8"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#dedede"
+                    android:paddingBottom="7dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="7dip"
+                    android:text="HttpDNS后台任务状态"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/http_dns_timer_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.3"
+                    android:paddingBottom="5dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="10dip"
+                    android:text="XXXXXXXXXXXXXXXXXX"
+                    android:textColor="#252525"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dip"
+                android:layout_marginTop="1dip"
+                android:background="#e8e8e8"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#dedede"
+                    android:paddingBottom="7dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="7dip"
+                    android:text="缓存层数据"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/memory_cache_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.3"
+                    android:paddingBottom="5dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="10dip"
+                    android:text="XXXXXXXXXXXXXXXXXX"
+                    android:textColor="#252525"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dip"
+                android:layout_marginTop="1dip"
+                android:background="#e8e8e8"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#dedede"
+                    android:paddingBottom="7dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="7dip"
+                    android:text="数据库：Domain表全部数据"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/domain_table_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.3"
+                    android:paddingBottom="5dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="10dip"
+                    android:text="XXXXXXXXXXXXXXXXXX"
+                    android:textColor="#252525"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dip"
+                android:layout_marginTop="1dip"
+                android:background="#e8e8e8"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#dedede"
+                    android:paddingBottom="7dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="7dip"
+                    android:text="数据库：IP表全部数据"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/ip_table_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.3"
+                    android:paddingBottom="5dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="10dip"
+                    android:text="XXXXXXXXXXXXXXXXXX"
+                    android:textColor="#252525"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            
+            
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dip"
+                android:layout_marginTop="1dip"
+                android:background="#e8e8e8"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#dedede"
+                    android:paddingBottom="7dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="7dip"
+                    android:text="HttpDNS API交互数据"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/httpdns_api_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.3"
+                    android:paddingBottom="5dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="10dip"
+                    android:text="XXXXXXXXXXXXXXXXXX"
+                    android:textColor="#252525"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            
+            
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

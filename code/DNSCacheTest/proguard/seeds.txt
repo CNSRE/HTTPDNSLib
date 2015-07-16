@@ -1,0 +1,467 @@
+android.support.v4.app.BackStackState
+android.support.v4.app.BackStackState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.Fragment$SavedState
+android.support.v4.app.Fragment$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentActivity: FragmentActivity()
+android.support.v4.app.FragmentManagerState
+android.support.v4.app.FragmentManagerState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentState
+android.support.v4.app.FragmentState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentTabHost: void setOnTabChangedListener(android.widget.TabHost$OnTabChangeListener)
+android.support.v4.app.FragmentTabHost$SavedState
+android.support.v4.app.FragmentTabHost$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status[] values()
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status valueOf(java.lang.String)
+android.support.v4.media.MediaMetadataCompat
+android.support.v4.media.MediaMetadataCompat: android.os.Parcelable$Creator CREATOR
+android.support.v4.media.RatingCompat
+android.support.v4.media.RatingCompat: android.os.Parcelable$Creator CREATOR
+android.support.v4.media.session.MediaSessionCompat$Token
+android.support.v4.media.session.MediaSessionCompat$Token: android.os.Parcelable$Creator CREATOR
+android.support.v4.media.session.PlaybackStateCompat
+android.support.v4.media.session.PlaybackStateCompat: android.os.Parcelable$Creator CREATOR
+android.support.v4.view.PagerTabStrip: void setTabIndicatorColor(int)
+android.support.v4.view.PagerTabStrip: void setTabIndicatorColorResource(int)
+android.support.v4.view.PagerTabStrip: int getTabIndicatorColor()
+android.support.v4.view.PagerTabStrip: void setTextSpacing(int)
+android.support.v4.view.PagerTabStrip: void setBackgroundDrawable(android.graphics.drawable.Drawable)
+android.support.v4.view.PagerTabStrip: void setBackgroundColor(int)
+android.support.v4.view.PagerTabStrip: void setBackgroundResource(int)
+android.support.v4.view.PagerTabStrip: void setDrawFullUnderline(boolean)
+android.support.v4.view.PagerTabStrip: boolean getDrawFullUnderline()
+android.support.v4.view.PagerTabStrip: int getMinHeight()
+android.support.v4.view.PagerTitleStrip: void setSingleLineAllCaps(android.widget.TextView)
+android.support.v4.view.PagerTitleStrip: void setTextSpacing(int)
+android.support.v4.view.PagerTitleStrip: int getTextSpacing()
+android.support.v4.view.PagerTitleStrip: void setNonPrimaryAlpha(float)
+android.support.v4.view.PagerTitleStrip: void setTextColor(int)
+android.support.v4.view.PagerTitleStrip: void setGravity(int)
+android.support.v4.view.PagerTitleStrip: int getMinHeight()
+android.support.v4.view.ViewPager: void setScrollState(int)
+android.support.v4.view.ViewPager: void setAdapter(android.support.v4.view.PagerAdapter)
+android.support.v4.view.ViewPager: android.support.v4.view.PagerAdapter getAdapter()
+android.support.v4.view.ViewPager: void setOnAdapterChangeListener(android.support.v4.view.ViewPager$OnAdapterChangeListener)
+android.support.v4.view.ViewPager: int getClientWidth()
+android.support.v4.view.ViewPager: void setCurrentItem(int)
+android.support.v4.view.ViewPager: int getCurrentItem()
+android.support.v4.view.ViewPager: void setOnPageChangeListener(android.support.v4.view.ViewPager$OnPageChangeListener)
+android.support.v4.view.ViewPager: void setChildrenDrawingOrderEnabledCompat(boolean)
+android.support.v4.view.ViewPager: int getOffscreenPageLimit()
+android.support.v4.view.ViewPager: void setOffscreenPageLimit(int)
+android.support.v4.view.ViewPager: void setPageMargin(int)
+android.support.v4.view.ViewPager: int getPageMargin()
+android.support.v4.view.ViewPager: void setPageMarginDrawable(android.graphics.drawable.Drawable)
+android.support.v4.view.ViewPager: void setPageMarginDrawable(int)
+android.support.v4.view.ViewPager: void setScrollingCacheEnabled(boolean)
+android.support.v4.view.ViewPager$SavedState
+android.support.v4.view.ViewPager$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.widget.DrawerLayout: void setScrimColor(int)
+android.support.v4.widget.DrawerLayout: void setDrawerListener(android.support.v4.widget.DrawerLayout$DrawerListener)
+android.support.v4.widget.DrawerLayout: void setDrawerLockMode(int)
+android.support.v4.widget.DrawerLayout: void setStatusBarBackground(android.graphics.drawable.Drawable)
+android.support.v4.widget.DrawerLayout: void setStatusBarBackground(int)
+android.support.v4.widget.DrawerLayout: void setStatusBarBackgroundColor(int)
+android.support.v4.widget.DrawerLayout$SavedState
+android.support.v4.widget.DrawerLayout$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.widget.SlidingPaneLayout: void setParallaxDistance(int)
+android.support.v4.widget.SlidingPaneLayout: int getParallaxDistance()
+android.support.v4.widget.SlidingPaneLayout: void setSliderFadeColor(int)
+android.support.v4.widget.SlidingPaneLayout: int getSliderFadeColor()
+android.support.v4.widget.SlidingPaneLayout: void setCoveredFadeColor(int)
+android.support.v4.widget.SlidingPaneLayout: int getCoveredFadeColor()
+android.support.v4.widget.SlidingPaneLayout: void setPanelSlideListener(android.support.v4.widget.SlidingPaneLayout$PanelSlideListener)
+android.support.v4.widget.SlidingPaneLayout: void setShadowDrawable(android.graphics.drawable.Drawable)
+android.support.v4.widget.SlidingPaneLayout: void setShadowDrawableLeft(android.graphics.drawable.Drawable)
+android.support.v4.widget.SlidingPaneLayout: void setShadowDrawableRight(android.graphics.drawable.Drawable)
+android.support.v4.widget.SlidingPaneLayout: void setShadowResource(int)
+android.support.v4.widget.SlidingPaneLayout: void setShadowResourceLeft(int)
+android.support.v4.widget.SlidingPaneLayout: void setShadowResourceRight(int)
+android.support.v4.widget.SlidingPaneLayout$SavedState
+android.support.v4.widget.SlidingPaneLayout$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.widget.SwipeRefreshLayout: void setColorViewAlpha(int)
+android.support.v4.widget.SwipeRefreshLayout: void setSize(int)
+android.support.v4.widget.SwipeRefreshLayout: void setOnRefreshListener(android.support.v4.widget.SwipeRefreshLayout$OnRefreshListener)
+android.support.v4.widget.SwipeRefreshLayout: void setRefreshing(boolean)
+android.support.v4.widget.SwipeRefreshLayout: void setAnimationProgress(float)
+android.support.v4.widget.SwipeRefreshLayout: void setProgressBackgroundColor(int)
+android.support.v4.widget.SwipeRefreshLayout: void setColorScheme(int[])
+android.support.v4.widget.SwipeRefreshLayout: void setColorSchemeResources(int[])
+android.support.v4.widget.SwipeRefreshLayout: void setColorSchemeColors(int[])
+android.support.v4.widget.SwipeRefreshLayout: void setDistanceToTriggerSync(int)
+com.github.mikephil.charting.animation.Easing$EasingOption: com.github.mikephil.charting.animation.Easing$EasingOption[] values()
+com.github.mikephil.charting.animation.Easing$EasingOption: com.github.mikephil.charting.animation.Easing$EasingOption valueOf(java.lang.String)
+com.github.mikephil.charting.charts.BarChart
+com.github.mikephil.charting.charts.BarChart: BarChart(android.content.Context)
+com.github.mikephil.charting.charts.BarChart: BarChart(android.content.Context,android.util.AttributeSet)
+com.github.mikephil.charting.charts.BarChart: BarChart(android.content.Context,android.util.AttributeSet,int)
+com.github.mikephil.charting.charts.BarChart: void setDrawHighlightArrow(boolean)
+com.github.mikephil.charting.charts.BarChart: void setDrawValueAboveBar(boolean)
+com.github.mikephil.charting.charts.BarChart: void setDrawValuesForWholeStack(boolean)
+com.github.mikephil.charting.charts.BarChart: void setDrawBarShadow(boolean)
+com.github.mikephil.charting.charts.BarChart: com.github.mikephil.charting.data.BarData getBarData()
+com.github.mikephil.charting.charts.BarChart: int getLowestVisibleXIndex()
+com.github.mikephil.charting.charts.BarChart: int getHighestVisibleXIndex()
+com.github.mikephil.charting.charts.BarLineChartBase: BarLineChartBase(android.content.Context,android.util.AttributeSet,int)
+com.github.mikephil.charting.charts.BarLineChartBase: BarLineChartBase(android.content.Context,android.util.AttributeSet)
+com.github.mikephil.charting.charts.BarLineChartBase: BarLineChartBase(android.content.Context)
+com.github.mikephil.charting.charts.BarLineChartBase: void setVisibleXRange(float)
+com.github.mikephil.charting.charts.BarLineChartBase: void setOnTouchListener(android.view.View$OnTouchListener)
+com.github.mikephil.charting.charts.BarLineChartBase: void setOnDrawListener(com.github.mikephil.charting.listener.OnDrawListener)
+com.github.mikephil.charting.charts.BarLineChartBase: com.github.mikephil.charting.listener.OnDrawListener getDrawListener()
+com.github.mikephil.charting.charts.BarLineChartBase: void setMaxVisibleValueCount(int)
+com.github.mikephil.charting.charts.BarLineChartBase: int getMaxVisibleCount()
+com.github.mikephil.charting.charts.BarLineChartBase: void setHighlightIndicatorEnabled(boolean)
+com.github.mikephil.charting.charts.BarLineChartBase: void setHighlightPerDragEnabled(boolean)
+com.github.mikephil.charting.charts.BarLineChartBase: void setGridBackgroundColor(int)
+com.github.mikephil.charting.charts.BarLineChartBase: void setDragEnabled(boolean)
+com.github.mikephil.charting.charts.BarLineChartBase: void setScaleEnabled(boolean)
+com.github.mikephil.charting.charts.BarLineChartBase: void setScaleXEnabled(boolean)
+com.github.mikephil.charting.charts.BarLineChartBase: void setScaleYEnabled(boolean)
+com.github.mikephil.charting.charts.BarLineChartBase: void setDoubleTapToZoomEnabled(boolean)
+com.github.mikephil.charting.charts.BarLineChartBase: void setDrawGridBackground(boolean)
+com.github.mikephil.charting.charts.BarLineChartBase: void setDrawBorders(boolean)
+com.github.mikephil.charting.charts.BarLineChartBase: void setBorderWidth(float)
+com.github.mikephil.charting.charts.BarLineChartBase: void setBorderColor(int)
+com.github.mikephil.charting.charts.BarLineChartBase: int getLowestVisibleXIndex()
+com.github.mikephil.charting.charts.BarLineChartBase: int getHighestVisibleXIndex()
+com.github.mikephil.charting.charts.BarLineChartBase: float getScaleX()
+com.github.mikephil.charting.charts.BarLineChartBase: float getScaleY()
+com.github.mikephil.charting.charts.BarLineChartBase: com.github.mikephil.charting.components.YAxis getAxisLeft()
+com.github.mikephil.charting.charts.BarLineChartBase: com.github.mikephil.charting.components.YAxis getAxisRight()
+com.github.mikephil.charting.charts.BarLineChartBase: com.github.mikephil.charting.components.XAxis getXAxis()
+com.github.mikephil.charting.charts.BarLineChartBase: void setPinchZoom(boolean)
+com.github.mikephil.charting.charts.BarLineChartBase: void setDragOffsetX(float)
+com.github.mikephil.charting.charts.BarLineChartBase: void setDragOffsetY(float)
+com.github.mikephil.charting.charts.BarLineChartBase: com.github.mikephil.charting.renderer.XAxisRenderer getRendererXAxis()
+com.github.mikephil.charting.charts.BarLineChartBase: com.github.mikephil.charting.renderer.YAxisRenderer getRendererLeftYAxis()
+com.github.mikephil.charting.charts.BarLineChartBase: com.github.mikephil.charting.renderer.YAxisRenderer getRendererRightYAxis()
+com.github.mikephil.charting.charts.BarLineChartBase: float getYChartMax()
+com.github.mikephil.charting.charts.BarLineChartBase: float getYChartMin()
+com.github.mikephil.charting.charts.BubbleChart: com.github.mikephil.charting.data.BubbleData getBubbleData()
+com.github.mikephil.charting.charts.CandleStickChart: com.github.mikephil.charting.data.CandleData getCandleData()
+com.github.mikephil.charting.charts.Chart: Chart(android.content.Context)
+com.github.mikephil.charting.charts.Chart: Chart(android.content.Context,android.util.AttributeSet)
+com.github.mikephil.charting.charts.Chart: Chart(android.content.Context,android.util.AttributeSet,int)
+com.github.mikephil.charting.charts.Chart: void setData(com.github.mikephil.charting.data.ChartData)
+com.github.mikephil.charting.charts.Chart: com.github.mikephil.charting.utils.Highlight[] getHighlighted()
+com.github.mikephil.charting.charts.Chart: com.github.mikephil.charting.animation.ChartAnimator getAnimator()
+com.github.mikephil.charting.charts.Chart: void setDragDecelerationEnabled(boolean)
+com.github.mikephil.charting.charts.Chart: float getDragDecelerationFrictionCoef()
+com.github.mikephil.charting.charts.Chart: void setDragDecelerationFrictionCoef(float)
+com.github.mikephil.charting.charts.Chart: com.github.mikephil.charting.utils.ValueFormatter getDefaultValueFormatter()
+com.github.mikephil.charting.charts.Chart: void setOnChartValueSelectedListener(com.github.mikephil.charting.listener.OnChartValueSelectedListener)
+com.github.mikephil.charting.charts.Chart: void setOnChartGestureListener(com.github.mikephil.charting.listener.OnChartGestureListener)
+com.github.mikephil.charting.charts.Chart: com.github.mikephil.charting.listener.OnChartGestureListener getOnChartGestureListener()
+com.github.mikephil.charting.charts.Chart: void setHighlightEnabled(boolean)
+com.github.mikephil.charting.charts.Chart: float getYValueSum()
+com.github.mikephil.charting.charts.Chart: float getYMax()
+com.github.mikephil.charting.charts.Chart: float getYMin()
+com.github.mikephil.charting.charts.Chart: float getXChartMax()
+com.github.mikephil.charting.charts.Chart: float getXChartMin()
+com.github.mikephil.charting.charts.Chart: int getXValCount()
+com.github.mikephil.charting.charts.Chart: float getAverage()
+com.github.mikephil.charting.charts.Chart: int getValueCount()
+com.github.mikephil.charting.charts.Chart: android.graphics.PointF getCenter()
+com.github.mikephil.charting.charts.Chart: android.graphics.PointF getCenterOffsets()
+com.github.mikephil.charting.charts.Chart: void setDescription(java.lang.String)
+com.github.mikephil.charting.charts.Chart: void setDescriptionTypeface(android.graphics.Typeface)
+com.github.mikephil.charting.charts.Chart: void setDescriptionTextSize(float)
+com.github.mikephil.charting.charts.Chart: void setDescriptionColor(int)
+com.github.mikephil.charting.charts.Chart: void setLogEnabled(boolean)
+com.github.mikephil.charting.charts.Chart: void setNoDataText(java.lang.String)
+com.github.mikephil.charting.charts.Chart: void setNoDataTextDescription(java.lang.String)
+com.github.mikephil.charting.charts.Chart: void setTouchEnabled(boolean)
+com.github.mikephil.charting.charts.Chart: void setMarkerView(com.github.mikephil.charting.components.MarkerView)
+com.github.mikephil.charting.charts.Chart: com.github.mikephil.charting.components.MarkerView getMarkerView()
+com.github.mikephil.charting.charts.Chart: com.github.mikephil.charting.components.Legend getLegend()
+com.github.mikephil.charting.charts.Chart: com.github.mikephil.charting.renderer.LegendRenderer getLegendRenderer()
+com.github.mikephil.charting.charts.Chart: android.graphics.RectF getContentRect()
+com.github.mikephil.charting.charts.Chart: void setDrawMarkerViews(boolean)
+com.github.mikephil.charting.charts.Chart: com.github.mikephil.charting.data.ChartData getData()
+com.github.mikephil.charting.charts.Chart: com.github.mikephil.charting.utils.ViewPortHandler getViewPortHandler()
+com.github.mikephil.charting.charts.Chart: com.github.mikephil.charting.renderer.DataRenderer getRenderer()
+com.github.mikephil.charting.charts.Chart: void setRenderer(com.github.mikephil.charting.renderer.DataRenderer)
+com.github.mikephil.charting.charts.Chart: android.graphics.PointF getCenterOfView()
+com.github.mikephil.charting.charts.Chart: android.graphics.Bitmap getChartBitmap()
+com.github.mikephil.charting.charts.Chart: java.util.ArrayList getJobs()
+com.github.mikephil.charting.charts.Chart: void setHardwareAccelerationEnabled(boolean)
+com.github.mikephil.charting.charts.CombinedChart: void setData(com.github.mikephil.charting.data.CombinedData)
+com.github.mikephil.charting.charts.CombinedChart: void setFillFormatter(com.github.mikephil.charting.utils.FillFormatter)
+com.github.mikephil.charting.charts.CombinedChart: com.github.mikephil.charting.utils.FillFormatter getFillFormatter()
+com.github.mikephil.charting.charts.CombinedChart: com.github.mikephil.charting.data.LineData getLineData()
+com.github.mikephil.charting.charts.CombinedChart: com.github.mikephil.charting.data.BarData getBarData()
+com.github.mikephil.charting.charts.CombinedChart: com.github.mikephil.charting.data.ScatterData getScatterData()
+com.github.mikephil.charting.charts.CombinedChart: com.github.mikephil.charting.data.CandleData getCandleData()
+com.github.mikephil.charting.charts.CombinedChart: com.github.mikephil.charting.data.BubbleData getBubbleData()
+com.github.mikephil.charting.charts.CombinedChart: void setDrawHighlightArrow(boolean)
+com.github.mikephil.charting.charts.CombinedChart: void setDrawValueAboveBar(boolean)
+com.github.mikephil.charting.charts.CombinedChart: void setDrawValuesForWholeStack(boolean)
+com.github.mikephil.charting.charts.CombinedChart: void setDrawBarShadow(boolean)
+com.github.mikephil.charting.charts.CombinedChart: com.github.mikephil.charting.charts.CombinedChart$DrawOrder[] getDrawOrder()
+com.github.mikephil.charting.charts.CombinedChart: void setDrawOrder(com.github.mikephil.charting.charts.CombinedChart$DrawOrder[])
+com.github.mikephil.charting.charts.CombinedChart: void setData(com.github.mikephil.charting.data.ChartData)
+com.github.mikephil.charting.charts.CombinedChart$DrawOrder: com.github.mikephil.charting.charts.CombinedChart$DrawOrder[] values()
+com.github.mikephil.charting.charts.CombinedChart$DrawOrder: com.github.mikephil.charting.charts.CombinedChart$DrawOrder valueOf(java.lang.String)
+com.github.mikephil.charting.charts.HorizontalBarChart: int getLowestVisibleXIndex()
+com.github.mikephil.charting.charts.HorizontalBarChart: int getHighestVisibleXIndex()
+com.github.mikephil.charting.charts.LineChart
+com.github.mikephil.charting.charts.LineChart: LineChart(android.content.Context)
+com.github.mikephil.charting.charts.LineChart: LineChart(android.content.Context,android.util.AttributeSet)
+com.github.mikephil.charting.charts.LineChart: LineChart(android.content.Context,android.util.AttributeSet,int)
+com.github.mikephil.charting.charts.LineChart: void setHighlightLineWidth(float)
+com.github.mikephil.charting.charts.LineChart: float getHighlightLineWidth()
+com.github.mikephil.charting.charts.LineChart: void setFillFormatter(com.github.mikephil.charting.utils.FillFormatter)
+com.github.mikephil.charting.charts.LineChart: com.github.mikephil.charting.utils.FillFormatter getFillFormatter()
+com.github.mikephil.charting.charts.LineChart: com.github.mikephil.charting.data.LineData getLineData()
+com.github.mikephil.charting.charts.PieChart
+com.github.mikephil.charting.charts.PieChart: PieChart(android.content.Context)
+com.github.mikephil.charting.charts.PieChart: PieChart(android.content.Context,android.util.AttributeSet)
+com.github.mikephil.charting.charts.PieChart: PieChart(android.content.Context,android.util.AttributeSet,int)
+com.github.mikephil.charting.charts.PieChart: float[] getDrawAngles()
+com.github.mikephil.charting.charts.PieChart: float[] getAbsoluteAngles()
+com.github.mikephil.charting.charts.PieChart: void setHoleColor(int)
+com.github.mikephil.charting.charts.PieChart: void setHoleColorTransparent(boolean)
+com.github.mikephil.charting.charts.PieChart: void setDrawHoleEnabled(boolean)
+com.github.mikephil.charting.charts.PieChart: void setCenterText(java.lang.String)
+com.github.mikephil.charting.charts.PieChart: java.lang.String getCenterText()
+com.github.mikephil.charting.charts.PieChart: void setDrawCenterText(boolean)
+com.github.mikephil.charting.charts.PieChart: float getRequiredBottomOffset()
+com.github.mikephil.charting.charts.PieChart: float getRequiredBaseOffset()
+com.github.mikephil.charting.charts.PieChart: float getRadius()
+com.github.mikephil.charting.charts.PieChart: android.graphics.RectF getCircleBox()
+com.github.mikephil.charting.charts.PieChart: android.graphics.PointF getCenterCircleBox()
+com.github.mikephil.charting.charts.PieChart: void setCenterTextTypeface(android.graphics.Typeface)
+com.github.mikephil.charting.charts.PieChart: void setCenterTextSize(float)
+com.github.mikephil.charting.charts.PieChart: void setCenterTextSizePixels(float)
+com.github.mikephil.charting.charts.PieChart: void setCenterTextColor(int)
+com.github.mikephil.charting.charts.PieChart: void setHoleRadius(float)
+com.github.mikephil.charting.charts.PieChart: float getHoleRadius()
+com.github.mikephil.charting.charts.PieChart: void setTransparentCircleColor(int)
+com.github.mikephil.charting.charts.PieChart: void setTransparentCircleRadius(float)
+com.github.mikephil.charting.charts.PieChart: float getTransparentCircleRadius()
+com.github.mikephil.charting.charts.PieChart: void setDrawSliceText(boolean)
+com.github.mikephil.charting.charts.PieChart: void setUsePercentValues(boolean)
+com.github.mikephil.charting.charts.PieRadarChartBase: PieRadarChartBase(android.content.Context)
+com.github.mikephil.charting.charts.PieRadarChartBase: PieRadarChartBase(android.content.Context,android.util.AttributeSet)
+com.github.mikephil.charting.charts.PieRadarChartBase: PieRadarChartBase(android.content.Context,android.util.AttributeSet,int)
+com.github.mikephil.charting.charts.PieRadarChartBase: void setRotationAngle(float)
+com.github.mikephil.charting.charts.PieRadarChartBase: float getRawRotationAngle()
+com.github.mikephil.charting.charts.PieRadarChartBase: float getRotationAngle()
+com.github.mikephil.charting.charts.PieRadarChartBase: void setRotationEnabled(boolean)
+com.github.mikephil.charting.charts.PieRadarChartBase: float getDiameter()
+com.github.mikephil.charting.charts.PieRadarChartBase: float getRadius()
+com.github.mikephil.charting.charts.PieRadarChartBase: float getRequiredBottomOffset()
+com.github.mikephil.charting.charts.PieRadarChartBase: float getRequiredBaseOffset()
+com.github.mikephil.charting.charts.PieRadarChartBase: float getFullLegendWidth()
+com.github.mikephil.charting.charts.PieRadarChartBase: void setOnTouchListener(android.view.View$OnTouchListener)
+com.github.mikephil.charting.charts.PieRadarChartBase: float getYChartMax()
+com.github.mikephil.charting.charts.PieRadarChartBase: float getYChartMin()
+com.github.mikephil.charting.charts.RadarChart: float getFactor()
+com.github.mikephil.charting.charts.RadarChart: float getSliceAngle()
+com.github.mikephil.charting.charts.RadarChart: com.github.mikephil.charting.components.YAxis getYAxis()
+com.github.mikephil.charting.charts.RadarChart: com.github.mikephil.charting.components.XAxis getXAxis()
+com.github.mikephil.charting.charts.RadarChart: void setWebLineWidth(float)
+com.github.mikephil.charting.charts.RadarChart: float getWebLineWidth()
+com.github.mikephil.charting.charts.RadarChart: void setWebLineWidthInner(float)
+com.github.mikephil.charting.charts.RadarChart: float getWebLineWidthInner()
+com.github.mikephil.charting.charts.RadarChart: void setWebAlpha(int)
+com.github.mikephil.charting.charts.RadarChart: int getWebAlpha()
+com.github.mikephil.charting.charts.RadarChart: void setWebColor(int)
+com.github.mikephil.charting.charts.RadarChart: int getWebColor()
+com.github.mikephil.charting.charts.RadarChart: void setWebColorInner(int)
+com.github.mikephil.charting.charts.RadarChart: int getWebColorInner()
+com.github.mikephil.charting.charts.RadarChart: void setDrawWeb(boolean)
+com.github.mikephil.charting.charts.RadarChart: float getRequiredBottomOffset()
+com.github.mikephil.charting.charts.RadarChart: float getRequiredBaseOffset()
+com.github.mikephil.charting.charts.RadarChart: float getRadius()
+com.github.mikephil.charting.charts.RadarChart: float getYChartMax()
+com.github.mikephil.charting.charts.RadarChart: float getYChartMin()
+com.github.mikephil.charting.charts.RadarChart: float getYRange()
+com.github.mikephil.charting.charts.ScatterChart: com.github.mikephil.charting.charts.ScatterChart$ScatterShape[] getAllPossibleShapes()
+com.github.mikephil.charting.charts.ScatterChart: com.github.mikephil.charting.data.ScatterData getScatterData()
+com.github.mikephil.charting.charts.ScatterChart$ScatterShape: com.github.mikephil.charting.charts.ScatterChart$ScatterShape[] values()
+com.github.mikephil.charting.charts.ScatterChart$ScatterShape: com.github.mikephil.charting.charts.ScatterChart$ScatterShape valueOf(java.lang.String)
+com.github.mikephil.charting.components.Legend$LegendDirection: com.github.mikephil.charting.components.Legend$LegendDirection[] values()
+com.github.mikephil.charting.components.Legend$LegendDirection: com.github.mikephil.charting.components.Legend$LegendDirection valueOf(java.lang.String)
+com.github.mikephil.charting.components.Legend$LegendForm: com.github.mikephil.charting.components.Legend$LegendForm[] values()
+com.github.mikephil.charting.components.Legend$LegendForm: com.github.mikephil.charting.components.Legend$LegendForm valueOf(java.lang.String)
+com.github.mikephil.charting.components.Legend$LegendPosition: com.github.mikephil.charting.components.Legend$LegendPosition[] values()
+com.github.mikephil.charting.components.Legend$LegendPosition: com.github.mikephil.charting.components.Legend$LegendPosition valueOf(java.lang.String)
+com.github.mikephil.charting.components.LimitLine$LimitLabelPosition: com.github.mikephil.charting.components.LimitLine$LimitLabelPosition[] values()
+com.github.mikephil.charting.components.LimitLine$LimitLabelPosition: com.github.mikephil.charting.components.LimitLine$LimitLabelPosition valueOf(java.lang.String)
+com.github.mikephil.charting.components.MarkerView: void setupLayoutResource(int)
+com.github.mikephil.charting.components.MarkerView: int getXOffset()
+com.github.mikephil.charting.components.MarkerView: int getYOffset()
+com.github.mikephil.charting.components.XAxis$XAxisPosition: com.github.mikephil.charting.components.XAxis$XAxisPosition[] values()
+com.github.mikephil.charting.components.XAxis$XAxisPosition: com.github.mikephil.charting.components.XAxis$XAxisPosition valueOf(java.lang.String)
+com.github.mikephil.charting.components.YAxis$AxisDependency: com.github.mikephil.charting.components.YAxis$AxisDependency[] values()
+com.github.mikephil.charting.components.YAxis$AxisDependency: com.github.mikephil.charting.components.YAxis$AxisDependency valueOf(java.lang.String)
+com.github.mikephil.charting.components.YAxis$YAxisLabelPosition: com.github.mikephil.charting.components.YAxis$YAxisLabelPosition[] values()
+com.github.mikephil.charting.components.YAxis$YAxisLabelPosition: com.github.mikephil.charting.components.YAxis$YAxisLabelPosition valueOf(java.lang.String)
+com.github.mikephil.charting.data.filter.Approximator$ApproximatorType: com.github.mikephil.charting.data.filter.Approximator$ApproximatorType[] values()
+com.github.mikephil.charting.data.filter.Approximator$ApproximatorType: com.github.mikephil.charting.data.filter.Approximator$ApproximatorType valueOf(java.lang.String)
+com.sina.util.dnscache.DNSCacheTestActivityTabMain
+com.sina.util.dnscache.DNSCacheTestActivityTabMain: DNSCacheTestActivityTabMain()
+com.sina.util.dnscache.DnsCacheApplication
+com.sina.util.dnscache.DnsCacheApplication: DnsCacheApplication()
+com.sina.util.dnscache.R$drawable: int back
+com.sina.util.dnscache.R$drawable: int bar_cache_data_but
+com.sina.util.dnscache.R$drawable: int bar_data_graph_but
+com.sina.util.dnscache.R$drawable: int bar_simulation_task_but
+com.sina.util.dnscache.R$drawable: int bar_task_setting_but
+com.sina.util.dnscache.R$drawable: int btn_bg
+com.sina.util.dnscache.R$drawable: int btn_bg_selector
+com.sina.util.dnscache.R$drawable: int cache_data_normal
+com.sina.util.dnscache.R$drawable: int cache_data_selected
+com.sina.util.dnscache.R$drawable: int checkbox_btn_selector
+com.sina.util.dnscache.R$drawable: int checkbox_off
+com.sina.util.dnscache.R$drawable: int checkbox_on
+com.sina.util.dnscache.R$drawable: int clear_btn
+com.sina.util.dnscache.R$drawable: int clear_btn_normal
+com.sina.util.dnscache.R$drawable: int clear_btn_pass
+com.sina.util.dnscache.R$drawable: int data_graph_normal
+com.sina.util.dnscache.R$drawable: int data_graph_selected
+com.sina.util.dnscache.R$drawable: int db_cache_data_clear_btn
+com.sina.util.dnscache.R$drawable: int db_cache_data_clear_btn_normal
+com.sina.util.dnscache.R$drawable: int db_cache_data_clear_btn_pass
+com.sina.util.dnscache.R$drawable: int edit_text_bg_focus
+com.sina.util.dnscache.R$drawable: int edit_text_bg_normal
+com.sina.util.dnscache.R$drawable: int edit_text_bg_selector
+com.sina.util.dnscache.R$drawable: int ic_launcher
+com.sina.util.dnscache.R$drawable: int memory_cache_data_clear_btn
+com.sina.util.dnscache.R$drawable: int memory_cache_data_clear_btn_normal
+com.sina.util.dnscache.R$drawable: int memory_cache_data_clear_btn_pass
+com.sina.util.dnscache.R$drawable: int right_img
+com.sina.util.dnscache.R$drawable: int seek_bar_bg
+com.sina.util.dnscache.R$drawable: int seek_thumb_bar
+com.sina.util.dnscache.R$drawable: int simulation_task_normal
+com.sina.util.dnscache.R$drawable: int simulation_task_selected
+com.sina.util.dnscache.R$drawable: int start_task_but
+com.sina.util.dnscache.R$drawable: int start_task_normal
+com.sina.util.dnscache.R$drawable: int start_task_selected
+com.sina.util.dnscache.R$drawable: int task_setting_normal
+com.sina.util.dnscache.R$drawable: int task_setting_selected
+com.sina.util.dnscache.R$drawable: int text_color_selector
+com.sina.util.dnscache.R$drawable: int thumb_dn
+com.sina.util.dnscache.R$drawable: int thumb_up
+com.sina.util.dnscache.R$id: int action_clear
+com.sina.util.dnscache.R$id: int action_printf_domain
+com.sina.util.dnscache.R$id: int action_printf_ip
+com.sina.util.dnscache.R$id: int action_settings
+com.sina.util.dnscache.R$id: int all_taskspeed_bi_but
+com.sina.util.dnscache.R$id: int all_taskspeed_bi_fast
+com.sina.util.dnscache.R$id: int all_taskspeed_bi_slow
+com.sina.util.dnscache.R$id: int alltask_expendtime_average
+com.sina.util.dnscache.R$id: int alltask_expendtime_but
+com.sina.util.dnscache.R$id: int alltask_expendtime_max
+com.sina.util.dnscache.R$id: int buttom_bar_group
+com.sina.util.dnscache.R$id: int buttom_cache_data
+com.sina.util.dnscache.R$id: int buttom_data_graph
+com.sina.util.dnscache.R$id: int buttom_simulation_task
+com.sina.util.dnscache.R$id: int buttom_task_setting
+com.sina.util.dnscache.R$id: int button
+com.sina.util.dnscache.R$id: int chart1
+com.sina.util.dnscache.R$id: int checkbox_dnspod
+com.sina.util.dnscache.R$id: int checkbox_httpdns
+com.sina.util.dnscache.R$id: int checkbox_sort
+com.sina.util.dnscache.R$id: int clearBtn
+com.sina.util.dnscache.R$id: int config_confirm
+com.sina.util.dnscache.R$id: int config_reset
+com.sina.util.dnscache.R$id: int config_threadpool_concurrent_num
+com.sina.util.dnscache.R$id: int config_threadpool_request_num
+com.sina.util.dnscache.R$id: int db_cache_data_clear_Btn
+com.sina.util.dnscache.R$id: int domainCode
+com.sina.util.dnscache.R$id: int domainExpendTime
+com.sina.util.dnscache.R$id: int domainImageResult
+com.sina.util.dnscache.R$id: int domainIp
+com.sina.util.dnscache.R$id: int domainResult
+com.sina.util.dnscache.R$id: int domainUrl
+com.sina.util.dnscache.R$id: int domain_table_data
+com.sina.util.dnscache.R$id: int editText
+com.sina.util.dnscache.R$id: int editText_dnspod_api
+com.sina.util.dnscache.R$id: int editText_dnspod_id
+com.sina.util.dnscache.R$id: int editText_dnspod_key
+com.sina.util.dnscache.R$id: int editText_httpdns_api
+com.sina.util.dnscache.R$id: int edittext_speed_config
+com.sina.util.dnscache.R$id: int expendTime
+com.sina.util.dnscache.R$id: int fl_content
+com.sina.util.dnscache.R$id: int hostCode
+com.sina.util.dnscache.R$id: int hostExpendTime
+com.sina.util.dnscache.R$id: int hostImageResult
+com.sina.util.dnscache.R$id: int hostIp
+com.sina.util.dnscache.R$id: int hostResult
+com.sina.util.dnscache.R$id: int hostUrl
+com.sina.util.dnscache.R$id: int httpDnsExpendTime
+com.sina.util.dnscache.R$id: int httpDnsResult
+com.sina.util.dnscache.R$id: int http_dns_timer_start
+com.sina.util.dnscache.R$id: int httpdns_api_data
+com.sina.util.dnscache.R$id: int httpdnslib_expendtime_but
+com.sina.util.dnscache.R$id: int httpdnslib_expendtime_max
+com.sina.util.dnscache.R$id: int httpdnslib_expendtime_min
+com.sina.util.dnscache.R$id: int ip_table_data
+com.sina.util.dnscache.R$id: int left
+com.sina.util.dnscache.R$id: int listView
+com.sina.util.dnscache.R$id: int memory_cache_data
+com.sina.util.dnscache.R$id: int memory_cache_data_clear_Btn
+com.sina.util.dnscache.R$id: int netType
+com.sina.util.dnscache.R$id: int reight
+com.sina.util.dnscache.R$id: int scrollView1
+com.sina.util.dnscache.R$id: int seekBar1
+com.sina.util.dnscache.R$id: int seekBar_sort_fail_sum
+com.sina.util.dnscache.R$id: int seekBar_sort_priority
+com.sina.util.dnscache.R$id: int seekBar_sort_recent_succ
+com.sina.util.dnscache.R$id: int seekBar_sort_speed
+com.sina.util.dnscache.R$id: int seekBar_sort_succ_sum
+com.sina.util.dnscache.R$id: int seekbar_threadpool_concurrent_num
+com.sina.util.dnscache.R$id: int seekbar_threadpool_request_num
+com.sina.util.dnscache.R$id: int server_speed_but
+com.sina.util.dnscache.R$id: int server_speed_fast
+com.sina.util.dnscache.R$id: int server_speed_slow
+com.sina.util.dnscache.R$id: int sort_fail_sum
+com.sina.util.dnscache.R$id: int sort_priority
+com.sina.util.dnscache.R$id: int sort_recent_succ
+com.sina.util.dnscache.R$id: int sort_speed
+com.sina.util.dnscache.R$id: int sort_succ_sum
+com.sina.util.dnscache.R$id: int spName
+com.sina.util.dnscache.R$id: int status
+com.sina.util.dnscache.R$id: int switchBtn
+com.sina.util.dnscache.R$id: int taskExpendTime
+com.sina.util.dnscache.R$id: int taskID
+com.sina.util.dnscache.R$id: int taskStartTime
+com.sina.util.dnscache.R$id: int taskStopTime
+com.sina.util.dnscache.R$id: int task_list_start
+com.sina.util.dnscache.R$id: int textView
+com.sina.util.dnscache.R$id: int time
+com.sina.util.dnscache.R$layout: int activity_all_task_speed_bi
+com.sina.util.dnscache.R$layout: int activity_alltask_expendtime
+com.sina.util.dnscache.R$layout: int activity_httpdns_expendtime
+com.sina.util.dnscache.R$layout: int activity_main
+com.sina.util.dnscache.R$layout: int activity_server_speed
+com.sina.util.dnscache.R$layout: int activity_tab_main
+com.sina.util.dnscache.R$layout: int activity_task_info
+com.sina.util.dnscache.R$layout: int fragment_cache_data
+com.sina.util.dnscache.R$layout: int fragment_data_graph
+com.sina.util.dnscache.R$layout: int fragment_simulation_task
+com.sina.util.dnscache.R$layout: int fragment_task_setting
+com.sina.util.dnscache.R$layout: int layout_task_setting_httpdns
+com.sina.util.dnscache.R$layout: int layout_task_setting_threadpool
+com.sina.util.dnscache.R$layout: int list_view_item
+com.sina.util.dnscache.R$menu: int menu_main
+com.sina.util.dnscache.R$string: int action_clear
+com.sina.util.dnscache.R$string: int action_printf_domain
+com.sina.util.dnscache.R$string: int action_printf_ip
+com.sina.util.dnscache.R$string: int action_settings
+com.sina.util.dnscache.R$string: int app_name
+com.sina.util.dnscache.R$string: int hello_world
+com.sina.util.dnscache.datagraph.AllTaskExpendTimeActivity
+com.sina.util.dnscache.datagraph.AllTaskExpendTimeActivity: AllTaskExpendTimeActivity()
+com.sina.util.dnscache.datagraph.AllTaskSpeedBIActivity
+com.sina.util.dnscache.datagraph.AllTaskSpeedBIActivity: AllTaskSpeedBIActivity()
+com.sina.util.dnscache.datagraph.HttpDNSExpendTimeActivity
+com.sina.util.dnscache.datagraph.HttpDNSExpendTimeActivity: HttpDNSExpendTimeActivity()
+com.sina.util.dnscache.datagraph.ServerSpeedActivity
+com.sina.util.dnscache.datagraph.ServerSpeedActivity: ServerSpeedActivity()
+com.sina.util.dnscache.simulationtask.TaskInfoActivity
+com.sina.util.dnscache.simulationtask.TaskInfoActivity: TaskInfoActivity()
+com.sina.util.networktype.NetworkStateReceiver
+com.sina.util.networktype.NetworkStateReceiver: NetworkStateReceiver()

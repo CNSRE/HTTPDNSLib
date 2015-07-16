@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">DNSCache</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_printf_domain">打印域名表</string>
+    <string name="action_printf_ip">打印IP表</string>
+    <string name="action_clear">清除缓存</string>
+    <string name="action_settings">参数设置</string>
+</resources>

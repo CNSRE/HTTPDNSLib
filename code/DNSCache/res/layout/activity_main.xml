@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" 输入一个需要测试的API URL:" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="http://api.weibo.cn/2/remind/unread_count?remind_version=94&amp;ext_all=0&amp;c=android&amp;i=f6fd268&amp;s=7fe80de0&amp;ua=Xiaomi-MI%203W__weibo__5.3.0_alpha1__android__android4.4.4&amp;wm=3333_1001&amp;idc=&amp;v_f=2&amp;from=1052895010&amp;gsid=_2A254Mx_tDeTxGeNM7lMY9ybEzD6IHXVZaRQlrDV6PUJbrdANLVfzkWo8pgH_awAHMa74PMGrs-jUSB8TTg..&amp;lang=zh_CN&amp;skin=default&amp;oldwm=3333_1001&amp;with_settings=1&amp;unread_message=1&amp;with_page_group=1" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试" />
+
+</LinearLayout>

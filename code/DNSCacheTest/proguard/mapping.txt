@@ -1,0 +1,3170 @@
+android.support.v4.app.BackStackRecord -> android.support.v4.app.a:
+    android.support.v4.app.FragmentManagerImpl mManager -> a
+    android.support.v4.app.BackStackRecord$Op mHead -> b
+    android.support.v4.app.BackStackRecord$Op mTail -> c
+    int mNumOp -> d
+    int mEnterAnim -> e
+    int mExitAnim -> f
+    int mPopEnterAnim -> g
+    int mPopExitAnim -> h
+    int mTransition -> i
+    int mTransitionStyle -> j
+    boolean mAddToBackStack -> k
+    boolean mAllowAddToBackStack -> l
+    java.lang.String mName -> m
+    boolean mCommitted -> n
+    int mIndex -> o
+    int mBreadCrumbTitleRes -> p
+    java.lang.CharSequence mBreadCrumbTitleText -> q
+    int mBreadCrumbShortTitleRes -> r
+    java.lang.CharSequence mBreadCrumbShortTitleText -> s
+    java.util.ArrayList mSharedElementSourceNames -> t
+    java.util.ArrayList mSharedElementTargetNames -> u
+    java.lang.String toString() -> toString
+    void dump$ec96877(java.lang.String,java.io.PrintWriter) -> a
+    void dump(java.lang.String,java.io.PrintWriter,boolean) -> a
+    void addOp(android.support.v4.app.BackStackRecord$Op) -> a
+    android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment) -> a
+    android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment,java.lang.String) -> a
+    void doAddOp$39f1d44b(int,android.support.v4.app.Fragment,java.lang.String) -> b
+    android.support.v4.app.FragmentTransaction hide(android.support.v4.app.Fragment) -> a
+    android.support.v4.app.FragmentTransaction show(android.support.v4.app.Fragment) -> b
+    android.support.v4.app.FragmentTransaction detach(android.support.v4.app.Fragment) -> c
+    android.support.v4.app.FragmentTransaction attach(android.support.v4.app.Fragment) -> d
+    void bumpBackStackNesting(int) -> a
+    int commit() -> a
+    void run() -> run
+    void setFirstOut(android.util.SparseArray,android.support.v4.app.Fragment) -> a
+    void setLastIn(android.util.SparseArray,android.support.v4.app.Fragment) -> b
+    void calculateFragments(android.util.SparseArray,android.util.SparseArray) -> b
+    void calculateBackFragments(android.util.SparseArray,android.util.SparseArray) -> a
+    android.support.v4.app.BackStackRecord$TransitionState popFromBackStack$270db671(android.support.v4.app.BackStackRecord$TransitionState,android.util.SparseArray,android.util.SparseArray) -> a
+    android.support.v4.app.BackStackRecord$TransitionState beginTransition(android.util.SparseArray,android.util.SparseArray,boolean) -> a
+    java.lang.Object captureExitingViews(java.lang.Object,android.support.v4.app.Fragment,java.util.ArrayList,android.support.v4.util.ArrayMap) -> a
+    android.support.v4.util.ArrayMap remapSharedElements(android.support.v4.app.BackStackRecord$TransitionState,android.support.v4.app.Fragment,boolean) -> a
+    boolean configureTransitions(int,android.support.v4.app.BackStackRecord$TransitionState,boolean,android.util.SparseArray,android.util.SparseArray) -> a
+    android.support.v4.util.ArrayMap remapNames(java.util.ArrayList,java.util.ArrayList,android.support.v4.util.ArrayMap) -> a
+    void excludeHiddenFragments(android.support.v4.app.BackStackRecord$TransitionState,int,java.lang.Object) -> a
+    void setNameOverride(android.support.v4.util.ArrayMap,java.lang.String,java.lang.String) -> a
+    void setBackNameOverrides(android.support.v4.app.BackStackRecord$TransitionState,android.support.v4.util.ArrayMap,boolean) -> a
+    void setNameOverrides(android.support.v4.app.BackStackRecord$TransitionState,android.support.v4.util.ArrayMap,boolean) -> b
+    android.support.v4.util.ArrayMap access$000(android.support.v4.app.BackStackRecord,android.support.v4.app.BackStackRecord$TransitionState,boolean,android.support.v4.app.Fragment) -> a
+    void access$100(android.support.v4.app.BackStackRecord,android.support.v4.util.ArrayMap,android.support.v4.app.BackStackRecord$TransitionState) -> a
+    void access$200$4a5f5891(android.support.v4.app.Fragment,android.support.v4.app.Fragment,boolean,android.support.v4.util.ArrayMap) -> a
+    void access$300(android.support.v4.app.BackStackRecord,android.support.v4.app.BackStackRecord$TransitionState,int,java.lang.Object) -> a
+android.support.v4.app.BackStackRecord$1 -> android.support.v4.app.b:
+    android.support.v4.app.Fragment val$inFragment -> a
+    android.support.v4.app.BackStackRecord this$0 -> b
+    android.view.View getView() -> a
+android.support.v4.app.BackStackRecord$2 -> android.support.v4.app.c:
+    android.view.View val$sceneRoot -> a
+    java.lang.Object val$sharedElementTransition -> b
+    java.util.ArrayList val$sharedElementTargets -> c
+    android.support.v4.app.BackStackRecord$TransitionState val$state -> d
+    boolean val$isBack -> e
+    android.support.v4.app.Fragment val$inFragment -> f
+    android.support.v4.app.Fragment val$outFragment -> g
+    android.support.v4.app.BackStackRecord this$0 -> h
+    boolean onPreDraw() -> onPreDraw
+android.support.v4.app.BackStackRecord$3 -> android.support.v4.app.d:
+    android.view.View val$sceneRoot -> a
+    android.support.v4.app.BackStackRecord$TransitionState val$state -> b
+    int val$containerId -> c
+    java.lang.Object val$transition -> d
+    android.support.v4.app.BackStackRecord this$0 -> e
+    boolean onPreDraw() -> onPreDraw
+android.support.v4.app.BackStackRecord$Op -> android.support.v4.app.e:
+    android.support.v4.app.BackStackRecord$Op next -> a
+    android.support.v4.app.BackStackRecord$Op prev -> b
+    int cmd -> c
+    android.support.v4.app.Fragment fragment -> d
+    int enterAnim -> e
+    int exitAnim -> f
+    int popEnterAnim -> g
+    int popExitAnim -> h
+    java.util.ArrayList removed -> i
+android.support.v4.app.BackStackRecord$TransitionState -> android.support.v4.app.f:
+    android.support.v4.util.ArrayMap nameOverrides -> a
+    java.util.ArrayList hiddenFragmentViews -> b
+    android.support.v4.app.FragmentTransitionCompat21$EpicenterView enteringEpicenterView -> c
+    android.view.View nonExistentView -> d
+    android.support.v4.app.BackStackRecord this$0 -> e
+android.support.v4.app.BackStackState -> android.support.v4.app.BackStackState:
+    int[] mOps -> a
+    int mTransition -> b
+    int mTransitionStyle -> c
+    java.lang.String mName -> d
+    int mIndex -> e
+    int mBreadCrumbTitleRes -> f
+    java.lang.CharSequence mBreadCrumbTitleText -> g
+    int mBreadCrumbShortTitleRes -> h
+    java.lang.CharSequence mBreadCrumbShortTitleText -> i
+    java.util.ArrayList mSharedElementSourceNames -> j
+    java.util.ArrayList mSharedElementTargetNames -> k
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    android.support.v4.app.BackStackRecord instantiate(android.support.v4.app.FragmentManagerImpl) -> a
+    int describeContents() -> describeContents
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+android.support.v4.app.BackStackState$1 -> android.support.v4.app.g:
+    java.lang.Object[] newArray(int) -> newArray
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+android.support.v4.app.Fragment -> android.support.v4.app.Fragment:
+    android.support.v4.util.SimpleArrayMap sClassMap -> aa
+    java.lang.Object USE_DEFAULT_TRANSITION -> a
+    int mState -> b
+    android.view.View mAnimatingAway -> c
+    int mStateAfterAnimating -> d
+    android.os.Bundle mSavedFragmentState -> e
+    android.util.SparseArray mSavedViewState -> f
+    int mIndex -> g
+    java.lang.String mWho -> h
+    android.os.Bundle mArguments -> i
+    android.support.v4.app.Fragment mTarget -> j
+    int mTargetIndex -> k
+    int mTargetRequestCode -> l
+    boolean mAdded -> m
+    boolean mRemoving -> n
+    boolean mResumed -> o
+    boolean mFromLayout -> p
+    boolean mInLayout -> q
+    boolean mRestored -> r
+    int mBackStackNesting -> s
+    android.support.v4.app.FragmentManagerImpl mFragmentManager -> t
+    android.support.v4.app.FragmentActivity mActivity -> u
+    android.support.v4.app.FragmentManagerImpl mChildFragmentManager -> v
+    android.support.v4.app.Fragment mParentFragment -> w
+    int mFragmentId -> x
+    int mContainerId -> y
+    java.lang.String mTag -> z
+    boolean mHidden -> A
+    boolean mDetached -> B
+    boolean mRetainInstance -> C
+    boolean mRetaining -> D
+    boolean mHasMenu -> E
+    boolean mMenuVisible -> F
+    boolean mCalled -> G
+    int mNextAnim -> H
+    android.view.ViewGroup mContainer -> I
+    android.view.View mView -> J
+    android.view.View mInnerView -> K
+    boolean mDeferStart -> L
+    boolean mUserVisibleHint -> M
+    android.support.v4.app.LoaderManagerImpl mLoaderManager -> N
+    boolean mLoadersStarted -> O
+    boolean mCheckedForLoaderManager -> P
+    java.lang.Object mEnterTransition -> Q
+    java.lang.Object mReturnTransition -> R
+    java.lang.Object mExitTransition -> S
+    java.lang.Object mReenterTransition -> T
+    java.lang.Object mSharedElementEnterTransition -> U
+    java.lang.Object mSharedElementReturnTransition -> V
+    java.lang.Boolean mAllowReturnTransitionOverlap -> W
+    java.lang.Boolean mAllowEnterTransitionOverlap -> X
+    android.support.v4.app.SharedElementCallback mEnterTransitionCallback -> Y
+    android.support.v4.app.SharedElementCallback mExitTransitionCallback -> Z
+    android.support.v4.app.Fragment instantiate(android.content.Context,java.lang.String) -> a
+    android.support.v4.app.Fragment instantiate(android.content.Context,java.lang.String,android.os.Bundle) -> a
+    boolean isSupportFragmentClass(android.content.Context,java.lang.String) -> b
+    void restoreViewState$79e5e33f() -> a
+    void setIndex(int,android.support.v4.app.Fragment) -> a
+    boolean isInBackStack() -> b
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+    java.lang.String toString() -> toString
+    android.support.v4.app.FragmentActivity getActivity() -> c
+    android.content.res.Resources getResources() -> d
+    boolean isAdded() -> e
+    boolean isDetached() -> f
+    boolean isHidden() -> g
+    void onHiddenChanged$1385ff() -> h
+    void startActivity(android.content.Intent) -> a
+    void onActivityResult$6eb84b52() -> i
+    android.view.LayoutInflater getLayoutInflater$2ee30c11() -> j
+    void onInflate$423a76cd() -> k
+    void onAttach$63a22f9() -> l
+    android.view.animation.Animation onCreateAnimation$24236ca7() -> m
+    android.view.View onCreateView$469ccb8a(android.view.LayoutInflater) -> a
+    void onViewCreated$65f1d89() -> n
+    android.view.View getView() -> o
+    void onStart() -> p
+    void onResume() -> q
+    void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    void onPause() -> r
+    void onLowMemory() -> onLowMemory
+    void onDestroy() -> s
+    void initState() -> t
+    void onDetach() -> u
+    void onDestroyOptionsMenu() -> v
+    void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo) -> onCreateContextMenu
+    java.lang.Object getEnterTransition() -> w
+    java.lang.Object getReturnTransition() -> x
+    java.lang.Object getExitTransition() -> y
+    java.lang.Object getReenterTransition() -> z
+    java.lang.Object getSharedElementEnterTransition() -> A
+    java.lang.Object getSharedElementReturnTransition() -> B
+    boolean getAllowEnterTransitionOverlap() -> C
+    boolean getAllowReturnTransitionOverlap() -> D
+    void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> a
+    void instantiateChildFragmentManager() -> N
+    void performCreate(android.os.Bundle) -> a
+    android.view.View performCreateView$469ccb8a(android.view.LayoutInflater) -> b
+    void performActivityCreated$79e5e33f() -> E
+    void performStart() -> F
+    void performResume() -> G
+    void performConfigurationChanged(android.content.res.Configuration) -> a
+    void performLowMemory() -> H
+    boolean performCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> a
+    boolean performPrepareOptionsMenu(android.view.Menu) -> a
+    boolean performOptionsItemSelected(android.view.MenuItem) -> a
+    boolean performContextItemSelected(android.view.MenuItem) -> b
+    void performOptionsMenuClosed(android.view.Menu) -> b
+    void performSaveInstanceState(android.os.Bundle) -> b
+    void performPause() -> I
+    void performStop() -> J
+    void performReallyStop() -> K
+    void performDestroyView() -> L
+    void performDestroy() -> M
+android.support.v4.app.Fragment$1 -> android.support.v4.app.h:
+    android.support.v4.app.Fragment this$0 -> a
+    android.view.View findViewById(int) -> a
+    boolean hasView() -> a
+android.support.v4.app.Fragment$InstantiationException -> android.support.v4.app.i:
+android.support.v4.app.Fragment$SavedState -> android.support.v4.app.Fragment$SavedState:
+    android.os.Bundle mState -> a
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    int describeContents() -> describeContents
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+android.support.v4.app.Fragment$SavedState$1 -> android.support.v4.app.j:
+    java.lang.Object[] newArray(int) -> newArray
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+android.support.v4.app.FragmentActivity -> android.support.v4.app.k:
+    android.os.Handler mHandler -> a
+    android.support.v4.app.FragmentManagerImpl mFragments -> b
+    android.support.v4.app.FragmentContainer mContainer -> c
+    boolean mCreated -> d
+    boolean mResumed -> e
+    boolean mStopped -> f
+    boolean mReallyStopped -> g
+    boolean mRetaining -> h
+    boolean mOptionsMenuInvalidated -> i
+    boolean mCheckedForLoaderManager -> j
+    boolean mLoadersStarted -> k
+    android.support.v4.util.SimpleArrayMap mAllLoaderManagers -> l
+    android.support.v4.app.LoaderManagerImpl mLoaderManager -> m
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    void onBackPressed() -> onBackPressed
+    void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    void onCreate(android.os.Bundle) -> onCreate
+    boolean onCreatePanelMenu(int,android.view.Menu) -> onCreatePanelMenu
+    android.view.View onCreateView(java.lang.String,android.content.Context,android.util.AttributeSet) -> onCreateView
+    void onDestroy() -> onDestroy
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    void onLowMemory() -> onLowMemory
+    boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
+    void onPanelClosed(int,android.view.Menu) -> onPanelClosed
+    void onPause() -> onPause
+    void onNewIntent(android.content.Intent) -> onNewIntent
+    void onResume() -> onResume
+    void onPostResume() -> onPostResume
+    void onResumeFragments() -> a
+    boolean onPreparePanel(int,android.view.View,android.view.Menu) -> onPreparePanel
+    java.lang.Object onRetainNonConfigurationInstance() -> onRetainNonConfigurationInstance
+    void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
+    void onStart() -> onStart
+    void onStop() -> onStop
+    void supportInvalidateOptionsMenu() -> b
+    void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> dump
+    java.lang.String viewToString(android.view.View) -> a
+    void dumpViewHierarchy(java.lang.String,java.io.PrintWriter,android.view.View) -> a
+    void doReallyStop(boolean) -> a
+    void onAttachFragment$65850823() -> c
+    android.support.v4.app.FragmentManager getSupportFragmentManager() -> d
+    void startActivityForResult(android.content.Intent,int) -> startActivityForResult
+    void startActivityFromFragment$68747257(android.content.Intent) -> a
+    void invalidateSupportFragment(java.lang.String) -> a
+    android.support.v4.app.LoaderManagerImpl getLoaderManager$2cd5ab55(java.lang.String) -> b
+android.support.v4.app.FragmentActivity$1 -> android.support.v4.app.l:
+    android.support.v4.app.FragmentActivity this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+android.support.v4.app.FragmentActivity$2 -> android.support.v4.app.m:
+    android.support.v4.app.FragmentActivity this$0 -> a
+    android.view.View findViewById(int) -> a
+    boolean hasView() -> a
+android.support.v4.app.FragmentActivity$NonConfigurationInstances -> android.support.v4.app.n:
+    java.lang.Object activity -> a
+    java.lang.Object custom -> b
+    android.support.v4.util.SimpleArrayMap children -> c
+    java.util.ArrayList fragments -> d
+    android.support.v4.util.SimpleArrayMap loaders -> e
+android.support.v4.app.FragmentContainer -> android.support.v4.app.o:
+    android.view.View findViewById(int) -> a
+    boolean hasView() -> a
+android.support.v4.app.FragmentManager -> android.support.v4.app.p:
+    android.support.v4.app.FragmentTransaction beginTransaction() -> a
+    boolean executePendingTransactions() -> b
+    android.support.v4.app.Fragment findFragmentByTag(java.lang.String) -> a
+android.support.v4.app.FragmentManagerImpl -> android.support.v4.app.q:
+    boolean DEBUG -> a
+    boolean HONEYCOMB -> b
+    java.util.ArrayList mPendingActions -> c
+    java.lang.Runnable[] mTmpActions -> d
+    boolean mExecutingActions -> e
+    java.util.ArrayList mActive -> f
+    java.util.ArrayList mAdded -> g
+    java.util.ArrayList mAvailIndices -> h
+    java.util.ArrayList mBackStack -> i
+    java.util.ArrayList mCreatedMenus -> j
+    java.util.ArrayList mBackStackIndices -> k
+    java.util.ArrayList mAvailBackStackIndices -> l
+    java.util.ArrayList mBackStackChangeListeners -> m
+    int mCurState -> n
+    android.support.v4.app.FragmentActivity mActivity -> o
+    android.support.v4.app.FragmentContainer mContainer -> p
+    android.support.v4.app.Fragment mParent -> q
+    boolean mNeedMenuInvalidate -> r
+    boolean mStateSaved -> s
+    boolean mDestroyed -> t
+    java.lang.String mNoTransactionsBecause -> u
+    boolean mHavePendingDeferredStart -> v
+    android.os.Bundle mStateBundle -> w
+    android.util.SparseArray mStateArray -> x
+    java.lang.Runnable mExecCommit -> y
+    android.view.animation.Interpolator DECELERATE_QUINT -> z
+    android.view.animation.Interpolator DECELERATE_CUBIC -> A
+    android.view.animation.Interpolator ACCELERATE_QUINT -> B
+    android.view.animation.Interpolator ACCELERATE_CUBIC -> C
+    void throwException(java.lang.RuntimeException) -> a
+    android.support.v4.app.FragmentTransaction beginTransaction() -> a
+    boolean executePendingTransactions() -> b
+    boolean popBackStackImmediate() -> c
+    android.support.v4.app.Fragment getFragment(android.os.Bundle,java.lang.String) -> a
+    java.lang.String toString() -> toString
+    void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> a
+    android.view.animation.Animation makeOpenCloseAnimation$376f30fd(float,float,float,float) -> a
+    android.view.animation.Animation makeFadeAnimation$424ea1bd(float,float) -> a
+    android.view.animation.Animation loadAnimation(android.support.v4.app.Fragment,int,boolean,int) -> a
+    void moveToState(android.support.v4.app.Fragment,int,int,int,boolean) -> a
+    void moveToState(android.support.v4.app.Fragment) -> a
+    void moveToState$2563266(int) -> c
+    void moveToState(int,int,int,boolean) -> a
+    void startPendingDeferredFragments() -> s
+    void addFragment(android.support.v4.app.Fragment,boolean) -> a
+    void removeFragment(android.support.v4.app.Fragment,int,int) -> a
+    void hideFragment(android.support.v4.app.Fragment,int,int) -> b
+    void showFragment(android.support.v4.app.Fragment,int,int) -> c
+    void detachFragment(android.support.v4.app.Fragment,int,int) -> d
+    void attachFragment(android.support.v4.app.Fragment,int,int) -> e
+    android.support.v4.app.Fragment findFragmentById(int) -> d
+    android.support.v4.app.Fragment findFragmentByTag(java.lang.String) -> a
+    void checkStateLoss() -> t
+    void enqueueAction$574583f(java.lang.Runnable) -> a
+    int allocBackStackIndex(android.support.v4.app.BackStackRecord) -> a
+    void setBackStackIndex(int,android.support.v4.app.BackStackRecord) -> a
+    void freeBackStackIndex(int) -> a
+    boolean execPendingActions() -> d
+    void reportBackStackChanged() -> u
+    void addBackStackState(android.support.v4.app.BackStackRecord) -> b
+    java.util.ArrayList retainNonConfig() -> e
+    void saveFragmentViewState(android.support.v4.app.Fragment) -> b
+    android.os.Parcelable saveAllState() -> f
+    void restoreAllState(android.os.Parcelable,java.util.ArrayList) -> a
+    void attachActivity(android.support.v4.app.FragmentActivity,android.support.v4.app.FragmentContainer,android.support.v4.app.Fragment) -> a
+    void noteStateNotSaved() -> g
+    void dispatchCreate() -> h
+    void dispatchActivityCreated() -> i
+    void dispatchStart() -> j
+    void dispatchResume() -> k
+    void dispatchPause() -> l
+    void dispatchStop() -> m
+    void dispatchReallyStop() -> n
+    void dispatchDestroyView() -> o
+    void dispatchDestroy() -> p
+    void dispatchConfigurationChanged(android.content.res.Configuration) -> a
+    void dispatchLowMemory() -> q
+    boolean dispatchCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> a
+    boolean dispatchPrepareOptionsMenu(android.view.Menu) -> a
+    boolean dispatchOptionsItemSelected(android.view.MenuItem) -> a
+    boolean dispatchContextItemSelected(android.view.MenuItem) -> b
+    void dispatchOptionsMenuClosed(android.view.Menu) -> b
+    int reverseTransit(int) -> b
+    android.view.View onCreateView(java.lang.String,android.content.Context,android.util.AttributeSet) -> onCreateView
+    android.view.LayoutInflater$Factory getLayoutInflaterFactory() -> r
+android.support.v4.app.FragmentManagerImpl$1 -> android.support.v4.app.r:
+    android.support.v4.app.FragmentManagerImpl this$0 -> a
+    void run() -> run
+android.support.v4.app.FragmentManagerImpl$5 -> android.support.v4.app.s:
+    android.support.v4.app.Fragment val$fragment -> a
+    android.support.v4.app.FragmentManagerImpl this$0 -> b
+    void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+android.support.v4.app.FragmentManagerImpl$FragmentTag -> android.support.v4.app.t:
+    int[] Fragment -> a
+android.support.v4.app.FragmentManagerState -> android.support.v4.app.FragmentManagerState:
+    android.support.v4.app.FragmentState[] mActive -> a
+    int[] mAdded -> b
+    android.support.v4.app.BackStackState[] mBackStack -> c
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    int describeContents() -> describeContents
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+android.support.v4.app.FragmentManagerState$1 -> android.support.v4.app.u:
+    java.lang.Object[] newArray(int) -> newArray
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+android.support.v4.app.FragmentState -> android.support.v4.app.FragmentState:
+    java.lang.String mClassName -> a
+    int mIndex -> b
+    boolean mFromLayout -> c
+    int mFragmentId -> d
+    int mContainerId -> e
+    java.lang.String mTag -> f
+    boolean mRetainInstance -> g
+    boolean mDetached -> h
+    android.os.Bundle mArguments -> i
+    android.os.Bundle mSavedFragmentState -> j
+    android.support.v4.app.Fragment mInstance -> k
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    android.support.v4.app.Fragment instantiate(android.support.v4.app.FragmentActivity,android.support.v4.app.Fragment) -> a
+    int describeContents() -> describeContents
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+android.support.v4.app.FragmentState$1 -> android.support.v4.app.v:
+    java.lang.Object[] newArray(int) -> newArray
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+android.support.v4.app.FragmentTabHost -> android.support.v4.app.FragmentTabHost:
+    java.util.ArrayList mTabs -> a
+    android.content.Context mContext -> b
+    android.support.v4.app.FragmentManager mFragmentManager -> c
+    int mContainerId -> d
+    android.widget.TabHost$OnTabChangeListener mOnTabChangeListener -> e
+    android.support.v4.app.FragmentTabHost$TabInfo mLastTab -> f
+    boolean mAttached -> g
+    void setup() -> setup
+    void setOnTabChangedListener(android.widget.TabHost$OnTabChangeListener) -> setOnTabChangedListener
+    void onAttachedToWindow() -> onAttachedToWindow
+    void onDetachedFromWindow() -> onDetachedFromWindow
+    android.os.Parcelable onSaveInstanceState() -> onSaveInstanceState
+    void onRestoreInstanceState(android.os.Parcelable) -> onRestoreInstanceState
+    void onTabChanged(java.lang.String) -> onTabChanged
+    android.support.v4.app.FragmentTransaction doTabChanged(java.lang.String,android.support.v4.app.FragmentTransaction) -> a
+android.support.v4.app.FragmentTabHost$SavedState -> android.support.v4.app.FragmentTabHost$SavedState:
+    java.lang.String curTab -> a
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    java.lang.String toString() -> toString
+android.support.v4.app.FragmentTabHost$SavedState$1 -> android.support.v4.app.w:
+    java.lang.Object[] newArray(int) -> newArray
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+android.support.v4.app.FragmentTabHost$TabInfo -> android.support.v4.app.x:
+    java.lang.String tag -> a
+    java.lang.Class clss -> b
+    android.os.Bundle args -> c
+    android.support.v4.app.Fragment fragment -> d
+android.support.v4.app.FragmentTransaction -> android.support.v4.app.y:
+    android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment) -> a
+    android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment,java.lang.String) -> a
+    android.support.v4.app.FragmentTransaction hide(android.support.v4.app.Fragment) -> a
+    android.support.v4.app.FragmentTransaction show(android.support.v4.app.Fragment) -> b
+    android.support.v4.app.FragmentTransaction detach(android.support.v4.app.Fragment) -> c
+    android.support.v4.app.FragmentTransaction attach(android.support.v4.app.Fragment) -> d
+    int commit() -> a
+android.support.v4.app.FragmentTransitionCompat21 -> android.support.v4.app.z:
+    java.lang.Object cloneTransition(java.lang.Object) -> a
+    void excludeTarget(java.lang.Object,android.view.View,boolean) -> a
+    void setEpicenter(java.lang.Object,android.view.View) -> a
+    void captureTransitioningViews(java.util.ArrayList,android.view.View) -> a
+    void findNamedViews(java.util.Map,android.view.View) -> a
+    void removeTargets(java.lang.Object,java.util.ArrayList) -> a
+    void addTargets(java.lang.Object,java.util.ArrayList) -> b
+android.support.v4.app.FragmentTransitionCompat21$1 -> android.support.v4.app.aa:
+    android.graphics.Rect val$epicenter -> a
+android.support.v4.app.FragmentTransitionCompat21$2 -> android.support.v4.app.ab:
+    android.view.View val$container -> a
+    android.support.v4.app.FragmentTransitionCompat21$ViewRetriever val$inFragment -> b
+    java.util.Map val$nameOverrides -> c
+    java.util.Map val$renamedViews -> d
+    android.transition.Transition val$enterTransition -> e
+    java.util.ArrayList val$enteringViews -> f
+    boolean onPreDraw() -> onPreDraw
+android.support.v4.app.FragmentTransitionCompat21$3 -> android.support.v4.app.ac:
+    android.support.v4.app.FragmentTransitionCompat21$EpicenterView val$epicenterView -> a
+android.support.v4.app.FragmentTransitionCompat21$4 -> android.support.v4.app.ad:
+    android.view.View val$sceneRoot -> a
+    android.transition.Transition val$enterTransition -> b
+    android.view.View val$nonExistentView -> c
+    java.util.ArrayList val$enteringViews -> d
+    android.transition.Transition val$exitTransition -> e
+    java.util.ArrayList val$exitingViews -> f
+    android.transition.Transition val$sharedElementTransition -> g
+    java.util.ArrayList val$sharedElementTargets -> h
+    java.util.Map val$renamedViews -> i
+    java.util.ArrayList val$hiddenViews -> j
+    android.transition.Transition val$overallTransition -> k
+    boolean onPreDraw() -> onPreDraw
+android.support.v4.app.FragmentTransitionCompat21$EpicenterView -> android.support.v4.app.ae:
+    android.view.View epicenter -> a
+android.support.v4.app.FragmentTransitionCompat21$ViewRetriever -> android.support.v4.app.af:
+    android.view.View getView() -> a
+android.support.v4.app.LoaderManager -> android.support.v4.app.ag:
+    boolean hasRunningLoaders() -> a
+android.support.v4.app.LoaderManager$LoaderCallbacks -> android.support.v4.app.ah:
+    android.support.v4.content.Loader onCreateLoader$e57f803() -> a
+android.support.v4.app.LoaderManagerImpl -> android.support.v4.app.ai:
+    boolean DEBUG -> a
+    android.support.v4.util.SparseArrayCompat mLoaders -> b
+    android.support.v4.util.SparseArrayCompat mInactiveLoaders -> c
+    java.lang.String mWho -> d
+    android.support.v4.app.FragmentActivity mActivity -> e
+    boolean mStarted -> f
+    boolean mRetaining -> g
+    void updateActivity(android.support.v4.app.FragmentActivity) -> a
+    void doStart() -> b
+    void doStop() -> c
+    void doRetain() -> d
+    void finishRetain() -> e
+    void doReportNextStart() -> f
+    void doReportStart() -> g
+    void doDestroy() -> h
+    java.lang.String toString() -> toString
+    void dump$ec96877$79f041d6(java.lang.String,java.io.PrintWriter) -> a
+    boolean hasRunningLoaders() -> a
+android.support.v4.app.LoaderManagerImpl$LoaderInfo -> android.support.v4.app.aj:
+    int mId -> a
+    android.os.Bundle mArgs -> b
+    android.support.v4.app.LoaderManager$LoaderCallbacks mCallbacks -> c
+    android.support.v4.content.Loader mLoader -> d
+    boolean mHaveData -> e
+    boolean mDeliveredData -> f
+    java.lang.Object mData -> g
+    boolean mStarted -> h
+    boolean mRetaining -> i
+    boolean mRetainingStarted -> j
+    boolean mReportNextStart -> k
+    boolean mDestroyed -> l
+    boolean mListenerRegistered -> m
+    android.support.v4.app.LoaderManagerImpl$LoaderInfo mPendingLoader -> n
+    android.support.v4.app.LoaderManagerImpl this$0 -> o
+    void stop() -> a
+    void destroy() -> b
+    void callOnLoadFinished(android.support.v4.content.Loader,java.lang.Object) -> a
+    java.lang.String toString() -> toString
+    void dump$ec96877$79f041d6(java.lang.String,java.io.PrintWriter) -> a
+android.support.v4.app.NoSaveStateFrameLayout -> android.support.v4.app.ak:
+    android.view.ViewGroup wrap(android.view.View) -> a
+    void dispatchSaveInstanceState(android.util.SparseArray) -> dispatchSaveInstanceState
+    void dispatchRestoreInstanceState(android.util.SparseArray) -> dispatchRestoreInstanceState
+android.support.v4.app.SharedElementCallback -> android.support.v4.app.al:
+android.support.v4.app.SuperNotCalledException -> android.support.v4.app.am:
+android.support.v4.content.Loader -> android.support.v4.a.a:
+    int mId -> a
+    android.support.v4.content.Loader$OnLoadCompleteListener mListener -> b
+    boolean mStarted -> c
+    boolean mAbandoned -> d
+    boolean mReset -> e
+    boolean mContentChanged -> f
+    boolean mProcessingChange -> g
+    void unregisterListener(android.support.v4.content.Loader$OnLoadCompleteListener) -> a
+    java.lang.String toString() -> toString
+android.support.v4.content.Loader$OnLoadCompleteListener -> android.support.v4.a.b:
+android.support.v4.media.MediaMetadataCompat -> android.support.v4.media.MediaMetadataCompat:
+    android.support.v4.util.ArrayMap METADATA_KEYS_TYPE -> a
+    android.os.Bundle mBundle -> b
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    int describeContents() -> describeContents
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+android.support.v4.media.MediaMetadataCompat$1 -> android.support.v4.media.a:
+    java.lang.Object[] newArray(int) -> newArray
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+android.support.v4.media.RatingCompat -> android.support.v4.media.RatingCompat:
+    int mRatingStyle -> a
+    float mRatingValue -> b
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    java.lang.String toString() -> toString
+    int describeContents() -> describeContents
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+android.support.v4.media.RatingCompat$1 -> android.support.v4.media.b:
+    java.lang.Object[] newArray(int) -> newArray
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+android.support.v4.media.session.MediaSessionCompat -> android.support.v4.media.session.MediaSessionCompat:
+android.support.v4.media.session.MediaSessionCompat$Token -> android.support.v4.media.session.MediaSessionCompat$Token:
+    android.os.Parcelable mInner -> a
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    int describeContents() -> describeContents
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+android.support.v4.media.session.MediaSessionCompat$Token$1 -> android.support.v4.media.session.a:
+    java.lang.Object[] newArray(int) -> newArray
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+android.support.v4.media.session.PlaybackStateCompat -> android.support.v4.media.session.PlaybackStateCompat:
+    int mState -> a
+    long mPosition -> b
+    long mBufferedPosition -> c
+    float mSpeed -> d
+    long mActions -> e
+    java.lang.CharSequence mErrorMessage -> f
+    long mUpdateTime -> g
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    java.lang.String toString() -> toString
+    int describeContents() -> describeContents
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+android.support.v4.media.session.PlaybackStateCompat$1 -> android.support.v4.media.session.b:
+    java.lang.Object[] newArray(int) -> newArray
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+android.support.v4.os.ParcelableCompat -> android.support.v4.b.a:
+android.support.v4.os.ParcelableCompat$CompatCreator -> android.support.v4.b.b:
+    android.support.v4.os.ParcelableCompatCreatorCallbacks mCallbacks -> a
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    java.lang.Object[] newArray(int) -> newArray
+android.support.v4.os.ParcelableCompatCreatorCallbacks -> android.support.v4.b.c:
+    java.lang.Object createFromParcel(android.os.Parcel,java.lang.ClassLoader) -> a
+    java.lang.Object[] newArray(int) -> a
+android.support.v4.os.ParcelableCompatCreatorHoneycombMR2 -> android.support.v4.b.d:
+    android.support.v4.os.ParcelableCompatCreatorCallbacks mCallbacks -> a
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    java.lang.Object createFromParcel(android.os.Parcel,java.lang.ClassLoader) -> createFromParcel
+    java.lang.Object[] newArray(int) -> newArray
+android.support.v4.util.ArrayMap -> android.support.v4.c.a:
+    android.support.v4.util.MapCollections mCollections -> a
+    android.support.v4.util.MapCollections getCollection() -> a
+    void putAll(java.util.Map) -> putAll
+    boolean retainAll(java.util.Collection) -> a
+    java.util.Set entrySet() -> entrySet
+    java.util.Set keySet() -> keySet
+    java.util.Collection values() -> values
+android.support.v4.util.ArrayMap$1 -> android.support.v4.c.b:
+    android.support.v4.util.ArrayMap this$0 -> a
+    int colGetSize() -> a
+    java.lang.Object colGetEntry(int,int) -> a
+    int colIndexOfKey(java.lang.Object) -> a
+    int colIndexOfValue(java.lang.Object) -> b
+    java.util.Map colGetMap() -> b
+    void colPut(java.lang.Object,java.lang.Object) -> a
+    java.lang.Object colSetValue(int,java.lang.Object) -> a
+    void colRemoveAt(int) -> a
+    void colClear() -> c
+android.support.v4.util.ContainerHelpers -> android.support.v4.c.c:
+    int[] EMPTY_INTS -> a
+    long[] EMPTY_LONGS -> b
+    java.lang.Object[] EMPTY_OBJECTS -> c
+    int idealIntArraySize$134621() -> a
+    boolean equal(java.lang.Object,java.lang.Object) -> a
+    int binarySearch(int[],int,int) -> a
+android.support.v4.util.DebugUtils -> android.support.v4.c.d:
+    void buildShortClassTag(java.lang.Object,java.lang.StringBuilder) -> a
+android.support.v4.util.LogWriter -> android.support.v4.c.e:
+    java.lang.String mTag -> a
+    java.lang.StringBuilder mBuilder -> b
+    void close() -> close
+    void flush() -> flush
+    void write(char[],int,int) -> write
+    void flushBuilder() -> a
+android.support.v4.util.MapCollections -> android.support.v4.c.f:
+    android.support.v4.util.MapCollections$EntrySet mEntrySet -> b
+    android.support.v4.util.MapCollections$KeySet mKeySet -> c
+    android.support.v4.util.MapCollections$ValuesCollection mValues -> d
+    boolean retainAllHelper(java.util.Map,java.util.Collection) -> a
+    java.lang.Object[] toArrayHelper(int) -> b
+    java.lang.Object[] toArrayHelper(java.lang.Object[],int) -> a
+    boolean equalsSetHelper(java.util.Set,java.lang.Object) -> a
+    int colGetSize() -> a
+    java.lang.Object colGetEntry(int,int) -> a
+    int colIndexOfKey(java.lang.Object) -> a
+    int colIndexOfValue(java.lang.Object) -> b
+    java.util.Map colGetMap() -> b
+    void colPut(java.lang.Object,java.lang.Object) -> a
+    java.lang.Object colSetValue(int,java.lang.Object) -> a
+    void colRemoveAt(int) -> a
+    void colClear() -> c
+android.support.v4.util.MapCollections$ArrayIterator -> android.support.v4.c.g:
+    int mOffset -> a
+    int mSize -> b
+    int mIndex -> c
+    boolean mCanRemove -> d
+    android.support.v4.util.MapCollections this$0 -> e
+    boolean hasNext() -> hasNext
+    java.lang.Object next() -> next
+    void remove() -> remove
+android.support.v4.util.MapCollections$EntrySet -> android.support.v4.c.h:
+    android.support.v4.util.MapCollections this$0 -> a
+    boolean addAll(java.util.Collection) -> addAll
+    void clear() -> clear
+    boolean contains(java.lang.Object) -> contains
+    boolean containsAll(java.util.Collection) -> containsAll
+    boolean isEmpty() -> isEmpty
+    java.util.Iterator iterator() -> iterator
+    boolean remove(java.lang.Object) -> remove
+    boolean removeAll(java.util.Collection) -> removeAll
+    boolean retainAll(java.util.Collection) -> retainAll
+    int size() -> size
+    java.lang.Object[] toArray() -> toArray
+    java.lang.Object[] toArray(java.lang.Object[]) -> toArray
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+    boolean add(java.lang.Object) -> add
+android.support.v4.util.MapCollections$KeySet -> android.support.v4.c.i:
+    android.support.v4.util.MapCollections this$0 -> a
+    boolean add(java.lang.Object) -> add
+    boolean addAll(java.util.Collection) -> addAll
+    void clear() -> clear
+    boolean contains(java.lang.Object) -> contains
+    boolean containsAll(java.util.Collection) -> containsAll
+    boolean isEmpty() -> isEmpty
+    java.util.Iterator iterator() -> iterator
+    boolean remove(java.lang.Object) -> remove
+    boolean removeAll(java.util.Collection) -> removeAll
+    boolean retainAll(java.util.Collection) -> retainAll
+    int size() -> size
+    java.lang.Object[] toArray() -> toArray
+    java.lang.Object[] toArray(java.lang.Object[]) -> toArray
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+android.support.v4.util.MapCollections$MapIterator -> android.support.v4.c.j:
+    int mEnd -> a
+    int mIndex -> b
+    boolean mEntryValid -> c
+    android.support.v4.util.MapCollections this$0 -> d
+    boolean hasNext() -> hasNext
+    void remove() -> remove
+    java.lang.Object getKey() -> getKey
+    java.lang.Object getValue() -> getValue
+    java.lang.Object setValue(java.lang.Object) -> setValue
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+    java.lang.String toString() -> toString
+    java.lang.Object next() -> next
+android.support.v4.util.MapCollections$ValuesCollection -> android.support.v4.c.k:
+    android.support.v4.util.MapCollections this$0 -> a
+    boolean add(java.lang.Object) -> add
+    boolean addAll(java.util.Collection) -> addAll
+    void clear() -> clear
+    boolean contains(java.lang.Object) -> contains
+    boolean containsAll(java.util.Collection) -> containsAll
+    boolean isEmpty() -> isEmpty
+    java.util.Iterator iterator() -> iterator
+    boolean remove(java.lang.Object) -> remove
+    boolean removeAll(java.util.Collection) -> removeAll
+    boolean retainAll(java.util.Collection) -> retainAll
+    int size() -> size
+    java.lang.Object[] toArray() -> toArray
+    java.lang.Object[] toArray(java.lang.Object[]) -> toArray
+android.support.v4.util.SimpleArrayMap -> android.support.v4.c.l:
+    java.lang.Object[] mBaseCache -> b
+    int mBaseCacheSize -> c
+    java.lang.Object[] mTwiceBaseCache -> d
+    int mTwiceBaseCacheSize -> e
+    int[] mHashes -> f
+    java.lang.Object[] mArray -> g
+    int mSize -> h
+    int indexOf(java.lang.Object,int) -> a
+    int indexOfNull() -> a
+    void allocArrays(int) -> a
+    void freeArrays(int[],java.lang.Object[],int) -> a
+    void clear() -> clear
+    boolean containsKey(java.lang.Object) -> containsKey
+    int indexOfKey(java.lang.Object) -> a
+    int indexOfValue(java.lang.Object) -> b
+    boolean containsValue(java.lang.Object) -> containsValue
+    java.lang.Object get(java.lang.Object) -> get
+    java.lang.Object keyAt(int) -> b
+    java.lang.Object valueAt(int) -> c
+    java.lang.Object setValueAt(int,java.lang.Object) -> a
+    boolean isEmpty() -> isEmpty
+    java.lang.Object put(java.lang.Object,java.lang.Object) -> put
+    java.lang.Object remove(java.lang.Object) -> remove
+    java.lang.Object removeAt(int) -> d
+    int size() -> size
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
+    java.lang.String toString() -> toString
+android.support.v4.util.SparseArrayCompat -> android.support.v4.c.m:
+    java.lang.Object DELETED -> a
+    boolean mGarbage -> b
+    int[] mKeys -> c
+    java.lang.Object[] mValues -> d
+    int mSize -> e
+    android.support.v4.util.SparseArrayCompat clone() -> c
+    void gc() -> d
+    int size() -> a
+    int keyAt(int) -> a
+    java.lang.Object valueAt(int) -> b
+    void clear() -> b
+    java.lang.String toString() -> toString
+    java.lang.Object clone() -> clone
+android.support.v4.view.AccessibilityDelegateCompat -> android.support.v4.view.a:
+    android.support.v4.view.AccessibilityDelegateCompat$AccessibilityDelegateImpl IMPL -> b
+    java.lang.Object DEFAULT_DELEGATE -> c
+    java.lang.Object mBridge -> a
+    java.lang.Object getBridge() -> a
+android.support.v4.view.AccessibilityDelegateCompat$AccessibilityDelegateIcsImpl -> android.support.v4.view.b:
+    java.lang.Object newAccessiblityDelegateDefaultImpl() -> a
+android.support.v4.view.AccessibilityDelegateCompat$AccessibilityDelegateImpl -> android.support.v4.view.c:
+    java.lang.Object newAccessiblityDelegateDefaultImpl() -> a
+android.support.v4.view.AccessibilityDelegateCompat$AccessibilityDelegateJellyBeanImpl -> android.support.v4.view.d:
+android.support.v4.view.AccessibilityDelegateCompat$AccessibilityDelegateStubImpl -> android.support.v4.view.e:
+    java.lang.Object newAccessiblityDelegateDefaultImpl() -> a
+android.support.v4.view.GravityCompat -> android.support.v4.view.f:
+    android.support.v4.view.GravityCompat$GravityCompatImpl IMPL -> a
+    int getAbsoluteGravity(int,int) -> a
+android.support.v4.view.GravityCompat$GravityCompatImpl -> android.support.v4.view.g:
+    int getAbsoluteGravity(int,int) -> a
+android.support.v4.view.GravityCompat$GravityCompatImplBase -> android.support.v4.view.h:
+    int getAbsoluteGravity(int,int) -> a
+android.support.v4.view.GravityCompat$GravityCompatImplJellybeanMr1 -> android.support.v4.view.i:
+    int getAbsoluteGravity(int,int) -> a
+android.support.v4.view.KeyEventCompat -> android.support.v4.view.j:
+    android.support.v4.view.KeyEventCompat$KeyEventVersionImpl IMPL -> a
+    boolean hasModifiers$79c6ddc0(android.view.KeyEvent) -> a
+    boolean hasNoModifiers(android.view.KeyEvent) -> b
+    void startTracking(android.view.KeyEvent) -> c
+android.support.v4.view.KeyEventCompat$BaseKeyEventVersionImpl -> android.support.v4.view.k:
+    int metaStateFilterDirectionalModifiers$2e71581f(int,int,int,int) -> a
+    int normalizeMetaState(int) -> a
+    boolean metaStateHasModifiers$255f299(int) -> b
+    boolean metaStateHasNoModifiers(int) -> c
+    void startTracking(android.view.KeyEvent) -> a
+android.support.v4.view.KeyEventCompat$EclairKeyEventVersionImpl -> android.support.v4.view.l:
+    void startTracking(android.view.KeyEvent) -> a
+android.support.v4.view.KeyEventCompat$HoneycombKeyEventVersionImpl -> android.support.v4.view.m:
+    int normalizeMetaState(int) -> a
+    boolean metaStateHasModifiers$255f299(int) -> b
+    boolean metaStateHasNoModifiers(int) -> c
+android.support.v4.view.KeyEventCompat$KeyEventVersionImpl -> android.support.v4.view.n:
+    boolean metaStateHasModifiers$255f299(int) -> b
+    boolean metaStateHasNoModifiers(int) -> c
+    void startTracking(android.view.KeyEvent) -> a
+android.support.v4.view.MotionEventCompat -> android.support.v4.view.o:
+    android.support.v4.view.MotionEventCompat$MotionEventVersionImpl IMPL -> a
+    int getActionMasked(android.view.MotionEvent) -> a
+    int getActionIndex(android.view.MotionEvent) -> b
+    int findPointerIndex(android.view.MotionEvent,int) -> a
+    int getPointerId(android.view.MotionEvent,int) -> b
+    float getX(android.view.MotionEvent,int) -> c
+    float getY(android.view.MotionEvent,int) -> d
+    int getPointerCount(android.view.MotionEvent) -> c
+android.support.v4.view.MotionEventCompat$BaseMotionEventVersionImpl -> android.support.v4.view.p:
+    int findPointerIndex(android.view.MotionEvent,int) -> a
+    int getPointerId(android.view.MotionEvent,int) -> b
+    float getX(android.view.MotionEvent,int) -> c
+    float getY(android.view.MotionEvent,int) -> d
+    int getPointerCount(android.view.MotionEvent) -> a
+android.support.v4.view.MotionEventCompat$EclairMotionEventVersionImpl -> android.support.v4.view.q:
+    int findPointerIndex(android.view.MotionEvent,int) -> a
+    int getPointerId(android.view.MotionEvent,int) -> b
+    float getX(android.view.MotionEvent,int) -> c
+    float getY(android.view.MotionEvent,int) -> d
+    int getPointerCount(android.view.MotionEvent) -> a
+android.support.v4.view.MotionEventCompat$MotionEventVersionImpl -> android.support.v4.view.r:
+    int findPointerIndex(android.view.MotionEvent,int) -> a
+    int getPointerId(android.view.MotionEvent,int) -> b
+    float getX(android.view.MotionEvent,int) -> c
+    float getY(android.view.MotionEvent,int) -> d
+    int getPointerCount(android.view.MotionEvent) -> a
+android.support.v4.view.PagerAdapter -> android.support.v4.view.s:
+    android.database.DataSetObservable mObservable -> a
+    int getCount() -> a
+    void destroyItem$30510aeb() -> b
+    boolean isViewFromObject$171eb1dd() -> c
+android.support.v4.view.VelocityTrackerCompat -> android.support.v4.view.t:
+    android.support.v4.view.VelocityTrackerCompat$VelocityTrackerVersionImpl IMPL -> a
+    float getXVelocity(android.view.VelocityTracker,int) -> a
+    float getYVelocity(android.view.VelocityTracker,int) -> b
+android.support.v4.view.VelocityTrackerCompat$BaseVelocityTrackerVersionImpl -> android.support.v4.view.u:
+    float getXVelocity(android.view.VelocityTracker,int) -> a
+    float getYVelocity(android.view.VelocityTracker,int) -> b
+android.support.v4.view.VelocityTrackerCompat$HoneycombVelocityTrackerVersionImpl -> android.support.v4.view.v:
+    float getXVelocity(android.view.VelocityTracker,int) -> a
+    float getYVelocity(android.view.VelocityTracker,int) -> b
+android.support.v4.view.VelocityTrackerCompat$VelocityTrackerVersionImpl -> android.support.v4.view.w:
+    float getXVelocity(android.view.VelocityTracker,int) -> a
+    float getYVelocity(android.view.VelocityTracker,int) -> b
+android.support.v4.view.ViewCompat -> android.support.v4.view.x:
+    android.support.v4.view.ViewCompat$ViewCompatImpl IMPL -> a
+    boolean canScrollHorizontally(android.view.View,int) -> a
+    int getOverScrollMode(android.view.View) -> a
+    void setAccessibilityDelegate(android.view.View,android.support.v4.view.AccessibilityDelegateCompat) -> a
+    void postInvalidateOnAnimation(android.view.View) -> b
+    void postInvalidateOnAnimation(android.view.View,int,int,int,int) -> a
+    void postOnAnimation(android.view.View,java.lang.Runnable) -> a
+    void setImportantForAccessibility(android.view.View,int) -> b
+    void setLayerType(android.view.View,int,android.graphics.Paint) -> a
+    int getLayerType(android.view.View) -> c
+    void setLayerPaint(android.view.View,android.graphics.Paint) -> a
+    int getLayoutDirection(android.view.View) -> d
+    boolean isOpaque(android.view.View) -> e
+    boolean getFitsSystemWindows(android.view.View) -> f
+android.support.v4.view.ViewCompat$Api21ViewCompatImpl -> android.support.v4.view.y:
+android.support.v4.view.ViewCompat$BaseViewCompatImpl -> android.support.v4.view.z:
+    java.util.WeakHashMap mViewPropertyAnimatorCompatMap -> a
+    boolean canScrollHorizontally(android.view.View,int) -> a
+    int getOverScrollMode(android.view.View) -> a
+    void setAccessibilityDelegate(android.view.View,android.support.v4.view.AccessibilityDelegateCompat) -> a
+    void postInvalidateOnAnimation(android.view.View) -> b
+    void postInvalidateOnAnimation(android.view.View,int,int,int,int) -> a
+    void postOnAnimation(android.view.View,java.lang.Runnable) -> a
+    long getFrameTime() -> a
+    void setImportantForAccessibility(android.view.View,int) -> b
+    void setLayerType(android.view.View,int,android.graphics.Paint) -> a
+    int getLayerType(android.view.View) -> c
+    void setLayerPaint(android.view.View,android.graphics.Paint) -> a
+    int getLayoutDirection(android.view.View) -> d
+    boolean isOpaque(android.view.View) -> e
+    boolean getFitsSystemWindows(android.view.View) -> f
+android.support.v4.view.ViewCompat$EclairMr1ViewCompatImpl -> android.support.v4.view.aa:
+    boolean isOpaque(android.view.View) -> e
+android.support.v4.view.ViewCompat$GBViewCompatImpl -> android.support.v4.view.ab:
+    int getOverScrollMode(android.view.View) -> a
+android.support.v4.view.ViewCompat$HCViewCompatImpl -> android.support.v4.view.ac:
+    long getFrameTime() -> a
+    void setLayerType(android.view.View,int,android.graphics.Paint) -> a
+    int getLayerType(android.view.View) -> c
+    void setLayerPaint(android.view.View,android.graphics.Paint) -> a
+android.support.v4.view.ViewCompat$ICSViewCompatImpl -> android.support.v4.view.ad:
+    boolean accessibilityDelegateCheckFailed -> b
+    boolean canScrollHorizontally(android.view.View,int) -> a
+    void setAccessibilityDelegate(android.view.View,android.support.v4.view.AccessibilityDelegateCompat) -> a
+android.support.v4.view.ViewCompat$JBViewCompatImpl -> android.support.v4.view.ae:
+    void postInvalidateOnAnimation(android.view.View) -> b
+    void postInvalidateOnAnimation(android.view.View,int,int,int,int) -> a
+    void postOnAnimation(android.view.View,java.lang.Runnable) -> a
+    void setImportantForAccessibility(android.view.View,int) -> b
+    boolean getFitsSystemWindows(android.view.View) -> f
+android.support.v4.view.ViewCompat$JbMr1ViewCompatImpl -> android.support.v4.view.af:
+    void setLayerPaint(android.view.View,android.graphics.Paint) -> a
+    int getLayoutDirection(android.view.View) -> d
+android.support.v4.view.ViewCompat$KitKatViewCompatImpl -> android.support.v4.view.ag:
+    void setImportantForAccessibility(android.view.View,int) -> b
+android.support.v4.view.ViewCompat$ViewCompatImpl -> android.support.v4.view.ah:
+    boolean canScrollHorizontally(android.view.View,int) -> a
+    int getOverScrollMode(android.view.View) -> a
+    void setAccessibilityDelegate(android.view.View,android.support.v4.view.AccessibilityDelegateCompat) -> a
+    void postInvalidateOnAnimation(android.view.View) -> b
+    void postInvalidateOnAnimation(android.view.View,int,int,int,int) -> a
+    void postOnAnimation(android.view.View,java.lang.Runnable) -> a
+    void setImportantForAccessibility(android.view.View,int) -> b
+    void setLayerType(android.view.View,int,android.graphics.Paint) -> a
+    int getLayerType(android.view.View) -> c
+    void setLayerPaint(android.view.View,android.graphics.Paint) -> a
+    int getLayoutDirection(android.view.View) -> d
+    boolean isOpaque(android.view.View) -> e
+    boolean getFitsSystemWindows(android.view.View) -> f
+android.support.v4.view.ViewPager -> android.support.v4.view.ViewPager:
+    int[] LAYOUT_ATTRS -> a
+    int mExpectedAdapterCount -> b
+    java.util.Comparator COMPARATOR -> c
+    android.view.animation.Interpolator sInterpolator -> d
+    java.util.ArrayList mItems -> e
+    android.support.v4.view.ViewPager$ItemInfo mTempItem -> f
+    android.graphics.Rect mTempRect -> g
+    android.support.v4.view.PagerAdapter mAdapter -> h
+    int mCurItem -> i
+    int mRestoredCurItem -> j
+    android.os.Parcelable mRestoredAdapterState -> k
+    java.lang.ClassLoader mRestoredClassLoader -> l
+    android.widget.Scroller mScroller -> m
+    android.support.v4.view.ViewPager$PagerObserver mObserver -> n
+    int mPageMargin -> o
+    android.graphics.drawable.Drawable mMarginDrawable -> p
+    int mTopPageBounds -> q
+    int mBottomPageBounds -> r
+    float mFirstOffset -> s
+    float mLastOffset -> t
+    int mChildWidthMeasureSpec -> u
+    int mChildHeightMeasureSpec -> v
+    boolean mInLayout -> w
+    boolean mScrollingCacheEnabled -> x
+    boolean mPopulatePending -> y
+    int mOffscreenPageLimit -> z
+    boolean mIsBeingDragged -> A
+    boolean mIsUnableToDrag -> B
+    int mDefaultGutterSize -> C
+    int mGutterSize -> D
+    int mTouchSlop -> E
+    float mLastMotionX -> F
+    float mLastMotionY -> G
+    float mInitialMotionX -> H
+    float mInitialMotionY -> I
+    int mActivePointerId -> J
+    android.view.VelocityTracker mVelocityTracker -> K
+    int mMinimumVelocity -> L
+    int mMaximumVelocity -> M
+    int mFlingDistance -> N
+    int mCloseEnough -> O
+    boolean mFakeDragging -> P
+    android.support.v4.widget.EdgeEffectCompat mLeftEdge -> Q
+    android.support.v4.widget.EdgeEffectCompat mRightEdge -> R
+    boolean mFirstLayout -> S
+    boolean mNeedCalculatePageOffsets -> T
+    boolean mCalledSuper -> U
+    int mDecorChildCount -> V
+    android.support.v4.view.ViewPager$OnPageChangeListener mOnPageChangeListener -> W
+    android.support.v4.view.ViewPager$OnPageChangeListener mInternalPageChangeListener -> Z
+    android.support.v4.view.ViewPager$OnAdapterChangeListener mAdapterChangeListener -> aa
+    android.support.v4.view.ViewPager$PageTransformer mPageTransformer -> ab
+    java.lang.reflect.Method mSetChildrenDrawingOrderEnabled -> ac
+    int mDrawingOrder -> ad
+    java.util.ArrayList mDrawingOrderedChildren -> ae
+    android.support.v4.view.ViewPager$ViewPositionComparator sPositionComparator -> af
+    java.lang.Runnable mEndScrollRunnable -> ag
+    int mScrollState -> ah
+    void onDetachedFromWindow() -> onDetachedFromWindow
+    void setScrollState(int) -> setScrollState
+    void setAdapter(android.support.v4.view.PagerAdapter) -> setAdapter
+    android.support.v4.view.PagerAdapter getAdapter() -> getAdapter
+    void setOnAdapterChangeListener(android.support.v4.view.ViewPager$OnAdapterChangeListener) -> setOnAdapterChangeListener
+    int getClientWidth() -> getClientWidth
+    void setCurrentItem(int) -> setCurrentItem
+    void setCurrentItem$2563266(int) -> setCurrentItem$2563266
+    int getCurrentItem() -> getCurrentItem
+    void setCurrentItemInternal(int,boolean,boolean) -> a
+    void setCurrentItemInternal(int,boolean,boolean,int) -> a
+    void scrollToItem(int,boolean,int,boolean) -> a
+    void setOnPageChangeListener(android.support.v4.view.ViewPager$OnPageChangeListener) -> setOnPageChangeListener
+    void setChildrenDrawingOrderEnabledCompat(boolean) -> setChildrenDrawingOrderEnabledCompat
+    int getChildDrawingOrder(int,int) -> getChildDrawingOrder
+    int getOffscreenPageLimit() -> getOffscreenPageLimit
+    void setOffscreenPageLimit(int) -> setOffscreenPageLimit
+    void setPageMargin(int) -> setPageMargin
+    int getPageMargin() -> getPageMargin
+    void setPageMarginDrawable(android.graphics.drawable.Drawable) -> setPageMarginDrawable
+    void setPageMarginDrawable(int) -> setPageMarginDrawable
+    boolean verifyDrawable(android.graphics.drawable.Drawable) -> verifyDrawable
+    void drawableStateChanged() -> drawableStateChanged
+    android.support.v4.view.ViewPager$ItemInfo addNewItem$3af7e890(int) -> a
+    void dataSetChanged() -> a
+    void populate() -> c
+    void populate(int) -> b
+    void sortChildDrawingOrder() -> d
+    void calculatePageOffsets(android.support.v4.view.ViewPager$ItemInfo,int,android.support.v4.view.ViewPager$ItemInfo) -> a
+    android.os.Parcelable onSaveInstanceState() -> onSaveInstanceState
+    void onRestoreInstanceState(android.os.Parcelable) -> onRestoreInstanceState
+    void addView(android.view.View,int,android.view.ViewGroup$LayoutParams) -> addView
+    void removeView(android.view.View) -> removeView
+    android.support.v4.view.ViewPager$ItemInfo infoForChild$31e08638() -> e
+    android.support.v4.view.ViewPager$ItemInfo infoForAnyChild(android.view.View) -> a
+    android.support.v4.view.ViewPager$ItemInfo infoForPosition(int) -> c
+    void onAttachedToWindow() -> onAttachedToWindow
+    void onMeasure(int,int) -> onMeasure
+    void onSizeChanged(int,int,int,int) -> onSizeChanged
+    void recomputeScrollPosition(int,int,int,int) -> a
+    void onLayout(boolean,int,int,int,int) -> onLayout
+    void computeScroll() -> computeScroll
+    boolean pageScrolled$134632() -> f
+    void onPageScrolled$486775f1() -> g
+    void completeScroll(boolean) -> a
+    boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    void requestParentDisallowInterceptTouchEvent$1385ff() -> h
+    boolean performDrag(float) -> a
+    android.support.v4.view.ViewPager$ItemInfo infoForCurrentScrollPosition() -> i
+    void draw(android.graphics.Canvas) -> draw
+    void onDraw(android.graphics.Canvas) -> onDraw
+    void onSecondaryPointerUp(android.view.MotionEvent) -> a
+    void endDrag() -> j
+    void setScrollingCacheEnabled(boolean) -> setScrollingCacheEnabled
+    boolean canScrollHorizontally(int) -> canScrollHorizontally
+    boolean canScroll(android.view.View,boolean,int,int,int) -> a
+    boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
+    boolean arrowScroll(int) -> d
+    android.graphics.Rect getChildRectInPagerCoordinates(android.graphics.Rect,android.view.View) -> a
+    boolean pageLeft() -> k
+    void addFocusables(java.util.ArrayList,int,int) -> addFocusables
+    void addTouchables(java.util.ArrayList) -> addTouchables
+    boolean onRequestFocusInDescendants(int,android.graphics.Rect) -> onRequestFocusInDescendants
+    boolean dispatchPopulateAccessibilityEvent(android.view.accessibility.AccessibilityEvent) -> dispatchPopulateAccessibilityEvent
+    android.view.ViewGroup$LayoutParams generateDefaultLayoutParams() -> generateDefaultLayoutParams
+    android.view.ViewGroup$LayoutParams generateLayoutParams(android.view.ViewGroup$LayoutParams) -> generateLayoutParams
+    boolean checkLayoutParams(android.view.ViewGroup$LayoutParams) -> checkLayoutParams
+    android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
+    int[] access$400() -> b
+android.support.v4.view.ViewPager$1 -> android.support.v4.view.ai:
+    int compare(java.lang.Object,java.lang.Object) -> compare
+android.support.v4.view.ViewPager$2 -> android.support.v4.view.aj:
+    float getInterpolation(float) -> getInterpolation
+android.support.v4.view.ViewPager$Decor -> android.support.v4.view.ak:
+android.support.v4.view.ViewPager$ItemInfo -> android.support.v4.view.al:
+    java.lang.Object object -> a
+    int position -> b
+    boolean scrolling -> c
+    float widthFactor -> d
+    float offset -> e
+android.support.v4.view.ViewPager$LayoutParams -> android.support.v4.view.am:
+    boolean isDecor -> a
+    int gravity -> b
+    float widthFactor -> c
+    boolean needsMeasure -> d
+    int position -> e
+    int childIndex -> f
+android.support.v4.view.ViewPager$OnAdapterChangeListener -> android.support.v4.view.an:
+android.support.v4.view.ViewPager$OnPageChangeListener -> android.support.v4.view.ao:
+android.support.v4.view.ViewPager$PageTransformer -> android.support.v4.view.ap:
+android.support.v4.view.ViewPager$PagerObserver -> android.support.v4.view.aq:
+    android.support.v4.view.ViewPager this$0 -> a
+    void onChanged() -> onChanged
+    void onInvalidated() -> onInvalidated
+android.support.v4.view.ViewPager$SavedState -> android.support.v4.view.ViewPager$SavedState:
+    int position -> a
+    android.os.Parcelable adapterState -> b
+    java.lang.ClassLoader loader -> c
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    java.lang.String toString() -> toString
+android.support.v4.view.ViewPager$SavedState$1 -> android.support.v4.view.ar:
+    java.lang.Object[] newArray(int) -> a
+    java.lang.Object createFromParcel(android.os.Parcel,java.lang.ClassLoader) -> a
+android.support.v4.view.ViewPager$ViewPositionComparator -> android.support.v4.view.as:
+    int compare(java.lang.Object,java.lang.Object) -> compare
+android.support.v4.widget.DrawerLayout -> android.support.v4.widget.DrawerLayout:
+    int[] LAYOUT_ATTRS -> b
+    boolean CAN_HIDE_DESCENDANTS -> c
+    android.support.v4.widget.DrawerLayout$ChildAccessibilityDelegate mChildAccessibilityDelegate -> d
+    int mMinDrawerMargin -> e
+    int mScrimColor -> f
+    float mScrimOpacity -> g
+    android.graphics.Paint mScrimPaint -> h
+    android.support.v4.widget.ViewDragHelper mLeftDragger -> i
+    android.support.v4.widget.ViewDragHelper mRightDragger -> j
+    android.support.v4.widget.DrawerLayout$ViewDragCallback mLeftCallback -> k
+    android.support.v4.widget.DrawerLayout$ViewDragCallback mRightCallback -> l
+    int mDrawerState -> m
+    boolean mInLayout -> n
+    boolean mFirstLayout -> o
+    int mLockModeLeft -> p
+    int mLockModeRight -> q
+    boolean mDisallowInterceptRequested -> r
+    boolean mChildrenCanceledTouch -> s
+    android.support.v4.widget.DrawerLayout$DrawerListener mListener -> t
+    float mInitialMotionX -> u
+    float mInitialMotionY -> v
+    android.graphics.drawable.Drawable mShadowLeft -> w
+    android.graphics.drawable.Drawable mShadowRight -> x
+    android.graphics.drawable.Drawable mStatusBarBackground -> y
+    java.lang.Object mLastInsets -> z
+    boolean mDrawStatusBarBackground -> A
+    android.support.v4.widget.DrawerLayout$DrawerLayoutCompatImpl IMPL -> a
+    void setScrimColor(int) -> setScrimColor
+    void setDrawerListener(android.support.v4.widget.DrawerLayout$DrawerListener) -> setDrawerListener
+    void setDrawerLockMode(int) -> setDrawerLockMode
+    void setDrawerLockMode(int,int) -> a
+    int getDrawerLockMode(android.view.View) -> a
+    void updateDrawerState$5cdeb3e3(int,android.view.View) -> a
+    void updateChildrenImportantForAccessibility(android.view.View,boolean) -> a
+    void setDrawerViewOffset(android.view.View,float) -> a
+    float getDrawerViewOffset(android.view.View) -> b
+    int getDrawerViewAbsoluteGravity(android.view.View) -> e
+    boolean checkDrawerViewAbsoluteGravity(android.view.View,int) -> a
+    android.view.View findOpenDrawer() -> b
+    android.view.View findDrawerWithGravity(int) -> a
+    void onDetachedFromWindow() -> onDetachedFromWindow
+    void onAttachedToWindow() -> onAttachedToWindow
+    void onMeasure(int,int) -> onMeasure
+    void onLayout(boolean,int,int,int,int) -> onLayout
+    void requestLayout() -> requestLayout
+    void computeScroll() -> computeScroll
+    void setStatusBarBackground(android.graphics.drawable.Drawable) -> setStatusBarBackground
+    void setStatusBarBackground(int) -> setStatusBarBackground
+    void setStatusBarBackgroundColor(int) -> setStatusBarBackgroundColor
+    void onDraw(android.graphics.Canvas) -> onDraw
+    boolean drawChild(android.graphics.Canvas,android.view.View,long) -> drawChild
+    boolean isContentView(android.view.View) -> f
+    boolean isDrawerView(android.view.View) -> c
+    boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    void requestDisallowInterceptTouchEvent(boolean) -> requestDisallowInterceptTouchEvent
+    void closeDrawers(boolean) -> a
+    void openDrawer(android.view.View) -> g
+    void closeDrawer(android.view.View) -> d
+    android.view.ViewGroup$LayoutParams generateDefaultLayoutParams() -> generateDefaultLayoutParams
+    android.view.ViewGroup$LayoutParams generateLayoutParams(android.view.ViewGroup$LayoutParams) -> generateLayoutParams
+    boolean checkLayoutParams(android.view.ViewGroup$LayoutParams) -> checkLayoutParams
+    android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
+    android.view.View findVisibleDrawer() -> c
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    boolean onKeyUp(int,android.view.KeyEvent) -> onKeyUp
+    void onRestoreInstanceState(android.os.Parcelable) -> onRestoreInstanceState
+    android.os.Parcelable onSaveInstanceState() -> onSaveInstanceState
+    void addView(android.view.View,int,android.view.ViewGroup$LayoutParams) -> addView
+    int[] access$100() -> a
+android.support.v4.widget.DrawerLayout$ChildAccessibilityDelegate -> android.support.v4.widget.a:
+android.support.v4.widget.DrawerLayout$DrawerLayoutCompatImpl -> android.support.v4.widget.b:
+    void dispatchChildInsets(android.view.View,java.lang.Object,int) -> a
+    void applyMarginInsets(android.view.ViewGroup$MarginLayoutParams,java.lang.Object,int) -> a
+    int getTopInset(java.lang.Object) -> a
+android.support.v4.widget.DrawerLayout$DrawerLayoutCompatImplApi21 -> android.support.v4.widget.c:
+    void dispatchChildInsets(android.view.View,java.lang.Object,int) -> a
+    void applyMarginInsets(android.view.ViewGroup$MarginLayoutParams,java.lang.Object,int) -> a
+    int getTopInset(java.lang.Object) -> a
+android.support.v4.widget.DrawerLayout$DrawerLayoutCompatImplBase -> android.support.v4.widget.d:
+    void dispatchChildInsets(android.view.View,java.lang.Object,int) -> a
+    void applyMarginInsets(android.view.ViewGroup$MarginLayoutParams,java.lang.Object,int) -> a
+    int getTopInset(java.lang.Object) -> a
+android.support.v4.widget.DrawerLayout$DrawerListener -> android.support.v4.widget.e:
+android.support.v4.widget.DrawerLayout$LayoutParams -> android.support.v4.widget.f:
+    int gravity -> a
+    float onScreen -> b
+    boolean isPeeking -> c
+    boolean knownOpen -> d
+android.support.v4.widget.DrawerLayout$SavedState -> android.support.v4.widget.DrawerLayout$SavedState:
+    int openDrawerGravity -> a
+    int lockModeLeft -> b
+    int lockModeRight -> c
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+android.support.v4.widget.DrawerLayout$SavedState$1 -> android.support.v4.widget.g:
+    java.lang.Object[] newArray(int) -> newArray
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+android.support.v4.widget.DrawerLayout$ViewDragCallback -> android.support.v4.widget.h:
+    int mAbsGravity -> b
+    android.support.v4.widget.ViewDragHelper mDragger -> c
+    java.lang.Runnable mPeekRunnable -> d
+    android.support.v4.widget.DrawerLayout this$0 -> a
+    void removeCallbacks() -> a
+    boolean tryCaptureView$5359dc96(android.view.View) -> a
+    void onViewDragStateChanged(int) -> a
+    void onViewPositionChanged$5b6f797d(android.view.View,int) -> a
+    void onViewCaptured$5359dc9a(android.view.View) -> b
+    void onViewReleased$17e2ac03(android.view.View,float) -> a
+    void onEdgeTouched$255f295() -> b
+    void onEdgeDragStarted(int,int) -> a
+    int getViewHorizontalDragRange(android.view.View) -> c
+    int clampViewPositionHorizontal$17e143b0(android.view.View,int) -> b
+    int clampViewPositionVertical$17e143b0(android.view.View) -> d
+android.support.v4.widget.EdgeEffectCompat -> android.support.v4.widget.i:
+    java.lang.Object mEdgeEffect -> a
+    android.support.v4.widget.EdgeEffectCompat$EdgeEffectImpl IMPL -> b
+    void setSize(int,int) -> a
+    boolean isFinished() -> a
+    void finish() -> b
+    boolean onPull(float) -> a
+    boolean onRelease() -> c
+    boolean draw(android.graphics.Canvas) -> a
+android.support.v4.widget.EdgeEffectCompat$BaseEdgeEffectImpl -> android.support.v4.widget.j:
+    void setSize(java.lang.Object,int,int) -> a
+    boolean isFinished(java.lang.Object) -> a
+    void finish(java.lang.Object) -> b
+    boolean onPull(java.lang.Object,float) -> a
+    boolean onRelease(java.lang.Object) -> c
+    boolean draw(java.lang.Object,android.graphics.Canvas) -> a
+android.support.v4.widget.EdgeEffectCompat$EdgeEffectIcsImpl -> android.support.v4.widget.k:
+    void setSize(java.lang.Object,int,int) -> a
+    boolean isFinished(java.lang.Object) -> a
+    void finish(java.lang.Object) -> b
+    boolean onPull(java.lang.Object,float) -> a
+    boolean onRelease(java.lang.Object) -> c
+    boolean draw(java.lang.Object,android.graphics.Canvas) -> a
+android.support.v4.widget.EdgeEffectCompat$EdgeEffectImpl -> android.support.v4.widget.l:
+    void setSize(java.lang.Object,int,int) -> a
+    boolean isFinished(java.lang.Object) -> a
+    void finish(java.lang.Object) -> b
+    boolean onPull(java.lang.Object,float) -> a
+    boolean onRelease(java.lang.Object) -> c
+    boolean draw(java.lang.Object,android.graphics.Canvas) -> a
+android.support.v4.widget.ScrollerCompat -> android.support.v4.widget.m:
+    java.lang.Object mScroller -> a
+    android.support.v4.widget.ScrollerCompat$ScrollerCompatImpl mImpl -> b
+    int getCurrX() -> a
+    int getCurrY() -> b
+    void abortAnimation() -> c
+android.support.v4.widget.ScrollerCompat$ScrollerCompatImpl -> android.support.v4.widget.n:
+    int getCurrX$5d527804() -> a
+    int getCurrY$5d527804() -> b
+    boolean computeScrollOffset$5d527815() -> c
+    int getFinalX$5d527804() -> d
+    int getFinalY$5d527804() -> e
+android.support.v4.widget.SlidingPaneLayout -> android.support.v4.widget.SlidingPaneLayout:
+    int mSliderFadeColor -> b
+    int mCoveredFadeColor -> c
+    android.graphics.drawable.Drawable mShadowDrawableLeft -> d
+    android.graphics.drawable.Drawable mShadowDrawableRight -> e
+    int mOverhangSize -> f
+    boolean mCanSlide -> g
+    android.view.View mSlideableView -> h
+    float mSlideOffset -> i
+    float mParallaxOffset -> j
+    int mSlideRange -> k
+    boolean mIsUnableToDrag -> l
+    int mParallaxBy -> m
+    float mInitialMotionX -> n
+    float mInitialMotionY -> o
+    android.support.v4.widget.SlidingPaneLayout$PanelSlideListener mPanelSlideListener -> p
+    android.support.v4.widget.ViewDragHelper mDragHelper -> q
+    boolean mPreservedOpenState -> r
+    boolean mFirstLayout -> s
+    android.graphics.Rect mTmpRect -> t
+    java.util.ArrayList mPostedRunnables -> u
+    android.support.v4.widget.SlidingPaneLayout$SlidingPanelLayoutImpl IMPL -> a
+    void setParallaxDistance(int) -> setParallaxDistance
+    int getParallaxDistance() -> getParallaxDistance
+    void setSliderFadeColor(int) -> setSliderFadeColor
+    int getSliderFadeColor() -> getSliderFadeColor
+    void setCoveredFadeColor(int) -> setCoveredFadeColor
+    int getCoveredFadeColor() -> getCoveredFadeColor
+    void setPanelSlideListener(android.support.v4.widget.SlidingPaneLayout$PanelSlideListener) -> setPanelSlideListener
+    void onAttachedToWindow() -> onAttachedToWindow
+    void onDetachedFromWindow() -> onDetachedFromWindow
+    void onMeasure(int,int) -> onMeasure
+    void onLayout(boolean,int,int,int,int) -> onLayout
+    void onSizeChanged(int,int,int,int) -> onSizeChanged
+    void requestChildFocus(android.view.View,android.view.View) -> requestChildFocus
+    boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    boolean closePane$5359dc96$134632() -> a
+    void dimChildView(android.view.View,float,int) -> a
+    boolean drawChild(android.graphics.Canvas,android.view.View,long) -> drawChild
+    void invalidateChildRegion(android.view.View) -> a
+    boolean smoothSlideTo$254957c(float) -> a
+    void computeScroll() -> computeScroll
+    void setShadowDrawable(android.graphics.drawable.Drawable) -> setShadowDrawable
+    void setShadowDrawableLeft(android.graphics.drawable.Drawable) -> setShadowDrawableLeft
+    void setShadowDrawableRight(android.graphics.drawable.Drawable) -> setShadowDrawableRight
+    void setShadowResource(int) -> setShadowResource
+    void setShadowResourceLeft(int) -> setShadowResourceLeft
+    void setShadowResourceRight(int) -> setShadowResourceRight
+    void draw(android.graphics.Canvas) -> draw
+    boolean isDimmed(android.view.View) -> b
+    android.view.ViewGroup$LayoutParams generateDefaultLayoutParams() -> generateDefaultLayoutParams
+    android.view.ViewGroup$LayoutParams generateLayoutParams(android.view.ViewGroup$LayoutParams) -> generateLayoutParams
+    boolean checkLayoutParams(android.view.ViewGroup$LayoutParams) -> checkLayoutParams
+    android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
+    android.os.Parcelable onSaveInstanceState() -> onSaveInstanceState
+    void onRestoreInstanceState(android.os.Parcelable) -> onRestoreInstanceState
+    boolean isLayoutRtlSupport() -> b
+    void access$1000(android.support.v4.widget.SlidingPaneLayout,android.view.View) -> a
+    java.util.ArrayList access$1100(android.support.v4.widget.SlidingPaneLayout) -> a
+android.support.v4.widget.SlidingPaneLayout$DisableLayerRunnable -> android.support.v4.widget.o:
+    android.view.View mChildView -> a
+    android.support.v4.widget.SlidingPaneLayout this$0 -> b
+    void run() -> run
+android.support.v4.widget.SlidingPaneLayout$LayoutParams -> android.support.v4.widget.p:
+    int[] ATTRS -> e
+    float weight -> a
+    boolean slideable -> b
+    boolean dimWhenOffset -> c
+    android.graphics.Paint dimPaint -> d
+android.support.v4.widget.SlidingPaneLayout$PanelSlideListener -> android.support.v4.widget.q:
+android.support.v4.widget.SlidingPaneLayout$SavedState -> android.support.v4.widget.SlidingPaneLayout$SavedState:
+    boolean isOpen -> a
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+android.support.v4.widget.SlidingPaneLayout$SavedState$1 -> android.support.v4.widget.r:
+    java.lang.Object[] newArray(int) -> newArray
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+android.support.v4.widget.SlidingPaneLayout$SlidingPanelLayoutImpl -> android.support.v4.widget.s:
+    void invalidateChildRegion(android.support.v4.widget.SlidingPaneLayout,android.view.View) -> a
+android.support.v4.widget.SlidingPaneLayout$SlidingPanelLayoutImplBase -> android.support.v4.widget.t:
+    void invalidateChildRegion(android.support.v4.widget.SlidingPaneLayout,android.view.View) -> a
+android.support.v4.widget.SlidingPaneLayout$SlidingPanelLayoutImplJB -> android.support.v4.widget.u:
+    java.lang.reflect.Method mGetDisplayList -> a
+    java.lang.reflect.Field mRecreateDisplayList -> b
+    void invalidateChildRegion(android.support.v4.widget.SlidingPaneLayout,android.view.View) -> a
+android.support.v4.widget.SlidingPaneLayout$SlidingPanelLayoutImplJBMR1 -> android.support.v4.widget.v:
+    void invalidateChildRegion(android.support.v4.widget.SlidingPaneLayout,android.view.View) -> a
+android.support.v4.widget.ViewDragHelper -> android.support.v4.widget.w:
+    int mDragState -> a
+    int mTouchSlop -> b
+    int mActivePointerId -> c
+    float[] mInitialMotionX -> d
+    float[] mInitialMotionY -> e
+    float[] mLastMotionX -> f
+    float[] mLastMotionY -> g
+    int[] mInitialEdgesTouched -> h
+    int[] mEdgeDragsInProgress -> i
+    int[] mEdgeDragsLocked -> j
+    int mPointersDown -> k
+    android.view.VelocityTracker mVelocityTracker -> l
+    float mMaxVelocity -> m
+    float mMinVelocity -> n
+    int mEdgeSize -> o
+    int mTrackingEdges -> p
+    android.support.v4.widget.ScrollerCompat mScroller -> q
+    android.support.v4.widget.ViewDragHelper$Callback mCallback -> r
+    android.view.View mCapturedView -> s
+    boolean mReleaseInProgress -> t
+    android.view.ViewGroup mParentView -> u
+    android.view.animation.Interpolator sInterpolator -> v
+    java.lang.Runnable mSetIdleRunnable -> w
+    int getViewDragState() -> a
+    void setEdgeTrackingEnabled(int) -> a
+    int getEdgeSize() -> b
+    void captureChildView(android.view.View,int) -> a
+    android.view.View getCapturedView() -> c
+    int getTouchSlop() -> d
+    void cancel() -> e
+    void abort() -> f
+    boolean smoothSlideViewTo(android.view.View,int,int) -> a
+    boolean settleCapturedViewAt(int,int) -> a
+    boolean forceSettleCapturedViewAt(int,int,int,int) -> a
+    int computeAxisDuration(int,int,int) -> a
+    int clampMag(int,int,int) -> b
+    float clampMag(float,float,float) -> a
+    boolean continueSettling$138603() -> g
+    void dispatchViewReleased$2548a35(float) -> a
+    void clearMotionHistory(int) -> b
+    void saveInitialMotion(float,float,int) -> a
+    void saveLastMotion(android.view.MotionEvent) -> c
+    void setDragState(int) -> c
+    boolean tryCaptureViewForDrag(android.view.View,int) -> b
+    boolean shouldInterceptTouchEvent(android.view.MotionEvent) -> a
+    void processTouchEvent(android.view.MotionEvent) -> b
+    void reportNewEdgeDrags(float,float,int) -> b
+    boolean checkNewEdgeDrag(float,float,int,int) -> a
+    boolean checkTouchSlop$17e2abff(android.view.View,float) -> a
+    boolean checkTouchSlop$134632() -> h
+    void releaseViewForPointerUp() -> i
+    boolean isViewUnder(android.view.View,int,int) -> b
+    android.view.View findTopChildUnder(int,int) -> b
+android.support.v4.widget.ViewDragHelper$1 -> android.support.v4.widget.x:
+    float getInterpolation(float) -> getInterpolation
+android.support.v4.widget.ViewDragHelper$Callback -> android.support.v4.widget.y:
+    void onViewDragStateChanged(int) -> a
+    void onViewPositionChanged$5b6f797d(android.view.View,int) -> a
+    void onViewCaptured$5359dc9a(android.view.View) -> b
+    void onViewReleased$17e2ac03(android.view.View,float) -> a
+    void onEdgeTouched$255f295() -> b
+    void onEdgeDragStarted(int,int) -> a
+    int getViewHorizontalDragRange(android.view.View) -> c
+    boolean tryCaptureView$5359dc96(android.view.View) -> a
+    int clampViewPositionHorizontal$17e143b0(android.view.View,int) -> b
+    int clampViewPositionVertical$17e143b0(android.view.View) -> d
+com.github.mikephil.charting.animation.ChartAnimator -> com.github.mikephil.charting.a.a:
+    android.animation.ValueAnimator$AnimatorUpdateListener mListener -> a
+    float mPhaseY -> b
+    float mPhaseX -> c
+    float getPhaseY() -> a
+    float getPhaseX() -> b
+com.github.mikephil.charting.animation.Easing -> com.github.mikephil.charting.a.b:
+    int[] $SWITCH_TABLE$com$github$mikephil$charting$animation$Easing$EasingOption -> a
+    com.github.mikephil.charting.animation.EasingFunction getEasingFunctionFromOption(com.github.mikephil.charting.animation.Easing$EasingOption) -> a
+    int[] $SWITCH_TABLE$com$github$mikephil$charting$animation$Easing$EasingOption() -> a
+com.github.mikephil.charting.animation.Easing$EasingFunctions -> com.github.mikephil.charting.a.c:
+    com.github.mikephil.charting.animation.EasingFunction Linear -> a
+    com.github.mikephil.charting.animation.EasingFunction EaseInQuad -> b
+    com.github.mikephil.charting.animation.EasingFunction EaseOutQuad -> c
+    com.github.mikephil.charting.animation.EasingFunction EaseInOutQuad -> d
+    com.github.mikephil.charting.animation.EasingFunction EaseInCubic -> e
+    com.github.mikephil.charting.animation.EasingFunction EaseOutCubic -> f
+    com.github.mikephil.charting.animation.EasingFunction EaseInOutCubic -> g
+    com.github.mikephil.charting.animation.EasingFunction EaseInQuart -> h
+    com.github.mikephil.charting.animation.EasingFunction EaseOutQuart -> i
+    com.github.mikephil.charting.animation.EasingFunction EaseInOutQuart -> j
+    com.github.mikephil.charting.animation.EasingFunction EaseInSine -> k
+    com.github.mikephil.charting.animation.EasingFunction EaseOutSine -> l
+    com.github.mikephil.charting.animation.EasingFunction EaseInOutSine -> m
+    com.github.mikephil.charting.animation.EasingFunction EaseInExpo -> n
+    com.github.mikephil.charting.animation.EasingFunction EaseOutExpo -> o
+    com.github.mikephil.charting.animation.EasingFunction EaseInOutExpo -> p
+    com.github.mikephil.charting.animation.EasingFunction EaseInCirc -> q
+    com.github.mikephil.charting.animation.EasingFunction EaseOutCirc -> r
+    com.github.mikephil.charting.animation.EasingFunction EaseInOutCirc -> s
+    com.github.mikephil.charting.animation.EasingFunction EaseInElastic -> t
+    com.github.mikephil.charting.animation.EasingFunction EaseOutElastic -> u
+    com.github.mikephil.charting.animation.EasingFunction EaseInOutElastic -> v
+    com.github.mikephil.charting.animation.EasingFunction EaseInBack -> w
+    com.github.mikephil.charting.animation.EasingFunction EaseOutBack -> x
+    com.github.mikephil.charting.animation.EasingFunction EaseInOutBack -> y
+    com.github.mikephil.charting.animation.EasingFunction EaseInBounce -> z
+    com.github.mikephil.charting.animation.EasingFunction EaseOutBounce -> A
+    com.github.mikephil.charting.animation.EasingFunction EaseInOutBounce -> B
+com.github.mikephil.charting.animation.Easing$EasingFunctions$1 -> com.github.mikephil.charting.a.d:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$10 -> com.github.mikephil.charting.a.e:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$11 -> com.github.mikephil.charting.a.f:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$12 -> com.github.mikephil.charting.a.g:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$13 -> com.github.mikephil.charting.a.h:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$14 -> com.github.mikephil.charting.a.i:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$15 -> com.github.mikephil.charting.a.j:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$16 -> com.github.mikephil.charting.a.k:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$17 -> com.github.mikephil.charting.a.l:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$18 -> com.github.mikephil.charting.a.m:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$19 -> com.github.mikephil.charting.a.n:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$2 -> com.github.mikephil.charting.a.o:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$20 -> com.github.mikephil.charting.a.p:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$21 -> com.github.mikephil.charting.a.q:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$22 -> com.github.mikephil.charting.a.r:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$23 -> com.github.mikephil.charting.a.s:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$24 -> com.github.mikephil.charting.a.t:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$25 -> com.github.mikephil.charting.a.u:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$26 -> com.github.mikephil.charting.a.v:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$27 -> com.github.mikephil.charting.a.w:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$28 -> com.github.mikephil.charting.a.x:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$3 -> com.github.mikephil.charting.a.y:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$4 -> com.github.mikephil.charting.a.z:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$5 -> com.github.mikephil.charting.a.aa:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$6 -> com.github.mikephil.charting.a.ab:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$7 -> com.github.mikephil.charting.a.ac:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$8 -> com.github.mikephil.charting.a.ad:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingFunctions$9 -> com.github.mikephil.charting.a.ae:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.animation.Easing$EasingOption -> com.github.mikephil.charting.a.af:
+    com.github.mikephil.charting.animation.Easing$EasingOption Linear -> a
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInQuad -> b
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseOutQuad -> c
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInOutQuad -> d
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInCubic -> e
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseOutCubic -> f
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInOutCubic -> g
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInQuart -> h
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseOutQuart -> i
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInOutQuart -> j
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInSine -> k
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseOutSine -> l
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInOutSine -> m
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInExpo -> n
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseOutExpo -> o
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInOutExpo -> p
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInCirc -> q
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseOutCirc -> r
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInOutCirc -> s
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInElastic -> t
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseOutElastic -> u
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInOutElastic -> v
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInBack -> w
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseOutBack -> x
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInOutBack -> y
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInBounce -> z
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseOutBounce -> A
+    com.github.mikephil.charting.animation.Easing$EasingOption EaseInOutBounce -> B
+    com.github.mikephil.charting.animation.Easing$EasingOption[] ENUM$VALUES -> C
+    com.github.mikephil.charting.animation.Easing$EasingOption[] values() -> values
+    com.github.mikephil.charting.animation.Easing$EasingOption valueOf(java.lang.String) -> valueOf
+com.github.mikephil.charting.animation.EasingFunction -> com.github.mikephil.charting.a.ag:
+    float getInterpolation(float) -> getInterpolation
+com.github.mikephil.charting.buffer.AbstractBuffer -> com.github.mikephil.charting.b.a:
+    int index -> a
+    float[] buffer -> b
+    float phaseX -> c
+    float phaseY -> d
+    int mFrom -> e
+    int mTo -> f
+    void limitFrom(int) -> a
+    void limitTo(int) -> b
+    void reset() -> a
+    void setPhases(float,float) -> a
+com.github.mikephil.charting.buffer.BarBuffer -> com.github.mikephil.charting.b.b:
+    float mBarSpace -> g
+    float mGroupSpace -> h
+    int mDataSetIndex -> i
+    int mDataSetCount -> j
+    boolean mContainsStacks -> k
+    boolean mInverted -> l
+    void setBarSpace(float) -> a
+    void setDataSet(int) -> c
+    void setInverted(boolean) -> a
+    void addBar(float,float,float,float) -> a
+    void feed(java.util.List) -> a
+com.github.mikephil.charting.buffer.CircleBuffer -> com.github.mikephil.charting.b.c:
+    void feed(java.util.List) -> a
+com.github.mikephil.charting.buffer.HorizontalBarBuffer -> com.github.mikephil.charting.b.d:
+    void feed(java.util.List) -> a
+com.github.mikephil.charting.buffer.LineBuffer -> com.github.mikephil.charting.b.e:
+    void feed(java.util.List) -> a
+com.github.mikephil.charting.charts.BarChart -> com.github.mikephil.charting.charts.BarChart:
+    boolean mDrawHighlightArrow -> T
+    boolean mDrawValueAboveBar -> U
+    boolean mDrawValuesForWholeStack -> V
+    boolean mDrawBarShadow -> W
+    void init() -> a
+    void calcMinMax() -> b
+    com.github.mikephil.charting.utils.Highlight getHighlightByTouchPoint(float,float) -> a
+    com.github.mikephil.charting.utils.Highlight getHighlight(double,double) -> a
+    void setDrawHighlightArrow(boolean) -> setDrawHighlightArrow
+    boolean isDrawHighlightArrowEnabled() -> c
+    void setDrawValueAboveBar(boolean) -> setDrawValueAboveBar
+    boolean isDrawValueAboveBarEnabled() -> d
+    void setDrawValuesForWholeStack(boolean) -> setDrawValuesForWholeStack
+    boolean isDrawValuesForWholeStackEnabled() -> e
+    void setDrawBarShadow(boolean) -> setDrawBarShadow
+    boolean isDrawBarShadowEnabled() -> f
+    com.github.mikephil.charting.data.BarData getBarData() -> getBarData
+    int getLowestVisibleXIndex() -> getLowestVisibleXIndex
+    int getHighestVisibleXIndex() -> getHighestVisibleXIndex
+com.github.mikephil.charting.charts.BarLineChartBase -> com.github.mikephil.charting.charts.a:
+    int mMaxVisibleCount -> a
+    boolean mPinchZoomEnabled -> b
+    boolean mDoubleTapToZoomEnabled -> c
+    boolean mHighlightPerDragEnabled -> d
+    boolean mHighLightIndicatorEnabled -> e
+    boolean mDragEnabled -> T
+    boolean mScaleXEnabled -> U
+    boolean mScaleYEnabled -> V
+    boolean mFilterData -> f
+    android.graphics.Paint mGridBackgroundPaint -> g
+    android.graphics.Paint mBorderPaint -> h
+    boolean mDrawGridBackground -> i
+    boolean mDrawBorders -> j
+    com.github.mikephil.charting.listener.OnDrawListener mDrawListener -> k
+    com.github.mikephil.charting.components.YAxis mAxisLeft -> l
+    com.github.mikephil.charting.components.YAxis mAxisRight -> m
+    com.github.mikephil.charting.components.XAxis mXAxis -> n
+    com.github.mikephil.charting.renderer.YAxisRenderer mAxisRendererLeft -> o
+    com.github.mikephil.charting.renderer.YAxisRenderer mAxisRendererRight -> p
+    com.github.mikephil.charting.utils.Transformer mLeftAxisTransformer -> q
+    com.github.mikephil.charting.utils.Transformer mRightAxisTransformer -> r
+    com.github.mikephil.charting.renderer.XAxisRenderer mXAxisRenderer -> s
+    long totalTime -> W
+    long drawCycles -> Z
+    android.view.View$OnTouchListener mListener -> t
+    boolean mCustomViewPortEnabled -> aa
+    void init() -> a
+    void onDraw(android.graphics.Canvas) -> onDraw
+    void prepareValuePxMatrix() -> g
+    void prepareOffsetMatrix() -> h
+    void notifyDataSetChanged() -> i
+    void calcMinMax() -> b
+    void calculateOffsets() -> j
+    void calcModulus() -> k
+    float[] getMarkerPosition(com.github.mikephil.charting.data.Entry,int) -> a
+    com.github.mikephil.charting.utils.Transformer getTransformer(com.github.mikephil.charting.components.YAxis$AxisDependency) -> a
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    void computeScroll() -> computeScroll
+    void zoom$4098370b(float,float) -> b
+    void setVisibleXRange(float) -> setVisibleXRange
+    void setOnTouchListener(android.view.View$OnTouchListener) -> setOnTouchListener
+    void setOnDrawListener(com.github.mikephil.charting.listener.OnDrawListener) -> setOnDrawListener
+    com.github.mikephil.charting.listener.OnDrawListener getDrawListener() -> getDrawListener
+    void setMaxVisibleValueCount(int) -> setMaxVisibleValueCount
+    int getMaxVisibleCount() -> getMaxVisibleCount
+    void setHighlightIndicatorEnabled(boolean) -> setHighlightIndicatorEnabled
+    void setHighlightPerDragEnabled(boolean) -> setHighlightPerDragEnabled
+    boolean isHighlightPerDragEnabled() -> l
+    void setGridBackgroundColor(int) -> setGridBackgroundColor
+    void setDragEnabled(boolean) -> setDragEnabled
+    boolean isDragEnabled() -> m
+    void setScaleEnabled(boolean) -> setScaleEnabled
+    void setScaleXEnabled(boolean) -> setScaleXEnabled
+    void setScaleYEnabled(boolean) -> setScaleYEnabled
+    boolean isScaleXEnabled() -> n
+    boolean isScaleYEnabled() -> o
+    void setDoubleTapToZoomEnabled(boolean) -> setDoubleTapToZoomEnabled
+    boolean isDoubleTapToZoomEnabled() -> p
+    void setDrawGridBackground(boolean) -> setDrawGridBackground
+    void setDrawBorders(boolean) -> setDrawBorders
+    void setBorderWidth(float) -> setBorderWidth
+    void setBorderColor(int) -> setBorderColor
+    com.github.mikephil.charting.utils.Highlight getHighlightByTouchPoint(float,float) -> a
+    com.github.mikephil.charting.data.BarLineScatterCandleDataSet getDataSetByTouchPoint(float,float) -> c
+    int getLowestVisibleXIndex() -> getLowestVisibleXIndex
+    int getHighestVisibleXIndex() -> getHighestVisibleXIndex
+    float getScaleX() -> getScaleX
+    float getScaleY() -> getScaleY
+    boolean isFullyZoomedOut() -> q
+    com.github.mikephil.charting.components.YAxis getAxisLeft() -> getAxisLeft
+    com.github.mikephil.charting.components.YAxis getAxisRight() -> getAxisRight
+    com.github.mikephil.charting.components.YAxis getAxis(com.github.mikephil.charting.components.YAxis$AxisDependency) -> b
+    boolean isInverted(com.github.mikephil.charting.components.YAxis$AxisDependency) -> c
+    com.github.mikephil.charting.components.XAxis getXAxis() -> getXAxis
+    void setPinchZoom(boolean) -> setPinchZoom
+    boolean isPinchZoomEnabled() -> r
+    void setDragOffsetX(float) -> setDragOffsetX
+    void setDragOffsetY(float) -> setDragOffsetY
+    boolean hasNoDragOffset() -> s
+    com.github.mikephil.charting.renderer.XAxisRenderer getRendererXAxis() -> getRendererXAxis
+    com.github.mikephil.charting.renderer.YAxisRenderer getRendererLeftYAxis() -> getRendererLeftYAxis
+    com.github.mikephil.charting.renderer.YAxisRenderer getRendererRightYAxis() -> getRendererRightYAxis
+    float getYChartMax() -> getYChartMax
+    float getYChartMin() -> getYChartMin
+    boolean isAnyAxisInverted() -> t
+com.github.mikephil.charting.charts.BarLineChartBase$DefaultFillFormatter -> com.github.mikephil.charting.charts.b:
+    com.github.mikephil.charting.charts.BarLineChartBase this$0 -> a
+    float getFillLinePosition(com.github.mikephil.charting.data.LineDataSet,com.github.mikephil.charting.data.LineData,float,float) -> a
+com.github.mikephil.charting.charts.Chart -> com.github.mikephil.charting.charts.c:
+    boolean mLogEnabled -> u
+    com.github.mikephil.charting.data.ChartData mData -> v
+    boolean mDragDecelerationEnabled -> a
+    float mDragDecelerationFrictionCoef -> b
+    com.github.mikephil.charting.utils.ValueFormatter mDefaultFormatter -> w
+    android.graphics.Paint mDescPaint -> x
+    android.graphics.Paint mInfoPaint -> y
+    java.lang.String mDescription -> z
+    boolean mDataNotSet -> A
+    boolean mDrawUnitInChart -> B
+    float mDeltaX -> C
+    float mXChartMin -> D
+    float mXChartMax -> E
+    boolean mTouchEnabled -> F
+    boolean mHighlightEnabled -> G
+    com.github.mikephil.charting.components.Legend mLegend -> H
+    com.github.mikephil.charting.listener.OnChartValueSelectedListener mSelectionListener -> I
+    java.lang.String mNoDataText -> c
+    com.github.mikephil.charting.listener.OnChartGestureListener mGestureListener -> d
+    java.lang.String mNoDataTextDescription -> e
+    com.github.mikephil.charting.renderer.LegendRenderer mLegendRenderer -> J
+    com.github.mikephil.charting.renderer.DataRenderer mRenderer -> K
+    com.github.mikephil.charting.utils.ViewPortHandler mViewPortHandler -> L
+    com.github.mikephil.charting.animation.ChartAnimator mAnimator -> M
+    boolean mOffsetsCalculated -> f
+    android.graphics.Bitmap mDrawBitmap -> N
+    android.graphics.Paint mDrawPaint -> O
+    android.graphics.PointF mDescriptionPosition -> g
+    com.github.mikephil.charting.utils.Highlight[] mIndicesToHightlight -> P
+    boolean mDrawMarkerViews -> Q
+    com.github.mikephil.charting.components.MarkerView mMarkerView -> R
+    java.util.ArrayList mJobs -> S
+    void init() -> a
+    void setData(com.github.mikephil.charting.data.ChartData) -> setData
+    void notifyDataSetChanged() -> i
+    void calculateOffsets() -> j
+    void onDraw(android.graphics.Canvas) -> onDraw
+    void drawDescription(android.graphics.Canvas) -> a
+    com.github.mikephil.charting.utils.Highlight[] getHighlighted() -> getHighlighted
+    boolean valuesToHighlight() -> u
+    void highlightValues$5935eb7c() -> v
+    void highlightTouch(com.github.mikephil.charting.utils.Highlight) -> a
+    void drawMarkers(android.graphics.Canvas) -> b
+    float[] getMarkerPosition(com.github.mikephil.charting.data.Entry,int) -> a
+    com.github.mikephil.charting.animation.ChartAnimator getAnimator() -> getAnimator
+    boolean isDragDecelerationEnabled() -> w
+    void setDragDecelerationEnabled(boolean) -> setDragDecelerationEnabled
+    float getDragDecelerationFrictionCoef() -> getDragDecelerationFrictionCoef
+    void setDragDecelerationFrictionCoef(float) -> setDragDecelerationFrictionCoef
+    void animateX$4b7e00da(com.github.mikephil.charting.animation.Easing$EasingOption) -> a
+    void animateY$4b7e00da(com.github.mikephil.charting.animation.Easing$EasingOption) -> b
+    void animateX$13462e() -> x
+    com.github.mikephil.charting.utils.ValueFormatter getDefaultValueFormatter() -> getDefaultValueFormatter
+    void setOnChartValueSelectedListener(com.github.mikephil.charting.listener.OnChartValueSelectedListener) -> setOnChartValueSelectedListener
+    void setOnChartGestureListener(com.github.mikephil.charting.listener.OnChartGestureListener) -> setOnChartGestureListener
+    com.github.mikephil.charting.listener.OnChartGestureListener getOnChartGestureListener() -> getOnChartGestureListener
+    void setHighlightEnabled(boolean) -> setHighlightEnabled
+    float getYValueSum() -> getYValueSum
+    float getYMax() -> getYMax
+    float getYMin() -> getYMin
+    float getXChartMax() -> getXChartMax
+    float getXChartMin() -> getXChartMin
+    int getXValCount() -> getXValCount
+    float getAverage() -> getAverage
+    int getValueCount() -> getValueCount
+    android.graphics.PointF getCenter() -> getCenter
+    android.graphics.PointF getCenterOffsets() -> getCenterOffsets
+    void setDescription(java.lang.String) -> setDescription
+    void setDescriptionTypeface(android.graphics.Typeface) -> setDescriptionTypeface
+    void setDescriptionTextSize(float) -> setDescriptionTextSize
+    void setDescriptionColor(int) -> setDescriptionColor
+    void setLogEnabled(boolean) -> setLogEnabled
+    boolean isLogEnabled() -> y
+    void setNoDataText(java.lang.String) -> setNoDataText
+    void setNoDataTextDescription(java.lang.String) -> setNoDataTextDescription
+    void setTouchEnabled(boolean) -> setTouchEnabled
+    void setMarkerView(com.github.mikephil.charting.components.MarkerView) -> setMarkerView
+    com.github.mikephil.charting.components.MarkerView getMarkerView() -> getMarkerView
+    com.github.mikephil.charting.components.Legend getLegend() -> getLegend
+    com.github.mikephil.charting.renderer.LegendRenderer getLegendRenderer() -> getLegendRenderer
+    android.graphics.RectF getContentRect() -> getContentRect
+    void disableScroll() -> z
+    void enableScroll() -> A
+    void setDrawMarkerViews(boolean) -> setDrawMarkerViews
+    com.github.mikephil.charting.data.ChartData getData() -> getData
+    com.github.mikephil.charting.utils.ViewPortHandler getViewPortHandler() -> getViewPortHandler
+    com.github.mikephil.charting.renderer.DataRenderer getRenderer() -> getRenderer
+    void setRenderer(com.github.mikephil.charting.renderer.DataRenderer) -> setRenderer
+    android.graphics.PointF getCenterOfView() -> getCenterOfView
+    android.graphics.Bitmap getChartBitmap() -> getChartBitmap
+    void onMeasure(int,int) -> onMeasure
+    void onLayout(boolean,int,int,int,int) -> onLayout
+    java.util.ArrayList getJobs() -> getJobs
+    void onSizeChanged(int,int,int,int) -> onSizeChanged
+    void setHardwareAccelerationEnabled(boolean) -> setHardwareAccelerationEnabled
+com.github.mikephil.charting.charts.Chart$1 -> com.github.mikephil.charting.charts.d:
+    com.github.mikephil.charting.charts.Chart this$0 -> a
+    void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+com.github.mikephil.charting.charts.HorizontalBarChart -> com.github.mikephil.charting.charts.e:
+    void init() -> a
+    void calculateOffsets() -> j
+    void prepareValuePxMatrix() -> g
+    void calcModulus() -> k
+    com.github.mikephil.charting.utils.Highlight getHighlightByTouchPoint(float,float) -> a
+    int getLowestVisibleXIndex() -> getLowestVisibleXIndex
+    int getHighestVisibleXIndex() -> getHighestVisibleXIndex
+com.github.mikephil.charting.charts.LineChart -> com.github.mikephil.charting.charts.LineChart:
+    float mHighlightWidth -> T
+    com.github.mikephil.charting.utils.FillFormatter mFillFormatter -> U
+    void init() -> a
+    void calcMinMax() -> b
+    void setHighlightLineWidth(float) -> setHighlightLineWidth
+    float getHighlightLineWidth() -> getHighlightLineWidth
+    void setFillFormatter(com.github.mikephil.charting.utils.FillFormatter) -> setFillFormatter
+    com.github.mikephil.charting.utils.FillFormatter getFillFormatter() -> getFillFormatter
+    com.github.mikephil.charting.data.LineData getLineData() -> getLineData
+com.github.mikephil.charting.charts.PieChart -> com.github.mikephil.charting.charts.PieChart:
+    android.graphics.RectF mCircleBox -> c
+    boolean mDrawXLabels -> d
+    float[] mDrawAngles -> e
+    float[] mAbsoluteAngles -> f
+    boolean mDrawHole -> g
+    boolean mUsePercentValues -> h
+    java.lang.String mCenterText -> i
+    float mHoleRadiusPercent -> j
+    float mTransparentCircleRadiusPercent -> k
+    boolean mDrawCenterText -> l
+    void init() -> a
+    void onDraw(android.graphics.Canvas) -> onDraw
+    void calculateOffsets() -> j
+    void calcMinMax() -> b
+    float[] getMarkerPosition(com.github.mikephil.charting.data.Entry,int) -> a
+    boolean needsHighlight(int,int) -> a
+    int getIndexForAngle(float) -> a
+    float[] getDrawAngles() -> getDrawAngles
+    float[] getAbsoluteAngles() -> getAbsoluteAngles
+    void setHoleColor(int) -> setHoleColor
+    void setHoleColorTransparent(boolean) -> setHoleColorTransparent
+    void setDrawHoleEnabled(boolean) -> setDrawHoleEnabled
+    boolean isDrawHoleEnabled() -> c
+    void setCenterText(java.lang.String) -> setCenterText
+    java.lang.String getCenterText() -> getCenterText
+    void setDrawCenterText(boolean) -> setDrawCenterText
+    boolean isDrawCenterTextEnabled() -> d
+    float getRequiredBottomOffset() -> getRequiredBottomOffset
+    float getRequiredBaseOffset() -> getRequiredBaseOffset
+    float getRadius() -> getRadius
+    android.graphics.RectF getCircleBox() -> getCircleBox
+    android.graphics.PointF getCenterCircleBox() -> getCenterCircleBox
+    void setCenterTextTypeface(android.graphics.Typeface) -> setCenterTextTypeface
+    void setCenterTextSize(float) -> setCenterTextSize
+    void setCenterTextSizePixels(float) -> setCenterTextSizePixels
+    void setCenterTextColor(int) -> setCenterTextColor
+    void setHoleRadius(float) -> setHoleRadius
+    float getHoleRadius() -> getHoleRadius
+    void setTransparentCircleColor(int) -> setTransparentCircleColor
+    void setTransparentCircleRadius(float) -> setTransparentCircleRadius
+    float getTransparentCircleRadius() -> getTransparentCircleRadius
+    void setDrawSliceText(boolean) -> setDrawSliceText
+    boolean isDrawSliceTextEnabled() -> e
+    void setUsePercentValues(boolean) -> setUsePercentValues
+    boolean isUsePercentValuesEnabled() -> f
+com.github.mikephil.charting.charts.PieRadarChartBase -> com.github.mikephil.charting.charts.f:
+    float mRotationAngle -> c
+    float mRawRotationAngle -> d
+    boolean mRotateEnabled -> a
+    android.view.View$OnTouchListener mListener -> b
+    void init() -> a
+    void calcMinMax() -> b
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    void computeScroll() -> computeScroll
+    void notifyDataSetChanged() -> i
+    void calculateOffsets() -> j
+    float getAngleForPoint(float,float) -> a
+    android.graphics.PointF getPosition(android.graphics.PointF,float,float) -> a
+    float distanceToCenter(float,float) -> b
+    int getIndexForAngle(float) -> a
+    void setRotationAngle(float) -> setRotationAngle
+    float getRawRotationAngle() -> getRawRotationAngle
+    float getRotationAngle() -> getRotationAngle
+    void setRotationEnabled(boolean) -> setRotationEnabled
+    boolean isRotationEnabled() -> g
+    float getDiameter() -> getDiameter
+    float getRadius() -> getRadius
+    float getRequiredBottomOffset() -> getRequiredBottomOffset
+    float getRequiredBaseOffset() -> getRequiredBaseOffset
+    float getFullLegendWidth() -> getFullLegendWidth
+    void setOnTouchListener(android.view.View$OnTouchListener) -> setOnTouchListener
+    float getYChartMax() -> getYChartMax
+    float getYChartMin() -> getYChartMin
+    java.util.List getYValsAtIndex(int) -> a
+com.github.mikephil.charting.charts.RadarChart -> com.github.mikephil.charting.charts.g:
+    float mWebLineWidth -> e
+    float mInnerWebLineWidth -> f
+    int mWebColor -> g
+    int mWebColorInner -> h
+    int mWebAlpha -> i
+    boolean mDrawWeb -> j
+    com.github.mikephil.charting.components.YAxis mYAxis -> k
+    com.github.mikephil.charting.components.XAxis mXAxis -> l
+    com.github.mikephil.charting.renderer.YAxisRendererRadarChart mYAxisRenderer -> c
+    com.github.mikephil.charting.renderer.XAxisRendererRadarChart mXAxisRenderer -> d
+    void init() -> a
+    void calcMinMax() -> b
+    float[] getMarkerPosition(com.github.mikephil.charting.data.Entry,int) -> a
+    void notifyDataSetChanged() -> i
+    void onDraw(android.graphics.Canvas) -> onDraw
+    float getFactor() -> getFactor
+    float getSliceAngle() -> getSliceAngle
+    int getIndexForAngle(float) -> a
+    com.github.mikephil.charting.components.YAxis getYAxis() -> getYAxis
+    com.github.mikephil.charting.components.XAxis getXAxis() -> getXAxis
+    void setWebLineWidth(float) -> setWebLineWidth
+    float getWebLineWidth() -> getWebLineWidth
+    void setWebLineWidthInner(float) -> setWebLineWidthInner
+    float getWebLineWidthInner() -> getWebLineWidthInner
+    void setWebAlpha(int) -> setWebAlpha
+    int getWebAlpha() -> getWebAlpha
+    void setWebColor(int) -> setWebColor
+    int getWebColor() -> getWebColor
+    void setWebColorInner(int) -> setWebColorInner
+    int getWebColorInner() -> getWebColorInner
+    void setDrawWeb(boolean) -> setDrawWeb
+    float getRequiredBottomOffset() -> getRequiredBottomOffset
+    float getRequiredBaseOffset() -> getRequiredBaseOffset
+    float getRadius() -> getRadius
+    float getYChartMax() -> getYChartMax
+    float getYChartMin() -> getYChartMin
+    float getYRange() -> getYRange
+com.github.mikephil.charting.components.AxisBase -> com.github.mikephil.charting.c.a:
+    int mGridColor -> a
+    float mGridLineWidth -> b
+    int mAxisLineColor -> c
+    float mAxisLineWidth -> d
+    boolean mDrawGridLines -> e
+    boolean mDrawAxisLine -> f
+    boolean mDrawLabels -> g
+    android.graphics.DashPathEffect mGridDashPathEffect -> h
+    java.util.List mLimitLines -> i
+    boolean mDrawLimitLineBehindData -> j
+    void setDrawGridLines(boolean) -> a
+    boolean isDrawGridLinesEnabled() -> a
+    void setDrawAxisLine$1385ff() -> b
+    boolean isDrawAxisLineEnabled() -> c
+    boolean isDrawLabelsEnabled() -> d
+    void addLimitLine(com.github.mikephil.charting.components.LimitLine) -> a
+    void removeAllLimitLines() -> e
+    java.util.List getLimitLines() -> f
+    void setDrawLimitLinesBehindData$1385ff() -> g
+    boolean isDrawLimitLinesBehindDataEnabled() -> h
+com.github.mikephil.charting.components.ComponentBase -> com.github.mikephil.charting.c.b:
+    boolean mEnabled -> k
+    float mXOffset -> l
+    float mYOffset -> m
+    android.graphics.Typeface mTypeface -> n
+    float mTextSize -> o
+    int mTextColor -> p
+    float getXOffset() -> i
+    float getYOffset() -> j
+    android.graphics.Typeface getTypeface() -> k
+    void setTypeface(android.graphics.Typeface) -> a
+    void setTextSize(float) -> a
+    float getTextSize() -> l
+    void setTextColor(int) -> a
+    int getTextColor() -> m
+    void setEnabled$1385ff() -> n
+    boolean isEnabled() -> o
+com.github.mikephil.charting.components.Legend -> com.github.mikephil.charting.c.c:
+    int[] mColors -> a
+    java.lang.String[] mLabels -> b
+    com.github.mikephil.charting.components.Legend$LegendPosition mPosition -> c
+    com.github.mikephil.charting.components.Legend$LegendDirection mDirection -> d
+    com.github.mikephil.charting.components.Legend$LegendForm mShape -> e
+    float mFormSize -> f
+    float mXEntrySpace -> g
+    float mYEntrySpace -> h
+    float mFormToTextSpace -> i
+    float mStackSpace -> j
+    float mNeededWidth -> q
+    float mNeededHeight -> r
+    float mTextHeightMax -> s
+    float mTextWidthMax -> t
+    float getMaximumEntryWidth(android.graphics.Paint) -> b
+    float getMaximumEntryHeight(android.graphics.Paint) -> c
+    void calculateDimensions(android.graphics.Paint) -> a
+com.github.mikephil.charting.components.Legend$LegendDirection -> com.github.mikephil.charting.c.d:
+    com.github.mikephil.charting.components.Legend$LegendDirection LEFT_TO_RIGHT -> a
+    com.github.mikephil.charting.components.Legend$LegendDirection RIGHT_TO_LEFT -> b
+    com.github.mikephil.charting.components.Legend$LegendDirection[] ENUM$VALUES -> c
+    com.github.mikephil.charting.components.Legend$LegendDirection[] values() -> values
+    com.github.mikephil.charting.components.Legend$LegendDirection valueOf(java.lang.String) -> valueOf
+com.github.mikephil.charting.components.Legend$LegendForm -> com.github.mikephil.charting.c.e:
+    com.github.mikephil.charting.components.Legend$LegendForm SQUARE -> a
+    com.github.mikephil.charting.components.Legend$LegendForm CIRCLE -> b
+    com.github.mikephil.charting.components.Legend$LegendForm LINE -> c
+    com.github.mikephil.charting.components.Legend$LegendForm[] ENUM$VALUES -> d
+    com.github.mikephil.charting.components.Legend$LegendForm[] values() -> values
+    com.github.mikephil.charting.components.Legend$LegendForm valueOf(java.lang.String) -> valueOf
+com.github.mikephil.charting.components.Legend$LegendPosition -> com.github.mikephil.charting.c.f:
+    com.github.mikephil.charting.components.Legend$LegendPosition RIGHT_OF_CHART -> a
+    com.github.mikephil.charting.components.Legend$LegendPosition RIGHT_OF_CHART_CENTER -> b
+    com.github.mikephil.charting.components.Legend$LegendPosition RIGHT_OF_CHART_INSIDE -> c
+    com.github.mikephil.charting.components.Legend$LegendPosition LEFT_OF_CHART -> d
+    com.github.mikephil.charting.components.Legend$LegendPosition LEFT_OF_CHART_CENTER -> e
+    com.github.mikephil.charting.components.Legend$LegendPosition LEFT_OF_CHART_INSIDE -> f
+    com.github.mikephil.charting.components.Legend$LegendPosition BELOW_CHART_LEFT -> g
+    com.github.mikephil.charting.components.Legend$LegendPosition BELOW_CHART_RIGHT -> h
+    com.github.mikephil.charting.components.Legend$LegendPosition BELOW_CHART_CENTER -> i
+    com.github.mikephil.charting.components.Legend$LegendPosition PIECHART_CENTER -> j
+    com.github.mikephil.charting.components.Legend$LegendPosition[] ENUM$VALUES -> k
+    com.github.mikephil.charting.components.Legend$LegendPosition[] values() -> values
+    com.github.mikephil.charting.components.Legend$LegendPosition valueOf(java.lang.String) -> valueOf
+com.github.mikephil.charting.components.LimitLine -> com.github.mikephil.charting.c.g:
+    float mLimit -> a
+    float mLineWidth -> b
+    int mLineColor -> c
+    int mValueTextColor -> d
+    float mTextSize -> e
+    android.graphics.Paint$Style mTextStyle -> f
+    java.lang.String mLabel -> g
+    android.graphics.DashPathEffect mDashPathEffect -> h
+    com.github.mikephil.charting.components.LimitLine$LimitLabelPosition mLabelPosition -> i
+    void setLineWidth$133aeb() -> a
+    void enableDashedLine$483d242b() -> b
+    void setTextSize$133aeb() -> c
+com.github.mikephil.charting.components.LimitLine$LimitLabelPosition -> com.github.mikephil.charting.c.h:
+    com.github.mikephil.charting.components.LimitLine$LimitLabelPosition POS_LEFT -> a
+    com.github.mikephil.charting.components.LimitLine$LimitLabelPosition POS_RIGHT -> b
+    com.github.mikephil.charting.components.LimitLine$LimitLabelPosition[] ENUM$VALUES -> c
+    com.github.mikephil.charting.components.LimitLine$LimitLabelPosition[] values() -> values
+    com.github.mikephil.charting.components.LimitLine$LimitLabelPosition valueOf(java.lang.String) -> valueOf
+com.github.mikephil.charting.components.MarkerView -> com.github.mikephil.charting.c.i:
+    void setupLayoutResource(int) -> setupLayoutResource
+    void draw(android.graphics.Canvas,float,float) -> a
+    void refreshContent$792fc70f() -> a
+    int getXOffset() -> getXOffset
+    int getYOffset() -> getYOffset
+com.github.mikephil.charting.components.XAxis -> com.github.mikephil.charting.c.j:
+    java.util.List mValues -> q
+    int mLabelWidth -> r
+    int mLabelHeight -> s
+    int mSpaceBetweenLabels -> t
+    int mAxisLabelModulus -> u
+    boolean mIsAxisModulusCustom -> v
+    int mYAxisLabelModulus -> w
+    boolean mAvoidFirstLastClipping -> x
+    com.github.mikephil.charting.components.XAxis$XAxisPosition mPosition -> y
+    void setValues(java.util.List) -> a
+    java.util.List getValues() -> p
+    java.lang.String getLongestLabel() -> q
+com.github.mikephil.charting.components.XAxis$XAxisPosition -> com.github.mikephil.charting.c.k:
+    com.github.mikephil.charting.components.XAxis$XAxisPosition TOP -> a
+    com.github.mikephil.charting.components.XAxis$XAxisPosition BOTTOM -> b
+    com.github.mikephil.charting.components.XAxis$XAxisPosition BOTH_SIDED -> c
+    com.github.mikephil.charting.components.XAxis$XAxisPosition TOP_INSIDE -> d
+    com.github.mikephil.charting.components.XAxis$XAxisPosition BOTTOM_INSIDE -> e
+    com.github.mikephil.charting.components.XAxis$XAxisPosition[] ENUM$VALUES -> f
+    com.github.mikephil.charting.components.XAxis$XAxisPosition[] values() -> values
+    com.github.mikephil.charting.components.XAxis$XAxisPosition valueOf(java.lang.String) -> valueOf
+com.github.mikephil.charting.components.YAxis -> com.github.mikephil.charting.c.l:
+    com.github.mikephil.charting.utils.ValueFormatter mValueFormatter -> q
+    float[] mEntries -> r
+    int mEntryCount -> s
+    int mDecimals -> t
+    int mLabelCount -> u
+    boolean mDrawTopYLabelEntry -> v
+    boolean mShowOnlyMinMax -> w
+    boolean mInverted -> x
+    boolean mStartAtZero -> y
+    float mCustomAxisMin -> z
+    float mCustomAxisMax -> A
+    float mSpacePercentTop -> B
+    float mSpacePercentBottom -> C
+    float mAxisMaximum -> D
+    float mAxisMinimum -> E
+    float mAxisRange -> F
+    com.github.mikephil.charting.components.YAxis$YAxisLabelPosition mPosition -> G
+    com.github.mikephil.charting.components.YAxis$AxisDependency mAxisDependency -> H
+    boolean isShowOnlyMinMaxEnabled() -> p
+    boolean isInverted() -> q
+    void setStartAtZero$1385ff() -> r
+    boolean isStartAtZeroEnabled() -> s
+    float getAxisMinValue() -> t
+    void setAxisMinValue(float) -> b
+    float getAxisMaxValue() -> u
+    void setAxisMaxValue(float) -> c
+    void setSpaceTop$133aeb() -> v
+    float getSpaceTop() -> w
+    float getSpaceBottom() -> x
+    float getRequiredWidthSpace(android.graphics.Paint) -> a
+    float getRequiredHeightSpace(android.graphics.Paint) -> b
+    java.lang.String getLongestLabel() -> A
+    java.lang.String getFormattedLabel(int) -> b
+    void setValueFormatter(com.github.mikephil.charting.utils.ValueFormatter) -> a
+    boolean needsDefaultFormatter() -> y
+    boolean needsOffset() -> z
+com.github.mikephil.charting.components.YAxis$AxisDependency -> com.github.mikephil.charting.c.m:
+    com.github.mikephil.charting.components.YAxis$AxisDependency LEFT -> a
+    com.github.mikephil.charting.components.YAxis$AxisDependency RIGHT -> b
+    com.github.mikephil.charting.components.YAxis$AxisDependency[] ENUM$VALUES -> c
+    com.github.mikephil.charting.components.YAxis$AxisDependency[] values() -> values
+    com.github.mikephil.charting.components.YAxis$AxisDependency valueOf(java.lang.String) -> valueOf
+com.github.mikephil.charting.components.YAxis$YAxisLabelPosition -> com.github.mikephil.charting.c.n:
+    com.github.mikephil.charting.components.YAxis$YAxisLabelPosition OUTSIDE_CHART -> a
+    com.github.mikephil.charting.components.YAxis$YAxisLabelPosition INSIDE_CHART -> b
+    com.github.mikephil.charting.components.YAxis$YAxisLabelPosition[] ENUM$VALUES -> c
+    com.github.mikephil.charting.components.YAxis$YAxisLabelPosition[] values() -> values
+    com.github.mikephil.charting.components.YAxis$YAxisLabelPosition valueOf(java.lang.String) -> valueOf
+com.github.mikephil.charting.data.BarData -> com.github.mikephil.charting.d.a:
+    float mGroupSpace -> l
+    float getGroupSpace() -> a
+    boolean isGrouped() -> b
+com.github.mikephil.charting.data.BarDataSet -> com.github.mikephil.charting.d.b:
+    float mBarSpace -> a
+    int mStackSize -> b
+    int mBarShadowColor -> c
+    int mHighLightAlpha -> d
+    int mEntryCountStacks -> t
+    java.lang.String[] mStackLabels -> e
+    boolean isStacked() -> a
+com.github.mikephil.charting.data.BarEntry -> com.github.mikephil.charting.d.c:
+    float[] mVals -> a
+    int getClosestIndexAbove(float) -> a
+    float getBelowSum(int) -> a
+com.github.mikephil.charting.data.BarLineScatterCandleData -> com.github.mikephil.charting.d.d:
+com.github.mikephil.charting.data.BarLineScatterCandleDataSet -> com.github.mikephil.charting.d.e:
+    int mHighLightColor -> f
+    void setHighLightColor(int) -> a
+    int getHighLightColor() -> b
+com.github.mikephil.charting.data.ChartData -> com.github.mikephil.charting.d.f:
+    float mYMax -> a
+    float mYMin -> b
+    float mLeftAxisMax -> c
+    float mLeftAxisMin -> d
+    float mRightAxisMax -> e
+    float mRightAxisMin -> f
+    float mYValueSum -> g
+    int mYValCount -> h
+    float mXValAverageLength -> i
+    java.util.List mXVals -> j
+    java.util.List mDataSets -> k
+    void calcXValAverageLength() -> a
+    void isLegal(java.util.List) -> a
+    void calcMinMax(java.util.List) -> b
+    void calcYValueSum(java.util.List) -> c
+    void calcYValueCount(java.util.List) -> d
+    int getDataSetCount() -> c
+    float getYMin() -> d
+    float getYMin(com.github.mikephil.charting.components.YAxis$AxisDependency) -> a
+    float getYMax() -> e
+    float getYMax(com.github.mikephil.charting.components.YAxis$AxisDependency) -> b
+    java.util.List getXVals() -> f
+    java.util.List getDataSets() -> g
+    int getXValCount() -> h
+    com.github.mikephil.charting.data.Entry getEntryForHighlight(com.github.mikephil.charting.utils.Highlight) -> a
+    com.github.mikephil.charting.data.DataSet getDataSetByIndex(int) -> a
+    int getIndexOfDataSet(com.github.mikephil.charting.data.DataSet) -> a
+    com.github.mikephil.charting.data.DataSet getFirstLeft() -> i
+    com.github.mikephil.charting.data.DataSet getFirstRight() -> j
+    void setValueFormatter(com.github.mikephil.charting.utils.ValueFormatter) -> a
+    void setValueTextColor(int) -> b
+    void setValueTypeface(android.graphics.Typeface) -> a
+    void setValueTextSize(float) -> a
+com.github.mikephil.charting.data.DataSet -> com.github.mikephil.charting.d.g:
+    java.util.List mColors -> g
+    java.util.List mYVals -> h
+    float mYMax -> i
+    float mYMin -> j
+    float mYValueSum -> k
+    java.lang.String mLabel -> l
+    boolean mVisible -> m
+    boolean mDrawValues -> n
+    int mValueColor -> o
+    float mValueTextSize -> p
+    android.graphics.Typeface mValueTypeface -> q
+    com.github.mikephil.charting.utils.ValueFormatter mValueFormatter -> r
+    com.github.mikephil.charting.components.YAxis$AxisDependency mAxisDependency -> s
+    void calcMinMax() -> a
+    void calcYValueSum() -> b
+    int getEntryCount() -> c
+    float getYValForXIndex(int) -> b
+    com.github.mikephil.charting.data.Entry getEntryForXIndex(int) -> c
+    java.util.List getYVals() -> d
+    float getYMin() -> e
+    float getYMax() -> f
+    int getValueCount() -> g
+    java.lang.String toString() -> toString
+    com.github.mikephil.charting.components.YAxis$AxisDependency getAxisDependency() -> h
+    void setAxisDependency(com.github.mikephil.charting.components.YAxis$AxisDependency) -> a
+    boolean isDrawValuesEnabled() -> i
+    void setColors(java.util.List) -> a
+    void setColor(int) -> d
+    java.util.List getColors() -> j
+    int getColor(int) -> e
+    int getColor() -> k
+    int getEntryPosition(com.github.mikephil.charting.data.Entry) -> a
+    void setValueFormatter(com.github.mikephil.charting.utils.ValueFormatter) -> a
+    com.github.mikephil.charting.utils.ValueFormatter getValueFormatter() -> l
+    boolean needsDefaultFormatter() -> m
+    void setValueTextSize(float) -> a
+com.github.mikephil.charting.data.Entry -> com.github.mikephil.charting.d.h:
+    float mVal -> b
+    int mXIndex -> c
+    java.lang.Object mData -> d
+    java.lang.String toString() -> toString
+com.github.mikephil.charting.data.LineData -> com.github.mikephil.charting.d.i:
+com.github.mikephil.charting.data.LineDataSet -> com.github.mikephil.charting.d.j:
+    java.util.List mCircleColors -> a
+    int mCircleColorHole -> b
+    float mCircleSize -> c
+    float mCubicIntensity -> d
+    android.graphics.DashPathEffect mDashPathEffect -> e
+    boolean mDrawCircles -> t
+    boolean mDrawCubic -> u
+    boolean mDrawCircleHole -> v
+    void setCircleSize$133aeb() -> a
+    void setCircleColor(int) -> f
+com.github.mikephil.charting.data.LineRadarDataSet -> com.github.mikephil.charting.d.k:
+    int mFillColor -> w
+    int mFillAlpha -> x
+    float mLineWidth -> y
+    boolean mDrawFilled -> z
+    void setLineWidth(float) -> b
+com.github.mikephil.charting.data.PieData -> com.github.mikephil.charting.d.l:
+    com.github.mikephil.charting.data.PieDataSet getDataSetByIndex(int) -> c
+    com.github.mikephil.charting.data.DataSet getDataSetByIndex(int) -> a
+com.github.mikephil.charting.data.PieDataSet -> com.github.mikephil.charting.d.m:
+    float mSliceSpace -> a
+    float mShift -> b
+com.github.mikephil.charting.data.RadarData -> com.github.mikephil.charting.d.n:
+com.github.mikephil.charting.data.RadarDataSet -> com.github.mikephil.charting.d.o:
+com.github.mikephil.charting.interfaces.BarDataProvider -> com.github.mikephil.charting.e.a:
+    com.github.mikephil.charting.data.BarData getBarData() -> getBarData
+    boolean isDrawBarShadowEnabled() -> f
+    boolean isDrawValueAboveBarEnabled() -> d
+    boolean isDrawHighlightArrowEnabled() -> c
+    boolean isDrawValuesForWholeStackEnabled() -> e
+com.github.mikephil.charting.interfaces.BarLineScatterCandleDataProvider -> com.github.mikephil.charting.e.b:
+    com.github.mikephil.charting.utils.Transformer getTransformer(com.github.mikephil.charting.components.YAxis$AxisDependency) -> a
+    int getMaxVisibleCount() -> getMaxVisibleCount
+    boolean isInverted(com.github.mikephil.charting.components.YAxis$AxisDependency) -> c
+    int getLowestVisibleXIndex() -> getLowestVisibleXIndex
+    int getHighestVisibleXIndex() -> getHighestVisibleXIndex
+com.github.mikephil.charting.interfaces.ChartInterface -> com.github.mikephil.charting.e.c:
+    float getXChartMin() -> getXChartMin
+    float getXChartMax() -> getXChartMax
+    float getYChartMin() -> getYChartMin
+    float getYChartMax() -> getYChartMax
+com.github.mikephil.charting.interfaces.LineDataProvider -> com.github.mikephil.charting.e.d:
+    com.github.mikephil.charting.data.LineData getLineData() -> getLineData
+    com.github.mikephil.charting.utils.FillFormatter getFillFormatter() -> getFillFormatter
+com.github.mikephil.charting.listener.BarLineChartTouchListener -> com.github.mikephil.charting.f.a:
+    android.graphics.Matrix mMatrix -> a
+    android.graphics.Matrix mSavedMatrix -> b
+    android.graphics.PointF mTouchStartPoint -> c
+    android.graphics.PointF mTouchPointCenter -> d
+    int mTouchMode -> e
+    float mSavedXDist -> f
+    float mSavedYDist -> g
+    float mSavedDist -> h
+    com.github.mikephil.charting.utils.Highlight mLastHighlighted -> i
+    com.github.mikephil.charting.data.DataSet mClosestDataSetToTouch -> j
+    com.github.mikephil.charting.charts.BarLineChartBase mChart -> k
+    android.view.GestureDetector mGestureDetector -> l
+    android.view.VelocityTracker mVelocityTracker -> m
+    long mDecelerationLastTime -> n
+    android.graphics.PointF mDecelerationCurrentPoint -> o
+    android.graphics.PointF mDecelerationVelocity -> p
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    void saveTouchStart(android.view.MotionEvent) -> a
+    void performDrag(android.view.MotionEvent) -> b
+    float spacing(android.view.MotionEvent) -> c
+    float getXDist(android.view.MotionEvent) -> d
+    float getYDist(android.view.MotionEvent) -> e
+    android.graphics.PointF getTrans(float,float) -> a
+    boolean onDoubleTap(android.view.MotionEvent) -> onDoubleTap
+    void onLongPress(android.view.MotionEvent) -> onLongPress
+    boolean onSingleTapUp(android.view.MotionEvent) -> onSingleTapUp
+    boolean onSingleTapConfirmed(android.view.MotionEvent) -> onSingleTapConfirmed
+    boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    void stopDeceleration() -> b
+    void computeScroll() -> a
+com.github.mikephil.charting.listener.OnChartGestureListener -> com.github.mikephil.charting.f.b:
+com.github.mikephil.charting.listener.OnChartValueSelectedListener -> com.github.mikephil.charting.f.c:
+com.github.mikephil.charting.listener.OnDrawListener -> com.github.mikephil.charting.f.d:
+com.github.mikephil.charting.listener.PieRadarChartTouchListener -> com.github.mikephil.charting.f.e:
+    android.graphics.PointF mTouchStartPoint -> a
+    com.github.mikephil.charting.charts.PieRadarChartBase mChart -> b
+    float mStartAngle -> c
+    int mTouchMode -> d
+    android.view.GestureDetector mGestureDetector -> e
+    java.util.ArrayList _velocitySamples -> f
+    long mDecelerationLastTime -> g
+    float mDecelerationAngularVelocity -> h
+    com.github.mikephil.charting.utils.Highlight mLastHighlight -> i
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    void onLongPress(android.view.MotionEvent) -> onLongPress
+    boolean onSingleTapConfirmed(android.view.MotionEvent) -> onSingleTapConfirmed
+    boolean onSingleTapUp(android.view.MotionEvent) -> onSingleTapUp
+    boolean onDoubleTap(android.view.MotionEvent) -> onDoubleTap
+    void sampleVelocity(float,float) -> a
+    void computeScroll() -> a
+com.github.mikephil.charting.listener.PieRadarChartTouchListener$AngularVelocitySample -> com.github.mikephil.charting.f.f:
+    long time -> a
+    float angle -> b
+    com.github.mikephil.charting.listener.PieRadarChartTouchListener this$0 -> c
+com.github.mikephil.charting.renderer.AxisRenderer -> com.github.mikephil.charting.g.a:
+    com.github.mikephil.charting.utils.Transformer mTrans -> a
+    android.graphics.Paint mGridPaint -> b
+    android.graphics.Paint mAxisLabelPaint -> c
+    android.graphics.Paint mAxisLinePaint -> d
+    android.graphics.Paint mLimitLinePaint -> e
+    android.graphics.Paint getPaintAxisLabels() -> a
+com.github.mikephil.charting.renderer.BarChartRenderer -> com.github.mikephil.charting.g.b:
+    com.github.mikephil.charting.interfaces.BarDataProvider mChart -> a
+    android.graphics.RectF mBarRect -> b
+    com.github.mikephil.charting.buffer.BarBuffer[] mBarBuffers -> c
+    android.graphics.Paint mShadowPaint -> d
+    void initBuffers() -> a
+    void drawData(android.graphics.Canvas) -> a
+    void drawDataSet(android.graphics.Canvas,com.github.mikephil.charting.data.BarDataSet,int) -> a
+    void prepareBarHighlight(float,float,float,float,com.github.mikephil.charting.utils.Transformer) -> a
+    void drawValues(android.graphics.Canvas) -> b
+    void drawValue(android.graphics.Canvas,java.lang.String,float,float) -> a
+    void drawExtras(android.graphics.Canvas) -> c
+    void drawHighlighted(android.graphics.Canvas,com.github.mikephil.charting.utils.Highlight[]) -> a
+    float[] getTransformedValues(com.github.mikephil.charting.utils.Transformer,java.util.List,int) -> a
+    boolean passesCheck() -> b
+com.github.mikephil.charting.renderer.DataRenderer -> com.github.mikephil.charting.g.c:
+    com.github.mikephil.charting.animation.ChartAnimator mAnimator -> e
+    android.graphics.Paint mRenderPaint -> f
+    android.graphics.Paint mHighlightPaint -> g
+    android.graphics.Paint mDrawPaint -> h
+    android.graphics.Paint mValuePaint -> i
+    void applyValueTextStyle(com.github.mikephil.charting.data.DataSet) -> a
+    void initBuffers() -> a
+    void drawData(android.graphics.Canvas) -> a
+    void drawValues(android.graphics.Canvas) -> b
+    void drawExtras(android.graphics.Canvas) -> c
+    void drawHighlighted(android.graphics.Canvas,com.github.mikephil.charting.utils.Highlight[]) -> a
+com.github.mikephil.charting.renderer.HorizontalBarChartRenderer -> com.github.mikephil.charting.g.d:
+    float mYOffset -> j
+    void initBuffers() -> a
+    void drawDataSet(android.graphics.Canvas,com.github.mikephil.charting.data.BarDataSet,int) -> a
+    void drawValues(android.graphics.Canvas) -> b
+    void prepareBarHighlight(float,float,float,float,com.github.mikephil.charting.utils.Transformer) -> a
+    float[] getTransformedValues(com.github.mikephil.charting.utils.Transformer,java.util.List,int) -> a
+    void drawValue(android.graphics.Canvas,java.lang.String,float,float) -> a
+    boolean passesCheck() -> b
+com.github.mikephil.charting.renderer.LegendRenderer -> com.github.mikephil.charting.g.e:
+    android.graphics.Paint mLegendLabelPaint -> a
+    android.graphics.Paint mLegendFormPaint -> b
+    com.github.mikephil.charting.components.Legend mLegend -> c
+    int[] $SWITCH_TABLE$com$github$mikephil$charting$components$Legend$LegendPosition -> d
+    int[] $SWITCH_TABLE$com$github$mikephil$charting$components$Legend$LegendForm -> e
+    android.graphics.Paint getLabelPaint() -> a
+    void computeLegend(com.github.mikephil.charting.data.ChartData) -> a
+    void renderLegend(android.graphics.Canvas) -> a
+    void drawForm(android.graphics.Canvas,float,float,int,com.github.mikephil.charting.components.Legend) -> a
+    void drawLabel(android.graphics.Canvas,float,float,java.lang.String) -> a
+    int[] $SWITCH_TABLE$com$github$mikephil$charting$components$Legend$LegendPosition() -> b
+    int[] $SWITCH_TABLE$com$github$mikephil$charting$components$Legend$LegendForm() -> c
+com.github.mikephil.charting.renderer.LineChartRenderer -> com.github.mikephil.charting.g.f:
+    com.github.mikephil.charting.interfaces.LineDataProvider mChart -> a
+    android.graphics.Paint mCirclePaintInner -> b
+    android.graphics.Bitmap mDrawBitmap -> c
+    android.graphics.Canvas mBitmapCanvas -> d
+    android.graphics.Path cubicPath -> j
+    android.graphics.Path cubicFillPath -> k
+    com.github.mikephil.charting.buffer.LineBuffer[] mLineBuffers -> l
+    com.github.mikephil.charting.buffer.CircleBuffer[] mCircleBuffers -> m
+    void initBuffers() -> a
+    void drawData(android.graphics.Canvas) -> a
+    void drawCubic$57864d28(com.github.mikephil.charting.data.LineDataSet,java.util.List) -> a
+    void drawLinear(android.graphics.Canvas,com.github.mikephil.charting.data.LineDataSet,java.util.List) -> a
+    void drawValues(android.graphics.Canvas) -> b
+    void drawExtras(android.graphics.Canvas) -> c
+    void drawHighlighted(android.graphics.Canvas,com.github.mikephil.charting.utils.Highlight[]) -> a
+com.github.mikephil.charting.renderer.PieChartRenderer -> com.github.mikephil.charting.g.g:
+    com.github.mikephil.charting.charts.PieChart mChart -> a
+    android.graphics.Paint mHolePaint -> b
+    android.graphics.Paint mTransparentCirclePaint -> c
+    android.graphics.Paint mCenterTextPaint -> d
+    android.graphics.Bitmap mDrawBitmap -> j
+    android.graphics.Canvas mBitmapCanvas -> k
+    android.graphics.Paint getPaintHole() -> b
+    android.graphics.Paint getPaintTransparentCircle() -> c
+    void initBuffers() -> a
+    void drawData(android.graphics.Canvas) -> a
+    void drawDataSet$645f7c59(com.github.mikephil.charting.data.PieDataSet) -> a
+    void drawValues(android.graphics.Canvas) -> b
+    void drawExtras(android.graphics.Canvas) -> c
+    void drawHighlighted(android.graphics.Canvas,com.github.mikephil.charting.utils.Highlight[]) -> a
+com.github.mikephil.charting.renderer.RadarChartRenderer -> com.github.mikephil.charting.g.h:
+    com.github.mikephil.charting.charts.RadarChart mChart -> a
+    android.graphics.Paint mWebPaint -> b
+    void initBuffers() -> a
+    void drawData(android.graphics.Canvas) -> a
+    void drawValues(android.graphics.Canvas) -> b
+    void drawExtras(android.graphics.Canvas) -> c
+    void drawHighlighted(android.graphics.Canvas,com.github.mikephil.charting.utils.Highlight[]) -> a
+com.github.mikephil.charting.renderer.Renderer -> com.github.mikephil.charting.g.i:
+    com.github.mikephil.charting.utils.ViewPortHandler mViewPortHandler -> n
+    int mMinX -> o
+    int mMaxX -> p
+    void calcXBounds(com.github.mikephil.charting.interfaces.BarLineScatterCandleDataProvider,int) -> a
+com.github.mikephil.charting.renderer.XAxisRenderer -> com.github.mikephil.charting.g.j:
+    com.github.mikephil.charting.components.XAxis mXAxis -> f
+    void computeAxis(float,java.util.List) -> a
+    void renderAxisLabels(android.graphics.Canvas) -> a
+    void renderAxisLine(android.graphics.Canvas) -> b
+    void drawLabels(android.graphics.Canvas,float) -> a
+    void renderGridLines(android.graphics.Canvas) -> c
+    void renderLimitLines(android.graphics.Canvas) -> d
+com.github.mikephil.charting.renderer.XAxisRendererBarChart -> com.github.mikephil.charting.g.k:
+    com.github.mikephil.charting.charts.BarChart mChart -> g
+    void drawLabels(android.graphics.Canvas,float) -> a
+    void renderGridLines(android.graphics.Canvas) -> c
+com.github.mikephil.charting.renderer.XAxisRendererHorizontalBarChart -> com.github.mikephil.charting.g.l:
+    void computeAxis(float,java.util.List) -> a
+    void renderAxisLabels(android.graphics.Canvas) -> a
+    void drawLabels(android.graphics.Canvas,float) -> a
+    void renderGridLines(android.graphics.Canvas) -> c
+    void renderAxisLine(android.graphics.Canvas) -> b
+    void renderLimitLines(android.graphics.Canvas) -> d
+com.github.mikephil.charting.renderer.XAxisRendererRadarChart -> com.github.mikephil.charting.g.m:
+    com.github.mikephil.charting.charts.RadarChart mChart -> g
+    void renderAxisLabels(android.graphics.Canvas) -> a
+    void renderLimitLines(android.graphics.Canvas) -> d
+com.github.mikephil.charting.renderer.YAxisRenderer -> com.github.mikephil.charting.g.n:
+    com.github.mikephil.charting.components.YAxis mYAxis -> f
+    void computeAxis(float,float) -> a
+    void computeAxisValues(float,float) -> b
+    void renderAxisLabels(android.graphics.Canvas) -> a
+    void renderAxisLine(android.graphics.Canvas) -> b
+    void drawYLabels(android.graphics.Canvas,float,float[],float) -> a
+    void renderGridLines(android.graphics.Canvas) -> c
+    void renderLimitLines(android.graphics.Canvas) -> d
+com.github.mikephil.charting.renderer.YAxisRendererHorizontalBarChart -> com.github.mikephil.charting.g.o:
+    void computeAxis(float,float) -> a
+    void renderAxisLabels(android.graphics.Canvas) -> a
+    void renderAxisLine(android.graphics.Canvas) -> b
+    void drawYLabels(android.graphics.Canvas,float,float[],float) -> a
+    void renderGridLines(android.graphics.Canvas) -> c
+    void renderLimitLines(android.graphics.Canvas) -> d
+com.github.mikephil.charting.renderer.YAxisRendererRadarChart -> com.github.mikephil.charting.g.p:
+    com.github.mikephil.charting.charts.RadarChart mChart -> g
+    void computeAxis(float,float) -> a
+    void computeAxisValues(float,float) -> b
+    void renderAxisLabels(android.graphics.Canvas) -> a
+    void renderLimitLines(android.graphics.Canvas) -> d
+com.github.mikephil.charting.utils.ColorTemplate -> com.github.mikephil.charting.h.a:
+    int[] LIBERTY_COLORS -> a
+    int[] JOYFUL_COLORS -> b
+    int[] PASTEL_COLORS -> c
+    int[] COLORFUL_COLORS -> d
+    int[] VORDIPLOM_COLORS -> e
+    int getHoloBlue() -> a
+com.github.mikephil.charting.utils.DefaultValueFormatter -> com.github.mikephil.charting.h.b:
+    java.text.DecimalFormat mFormat -> a
+    java.lang.String getFormattedValue(float) -> a
+com.github.mikephil.charting.utils.FillFormatter -> com.github.mikephil.charting.h.c:
+    float getFillLinePosition(com.github.mikephil.charting.data.LineDataSet,com.github.mikephil.charting.data.LineData,float,float) -> a
+com.github.mikephil.charting.utils.Highlight -> com.github.mikephil.charting.h.d:
+    int mXIndex -> a
+    int mDataSetIndex -> b
+    int mStackIndex -> c
+    boolean equalTo(com.github.mikephil.charting.utils.Highlight) -> a
+    java.lang.String toString() -> toString
+com.github.mikephil.charting.utils.PercentFormatter -> com.github.mikephil.charting.h.e:
+    java.text.DecimalFormat mFormat -> a
+    java.lang.String getFormattedValue(float) -> a
+com.github.mikephil.charting.utils.PointD -> com.github.mikephil.charting.h.f:
+    double x -> a
+    double y -> b
+    java.lang.String toString() -> toString
+com.github.mikephil.charting.utils.SelInfo -> com.github.mikephil.charting.h.g:
+    float val -> a
+    int dataSetIndex -> b
+    com.github.mikephil.charting.data.DataSet dataSet -> c
+com.github.mikephil.charting.utils.Transformer -> com.github.mikephil.charting.h.h:
+    android.graphics.Matrix mMatrixValueToPx -> a
+    android.graphics.Matrix mMatrixOffset -> b
+    com.github.mikephil.charting.utils.ViewPortHandler mViewPortHandler -> c
+    void prepareMatrixValuePx(float,float,float,float) -> a
+    void prepareMatrixOffset(boolean) -> a
+    void pathValueToPixel(android.graphics.Path) -> a
+    void pointValuesToPixel(float[]) -> a
+    void rectValueToPixel(android.graphics.RectF,float) -> a
+    void rectValueToPixelHorizontal(android.graphics.RectF,float) -> b
+    void pixelsToValue(float[]) -> b
+    com.github.mikephil.charting.utils.PointD getValuesByTouchPoint(float,float) -> a
+com.github.mikephil.charting.utils.TransformerHorizontalBarChart -> com.github.mikephil.charting.h.i:
+    void prepareMatrixOffset(boolean) -> a
+com.github.mikephil.charting.utils.Utils -> com.github.mikephil.charting.h.j:
+    android.util.DisplayMetrics mMetrics -> a
+    int mMinimumFlingVelocity -> b
+    int mMaximumFlingVelocity -> c
+    int[] POW_10 -> d
+    void init(android.content.Context) -> a
+    float convertDpToPixel(float) -> a
+    int calcTextWidth(android.graphics.Paint,java.lang.String) -> a
+    int calcTextHeight(android.graphics.Paint,java.lang.String) -> b
+    float roundToNextSignificant(double) -> a
+    int getDecimals(float) -> b
+    int[] convertIntegers(java.util.List) -> a
+    java.lang.String[] convertStrings(java.util.List) -> b
+    double nextUp(double) -> b
+    int getClosestDataSetIndex(java.util.List,float,com.github.mikephil.charting.components.YAxis$AxisDependency) -> a
+    float getMinimumDistance(java.util.List,float,com.github.mikephil.charting.components.YAxis$AxisDependency) -> b
+    android.graphics.PointF getPosition(android.graphics.PointF,float,float) -> a
+    void velocityTrackerPointerUpCleanUpIfNecessary(android.view.MotionEvent,android.view.VelocityTracker) -> a
+    void postInvalidateOnAnimation(android.view.View) -> a
+    int getMinimumFlingVelocity() -> a
+    int getMaximumFlingVelocity() -> b
+    float getNormalizedAngle(float) -> c
+com.github.mikephil.charting.utils.ValueFormatter -> com.github.mikephil.charting.h.k:
+    java.lang.String getFormattedValue(float) -> a
+com.github.mikephil.charting.utils.ViewPortHandler -> com.github.mikephil.charting.h.l:
+    android.graphics.Matrix mMatrixTouch -> a
+    android.graphics.RectF mContentRect -> b
+    float mChartWidth -> c
+    float mChartHeight -> d
+    float mMinScaleY -> i
+    float mMinScaleX -> j
+    float mScaleX -> e
+    float mScaleY -> f
+    float mTransOffsetX -> g
+    float mTransOffsetY -> h
+    void setChartDimens(float,float) -> a
+    void restrainViewPort(float,float,float,float) -> a
+    float offsetLeft() -> a
+    float offsetRight() -> b
+    float offsetTop() -> c
+    float offsetBottom() -> d
+    float contentTop() -> e
+    float contentLeft() -> f
+    float contentRight() -> g
+    float contentBottom() -> h
+    float contentWidth() -> i
+    float contentHeight() -> j
+    android.graphics.RectF getContentRect() -> k
+    android.graphics.PointF getContentCenter() -> l
+    float getChartHeight() -> m
+    float getChartWidth() -> n
+    android.graphics.Matrix zoom$57f5f481(float,float) -> b
+    android.graphics.Matrix refresh(android.graphics.Matrix,android.view.View,boolean) -> a
+    void limitTransAndScale(android.graphics.Matrix,android.graphics.RectF) -> a
+    void setMinimumScaleX(float) -> a
+    android.graphics.Matrix getMatrixTouch() -> o
+    boolean isInBoundsX(float) -> b
+    boolean isInBoundsY(float) -> c
+    boolean isInBoundsLeft(float) -> d
+    boolean isInBoundsRight(float) -> e
+    boolean isInBoundsTop(float) -> f
+    boolean isInBoundsBottom(float) -> g
+    boolean isFullyZoomedOutY() -> p
+    boolean isFullyZoomedOutX() -> q
+com.sina.util.dnscache.AppConfigUtil -> com.sina.util.dnscache.a:
+    android.content.Context mContext -> a
+    java.lang.String getAppVersionName() -> a
+com.sina.util.dnscache.DNSCache -> com.sina.util.dnscache.b:
+    com.sina.util.dnscache.DNSCache Instance -> h
+    android.content.Context sContext -> i
+    java.lang.Object lock -> j
+    com.sina.util.dnscache.cache.IDnsCache dnsCacheManager -> a
+    com.sina.util.dnscache.query.IQuery queryManager -> b
+    com.sina.util.dnscache.score.IScore scoreManager -> c
+    com.sina.util.dnscache.httpdns.IHttpDns httpdnsManager -> d
+    com.sina.util.dnscache.speedtest.ISpeedtest speedtestManager -> e
+    java.util.concurrent.ConcurrentHashMap mRunningTasks -> k
+    int sleepTime -> f
+    java.util.Timer timer -> l
+    long TimerTaskOldRunTime -> g
+    java.util.TimerTask task -> m
+    com.sina.util.dnscache.DNSCache getInstance() -> a
+    void Init(android.content.Context) -> a
+    com.sina.util.dnscache.cache.IDnsCache getDnsCacheManager() -> b
+    com.sina.util.dnscache.DomainInfo[] getDomainServerIp(java.lang.String) -> a
+    void setDomainServerIpInfo(com.sina.util.dnscache.DomainInfo) -> a
+    long getTimerDelayedStartTime() -> c
+    void upDataDNSCache() -> d
+    com.sina.util.dnscache.model.DomainModel access$0(com.sina.util.dnscache.DNSCache,java.lang.String) -> a
+    java.util.concurrent.ConcurrentHashMap access$1(com.sina.util.dnscache.DNSCache) -> a
+com.sina.util.dnscache.DNSCache$1 -> com.sina.util.dnscache.c:
+    com.sina.util.dnscache.DNSCache this$0 -> a
+    void run() -> run
+com.sina.util.dnscache.DNSCache$2 -> com.sina.util.dnscache.d:
+    com.sina.util.dnscache.DNSCache this$0 -> a
+    com.sina.util.dnscache.DomainInfo val$domainInfo -> b
+    void run() -> run
+com.sina.util.dnscache.DNSCache$3 -> com.sina.util.dnscache.e:
+    com.sina.util.dnscache.DNSCache this$0 -> a
+    java.lang.String val$host -> b
+    void run() -> run
+com.sina.util.dnscache.DNSCache$UpdateTask -> com.sina.util.dnscache.f:
+    java.lang.Runnable runnable -> a
+    long beginTime -> b
+    void start() -> a
+com.sina.util.dnscache.DNSCacheConfig -> com.sina.util.dnscache.g:
+    boolean DEBUG -> a
+    java.lang.String ConfigText_API -> b
+    void InitCfg(android.content.Context) -> a
+    void syncConfig(com.sina.util.dnscache.DNSCacheConfig$Data) -> a
+    void saveLocalConfigAndSync(android.content.Context,com.sina.util.dnscache.DNSCacheConfig$Data) -> a
+    com.sina.util.dnscache.DNSCacheConfig$Data access$0() -> a
+    java.lang.String access$1() -> b
+com.sina.util.dnscache.DNSCacheConfig$1 -> com.sina.util.dnscache.h:
+    android.content.Context val$ctx -> a
+    void run() -> run
+com.sina.util.dnscache.DNSCacheConfig$Data -> com.sina.util.dnscache.i:
+    com.sina.util.dnscache.DNSCacheConfig$Data Instance -> a
+    java.lang.String IS_MY_HTTP_SERVER -> b
+    java.lang.String HTTPDNS_SERVER_API -> c
+    java.lang.String IS_DNSPOD_SERVER -> d
+    java.lang.String DNSPOD_SERVER_API -> e
+    java.lang.String DNSPOD_ID -> f
+    java.lang.String DNSPOD_KEY -> g
+    java.lang.String IS_SORT -> h
+    java.lang.String SPEEDTEST_PLUGIN_NUM -> i
+    java.lang.String PRIORITY_PLUGIN_NUM -> j
+    java.lang.String SUCCESSNUM_PLUGIN_NUM -> k
+    java.lang.String ERRNUM_PLUGIN_NUM -> l
+    java.lang.String SUCCESSTIME_PLUGIN_NUM -> m
+    java.util.ArrayList SPEEDPATH_LIST -> n
+    com.sina.util.dnscache.DNSCacheConfig$Data getInstance() -> a
+    java.lang.String toJson() -> b
+    com.sina.util.dnscache.DNSCacheConfig$Data createDefault() -> c
+    com.sina.util.dnscache.DNSCacheConfig$Data fromJson(java.lang.String) -> a
+com.sina.util.dnscache.DNSCacheTestActivityTabMain -> com.sina.util.dnscache.DNSCacheTestActivityTabMain:
+    java.util.ArrayList fragments -> n
+    java.util.ArrayList buttons -> o
+    void onCreate(android.os.Bundle) -> onCreate
+com.sina.util.dnscache.DNSCacheTestActivityTabMain$FragmentTabAdapter -> com.sina.util.dnscache.j:
+    java.util.ArrayList fragments -> a
+    java.util.ArrayList rgs -> b
+    android.support.v4.app.FragmentActivity fragmentActivity -> c
+    int fragmentContentId -> d
+    android.support.v4.app.Fragment currentFragment -> e
+    android.view.View currentButton -> g
+    com.sina.util.dnscache.DNSCacheTestActivityTabMain this$0 -> f
+    void setButton(android.view.View) -> a
+com.sina.util.dnscache.DNSCacheTestActivityTabMain$FragmentTabAdapter$1 -> com.sina.util.dnscache.k:
+    com.sina.util.dnscache.DNSCacheTestActivityTabMain$FragmentTabAdapter this$1 -> a
+    android.support.v4.app.Fragment val$fragment -> b
+    void onClick(android.view.View) -> onClick
+com.sina.util.dnscache.DnsCacheApplication -> com.sina.util.dnscache.DnsCacheApplication:
+    android.content.Context mGlobalInstance -> a
+    void onCreate() -> onCreate
+com.sina.util.dnscache.DomainInfo -> com.sina.util.dnscache.l:
+    java.lang.String id -> a
+    java.lang.String url -> b
+    java.lang.String host -> c
+    java.lang.String data -> d
+    java.lang.String startTime -> e
+    java.lang.String stopTime -> f
+    java.lang.String code -> g
+    java.lang.String toString() -> toString
+com.sina.util.dnscache.Tools -> com.sina.util.dnscache.m:
+    java.lang.String getHostName(java.lang.String) -> a
+    java.lang.String getStringDateShort(long) -> a
+    java.lang.String getStringDateShort(java.lang.String) -> b
+    void log(java.lang.String,java.lang.String) -> a
+com.sina.util.dnscache.cache.DNSCacheDatabaseHelper -> com.sina.util.dnscache.a.a:
+    byte[] synLock -> a
+    void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
+    void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
+    com.sina.util.dnscache.model.DomainModel addDomainModel$67d539f3(java.lang.String,com.sina.util.dnscache.model.DomainModel) -> a
+    java.util.List QueryDomainInfo(java.lang.String,java.lang.String) -> a
+    java.util.List QueryIpModelInfo(com.sina.util.dnscache.model.DomainModel) -> a
+    com.sina.util.dnscache.model.IpModel setIpModelSpeedInfo(com.sina.util.dnscache.model.IpModel) -> a
+    com.sina.util.dnscache.model.IpModel getIpModel(java.lang.String,java.lang.String) -> b
+    void clear() -> a
+    java.util.ArrayList getAllTableDomain() -> b
+    java.util.ArrayList getTableIP() -> c
+com.sina.util.dnscache.cache.DnsCacheManager -> com.sina.util.dnscache.a.b:
+    com.sina.util.dnscache.cache.DNSCacheDatabaseHelper db -> a
+    int INIT_SIZE -> b
+    int MAX_CACHE_SIZE -> c
+    long DIFFERENCE -> d
+    java.util.concurrent.ConcurrentHashMap data -> e
+    com.sina.util.dnscache.model.DomainModel getDnsCache(java.lang.String,java.lang.String) -> c
+    com.sina.util.dnscache.model.DomainModel insertDnsCache(com.sina.util.dnscache.model.HttpDnsPack) -> a
+    com.sina.util.dnscache.model.IpModel setSpeedInfo(com.sina.util.dnscache.model.IpModel) -> b
+    java.util.ArrayList getExpireDnsCache() -> d
+    java.util.ArrayList getAllMemoryCache() -> e
+    void clear() -> a
+    void clearMemoryCache() -> f
+    void addMemoryCache(java.lang.String,com.sina.util.dnscache.model.DomainModel) -> b
+    boolean isExpire(com.sina.util.dnscache.model.DomainModel,long) -> a
+com.sina.util.dnscache.cache.IDnsCache -> com.sina.util.dnscache.a.c:
+    com.sina.util.dnscache.model.DomainModel getDnsCache(java.lang.String,java.lang.String) -> c
+    com.sina.util.dnscache.model.DomainModel insertDnsCache(com.sina.util.dnscache.model.HttpDnsPack) -> a
+    com.sina.util.dnscache.model.IpModel setSpeedInfo(com.sina.util.dnscache.model.IpModel) -> b
+    java.util.ArrayList getExpireDnsCache() -> d
+    void addMemoryCache(java.lang.String,com.sina.util.dnscache.model.DomainModel) -> b
+    void clear() -> a
+    void clearMemoryCache() -> f
+    java.util.ArrayList getAllMemoryCache() -> e
+    java.util.ArrayList getAllTableDomain() -> b
+    java.util.ArrayList getTableIP() -> c
+com.sina.util.dnscache.cachedata.CacheDataFragment -> com.sina.util.dnscache.b.a:
+    android.widget.TextView task_list_start -> aa
+    android.widget.TextView http_dns_timer_start -> ab
+    android.widget.TextView memory_cache_data -> ac
+    android.widget.TextView domain_table_data -> ad
+    android.widget.TextView ip_table_data -> ae
+    android.widget.TextView httpdns_api_data -> af
+    android.widget.ImageButton memory_cache_data_clear_Btn -> ag
+    android.widget.ImageButton db_cache_data_clear_Btn -> ah
+    android.widget.ImageButton clearBtn -> ai
+    android.os.Handler handler -> aj
+    int sleepTime -> ak
+    java.util.Timer timer -> al
+    java.util.TimerTask task -> am
+    android.view.View onCreateView$469ccb8a(android.view.LayoutInflater) -> a
+    void onResume() -> q
+    void updataData() -> N
+com.sina.util.dnscache.cachedata.CacheDataFragment$1 -> com.sina.util.dnscache.b.b:
+    com.sina.util.dnscache.cachedata.CacheDataFragment this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.sina.util.dnscache.cachedata.CacheDataFragment$2 -> com.sina.util.dnscache.b.c:
+    com.sina.util.dnscache.cachedata.CacheDataFragment this$0 -> a
+    void run() -> run
+com.sina.util.dnscache.cachedata.CacheDataFragment$3 -> com.sina.util.dnscache.b.d:
+    com.sina.util.dnscache.cachedata.CacheDataFragment this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.sina.util.dnscache.cachedata.CacheDataFragment$4 -> com.sina.util.dnscache.b.e:
+    com.sina.util.dnscache.cachedata.CacheDataFragment this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.sina.util.dnscache.cachedata.CacheDataFragment$5 -> com.sina.util.dnscache.b.f:
+    com.sina.util.dnscache.cachedata.CacheDataFragment this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.sina.util.dnscache.datagraph.AllTaskExpendTimeActivity -> com.sina.util.dnscache.datagraph.AllTaskExpendTimeActivity:
+    android.widget.ImageButton leftBtn -> a
+    com.github.mikephil.charting.charts.LineChart mChart -> d
+    long MAX_VALUE -> b
+    long MIN_VALUE -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    void onProgressChanged(android.widget.SeekBar,int,boolean) -> onProgressChanged
+    void onStartTrackingTouch(android.widget.SeekBar) -> onStartTrackingTouch
+    void onStopTrackingTouch(android.widget.SeekBar) -> onStopTrackingTouch
+com.sina.util.dnscache.datagraph.AllTaskExpendTimeActivity$1 -> com.sina.util.dnscache.datagraph.a:
+    com.sina.util.dnscache.datagraph.AllTaskExpendTimeActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.sina.util.dnscache.datagraph.AllTaskSpeedBIActivity -> com.sina.util.dnscache.datagraph.AllTaskSpeedBIActivity:
+    android.widget.ImageButton leftBtn -> a
+    com.github.mikephil.charting.charts.PieChart mChart -> b
+    android.graphics.Typeface tf -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    void onProgressChanged(android.widget.SeekBar,int,boolean) -> onProgressChanged
+    void onStartTrackingTouch(android.widget.SeekBar) -> onStartTrackingTouch
+    void onStopTrackingTouch(android.widget.SeekBar) -> onStopTrackingTouch
+com.sina.util.dnscache.datagraph.AllTaskSpeedBIActivity$1 -> com.sina.util.dnscache.datagraph.b:
+    com.sina.util.dnscache.datagraph.AllTaskSpeedBIActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.sina.util.dnscache.datagraph.DataGraphFragment -> com.sina.util.dnscache.datagraph.c:
+    android.widget.LinearLayout all_taskspeed_bi_but -> aa
+    android.widget.LinearLayout httpdnslib_expendtime_but -> ab
+    android.widget.LinearLayout alltask_expendtime_but -> ac
+    android.widget.LinearLayout server_speed_but -> ad
+    android.widget.TextView all_taskspeed_bi_fast -> ae
+    android.widget.TextView all_taskspeed_bi_slow -> af
+    android.widget.TextView httpdnslib_expendtime_max -> ag
+    android.widget.TextView httpdnslib_expendtime_min -> ah
+    android.widget.TextView alltask_expendtime_max -> ai
+    android.widget.TextView alltask_expendtime_average -> aj
+    android.widget.TextView server_speed_fast -> ak
+    android.widget.TextView server_speed_slow -> al
+    android.view.View onCreateView$469ccb8a(android.view.LayoutInflater) -> a
+    void onResume() -> q
+    java.lang.String[] serverName(java.util.ArrayList) -> a
+com.sina.util.dnscache.datagraph.DataGraphFragment$1 -> com.sina.util.dnscache.datagraph.d:
+    com.sina.util.dnscache.datagraph.DataGraphFragment this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.sina.util.dnscache.datagraph.DataGraphFragment$2 -> com.sina.util.dnscache.datagraph.e:
+    com.sina.util.dnscache.datagraph.DataGraphFragment this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.sina.util.dnscache.datagraph.DataGraphFragment$3 -> com.sina.util.dnscache.datagraph.f:
+    com.sina.util.dnscache.datagraph.DataGraphFragment this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.sina.util.dnscache.datagraph.DataGraphFragment$4 -> com.sina.util.dnscache.datagraph.g:
+    com.sina.util.dnscache.datagraph.DataGraphFragment this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.sina.util.dnscache.datagraph.HttpDNSExpendTimeActivity -> com.sina.util.dnscache.datagraph.HttpDNSExpendTimeActivity:
+    android.widget.ImageButton leftBtn -> a
+    com.github.mikephil.charting.charts.LineChart mChart -> d
+    long MAX_TIME -> b
+    long MIN_TIME -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    void setData() -> a
+    void onProgressChanged(android.widget.SeekBar,int,boolean) -> onProgressChanged
+    void onStartTrackingTouch(android.widget.SeekBar) -> onStartTrackingTouch
+    void onStopTrackingTouch(android.widget.SeekBar) -> onStopTrackingTouch
+com.sina.util.dnscache.datagraph.HttpDNSExpendTimeActivity$1 -> com.sina.util.dnscache.datagraph.h:
+    com.sina.util.dnscache.datagraph.HttpDNSExpendTimeActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.sina.util.dnscache.datagraph.ServerSpeedActivity -> com.sina.util.dnscache.datagraph.ServerSpeedActivity:
+    android.widget.ImageButton leftBtn -> a
+    com.github.mikephil.charting.charts.BarChart mChart -> b
+    android.graphics.Typeface mTf -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    void onProgressChanged(android.widget.SeekBar,int,boolean) -> onProgressChanged
+    void onStartTrackingTouch(android.widget.SeekBar) -> onStartTrackingTouch
+    void onStopTrackingTouch(android.widget.SeekBar) -> onStopTrackingTouch
+com.sina.util.dnscache.datagraph.ServerSpeedActivity$1 -> com.sina.util.dnscache.datagraph.i:
+    com.sina.util.dnscache.datagraph.ServerSpeedActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.sina.util.dnscache.datagraph.ServerSpeedActivity$DataRate -> com.sina.util.dnscache.datagraph.j:
+    long dataLength -> a
+    long dataElapsed -> b
+com.sina.util.dnscache.httpdns.HttpDnsConfig -> com.sina.util.dnscache.c.a:
+    boolean isSinaHttpDns -> a
+    boolean IS_DNSPOD_HTTPDNS -> b
+    java.lang.String HTTPDNS_SERVER_API -> c
+    java.lang.String DNSPOD_SERVER_API -> d
+com.sina.util.dnscache.httpdns.HttpDnsManager -> com.sina.util.dnscache.c.b:
+    java.util.ArrayList debugInfo -> a
+    com.sina.util.dnscache.httpdns.requests.INetworkRequests netWork -> b
+    com.sina.util.dnscache.httpdns.IJsonParser jsonObj -> c
+    com.sina.util.dnscache.model.HttpDnsPack requestHttpDns(java.lang.String) -> a
+    java.util.ArrayList getDebugInfo() -> a
+    void initDebugInfo() -> b
+com.sina.util.dnscache.httpdns.HttpDnsManager$DNSPodCipher -> com.sina.util.dnscache.c.c:
+    java.lang.String Encryption(java.lang.String) -> a
+    java.lang.String Decryption(java.lang.String) -> b
+    java.lang.String bytesToHexString(byte[]) -> a
+    byte[] hexStringToBytes(java.lang.String) -> c
+com.sina.util.dnscache.httpdns.IHttpDns -> com.sina.util.dnscache.c.d:
+    com.sina.util.dnscache.model.HttpDnsPack requestHttpDns(java.lang.String) -> a
+    java.util.ArrayList getDebugInfo() -> a
+    void initDebugInfo() -> b
+com.sina.util.dnscache.httpdns.IJsonParser -> com.sina.util.dnscache.c.e:
+    com.sina.util.dnscache.model.HttpDnsPack JsonStrToObj(java.lang.String) -> a
+com.sina.util.dnscache.httpdns.IJsonParser$JavaJSON_SINAHTTPDNS -> com.sina.util.dnscache.c.f:
+    com.sina.util.dnscache.model.HttpDnsPack JsonStrToObj(java.lang.String) -> a
+com.sina.util.dnscache.httpdns.requests.ApacheHttpClientNetworkRequests -> com.sina.util.dnscache.c.a.a:
+    java.lang.String requests(java.lang.String) -> a
+    java.lang.String requests(java.lang.String,java.lang.String) -> a
+    java.lang.String requests(java.lang.String,java.util.HashMap) -> b
+    byte[] requestsByteArr(java.lang.String,java.util.HashMap) -> a
+    byte[] readStream(java.io.InputStream) -> a
+com.sina.util.dnscache.httpdns.requests.INetworkRequests -> com.sina.util.dnscache.c.a.b:
+    java.lang.String requests(java.lang.String) -> a
+    java.lang.String requests(java.lang.String,java.lang.String) -> a
+    byte[] requestsByteArr(java.lang.String,java.util.HashMap) -> a
+com.sina.util.dnscache.log.HttpDnsLogManager -> com.sina.util.dnscache.d.a:
+    java.io.File mLogFile -> a
+    com.sina.util.dnscache.log.HttpDnsLogManager mDnsLogManager -> b
+    com.sina.util.dnscache.log.HttpDnsLogManager getInstance() -> a
+    void tryCreateLogFile() -> b
+    void writeLog$4f708078(java.lang.String) -> a
+    java.lang.String generateJsonStr$22c48cd8(java.lang.String) -> b
+    java.lang.String generateJsonStrFromMap(java.util.HashMap) -> a
+com.sina.util.dnscache.model.DomainModel -> com.sina.util.dnscache.e.a:
+    long id -> a
+    java.lang.String domain -> b
+    java.lang.String sp -> c
+    java.lang.String ttl -> d
+    java.lang.String time -> e
+    java.util.ArrayList ipModelArr -> f
+    java.lang.String toString() -> toString
+com.sina.util.dnscache.model.HttpDnsPack -> com.sina.util.dnscache.e.b:
+    java.lang.String domain -> a
+    java.lang.String device_ip -> b
+    java.lang.String device_sp -> c
+    com.sina.util.dnscache.model.HttpDnsPack$IP[] dns -> d
+    java.lang.String localhostSp -> e
+    java.lang.String toString() -> toString
+com.sina.util.dnscache.model.HttpDnsPack$IP -> com.sina.util.dnscache.e.c:
+    java.lang.String ip -> a
+    java.lang.String ttl -> b
+    java.lang.String priority -> c
+    float speed -> d
+    java.lang.String toString() -> toString
+com.sina.util.dnscache.model.IpModel -> com.sina.util.dnscache.e.d:
+    long id -> a
+    long d_id -> b
+    java.lang.String ip -> c
+    int port -> d
+    java.lang.String sp -> e
+    java.lang.String ttl -> f
+    java.lang.String priority -> g
+    java.lang.String finally_speed -> h
+    java.lang.String success_num -> i
+    java.lang.String err_num -> j
+    java.lang.String finally_success_time -> k
+    float grade -> l
+    java.lang.String toString() -> toString
+com.sina.util.dnscache.query.IQuery -> com.sina.util.dnscache.f.a:
+    com.sina.util.dnscache.model.DomainModel queryDomainIp(java.lang.String,java.lang.String) -> a
+    com.sina.util.dnscache.model.DomainModel getCacheDomainIp(java.lang.String,java.lang.String) -> b
+com.sina.util.dnscache.query.QueryManager -> com.sina.util.dnscache.f.b:
+    com.sina.util.dnscache.cache.IDnsCache dnsCache -> a
+    com.sina.util.dnscache.model.DomainModel queryDomainIp(java.lang.String,java.lang.String) -> a
+    com.sina.util.dnscache.model.DomainModel getCacheDomainIp(java.lang.String,java.lang.String) -> b
+com.sina.util.dnscache.score.IPlugIn -> com.sina.util.dnscache.g.a:
+    float ratio -> a
+    void run(java.util.ArrayList) -> a
+com.sina.util.dnscache.score.IScore -> com.sina.util.dnscache.g.b:
+    java.lang.String[] serverIpScore(com.sina.util.dnscache.model.DomainModel) -> a
+com.sina.util.dnscache.score.PlugInManager -> com.sina.util.dnscache.g.c:
+    java.util.ArrayList plugIn -> a
+    float SpeedTestPluginNum -> b
+    float PriorityPluginNum -> c
+    float SuccessNumPluginNum -> d
+    float ErrNumPluginNum -> e
+    float SuccessTimePluginNum -> f
+    void run(java.util.ArrayList) -> a
+com.sina.util.dnscache.score.PlugInManager$IpModelSort -> com.sina.util.dnscache.g.d:
+    com.sina.util.dnscache.score.PlugInManager this$0 -> a
+    int compare(java.lang.Object,java.lang.Object) -> compare
+com.sina.util.dnscache.score.ScoreManager -> com.sina.util.dnscache.g.e:
+    boolean IS_SORT -> a
+    com.sina.util.dnscache.score.PlugInManager plugInManager -> b
+    java.lang.String[] serverIpScore(com.sina.util.dnscache.model.DomainModel) -> a
+com.sina.util.dnscache.score.plugin.ErrNumPlugin -> com.sina.util.dnscache.g.a.a:
+    void run(java.util.ArrayList) -> a
+com.sina.util.dnscache.score.plugin.PriorityPlugin -> com.sina.util.dnscache.g.a.b:
+    void run(java.util.ArrayList) -> a
+com.sina.util.dnscache.score.plugin.SpeedTestPlugin -> com.sina.util.dnscache.g.a.c:
+    void run(java.util.ArrayList) -> a
+com.sina.util.dnscache.score.plugin.SuccessNumPlugin -> com.sina.util.dnscache.g.a.d:
+    void run(java.util.ArrayList) -> a
+com.sina.util.dnscache.score.plugin.SuccessTimePlugin -> com.sina.util.dnscache.g.a.e:
+    void run(java.util.ArrayList) -> a
+com.sina.util.dnscache.simulationtask.SimulationTaskFragment -> com.sina.util.dnscache.simulationtask.a:
+    android.widget.Button switchBtn -> aa
+    boolean isSwitchBtn -> ab
+    android.widget.ListView listView -> ac
+    com.sina.util.dnscache.simulationtask.TaskModelAdapter taskAdapter -> ad
+    android.os.Handler handler -> ae
+    java.util.Comparator comparator -> af
+    android.view.View onCreateView$469ccb8a(android.view.LayoutInflater) -> a
+    void onResume() -> q
+com.sina.util.dnscache.simulationtask.SimulationTaskFragment$1 -> com.sina.util.dnscache.simulationtask.b:
+    com.sina.util.dnscache.simulationtask.SimulationTaskFragment this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.sina.util.dnscache.simulationtask.SimulationTaskFragment$2 -> com.sina.util.dnscache.simulationtask.c:
+    com.sina.util.dnscache.simulationtask.SimulationTaskFragment this$0 -> a
+    int compare(java.lang.Object,java.lang.Object) -> compare
+com.sina.util.dnscache.simulationtask.SimulationTaskFragment$3 -> com.sina.util.dnscache.simulationtask.d:
+    com.sina.util.dnscache.simulationtask.SimulationTaskFragment this$0 -> a
+    void onClick(android.view.View) -> onClick
+    com.sina.util.dnscache.simulationtask.SimulationTaskFragment access$0(com.sina.util.dnscache.simulationtask.SimulationTaskFragment$3) -> a
+com.sina.util.dnscache.simulationtask.SimulationTaskFragment$3$1 -> com.sina.util.dnscache.simulationtask.e:
+    com.sina.util.dnscache.simulationtask.SimulationTaskFragment$3 this$1 -> a
+    void run() -> run
+com.sina.util.dnscache.simulationtask.SimulationTaskFragment$4 -> com.sina.util.dnscache.simulationtask.f:
+    com.sina.util.dnscache.simulationtask.SimulationTaskFragment this$0 -> a
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+com.sina.util.dnscache.simulationtask.TaskInfoActivity -> com.sina.util.dnscache.simulationtask.TaskInfoActivity:
+    android.widget.ImageButton leftBtn -> a
+    android.widget.TextView taskID -> b
+    android.widget.TextView status -> c
+    android.widget.TextView taskStartTime -> d
+    android.widget.TextView taskStopTime -> e
+    android.widget.TextView taskExpendTime -> f
+    android.widget.TextView httpDnsResult -> g
+    android.widget.TextView httpDnsExpendTime -> h
+    android.widget.TextView hostUrl -> i
+    android.widget.TextView hostIp -> j
+    android.widget.TextView hostCode -> k
+    android.widget.TextView hostResult -> l
+    android.widget.ImageView hostImageResutl -> m
+    android.widget.TextView hostExpendTime -> n
+    android.widget.TextView domainUrl -> o
+    android.widget.TextView domainIp -> p
+    android.widget.TextView domainCode -> q
+    android.widget.TextView domainResult -> r
+    android.widget.ImageView domainImageResutl -> s
+    android.widget.TextView domainExpendTime -> t
+    android.widget.TextView netType -> u
+    android.widget.TextView spName -> v
+    com.sina.util.dnscache.simulationtask.TaskModel taskModel -> w
+    android.os.Handler handler -> x
+    void InitData(com.sina.util.dnscache.simulationtask.TaskModel) -> a
+    void onCreate(android.os.Bundle) -> onCreate
+    boolean isImage(java.lang.String) -> a
+    android.graphics.Bitmap InputStream2Bimap(byte[]) -> a
+com.sina.util.dnscache.simulationtask.TaskInfoActivity$1 -> com.sina.util.dnscache.simulationtask.g:
+    com.sina.util.dnscache.simulationtask.TaskInfoActivity this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.sina.util.dnscache.simulationtask.TaskInfoActivity$2 -> com.sina.util.dnscache.simulationtask.h:
+    com.sina.util.dnscache.simulationtask.TaskInfoActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.sina.util.dnscache.simulationtask.TaskInfoActivity$3 -> com.sina.util.dnscache.simulationtask.i:
+    com.sina.util.dnscache.simulationtask.TaskInfoActivity this$0 -> a
+    void run() -> run
+com.sina.util.dnscache.simulationtask.TaskInfoActivity$4 -> com.sina.util.dnscache.simulationtask.j:
+    com.sina.util.dnscache.simulationtask.TaskInfoActivity this$0 -> a
+    void run() -> run
+com.sina.util.dnscache.simulationtask.TaskManager -> com.sina.util.dnscache.simulationtask.k:
+    com.sina.util.dnscache.simulationtask.TaskManager Instance -> d
+    java.util.ArrayList list -> a
+    com.sina.util.dnscache.simulationtask.ThreadPool threadPool -> b
+    int finishTag -> c
+    void initThreadPool() -> e
+    void reInitThreadPool() -> a
+    com.sina.util.dnscache.simulationtask.TaskManager getInstance() -> b
+    void startTask(android.os.Handler) -> a
+    void stopTask() -> c
+    void initData(java.util.ArrayList) -> a
+    void clear() -> d
+com.sina.util.dnscache.simulationtask.TaskManager$1 -> com.sina.util.dnscache.simulationtask.l:
+    com.sina.util.dnscache.simulationtask.TaskManager this$0 -> a
+    com.sina.util.dnscache.simulationtask.TaskModel val$temp -> b
+    android.os.Handler val$handler -> c
+    java.lang.Object call() -> call
+com.sina.util.dnscache.simulationtask.TaskModel -> com.sina.util.dnscache.simulationtask.m:
+    long taskID -> a
+    int status -> b
+    long taskStartTime -> c
+    long taskStopTime -> d
+    long taskExpendTime -> e
+    java.lang.String url -> f
+    java.lang.String httpDnsResult -> g
+    long httpDnsExpendTime -> h
+    java.lang.String hostUrl -> i
+    java.lang.String hostIp -> j
+    int hostCode -> k
+    byte[] hostInputStreamResult -> l
+    java.lang.String hostResult -> m
+    long hostExpendTime -> n
+    java.lang.String domainUrl -> o
+    java.lang.String domainIp -> p
+    int domainCode -> q
+    byte[] domainInputStreamResult -> r
+    java.lang.String domainResult -> s
+    long domainExpendTime -> t
+    java.lang.String netType -> u
+    java.lang.String spName -> v
+    com.sina.util.dnscache.DomainInfo[] domainInfo -> w
+com.sina.util.dnscache.simulationtask.TaskModelAdapter -> com.sina.util.dnscache.simulationtask.n:
+    java.util.ArrayList list -> a
+    android.content.Context context -> b
+    void initDtaa() -> a
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.sina.util.dnscache.simulationtask.ThreadPool -> com.sina.util.dnscache.simulationtask.o:
+    long ID_NUMBER -> a
+    java.util.concurrent.ExecutorService fixedThreadPool -> b
+    java.lang.String access$0$7389493d(byte[]) -> a
+com.sina.util.dnscache.simulationtask.ThreadPool$1 -> com.sina.util.dnscache.simulationtask.p:
+    com.sina.util.dnscache.simulationtask.ThreadPool this$0 -> a
+    com.sina.util.dnscache.simulationtask.TaskModel val$model -> b
+    java.util.concurrent.Callable val$call -> c
+    void run() -> run
+com.sina.util.dnscache.speedtest.ISpeedtest -> com.sina.util.dnscache.h.a:
+    float speedTest(java.lang.String,java.lang.String) -> a
+    float speedFormula(long,long,int) -> a
+com.sina.util.dnscache.speedtest.SpeedtestManager -> com.sina.util.dnscache.h.b:
+    com.sina.util.dnscache.httpdns.requests.INetworkRequests netWork -> b
+    java.util.HashMap ServerSpeedPaht -> a
+    float speedTest(java.lang.String,java.lang.String) -> a
+    float speedFormula(long,long,int) -> a
+com.sina.util.dnscache.tasksetting.Config -> com.sina.util.dnscache.i.a:
+    java.lang.String urlFilePath -> a
+    int concurrencyNum -> b
+    int requestsNum -> c
+    java.util.ArrayList fileUrlList -> d
+    void updateThreadpoolConfig() -> a
+com.sina.util.dnscache.tasksetting.SpfConfig -> com.sina.util.dnscache.i.b:
+    com.sina.util.dnscache.tasksetting.SpfConfig mInstance -> a
+    android.content.SharedPreferences sharedPreferences -> b
+    java.lang.Object lock -> c
+    com.sina.util.dnscache.tasksetting.SpfConfig getInstance() -> a
+    void putInt(java.lang.String,int) -> a
+    int getInt(java.lang.String,int) -> b
+    void init(android.content.Context) -> a
+com.sina.util.dnscache.tasksetting.TaskSettingFragment -> com.sina.util.dnscache.i.c:
+    java.util.Map mSeekBarInfoMapping -> ac
+    com.sina.util.dnscache.tasksetting.TaskSettingFragment$EditTextDataProcessor mEditTextDataProcessor -> ad
+    com.sina.util.dnscache.tasksetting.TaskSettingFragment$CheckBoxDataProcessor mCheckBoxDataProcessor -> ae
+    com.sina.util.dnscache.tasksetting.TaskSettingFragment$SeekBarDataProcessor mSeekBarDataProcessor -> af
+    com.sina.util.dnscache.DNSCacheConfig$Data mEditConfig -> ag
+    int threadpool_concurrnce_num -> ah
+    int threadpool_reeust_num -> ai
+    android.widget.CompoundButton$OnCheckedChangeListener onCheckedChangeListener -> aa
+    android.widget.SeekBar$OnSeekBarChangeListener seekBarChangeListener -> ab
+    android.view.View onCreateView$469ccb8a(android.view.LayoutInflater) -> a
+    void initSettingInfo(android.view.View) -> a
+    void onDestroy() -> s
+    com.sina.util.dnscache.tasksetting.TaskSettingFragment$CheckBoxDataProcessor access$0(com.sina.util.dnscache.tasksetting.TaskSettingFragment) -> a
+    java.util.Map access$1(com.sina.util.dnscache.tasksetting.TaskSettingFragment) -> b
+    com.sina.util.dnscache.tasksetting.TaskSettingFragment$SeekBarDataProcessor access$2(com.sina.util.dnscache.tasksetting.TaskSettingFragment) -> c
+    com.sina.util.dnscache.tasksetting.TaskSettingFragment$EditTextDataProcessor access$3(com.sina.util.dnscache.tasksetting.TaskSettingFragment) -> d
+    com.sina.util.dnscache.DNSCacheConfig$Data access$4() -> N
+    void access$5(int) -> a
+    void access$6(int) -> b
+    void access$7(com.sina.util.dnscache.tasksetting.TaskSettingFragment,android.view.View) -> a
+    int access$8() -> O
+    int access$9() -> P
+com.sina.util.dnscache.tasksetting.TaskSettingFragment$1 -> com.sina.util.dnscache.i.d:
+    com.sina.util.dnscache.tasksetting.TaskSettingFragment this$0 -> a
+    void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
+com.sina.util.dnscache.tasksetting.TaskSettingFragment$2 -> com.sina.util.dnscache.i.e:
+    com.sina.util.dnscache.tasksetting.TaskSettingFragment this$0 -> a
+    void onStopTrackingTouch(android.widget.SeekBar) -> onStopTrackingTouch
+    void onStartTrackingTouch(android.widget.SeekBar) -> onStartTrackingTouch
+    void onProgressChanged(android.widget.SeekBar,int,boolean) -> onProgressChanged
+com.sina.util.dnscache.tasksetting.TaskSettingFragment$3 -> com.sina.util.dnscache.i.f:
+    com.sina.util.dnscache.tasksetting.TaskSettingFragment this$0 -> a
+    android.view.View val$contentView -> b
+    void onClick(android.view.View) -> onClick
+com.sina.util.dnscache.tasksetting.TaskSettingFragment$4 -> com.sina.util.dnscache.i.g:
+    com.sina.util.dnscache.tasksetting.TaskSettingFragment this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.sina.util.dnscache.tasksetting.TaskSettingFragment$CheckBoxDataProcessor -> com.sina.util.dnscache.i.h:
+com.sina.util.dnscache.tasksetting.TaskSettingFragment$EditTextDataProcessor -> com.sina.util.dnscache.i.i:
+com.sina.util.dnscache.tasksetting.TaskSettingFragment$EditTextWatcher -> com.sina.util.dnscache.i.j:
+    int viewID -> a
+    com.sina.util.dnscache.tasksetting.TaskSettingFragment this$0 -> b
+    void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    void afterTextChanged(android.text.Editable) -> afterTextChanged
+com.sina.util.dnscache.tasksetting.TaskSettingFragment$SeekBarDataProcessor -> com.sina.util.dnscache.i.k:
+com.sina.util.dnscache.tasksetting.TaskSettingFragment$SeekBarInfo -> com.sina.util.dnscache.i.l:
+    android.widget.TextView lableView -> a
+    java.lang.String lableInfo -> b
+    int scale -> c
+    int unitScale -> d
+    int maxScale -> e
+    void updateView(int) -> a
+com.sina.util.dnscache.util.FileTools -> com.sina.util.dnscache.j.a:
+    java.util.ArrayList getFromAssets(android.content.Context,java.lang.String) -> a
+com.sina.util.dnscache.util.IPtoAddress -> com.sina.util.dnscache.j.b:
+    com.sina.util.dnscache.util.IPtoAddress Instance -> a
+    int INIT_SIZE -> b
+    int MAX_CACHE_SIZE -> c
+    java.util.concurrent.ConcurrentHashMap data -> d
+    java.lang.String API_URL -> e
+    com.sina.util.dnscache.util.IPtoAddress getInstance() -> a
+    void toAddress(int,java.lang.String,android.os.Handler) -> a
+    java.lang.String executeHttpGet(java.lang.String) -> c
+    java.lang.String access$0$20cb9770(java.lang.String) -> a
+    java.lang.String access$1$20cb9770(java.lang.String) -> b
+    java.util.concurrent.ConcurrentHashMap access$2(com.sina.util.dnscache.util.IPtoAddress) -> a
+com.sina.util.dnscache.util.IPtoAddress$1 -> com.sina.util.dnscache.j.c:
+    com.sina.util.dnscache.util.IPtoAddress this$0 -> a
+    java.lang.String val$ip -> b
+    int val$id -> c
+    android.os.Handler val$handler -> d
+    void run() -> run
+com.sina.util.dnscache.util.StorageUtils -> com.sina.util.dnscache.j.d:
+    java.io.File getExternalCacheDir(android.content.Context) -> a
+com.sina.util.dnscache.util.ToastUtil -> com.sina.util.dnscache.j.e:
+    void showText(android.content.Context,java.lang.String) -> a
+com.sina.util.networktype.Constants -> com.sina.util.networktype.a:
+com.sina.util.networktype.NetworkManager -> com.sina.util.networktype.b:
+    com.sina.util.networktype.NetworkManager Instance -> h
+    android.content.Context sContext -> i
+    int NETWORK_TYPE -> a
+    java.lang.String NETWORK_TYPE_STR -> b
+    int SP_TYPE -> c
+    java.lang.String SP_TYPE_STR -> d
+    java.lang.String IP_ADDRESS -> e
+    java.lang.String MACADDRESS -> f
+    java.lang.String NETWORK_IP_ADDRESS -> g
+    com.sina.util.networktype.NetworkManager CreateInstance(android.content.Context) -> a
+    com.sina.util.networktype.NetworkManager getInstance() -> a
+    void Init() -> b
+    java.lang.String toString() -> toString
+    java.lang.String getSPID() -> c
+    android.content.Context access$0() -> d
+com.sina.util.networktype.NetworkManager$1 -> com.sina.util.networktype.c:
+    com.sina.util.networktype.NetworkManager this$0 -> a
+    void run() -> run
+com.sina.util.networktype.NetworkManager$Util -> com.sina.util.networktype.d:
+    java.lang.String getLocalIpAddress() -> a
+    java.lang.String getRouteMac() -> b
+    int getSP() -> c
+    int getNetworkType() -> d
+com.sina.util.networktype.NetworkStateReceiver -> com.sina.util.networktype.NetworkStateReceiver:
+    java.lang.String TAG -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive

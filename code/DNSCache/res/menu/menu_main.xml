@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+
+    <item android:id="@+id/action_clear" android:title="@string/action_clear"
+        android:orderInCategory="100" />
+
+    <item android:id="@+id/action_printf_domain" android:title="@string/action_printf_domain"
+        android:orderInCategory="100" />
+
+    <item android:id="@+id/action_printf_ip" android:title="@string/action_printf_ip"
+        android:orderInCategory="100" />
+
+    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" />
+
+</menu>

@@ -1,0 +1,356 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="#47aff9"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            android:scaleType="centerInside"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="详情页"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <ImageButton
+            android:id="@+id/reight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            android:src="@drawable/back"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#dfe1e6"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="任务"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/taskID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="ID:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="状态:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/taskStartTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="开始时间:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/taskStopTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="结束时间:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/taskExpendTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="消耗时间:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <!--  -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:background="#dfe1e6"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="HTTPDNS 库"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/httpDnsResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="返回结果:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/httpDnsExpendTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="响应时间:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <!--  -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:background="#dfe1e6"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="IP+HOST 请求"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/hostUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="访问URL:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/hostIp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="访问服务器IP:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/hostCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="服务器返回CODE:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/hostResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="服务器返回结果:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/hostImageResult"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingRight="14dip"
+                android:paddingTop="7dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/hostExpendTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="请求耗时:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <!--  -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:background="#dfe1e6"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="域名直接请求"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/domainUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="访问URL:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/domainIp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="访问服务器IP:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/domainCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="服务器返回CODE:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/domainResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="服务器返回结果:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/domainImageResult"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingRight="14dip"
+                android:paddingTop="7dip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/domainExpendTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="请求耗时:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <!--  -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:background="#dfe1e6"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="设备环境信息"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/netType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="网络环境："
+                android:textColor="#252525"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/spName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dip"
+                android:paddingBottom="7dip"
+                android:paddingLeft="14dip"
+                android:paddingTop="7dip"
+                android:text="运营商:"
+                android:textColor="#252525"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
