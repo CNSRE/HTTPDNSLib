@@ -6,7 +6,8 @@
 韩超<br>
 赵星宇<br>
 聂钰<br>
-冯磊 微博链接:http://weibo.com/myfenglei <br>
+冯磊 [@冯磊424](http://weibo.com/myfenglei) <br>
+
 等同学的支持。
 感谢大家提出的宝贵意见，感谢大家为该项目付出的努力！
 
