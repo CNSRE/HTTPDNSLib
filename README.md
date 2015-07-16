@@ -70,6 +70,8 @@ DomainInfo[] infoList = DNSCache.getInstance().getDomainServerIp( "http://api.we
 
 
 ### 更多配置
+你可以创建一个  com.sina.util.dnscache.DNSCacheConfig.Data 对象分别设置下面属性。 <br>
+然后调用 DNSCacheConfig.saveLocalConfigAndSync 方法传入 设定好的 配置选项。
 
 
         /**
