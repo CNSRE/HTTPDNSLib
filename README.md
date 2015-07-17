@@ -45,6 +45,42 @@ apk文件夹下内有打包好的对httpDNS库进行测试的程序。 该测试
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
  
+ 
+ 
+###初始化配置文件
+com.sina.util.dnscache.Data createDefault 方法。 这是一套针对自己工程的配置文件。 
+
+            model.IS_MY_HTTP_SERVER = "";  // 是否开启 私有HTTPDNS SERVER  1为开启 0为不开启
+            model.HTTPDNS_SERVER_API = "";  // 私有 HTTPDNS SERVER API 接口
+ 
+            model.IS_DNSPOD_SERVER = "1"; // 开始DNSPOD SERVER 1为开启 0为不开启
+            model.DNSPOD_SERVER_API = "http://119.29.29.29/d?ttl=1&dn=";  // 开始DNSPOD SERVER API接口 
+            model.DNSPOD_ID = "";  //如果是DNSPOD企业版本只需要配置上ID 和KEY就可以使用企业版了，默认为空
+            model.DNSPOD_KEY = ""; //如果是DNSPOD企业版本只需要配置上ID 和KEY就可以使用企业版了，默认为空
+
+            model.IS_SORT = "1"; // 开启智能排序算法 1为开启 0为不开启
+            model.SPEEDTEST_PLUGIN_NUM = "40";  // 速度排序占比值 40
+            model.PRIORITY_PLUGIN_NUM = "30"; // 服务器推荐排序占比值 30
+            model.SUCCESSNUM_PLUGIN_NUM = "10"; // 历史成功数排序占比值 10
+            model.ERRNUM_PLUGIN_NUM = "10"; // 历史错误数排序占比值 10
+            model.SUCCESSTIME_PLUGIN_NUM = "10"; // 最近一次连接成功占比值 10
+
+	    //下面是为每个域名配置一个静态的测速文件， 该测速文件能够让智能算法判断服务器速度质量。 
+	    //关于测速具体 请参考测速模块代码。  
+	    // 域名;测试文件路径 （以这样的格式分别添加）
+            model.SPEEDPATH_LIST.add("api.weibo.cn;index.html");
+            model.SPEEDPATH_LIST.add("ww1.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
+            model.SPEEDPATH_LIST.add("ww2.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
+            model.SPEEDPATH_LIST.add("ww3.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
+            model.SPEEDPATH_LIST.add("ww4.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
+            model.SPEEDPATH_LIST.add("ww5.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
+
+另外关于方法设定参数 请参照测试工程 TaskSettingFragment 类。支持全部参数动态设定。 
+
+
+
+
+ 
 ### 在使用 http dns前 需要初始化一次 
 DNSCache.Init(this);
 
