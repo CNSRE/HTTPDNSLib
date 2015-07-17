@@ -1,0 +1,241 @@
+package com.sina.util.dnscache.datagraph;
+
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Iterator;
+
+import android.app.Activity;
+import android.graphics.Typeface;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
+
+import com.github.mikephil.charting.charts.HorizontalBarChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.Legend.LegendPosition;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.XAxis.XAxisPosition;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.mikephil.charting.utils.Highlight;
+import com.sina.util.dnscache.R;
+import com.sina.util.dnscache.simulationtask.TaskManager;
+import com.sina.util.dnscache.simulationtask.TaskModel;
+
+public class ServerSpeedActivity extends Activity implements OnSeekBarChangeListener,
+OnChartValueSelectedListener {
+
+	public ImageButton leftBtn = null ;
+	
+	protected HorizontalBarChart mChart;
+	private Typeface tf;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_server_speed);
+
+		leftBtn = (ImageButton)findViewById(R.id.left) ;
+		leftBtn.setOnClickListener( new ImageButton.OnClickListener(){
+			public void onClick(View v) {
+				finish();
+			}
+		} );
+		
+		
+		 mChart = (HorizontalBarChart) findViewById(R.id.chart1);
+	        mChart.setOnChartValueSelectedListener(this);
+	        // mChart.setHighlightEnabled(false);
+
+	        mChart.setDrawBarShadow(false);
+
+	        mChart.setDrawValueAboveBar(true);
+
+	        mChart.setDescription("");
+
+	        // if more than 60 entries are displayed in the chart, no values will be
+	        // drawn
+	        mChart.setMaxVisibleValueCount(60);
+
+	        // scaling can now only be done on x- and y-axis separately
+	        mChart.setPinchZoom(false);
+
+	        // draw shadows for each bar that show the maximum value
+	        // mChart.setDrawBarShadow(true);
+
+	        // mChart.setDrawXLabels(false);
+
+	        mChart.setDrawGridBackground(false);
+
+	        // mChart.setDrawYLabels(false);
+
+	        tf = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
+
+	        XAxis xl = mChart.getXAxis();
+	        xl.setPosition(XAxisPosition.BOTTOM);
+	        xl.setTypeface(tf);
+	        xl.setDrawAxisLine(true);
+	        xl.setDrawGridLines(true);
+	        xl.setGridLineWidth(0.3f);
+
+	        YAxis yl = mChart.getAxisLeft();
+	        yl.setTypeface(tf);
+	        yl.setDrawAxisLine(true);
+	        yl.setDrawGridLines(true);
+	        yl.setGridLineWidth(0.3f);
+//	        yl.setInverted(true);
+
+	        YAxis yr = mChart.getAxisRight();
+	        yr.setTypeface(tf);
+	        yr.setDrawAxisLine(true);
+	        yr.setDrawGridLines(false);
+//	        yr.setInverted(true);
+
+	        setData();
+	        mChart.animateY(2500);
+
+
+	        Legend l = mChart.getLegend();
+	        l.setPosition(LegendPosition.BELOW_CHART_LEFT);
+	        l.setFormSize(8f);
+	        l.setXEntrySpace(4f);
+
+	        // mChart.setDrawLegend(false);
+	
+	}
+	
+    static class DataRate {
+        public long dataLength;
+
+        public long dataElapsed;
+
+        public DataRate(long dataLength, long dataElapsed) {
+            super();
+            this.dataLength = dataLength;
+            this.dataElapsed = dataElapsed;
+        }
+        
+        
+    }
+	public void setData(){
+		
+		ArrayList<TaskModel> list = TaskManager.getInstance().list;
+		if (list == null)
+			return;
+		
+		Hashtable< String, ArrayList<DataRate> > serverIpSpeedList = new Hashtable<String, ArrayList<DataRate>>() ; 
+		for( TaskModel taskModel : list ){
+			ArrayList<DataRate> ips = serverIpSpeedList.get(taskModel.hostIp) ; 
+			if( ips == null ){
+				ips = new ArrayList<DataRate>() ;
+				serverIpSpeedList.put(  DelimitingCharacter(taskModel.hostIp , "\n" , 13 ), ips ) ; 
+			}
+			if (null != taskModel.hostInputStreamResult) {
+			    ips.add(new DataRate(taskModel.hostInputStreamResult.length, taskModel.hostExpendTime + taskModel.httpDnsExpendTime)) ; 
+            }
+			
+			ips = serverIpSpeedList.get(taskModel.domainIp + "_") ; 
+			if( ips == null ){
+				ips = new ArrayList<DataRate>() ;
+				serverIpSpeedList.put(taskModel.domainIp + "_", ips) ; 
+			}
+			if (null != taskModel.domainInputStreamResult) {
+			    ips.add(new DataRate(taskModel.domainInputStreamResult.length, taskModel.domainExpendTime)) ; 
+			}
+		}
+		
+		ArrayList<String> ip = new ArrayList<String>(); 
+		ArrayList<Long> speed = new ArrayList<Long>(); 
+		for(Iterator<String> itr = serverIpSpeedList.keySet().iterator(); itr.hasNext();){
+			String key = (String) itr.next();
+			ArrayList<DataRate> value = (ArrayList<DataRate>) serverIpSpeedList.get(key);
+			ip.add(key) ; 
+			long sunSize = 0 ; 
+			long sunElapsed = 1 ; 
+			for( DataRate l : value ){
+			    sunSize += l.dataLength ; 
+			    sunElapsed += l.dataElapsed;
+			}
+			speed.add( (long) ((sunSize/sunElapsed) * 1.024) ) ; 
+		}
+		
+		
+        ArrayList<String> xVals = new ArrayList<String>();
+        for (int i = 0; i < ip.size(); i++) {
+            xVals.add(ip.get(i));
+        }
+
+        
+        ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
+
+        for (int i = 0; i < speed.size(); i++) {
+            yVals1.add(new BarEntry(speed.get(i), i));
+        }
+
+        BarDataSet set1 = new BarDataSet(yVals1, "服务器平均下载速率（单位KB/S）");
+        set1.setBarSpacePercent(35f);
+
+        ArrayList<BarDataSet> dataSets = new ArrayList<BarDataSet>();
+        dataSets.add(set1);
+
+        BarData data = new BarData(xVals, dataSets);
+        data.setValueTextSize(10f);
+        data.setValueTypeface(tf);
+        mChart.setData(data);
+	}
+	
+	
+
+	@Override
+	public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onNothingSelected() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onProgressChanged(SeekBar seekBar, int progress,
+			boolean fromUser) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onStartTrackingTouch(SeekBar seekBar) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onStopTrackingTouch(SeekBar seekBar) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+	private String DelimitingCharacter(String data, String separator, int len){
+		
+		StringBuffer buff = new StringBuffer(data) ;
+		
+		int index = len ; 
+		
+		while ( index < buff.length() ) {
+			buff.insert(len, separator) ; 
+			index = len * 2 + separator.length() ; 
+		}
+		
+		return buff.toString(); 
+	}
+}

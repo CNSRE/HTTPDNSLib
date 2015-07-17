@@ -1,0 +1,47 @@
+package com.sina.util.dnscache.test;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import android.test.AndroidTestCase;
+import android.util.Log;
+
+import com.sina.util.dnscache.DNSCache;
+import com.sina.util.dnscache.DomainInfo;
+
+public class DNSCacheTest extends AndroidTestCase{
+
+	@Before
+	public void setUp() throws Exception {
+		DNSCache.Init(getContext());
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void testGetDomainServerIp() {
+
+		for (int i = 0; i < 1000 ; i++) {
+			
+			DomainInfo[] infoList = DNSCache.getInstance().getDomainServerIp( "http://api.weibo.cn/index.html" ) ;
+			
+			Log.d("JUNIT", ""+infoList.length) ; 
+			
+			assertTrue( "infoList is null", infoList != null );
+			
+		}
+		
+		
+		
+	}
+
+	@Test
+	public void testSetDomainServerIpInfo() {
+		
+		assertTrue( "infoList is null", true );
+	}
+
+}

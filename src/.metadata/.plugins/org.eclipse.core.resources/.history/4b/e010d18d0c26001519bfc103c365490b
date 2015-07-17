@@ -1,0 +1,107 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e7e7e7"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="#47aff9"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="HTTPDNS测试系统"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/buttom_bar_group"
+        android:layout_marginTop="-35dip"
+        android:layout_width="match_parent"
+        android:layout_height="35dip"
+        android:layout_gravity="bottom"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1px"
+            android:layout_weight="1"
+            android:background="#515e7d"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip" >
+
+            <ImageButton
+                android:id="@+id/buttom_simulation_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dip"
+                android:background="@drawable/bar_simulation_task_but" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#515e7d"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip" >
+
+            <ImageButton
+                android:id="@+id/buttom_task_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dip"
+                android:background="@drawable/bar_task_setting_but" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1px"
+            android:layout_weight="1"
+            android:background="#515e7d"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip" >
+
+            <ImageButton
+                android:id="@+id/buttom_data_graph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dip"
+                android:background="@drawable/bar_data_graph_but" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1px"
+            android:layout_weight="1"
+            android:background="#515e7d"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip" >
+
+            <ImageButton
+                android:id="@+id/buttom_cache_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dip"
+                android:background="@drawable/bar_cache_data_but" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

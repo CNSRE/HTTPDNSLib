@@ -1,0 +1,59 @@
+package com.sina.util.networktype;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
+public class NetworkStateReceiver extends BroadcastReceiver {
+	
+//	String packnameString = null;
+
+	@Override
+	public void onReceive(Context context, Intent intent) {
+		
+//		packnameString = context.getPackageName();
+//
+//		ConnectivityManager connectMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+//		NetworkInfo mobNetInfo = connectMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+//		NetworkInfo wifiNetInfo = connectMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+//
+//		if (!mobNetInfo.isConnected() && !wifiNetInfo.isConnected()) {
+//			// unconnect network
+//			Toast.makeText(context, "unconnect network", Toast.LENGTH_LONG).show();
+//		} else {
+//			// connect network
+//			Toast.makeText(context, "connect network", Toast.LENGTH_LONG).show();
+//		}
+		
+		  // log.debug("网络状态改变");
+        String action = arg1.getAction();
+        log.debug("网络状态改变 action=" + action + " lastType=" + lastType);
+        // 获得网络连接服务
+        ConnectivityManager connManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo info = connManager.getActiveNetworkInfo();
+
+        if (info == null || !connManager.getBackgroundDataSetting()) {
+                log.info("您的网络连接已中断");
+        } else {
+                int netType = info.getType();
+                if (netType != lastType) {
+                        if (info.isConnected()) {
+                                //delay 5seconds
+                                log.warn("new connection was create.........type:" + info.getTypeName() + " status"
+                                                + info.getDetailedState());
+                        } else {
+                                //delay 5seconds
+                                log.warn("the connection was broken...........type:" + info.getTypeName() + " status"
+                                                + info.getDetailedState());
+                        }
+                        lastType = netType;
+                }
+
+        }
+		
+	}
+
+}

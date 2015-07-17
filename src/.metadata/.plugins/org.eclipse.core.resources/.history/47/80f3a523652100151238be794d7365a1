@@ -1,0 +1,128 @@
+/**
+ * 
+ */
+package com.sina.util.dnscache.httpdns.requests;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URI;
+import java.util.HashMap;
+import java.util.Map.Entry;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import android.util.Log;
+
+/**
+ * 
+ * 项目名称: DNSCache 类名称: ApacheHttpClientNetworkRequests 类描述: 创建人: 使用 Apache
+ * HttpClient 实现网络请求 fenglei 创建时间: 2015-3-30 上午11:50:49
+ * 
+ * 修改人: 修改时间: 修改备注:
+ * 
+ * @version V1.0
+ */
+public class ApacheHttpClientNetworkRequests implements INetworkRequests {
+
+	public String requests(String url) {
+
+		return requests(url, "");
+	}
+
+	@Override
+	public String requests(String url, String host) {
+		HashMap<String, String> map = null ;
+		if( host == null || host.equals("") ) {
+			map = null ;
+		}else{
+			map = new HashMap<String, String>();
+			map.put("host", host);
+		}
+		
+		return requests(url, map);
+	}
+
+	@Override
+	public String requests(String url, HashMap<String, String> head) {
+
+		String result = null;
+		BufferedReader reader = null;
+
+		try {
+			HttpClient client = new DefaultHttpClient();
+			HttpGet request = new HttpGet();
+
+			if( head != null ){
+				for (Entry<String, String> entry : head.entrySet()) {
+					Log.d("TAG", "" + entry.getKey()+ "  -  " + entry.getValue());
+					request.addHeader(entry.getKey(), entry.getValue());
+				}
+			}
+
+			request.setURI(new URI(url));
+			HttpResponse response = client.execute(request);
+
+			reader = new BufferedReader(new InputStreamReader(response
+					.getEntity().getContent()));
+
+			StringBuffer strBuffer = new StringBuffer("");
+			String line = null;
+
+			while ((line = reader.readLine()) != null) {
+				strBuffer.append(line);
+			}
+			result = strBuffer.toString();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (reader != null) {
+				try {
+					reader.close();
+					reader = null;
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return result;
+	}
+	
+	
+	@Override
+	public byte[] requests(String url, HashMap<String, String> head) {
+		
+		byte[] result = null;
+
+		try {
+			HttpClient client = new DefaultHttpClient();
+			HttpGet request = new HttpGet();
+
+			if( head != null ){
+				for (Entry<String, String> entry : head.entrySet()) {
+					Log.d("TAG", "" + entry.getKey()+ "  -  " + entry.getValue());
+					request.addHeader(entry.getKey(), entry.getValue());
+				}
+			}
+
+			request.setURI(new URI(url));
+			HttpResponse response = client.execute(request);
+			InputStream inp = new InputStream(response.getEntity().getContent());
+			inp
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+		}
+
+		return result;
+		
+	}
+
+}

@@ -1,0 +1,96 @@
+package com.sina.util.dnscache.tab;
+
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.widget.ImageButton;
+
+import com.sina.util.dnscache.tab.R;
+
+
+public class MainActivity extends FragmentActivity {
+	
+    protected static final String TAG = "MainActivity";
+    
+    private View currentButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        initComponents();
+
+    }
+
+    private void initComponents() {
+    	
+        ImageButton btn_one = (ImageButton) findViewById(R.id.buttom_simulation_task);
+        ImageButton btn_two = (ImageButton) findViewById(R.id.buttom_task_setting);
+        ImageButton btn_three = (ImageButton) findViewById(R.id.buttom_data_graph);
+
+        btn_one.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                Fragment_One fragment_one = new Fragment_One();
+                ft.replace(R.id.fl_content, fragment_one, MainActivity.TAG);
+                ft.commit();
+                setButton(v);
+
+            }
+        });
+
+        btn_two.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                Fragment_Two fragment_two = new Fragment_Two();
+                ft.replace(R.id.fl_content, fragment_two, MainActivity.TAG);
+                ft.commit();
+                setButton(v);
+
+            }
+        });
+
+
+        btn_three.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                Fragment_Three fragment_three = new Fragment_Three();
+                ft.replace(R.id.fl_content, fragment_three, MainActivity.TAG);
+                ft.commit();
+                setButton(v);
+            }
+        });
+        
+
+        /**
+         * 默认第一个按钮点击
+         */
+        btn_one.performClick();
+
+    }
+
+    /**
+     * 设置按钮的背景图片
+     *
+     * @param v
+     */
+    private void setButton(View v) {
+        if (currentButton != null && currentButton.getId() != v.getId()) {
+            currentButton.setEnabled(true);
+        }
+        v.setEnabled(false);
+        currentButton = v;
+    }
+
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.tencent.record.debug&apos; to &apos;debug&apos;&#x0A;- Original project: &apos;Log&apos;&#x0A;- Original element: &apos;Log/src/com.tencent.record.debug&apos;&#x0A;- Renamed element: &apos;Log/src/debug&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.tencent.record.debug&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;com.tencent.record.debug" name="debug" qualified="false" references="true" stamp="1432025787775" textual="false" version="1.0"/>
+</session>

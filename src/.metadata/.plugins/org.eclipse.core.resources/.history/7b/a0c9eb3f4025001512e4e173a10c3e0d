@@ -1,0 +1,335 @@
+package com.sina.util.dnscache;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+
+import com.sina.util.dnscache.cache.DnsCacheManager;
+import com.sina.util.dnscache.cache.IDnsCache;
+import com.sina.util.dnscache.httpdns.HttpDnsManager;
+import com.sina.util.dnscache.httpdns.IHttpDns;
+import com.sina.util.dnscache.log.HttpDnsLogManager;
+import com.sina.util.dnscache.model.DomainModel;
+import com.sina.util.dnscache.model.HttpDnsPack;
+import com.sina.util.dnscache.model.IpModel;
+import com.sina.util.dnscache.query.IQuery;
+import com.sina.util.dnscache.query.QueryManager;
+import com.sina.util.dnscache.score.IScore;
+import com.sina.util.dnscache.score.ScoreManager;
+import com.sina.util.dnscache.speedtest.ISpeedtest;
+import com.sina.util.dnscache.speedtest.SpeedtestManager;
+import com.sina.util.networktype.NetworkManager;
+
+/**
+ * Created by fenglei on 15/4/21.
+ */
+@SuppressLint("NewApi")
+public class DNSCache {
+
+    // ///////////////////////////////////////////////////////////////////////////////////
+
+    private static DNSCache Instance = null;
+    private static Context sContext;
+    private static Object lock = new Object();
+
+    public IDnsCache dnsCacheManager = null ;
+    public IQuery queryManager = null ;
+    public IScore scoreManager = null ;
+    public IHttpDns httpdnsManager = null ;
+    public ISpeedtest speedtestManager = null ;
+    
+    
+    public DNSCache(Context ctx) {
+    	
+    	if( ctx == null ) return ;
+    	
+        dnsCacheManager = new DnsCacheManager(ctx) ;
+        queryManager = new QueryManager( dnsCacheManager ) ;
+        scoreManager = new ScoreManager() ;
+        httpdnsManager = new HttpDnsManager() ;
+        speedtestManager = new SpeedtestManager() ;
+
+        startTimer();
+    }
+
+    public static DNSCache getInstance() {
+        if (null == Instance) {
+            synchronized (lock) {
+                if( Instance == null ){
+                    Instance = new DNSCache(sContext);
+                }
+            }
+        }
+        return Instance;
+    }
+    
+    public void clear(){
+    	Instance = null ; 
+    	oldHost = "" ; 
+    	oldHostTime = 0 ; 
+    	if (null != timer) {
+    	    timer.cancel();
+        }
+    }
+    
+    public static void Init(Context ctx){
+
+        Context app = ctx.getApplicationContext();
+        if (sContext == app) {
+            return;
+        }
+        sContext = app;
+
+        NetworkManager.CreateInstance(sContext);
+        NetworkManager.getInstance().Init() ;
+        AppConfigUtil.init(sContext);
+    }
+
+    public IDnsCache getDnsCacheManager() {
+        return dnsCacheManager;
+    }
+
+
+    // ///////////////////////////////////////////////////////////////////////////////////
+
+    
+    /**
+     * 获取 HttpDNS信息
+     *
+     * @param url 传入的Url
+     * @return 返回排序后的可直接使用接口
+     */
+    public DomainInfo[] getDomainServerIp( String url ){
+
+        String host = Tools.getHostName(url) ;
+        
+        // 查询domain对应的server ip数组
+        final DomainModel domainModel = queryManager.queryDomainIp( String.valueOf( NetworkManager.getInstance().SP_TYPE_STR ), host ) ;
+
+        // 如果本地cache 和 内置数据都没有 返回null，然后马上查询数据
+        if( domainModel == null ){
+        	this.CheckUpdates(url);
+        	return null ; 
+        }
+        
+        // 对server ip进行排序
+        String[] scoreIpArray = scoreManager.serverIpScore(domainModel) ;
+        
+        if( scoreIpArray == null || scoreIpArray.length == 0 ) {
+        	return null ; //排序错误 终端后续流程
+        }
+        
+        // 转换成需要返回的数据模型
+        DomainInfo[] domainInfoList = DomainInfo.DomainInfoFactory(scoreIpArray, url, host) ;
+
+        CheckUpdates(domainModel);
+
+        return domainInfoList ;
+    }
+
+    // ///////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * 反馈访问结果
+     *
+     */
+    public void setDomainServerIpInfo(final DomainInfo domainInfo){
+
+//    	Log.d("HTTP_DNS", "" + domainInfo.toString() ) ;
+    	
+    	new Thread(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+
+				Thread.currentThread().setName("Set Domain Server IpInfo"); 
+				
+				domainInfo.stopTime =  String.valueOf( System.currentTimeMillis() );
+				String serverIp = Tools.getHostName(domainInfo.url) ; 
+				
+				HashMap<String, String> logObj = new HashMap<String, String>() ;
+				logObj.put("serverIp", serverIp) ;
+				logObj.put("url", domainInfo.url) ;
+				logObj.put("host", domainInfo.host) ;
+				logObj.put("startTime", domainInfo.startTime) ;
+				logObj.put("stopTime", domainInfo.stopTime) ;
+				logObj.put("code", domainInfo.code) ;
+				
+		        DomainModel domainModel = queryManager.getCacheDomainIp(String.valueOf( NetworkManager.getInstance().SP_TYPE_STR ), domainInfo.host) ; 
+		        if( domainModel == null ) return ; 
+		        
+		        for( IpModel temp : domainModel.ipModelArr ){
+		        	
+		        	if( temp == null || serverIp == null ) return;
+		        	
+		        	if( serverIp.equals( temp.ip ) ) {
+		        		if( domainInfo.code.equals("") || domainInfo.code.equals("null") ) domainInfo.code = "500" ;
+				        if( Integer.parseInt( domainInfo.code ) >= 200 && Integer.parseInt( domainInfo.code ) < 300 ) {
+				        	temp.success_num = String.valueOf(  ( Integer.parseInt( temp.success_num ) + 1 )  ) ;
+				        }else {
+				        	temp.err_num = String.valueOf(  ( Integer.parseInt( temp.err_num ) + 1 )  ) ;
+				        }
+				        temp.finally_success_time = domainInfo.stopTime;
+				        float speed = speedtestManager.speedFormula( Long.parseLong(domainInfo.startTime) , Long.parseLong(domainInfo.stopTime) , domainInfo.data.getBytes().length );
+				        temp.finally_speed = String.valueOf(speed) ;
+				        dnsCacheManager.setSpeedInfo(temp);
+		        	}else{
+		        		long outTime = Long.parseLong( temp.finally_success_time ) / 1000 ; 
+		        		long newTime = System.currentTimeMillis() / 1000 ; 
+		        		long offTime = newTime - outTime ; 
+		        		if( offTime > ( 0 ) ){
+				        	String url = "http://" + temp.ip + "/index.html" ;
+				        	temp.finally_speed = String.valueOf( speedtestManager.speedTest(url, domainModel.domain) );
+				        	temp.finally_success_time = String.valueOf( System.currentTimeMillis() ); 
+				        	dnsCacheManager.setSpeedInfo(temp);
+		        		}
+		        	}
+		        	
+		        	logObj.put( temp.ip, temp.toString() ) ; 
+		        	
+		        }
+		        scoreManager.serverIpScore( domainModel ) ;
+		        
+		        // 这个地方记录 log  改成星宇的 log 方法
+		        HttpDnsLogManager.getInstance().writeLog(HttpDnsLogManager.TYPE_INFO, logObj);
+			}
+		}).start();
+ 
+    }
+
+    // ///////////////////////////////////////////////////////////////////////////////////
+
+
+    /**
+     * 检查 domain 是否需要更新， 从httpdns 服务器重新拉取数据
+     *
+     * @param domainModel
+     */
+    private void CheckUpdates(DomainModel domainModel) {
+
+        final String host = domainModel.domain ;
+        // 不等于 -1 则不需要更新
+        if( domainModel.id != -1 ) {
+//        	Log.d("HTTP_DNS", "不需要更新 host = " + domainModel.domain);
+        	return ;
+        }
+//        Log.d("HTTP_DNS", "更新域名 host = " + domainModel.domain);
+        
+        // 更新流程 切换其他线程。暂时先直接创建一个线程来处理更新，后续更改成线程池方式来管理线程。
+        CheckUpdates( host ) ;
+
+    }
+    
+    /**
+     * 从httpdns 服务器重新拉取数据
+     * 
+     * @param domainModel
+     */
+    static String oldHost = "" ; 
+    static long oldHostTime = 0 ; 
+    private void CheckUpdates(String domainModel) {
+
+    	if( oldHost.equals(domainModel) ){
+    		long newTime = System.currentTimeMillis() / 1000;
+    		if( newTime - oldHostTime < 60 ){
+    			return ; 
+    		}
+    	}
+    	oldHost = domainModel ;
+    	oldHostTime = System.currentTimeMillis() / 1000;
+    	
+    	final String host = domainModel;
+    	
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+            	Thread.currentThread().setName("Get Http Dns Data"); 
+                getHttpDnsData(host) ;
+            }
+        }).start();
+    }
+
+    /**
+     * 根据 host 更新数据
+     * @param host
+     */
+    private final DomainModel getHttpDnsData(String host){
+
+        // 获取 httpdns 数据
+        HttpDnsPack httpDnsPack = httpdnsManager.requestHttpDns(host);
+
+        if( httpDnsPack == null ) return null; // 没有从htppdns服务器获取正确的数据。必须中断下面流程
+        
+        // 插入本地 cache
+        DomainModel domainModel = dnsCacheManager.insertDnsCache(httpDnsPack);
+        
+        return domainModel ; 
+    }
+
+    // ///////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * 定时器休眠时间
+     */
+    public final int sleepTime = 60 * 1000 ;
+    
+    /**
+     * 启动定时器
+     */
+    private void startTimer(){
+        timer = new Timer() ;
+        timer.schedule(task, 0, sleepTime );
+    }
+
+    /**
+     * 定时器Obj
+     */
+    private Timer timer = null ;
+
+    /**
+     * TimerTask 运行时间
+     */
+    public long TimerTaskOldRunTime = 0 ; 
+    
+    /**
+     * 定时器还多久启动
+     */
+    public long getTimerDelayedStartTime(){
+    	
+    	return ( sleepTime - ( System.currentTimeMillis() - TimerTaskOldRunTime ) ) / 1000 ; 
+    }
+    
+    /**
+     * 定时器任务
+     */
+    private TimerTask task = new TimerTask() {
+        @Override
+        public void run() {
+        	Thread.currentThread().setName("HTTP DNS TimerTask"); 
+            ArrayList<DomainModel> list = dnsCacheManager.getExpireDnsCache() ;
+            for( DomainModel model : list ){
+            	DomainModel domainModel = getHttpDnsData(model.domain);
+            	if (null != domainModel) {
+            	    scoreManager.serverIpScore( domainModel ) ; 
+                }
+            }
+            TimerTaskOldRunTime = System.currentTimeMillis() ; 
+        }
+    };
+
+    // ///////////////////////////////////////////////////////////////////////////////////
+    
+    /**
+     * 网络环境发生变化 刷新缓存数据
+     */
+    public void upDataDNSCache(){
+    	
+    }
+    
+    // ///////////////////////////////////////////////////////////////////////////////////
+    
+}

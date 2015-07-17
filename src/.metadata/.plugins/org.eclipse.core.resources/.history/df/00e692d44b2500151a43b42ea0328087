@@ -1,0 +1,195 @@
+package com.sina.util.dnscache.cache;
+
+
+/**
+ * Created by fenglei on 15/4/21.
+ */
+public class ServerIpDefaultValue {
+
+    ////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//    /**
+//     * 测试环境服务器IP，电信IP列表
+//     */
+//    private static final ServerInfo[] API_WEIBO_CN_TEST_TELCOM_IP = new ServerInfo[]{  new ServerInfo( "180.149.139.248", "", "北京电信-永丰" , 116.3 , 39.95 ) , new ServerInfo( "180.149.153.216", "", "北京电信-永丰" , 116.3 , 39.95 ) , };
+//
+//    /**
+//     * 测试环境服务器IP，移动IP列表
+//     */
+//    private static final ServerInfo[] API_WEIBO_CN_TEST_CHINAMOBILE_IP = new ServerInfo[]{ new ServerInfo( "111.13.88.239", "", "北京移动-雍和宫" , 116.42 , 39.93 ) , new ServerInfo( "111.13.88.248", "", "北京移动-雍和宫" , 116.42 , 39.93 ) , new ServerInfo( "221.179.190.208", "", "北京移动-丰台" , 116.28 , 39.85 ) , };
+//
+//    /**
+//     * 测试环境服务器IP，联通IP列表
+//     */
+//    private static final ServerInfo[] API_WEIBO_CN_TEST_UNICOM_IP = new ServerInfo[]{ new ServerInfo( "123.125.105.231", "", "北京联通-土城" , 116.43 , 39.92 ) , new ServerInfo( "123.125.105.246", "", "北京联通-土城" , 116.43 , 39.92 ) , new ServerInfo( "202.108.7.133", "", "北京联通-西单" , 116.37 , 39.92 ) , };
+//
+//
+//    ////////////////////////////////////////////////////////////////////////////////////////////
+//
+//
+//    /**
+//     * 正式环境服务器IP，电信IP列表
+//     */
+//    private static final ServerInfo[] API_WEIBO_CN_RELEASE_TELCOM_IP = new ServerInfo[]{ new ServerInfo( "180.149.139.248", "3", "北京电信-永丰" , 116.3 , 39.95 ) , new ServerInfo( "180.149.153.216", "3", "北京电信-永丰" , 116.3 , 39.95 ) , };
+//
+//    /**
+//     * 正式环境服务器IP，移动IP列表
+//     */
+//    private static final ServerInfo[] API_WEIBO_CN_RELEASE_CHINAMOBILE_IP = new ServerInfo[]{ new ServerInfo( "111.13.88.239", "4", "北京移动-雍和宫" , 116.42 , 39.93 ) , new ServerInfo( "111.13.88.248", "4", "北京移动-雍和宫" , 116.42 , 39.93 ) , new ServerInfo( "221.179.190.208", "4", "北京移动-丰台" , 116.28 , 39.85 ) , };
+//
+//    /**
+//     * 正式环境服务器IP，联通IP列表
+//     */
+//    private static final ServerInfo[] API_WEIBO_CN_RELEASE_UNICOM_IP = new ServerInfo[]{ new ServerInfo( "123.125.105.231", "5", "北京联通-土城" , 116.43 , 39.92 ) , new ServerInfo( "123.125.105.246", "5", "北京联通-土城" , 116.43 , 39.92 ) , new ServerInfo( "202.108.7.133", "5", "北京联通-西单" , 116.37 , 39.92 ) , };
+//
+//
+//    ////////////////////////////////////////////////////////////////////////////////////////////
+//
+//
+//    /**
+//     * 服务器IP，电信IP列表
+//     */
+//    public static final ServerInfo[] API_WEIBO_CN_IP_TELCOM_DEFAULT = DebugCfg.DEBUG ? API_WEIBO_CN_TEST_TELCOM_IP : API_WEIBO_CN_RELEASE_TELCOM_IP;
+//
+//    /**
+//     * 服务器IP，移动IP列表
+//     */
+//    public static final ServerInfo[] API_WEIBO_CN_IP_CHINAMOBILE_DEFAULT = DebugCfg.DEBUG ? API_WEIBO_CN_TEST_CHINAMOBILE_IP : API_WEIBO_CN_RELEASE_CHINAMOBILE_IP;
+//
+//    /**
+//     * 服务器IP，联通IP列表
+//     */
+//    public static final ServerInfo[] API_WEIBO_CN_IP_UNICOM_DEFAULT = DebugCfg.DEBUG ? API_WEIBO_CN_TEST_UNICOM_IP : API_WEIBO_CN_RELEASE_UNICOM_IP;
+//
+//
+//
+//    ////////////////////////////////////////////////////////////////////////////////////////////
+//
+//    /**
+//     * domain 内置缓存
+//     */
+//    private static MemoryCache<String, MemoryCache<String, ServerInfo[]>> DomainCache = new MemoryCache<String, MemoryCache<String, ServerInfo[]>>(8, 32);
+//
+//    /**
+//     * domain -》 server ip 缓存
+//     */
+//    private static MemoryCache<String, ServerInfo[]> ServerIpCache = new MemoryCache<String, ServerInfo[]>(8, 32);
+//
+//    // 初始化内置数据
+//    static {
+//
+//        ServerIpCache.put("3", API_WEIBO_CN_IP_TELCOM_DEFAULT) ;
+//        ServerIpCache.put("4", API_WEIBO_CN_IP_CHINAMOBILE_DEFAULT) ;
+//        ServerIpCache.put("5", API_WEIBO_CN_IP_UNICOM_DEFAULT) ;
+//
+//        DomainCache.put("api.weibo.cn", ServerIpCache) ;
+//
+//    }
+//
+//
+//    ////////////////////////////////////////////////////////////////////////////////////////////
+//
+//    /**
+//     * 获取内置的server ip地址
+//     * @param sp
+//     * @param domain
+//     * @return
+//     */
+//    public static String[] getServerIp(String sp, String domain){
+//
+//        String[] ipList = null ;
+//
+//        MemoryCache<String, ServerInfo[]> serverIpCache = DomainCache.get(domain) ;
+//
+//        if( serverIpCache != null ){
+//
+//            ServerInfo[] serverInfos = serverIpCache.get(sp) ;
+//
+//            if( serverInfos == null ){
+//
+//                serverInfos = serverIpCache.get("5") ;
+//            }
+//
+//            ipList = ServerInfoToStr(serverInfos) ;
+//
+//        }
+//
+//        return ipList ;
+//    }
+//
+//
+//    /**
+//     * ServerInfo 数组 转换成 string数组 提取ip字段
+//     * @param serverInfos
+//     * @return
+//     */
+//    private static String[] ServerInfoToStr(ServerInfo[] serverInfos){
+//
+//        String[] IpList = new String[serverInfos.length];
+//
+//        for( int i = 0 ; i < serverInfos.length ; i++ ){
+//
+//            IpList[i] = new String(serverInfos[i].ip);
+//        }
+//
+//
+//        return IpList ;
+//    }
+//    
+//    
+//    
+//    public static MemoryCache<String, ServerInfo[]> getCache(String host){
+//    	
+//    	return DomainCache.get(host) ; 
+//    }
+//
+//
+//
+//    /**
+//     * 服务器信息
+//     */
+//    public static class ServerInfo{
+//
+//        public ServerInfo(String ip, String sp, String area, double latitude, double longitude){
+//
+//            this.ip = ip ;
+//            this.sp = sp ;
+//            this.area = area ;
+//            this.latitude = latitude ;
+//            this.longitude = longitude ;
+//        }
+//
+//
+//        /**
+//         * ip地址
+//         */
+//        public String ip = null ;
+//
+//        /**
+//         * 运营商
+//         */
+//        public String sp = null ;
+//
+//        /**
+//         * 地域
+//         */
+//        public String area = null ;
+//
+//        /**
+//         * 经度
+//         */
+//        public double latitude = 0.0 ;
+//
+//        /**
+//         * 纬度
+//         */
+//        public double longitude = 0.0 ;
+//
+//
+//    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////
+
+
+}

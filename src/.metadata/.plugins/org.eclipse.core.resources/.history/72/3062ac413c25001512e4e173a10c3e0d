@@ -1,0 +1,46 @@
+package com.sina.util.networktype;
+
+import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import android.util.Log;
+
+@SuppressLint("NewApi")
+public class NetworkStateReceiver extends BroadcastReceiver {
+
+	public static final String CONNECTIVITY_CHANGE_ACTION = "android.net.conn.CONNECTIVITY_CHANGE";
+
+	@Override
+	public void onReceive(Context context, Intent intent) {
+
+		String action = intent.getAction();
+		Log.i(TAG, "PfDataTransReceiver receive action " + action);
+		if (TextUtils.equals(action, CONNECTIVITY_CHANGE_ACTION)) {// 网络变化的时候会发送通知
+			Log.i(TAG, "网络变化了");
+			return;
+		}
+	}
+
+	public static NetworkInfo getActiveNetwork(Context context) {
+
+		if (context == null)
+
+			return null;
+
+		ConnectivityManager mConnMgr = (ConnectivityManager) context
+
+		.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+		if (mConnMgr == null)
+
+			return null;
+
+		NetworkInfo aActiveInfo = mConnMgr.getActiveNetworkInfo(); // 获取活动网络连接信息
+
+		return aActiveInfo;
+
+	}
+
+}

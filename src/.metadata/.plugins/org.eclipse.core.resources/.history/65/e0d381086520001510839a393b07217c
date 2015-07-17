@@ -1,0 +1,110 @@
+package com.sina.util.dnscache;
+
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.widget.ImageButton;
+
+
+public class DNSCacheTestActivityTabMain extends FragmentActivity {
+	
+	private SimulationTaskFragment simulationTaskFragment = null ; 
+	private TaskSettingFragment taskSettingFragment = null ; 
+	private DataGraphFragment dataGraphFragment = null ; 
+//	private DataGraphFragment dataGraphFragment = null ; 
+	
+	
+    protected static final String TAG = "MainActivity";
+    private View currentButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_tab_main);
+        initComponents();
+        DNSCache.Init(this);
+    }
+
+    private void initComponents() {
+    	
+        ImageButton btn_simulation_task = (ImageButton) findViewById(R.id.buttom_simulation_task);
+        ImageButton btn_task_setting = (ImageButton) findViewById(R.id.buttom_task_setting);
+        ImageButton btn_data_graph = (ImageButton) findViewById(R.id.buttom_data_graph);
+        ImageButton btn_cache_data = (ImageButton) findViewById(R.id.buttom_cache_data);
+
+        btn_simulation_task.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                simulationTaskFragment = new SimulationTaskFragment();
+                ft.replace(R.id.fl_content, simulationTaskFragment, DNSCacheTestActivityTabMain.TAG);
+                ft.commit();
+                setButton(v);
+
+            }
+        });
+
+        btn_task_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                taskSettingFragment = new TaskSettingFragment();
+                ft.replace(R.id.fl_content, taskSettingFragment, DNSCacheTestActivityTabMain.TAG);
+                ft.commit();
+                setButton(v);
+
+            }
+        });
+
+
+        btn_data_graph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                dataGraphFragment = new DataGraphFragment();
+                ft.replace(R.id.fl_content, dataGraphFragment, DNSCacheTestActivityTabMain.TAG);
+                ft.commit();
+                setButton(v);
+            }
+        });
+        
+        btn_cache_data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                dataGraphFragment = new DataGraphFragment();
+                ft.replace(R.id.fl_content, dataGraphFragment, DNSCacheTestActivityTabMain.TAG);
+                ft.commit();
+                setButton(v);
+            }
+        });
+        
+
+        /**
+         * 默认第一个按钮点击
+         */
+        btn_simulation_task.performClick();
+
+    }
+
+    /**
+     * 设置按钮的背景图片
+     *
+     * @param v
+     */
+    private void setButton(View v) {
+        if (currentButton != null && currentButton.getId() != v.getId()) {
+            currentButton.setEnabled(true);
+        }
+        v.setEnabled(false);
+        currentButton = v;
+    }
+
+}

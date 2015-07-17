@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;PriorityPlugin.java&apos; to &apos;DNSCache/src/com.sina.util.dnscache.score.plugin&apos;&#x0A;- Original project: &apos;DNSCache&apos;&#x0A;- Destination element: &apos;DNSCache/src/com.sina.util.dnscache.score.plugin&apos;&#x0A;- Original element: &apos;com.sina.util.dnscache.score.PriorityPlugin.java&apos;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;com.sina.util.dnscache.score.plugin" element1="/src&lt;com.sina.util.dnscache.score{PriorityPlugin.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1431415928587" units="1" version="1.0"/>
+</session>

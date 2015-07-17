@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 按下状态 -->
+    <item android:state_pressed="true"
+        android:drawable="@drawable/thumb_dn" />
+
+    <!-- 焦点状态 -->
+    <item android:state_focused="true"
+        android:drawable="@drawable/thumb_up" />
+    
+    <!-- 默认状态 -->
+    <item android:drawable="@drawable/thumb_up" />  
+    
+</selector> 

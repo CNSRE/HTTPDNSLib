@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/all_taskspeed_bi_but"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="全部任务速度比值" />
+
+    <Button
+        android:id="@+id/httpdnslib_expendtime_but"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HTTPDNS Lib库耗时" />
+
+    <Button
+        android:id="@+id/alltask_expendtime_but"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="全部任务请求耗时" />
+    
+    <Button
+        android:id="@+id/alltask_expendtime_but"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="服务器平均耗时" />
+
+</LinearLayout>

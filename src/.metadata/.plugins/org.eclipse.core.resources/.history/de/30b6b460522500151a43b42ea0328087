@@ -1,0 +1,24 @@
+package com.sina.util.dnscache.httpdns;
+
+/**
+ * Created by fenglei on 15/4/21.
+ */
+public class HttpDnsConstants {
+
+	/**
+	 * 是否使用 自己的httpdns 服务器
+	 */
+	public static final boolean isSinaHttpDns = true ; 
+	
+    /**
+     * httpdns 服务器地址
+     */
+    public static String HTTPDNS_SERVER_API = "http://202.108.7.153/dns?domain=" ;
+
+    /**
+     * DNSPOD 服务器地址
+     */
+    public static String DNSPOD_SERVER_API = "http://119.29.29.29/d?ttl=1&dn=" ;
+    
+    
+}

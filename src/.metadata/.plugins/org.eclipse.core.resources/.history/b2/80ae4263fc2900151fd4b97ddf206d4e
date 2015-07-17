@@ -1,0 +1,385 @@
+package com.sina.util.dnscache;
+
+import java.util.ArrayList;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import com.sina.util.dnscache.httpdns.HttpDnsConfig;
+import com.sina.util.dnscache.httpdns.requests.ApacheHttpClientNetworkRequests;
+import com.sina.util.dnscache.httpdns.requests.INetworkRequests;
+import com.sina.util.dnscache.score.PlugInManager;
+import com.sina.util.dnscache.score.ScoreManager;
+import com.sina.util.dnscache.speedtest.SpeedtestManager;
+
+/**
+ *
+ * 项目名称: DNSCache <br>
+ * 类名称: DNSCacheConfig <br>
+ * 类描述: Lib库全局 配置文件 <br>
+ * 创建人: fenglei <br>
+ * 创建时间: 2015-4-21 下午5:26:04 <br>
+ * 
+ * 修改人: <br>
+ * 修改时间: <br>
+ * 修改备注: <br>
+ * 
+ * @version V1.0
+ */
+public class DNSCacheConfig {
+
+    /**
+     * 调试 开关
+     */
+    public static boolean DEBUG = true;
+
+    /**
+     * 配置文件更新地址
+     */
+    private static String ConfigText_API = "";
+
+    /**
+     * 设置 动态更新配置参数服务器url连接
+     */
+    public static void SetConfigApiUrl(String url) {
+        DNSCacheConfig.ConfigText_API = url;
+    }
+
+    /**
+     * 初始化 配置文件。 步骤：1.获取本地缓存文件，若没有则创建默认配置
+     * 
+     * @param ctx
+     */
+    public static void InitCfg(final Context ctx) {
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences("HttpDNSConstantsJson", Context.MODE_PRIVATE); // 私有数据
+        Data data = null;
+        try {
+        	
+            String text = sharedPreferences.getString("ConfigText", "" );
+            
+            if (text == null || text.equals("")) {
+                Tools.log("TAG_NET", "text = " + text);
+                data = Data.createDefault();
+                saveLocalConfigAndSync(ctx, data);
+            }else{
+            	data = Data.fromJson(text);
+                syncConfig(data);
+            }
+            
+        	
+        } catch (Exception e) {
+            e.printStackTrace();
+            // 上报错误 
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("ConfigText", "");
+            boolean is = editor.commit();
+            if (is)
+                InitCfg(ctx);
+        }
+        pullConfigFromServer(ctx);
+    }
+
+    /**
+     * 同步各模块配置项 //TODO 还有DNSPOD开关 ID KEY 这三项未配置
+     * 
+     * @param data
+     */
+    private static void syncConfig(Data data) {
+    	
+        if (null != data) {
+            HttpDnsConfig.isSinaHttpDns = data.IS_MY_HTTP_SERVER.equals("1") == true;
+            HttpDnsConfig.IS_DNSPOD_HTTPDNS = data.IS_DNSPOD_SERVER.equals("1") == true;
+            HttpDnsConfig.HTTPDNS_SERVER_API = data.HTTPDNS_SERVER_API;
+            HttpDnsConfig.DNSPOD_SERVER_API = data.DNSPOD_SERVER_API;
+            
+            //
+            ScoreManager.IS_SORT = data.IS_SORT.equals("1") == true;
+            
+            String SPEEDTEST_PLUGIN_NUM = data.SPEEDTEST_PLUGIN_NUM;
+            if (isNum(SPEEDTEST_PLUGIN_NUM)) {
+                PlugInManager.SpeedTestPluginNum = Float.valueOf(SPEEDTEST_PLUGIN_NUM);
+            }
+            String PRIORITY_PLUGIN_NUM = data.PRIORITY_PLUGIN_NUM;
+            if (isNum(PRIORITY_PLUGIN_NUM)) {
+                PlugInManager.PriorityPluginNum = Float.valueOf(PRIORITY_PLUGIN_NUM);
+            }
+            String SUCCESSNUM_PLUGIN_NUM = data.SUCCESSNUM_PLUGIN_NUM;
+            if (isNum(SUCCESSNUM_PLUGIN_NUM)) {
+                PlugInManager.SuccessNumPluginNum = Float.valueOf(SUCCESSNUM_PLUGIN_NUM);
+            }
+            String ERRNUM_PLUGIN_NUM = data.ERRNUM_PLUGIN_NUM;
+            if (isNum(ERRNUM_PLUGIN_NUM)) {
+                PlugInManager.ErrNumPluginNum = Float.valueOf(ERRNUM_PLUGIN_NUM);
+            }
+            String SUCCESSTIME_PLUGIN_NUM = data.SUCCESSTIME_PLUGIN_NUM;
+            if (isNum(SUCCESSTIME_PLUGIN_NUM)) {
+                PlugInManager.SuccessTimePluginNum = Float.valueOf(SUCCESSTIME_PLUGIN_NUM);
+            }
+            
+            //
+            ArrayList<String> speedPaths = data.SPEEDPATH_LIST;
+            for (int i = 0; i < speedPaths.size(); i++) {
+                String temp = speedPaths.get(i);
+                String[] keyV = temp.split(";");
+                if (keyV.length == 2) {
+                    SpeedtestManager.ServerSpeedPaht.put(keyV[0], keyV[1]);
+                }
+            }
+        }
+    }
+
+    /**
+     * 更新配置文件
+     */
+    private static void pullConfigFromServer(final Context ctx) {
+        if (ConfigText_API == null || ConfigText_API.equals(""))
+            return;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                INetworkRequests netWork = new ApacheHttpClientNetworkRequests();
+                String str = netWork.requests(ConfigText_API);
+                Data data = Data.fromJson(str);
+                if (null != data) {
+                    saveLocalConfigAndSync(ctx, data);
+                }
+            }
+        }).start();
+    }
+
+    /**
+     * 保存本地配置信息。
+     * 
+     * @param ctx
+     * @param configStr
+     */
+    public static void saveLocalConfigAndSync(Context ctx, Data model) {
+        if (null != ctx && null != model) {
+            SharedPreferences sharedPreferences = ctx.getSharedPreferences("HttpDNSConstantsJson", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("ConfigText", model.toJson());
+            editor.commit();
+            syncConfig(model);
+            Data.Instance = null ; 
+        }
+    }
+
+    /**
+     * 获取本地配置信息。
+     * 
+     * @param ctx
+     * @param configStr
+     */
+    private static Data getLocalConfig() {
+        SharedPreferences sharedPreferences = AppConfigUtil.getApplicationContext().getSharedPreferences("HttpDNSConstantsJson",
+                Context.MODE_PRIVATE);
+        String json = sharedPreferences.getString("ConfigText", "");
+        Data data = Data.fromJson(json);
+        if (null == data) {
+            data = Data.createDefault();
+        }
+        // 预加载初始化
+        Data.getInstance() ;
+        return data;
+    }
+
+    /**
+     * 是否为数字
+     * 
+     * @param str
+     * @return
+     */
+    private static boolean isNum(String str) {
+        return str.matches("^[-+]?(([0-9]+)([.]([0-9]+))?|([.]([0-9]+))?)$");
+    }
+
+    public static class Data {
+    	
+    	public static Data Instance = null;
+    	
+    	public static Data getInstance(){
+    		if( Instance == null ){
+    			Instance = getLocalConfig() ; 
+    		}
+    		return Instance ; 
+    	}
+    	
+    	
+        /**
+         * 是否启用自己家的HTTP_DNS服务器 默认不启用 | 1启用 0不启用
+         */
+        public String IS_MY_HTTP_SERVER = null;
+        /**
+         * 自己家HTTP_DNS服务API地址 使用时直接在字符串后面拼接domain地址 |
+         * 示例（http://202.108.7.153/dns?domain=）+ domain
+         */
+        public String HTTPDNS_SERVER_API = null;
+        /**
+         * 是否启用自己家的dnspod服务器 默认不启用 | 1启用 0不启用
+         */
+        public String IS_DNSPOD_SERVER = null;
+        /**
+         * DNSPOD HTTP_DNS 服务器API地址 | 默认（http://119.29.29.29/d?ttl=1&dn=）
+         */
+        public String DNSPOD_SERVER_API = null;
+        /**
+         * DNSPOD 企业级ID配置选项 （为了安全，该参数不支持云端动态配置）
+         */
+        public String DNSPOD_ID = null;
+        /**
+         * DNSPOD 企业级KEY配置选项 （为了安全，该参数不支持云端动态配置）
+         */
+        public String DNSPOD_KEY = null;
+
+        /**
+         * 是否开启 本地排序插件算法 默认开启 | 1开启 0不开启
+         */
+        public String IS_SORT = null;
+        /**
+         * 速度插件 比重分配值：默认40%
+         */
+        public String SPEEDTEST_PLUGIN_NUM = null;
+        /**
+         * 服务器推荐优先级插件 比重分配：默认30% （需要自家HTTP_DNS服务器支持）
+         */
+        public String PRIORITY_PLUGIN_NUM = null;
+        /**
+         * 历史成功次数计算插件 比重分配：默认10%
+         */
+        public String SUCCESSNUM_PLUGIN_NUM = null;
+        /**
+         * 历史错误次数计算插件 比重分配：默认10%
+         */
+        public String ERRNUM_PLUGIN_NUM = null;
+        /**
+         * 最后一次成功时间计算插件 比重分配：默认10%
+         */
+        public String SUCCESSTIME_PLUGIN_NUM = null;
+        /**
+         * domain对应的测速文件，如果需要对服务器进行测速请给domain设置一个可以下载的资源文件来计算服务器速度
+         */
+        public ArrayList<String> SPEEDPATH_LIST = new ArrayList<String>();
+
+        /**
+         * 返回配置文件 json
+         */
+        public String toJson() {
+            // 为了节约lib库的大小直接拼接 json 字符串吧，就不适用第三方库了
+            StringBuffer buffer = new StringBuffer();
+            buffer.append("{");
+            buffer.append("\"IS_MY_HTTP_SERVER\":" + "\"" + IS_MY_HTTP_SERVER + "\",");
+            buffer.append("\"IS_DNSPOD_SERVER\":" + "\"" + IS_DNSPOD_SERVER + "\",");
+            buffer.append("\"HTTPDNS_SERVER_API\":" + "\"" + HTTPDNS_SERVER_API + "\",");
+            buffer.append("\"DNSPOD_SERVER_API\":" + "\"" + DNSPOD_SERVER_API + "\",");
+            // 测试阶段暂时先把 dnspod的ID和KEY加上
+            // TODO FIXME
+            buffer.append("\"DNSPOD_ID\":" + "\"" + DNSPOD_ID + "\",");
+            buffer.append("\"DNSPOD_KEY\":" + "\"" + DNSPOD_KEY + "\",");
+            buffer.append("\"IS_SORT\":" + "\"" + IS_SORT + "\",");
+            buffer.append("\"SPEEDTEST_PLUGIN_NUM\":" + "\"" + SPEEDTEST_PLUGIN_NUM + "\",");
+            buffer.append("\"PRIORITY_PLUGIN_NUM\":" + "\"" + PRIORITY_PLUGIN_NUM + "\",");
+            buffer.append("\"SUCCESSNUM_PLUGIN_NUM\":" + "\"" + SUCCESSNUM_PLUGIN_NUM + "\",");
+            buffer.append("\"ERRNUM_PLUGIN_NUM\":" + "\"" + ERRNUM_PLUGIN_NUM + "\",");
+            buffer.append("\"SUCCESSTIME_PLUGIN_NUM\":" + "\"" + SUCCESSTIME_PLUGIN_NUM + "\",");
+            buffer.append("\"SPEEDPATH_LIST\":" + "[");
+            for (int i = 0; i < SPEEDPATH_LIST.size(); i++) {
+                buffer.append("\"" + SPEEDPATH_LIST.get(i) + "\"" + (i != SPEEDPATH_LIST.size() - 1 ? "," : ""));
+            }
+            buffer.append("]");
+            buffer.append("}");
+            return buffer.toString();
+        }
+
+        public static Data createDefault() {
+            Data model = new Data();
+            model.IS_MY_HTTP_SERVER = "1";
+            model.HTTPDNS_SERVER_API = "http://202.108.7.153/dns?domain=";
+
+            model.IS_DNSPOD_SERVER = "0";
+            model.DNSPOD_SERVER_API = "http://119.29.29.29/d?ttl=1&dn=";
+            model.DNSPOD_ID = "22";
+            model.DNSPOD_KEY = "j2cjxCp2";
+
+            model.IS_SORT = "1";
+            model.SPEEDTEST_PLUGIN_NUM = "40";
+            model.PRIORITY_PLUGIN_NUM = "30";
+            model.SUCCESSNUM_PLUGIN_NUM = "10";
+            model.ERRNUM_PLUGIN_NUM = "10";
+            model.SUCCESSTIME_PLUGIN_NUM = "10";
+
+            model.SPEEDPATH_LIST.add("api.weibo.cn;index.html");
+            model.SPEEDPATH_LIST.add("ww1.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
+            model.SPEEDPATH_LIST.add("ww2.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
+            model.SPEEDPATH_LIST.add("ww3.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
+            model.SPEEDPATH_LIST.add("ww4.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
+            model.SPEEDPATH_LIST.add("ww5.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
+            return model;
+        }
+
+        public static Data fromJson(String json) {
+            Data model = new Data();
+            try {
+                JSONObject jsonObj = new JSONObject(json);
+                // httpdns
+                if (jsonObj.isNull("IS_MY_HTTP_SERVER") == false) {
+                    model.IS_MY_HTTP_SERVER = jsonObj.getString("IS_MY_HTTP_SERVER");
+                }
+                if (jsonObj.isNull("HTTPDNS_SERVER_API") == false) {
+                    model.HTTPDNS_SERVER_API = jsonObj.getString("HTTPDNS_SERVER_API");
+                }
+
+                // dnspod
+                if (jsonObj.isNull("IS_DNSPOD_SERVER") == false) {
+                    model.IS_DNSPOD_SERVER = jsonObj.getString("IS_DNSPOD_SERVER");
+                }
+
+                if (jsonObj.isNull("DNSPOD_SERVER_API") == false) {
+                    model.DNSPOD_SERVER_API = jsonObj.getString("DNSPOD_SERVER_API");
+                }
+                if (jsonObj.isNull("DNSPOD_ID") == false) {
+                    model.DNSPOD_ID = jsonObj.getString("DNSPOD_ID");
+                }
+                if (jsonObj.isNull("DNSPOD_KEY") == false) {
+                    model.DNSPOD_KEY = jsonObj.getString("DNSPOD_KEY");
+                }
+
+                // sort
+                if (jsonObj.isNull("IS_SORT") == false) {
+                    String IS_SORT = jsonObj.getString("IS_SORT");
+                    model.IS_SORT = IS_SORT;
+                }
+                if (jsonObj.isNull("SPEEDTEST_PLUGIN_NUM") == false) {
+                    model.SPEEDTEST_PLUGIN_NUM = jsonObj.getString("SPEEDTEST_PLUGIN_NUM");
+                }
+                if (jsonObj.isNull("PRIORITY_PLUGIN_NUM") == false) {
+                    model.PRIORITY_PLUGIN_NUM = jsonObj.getString("PRIORITY_PLUGIN_NUM");
+                }
+                if (jsonObj.isNull("SUCCESSNUM_PLUGIN_NUM") == false) {
+                    model.SUCCESSNUM_PLUGIN_NUM = jsonObj.getString("SUCCESSNUM_PLUGIN_NUM");
+                }
+                if (jsonObj.isNull("ERRNUM_PLUGIN_NUM") == false) {
+                    model.ERRNUM_PLUGIN_NUM = jsonObj.getString("ERRNUM_PLUGIN_NUM");
+                }
+                if (jsonObj.isNull("SUCCESSTIME_PLUGIN_NUM") == false) {
+                    model.SUCCESSTIME_PLUGIN_NUM = jsonObj.getString("SUCCESSTIME_PLUGIN_NUM");
+                }
+
+                // speedtest
+                if (jsonObj.isNull("SPEEDPATH_LIST") == false) {
+                    JSONArray jsonArr = jsonObj.getJSONArray("SPEEDPATH_LIST");
+                    for (int i = 0; i < jsonArr.length(); i++) {
+                        String temp = jsonArr.getString(i);
+                        model.SPEEDPATH_LIST.add(temp);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                model = null;
+            }
+            return model;
+        }
+    }
+}

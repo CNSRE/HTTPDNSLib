@@ -1,0 +1,116 @@
+package com.sina.util.dnscache.tasksetting;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.SeekBar;
+import android.widget.TextView;
+
+import com.sina.util.dnscache.R;
+
+/**
+ * Created by Doraemon on 2014/7/15.
+ */
+public class TaskSettingFragment extends Fragment {
+
+	public TextView config_threadpool_num_text = null ; 
+	public SeekBar config_threadpool_num_seekbar = null ;
+	
+	
+	public TextView config_request_num_text = null ; 
+	public SeekBar config_request_num_seekbar = null ;
+	
+	
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    	
+        View contentView = inflater.inflate(R.layout.fragment_task_setting, null);
+
+//        final EditText etThreadpoolNum = (EditText) contentView.findViewById(R.id.config_threadpool_num);
+//        final EditText etRequestNum = (EditText) contentView.findViewById(R.id.config_request_num);
+//        
+//        int threadpoolNum = SpfConfig.getInstance().getInt(R.id.config_threadpool_num + "", Config.concurrencyNum);
+//        int requestNum = SpfConfig.getInstance().getInt(R.id.config_request_num + "", Config.requestsNum);
+//        
+//        etThreadpoolNum.setText(threadpoolNum + "");
+//        etRequestNum.setText(requestNum + "");
+//        
+//        
+        contentView.findViewById(R.id.config_reset).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etThreadpoolNum.setText(Config.DEFCONCURRENCYNUM + "");
+                etRequestNum.setText(Config.DEFREQUESTSNUM + "");
+
+                SpfConfig.getInstance().putInt(R.id.config_threadpool_num + "", Config.DEFCONCURRENCYNUM);
+                SpfConfig.getInstance().putInt(R.id.config_request_num + "", Config.DEFREQUESTSNUM);
+                TaskManager.getInstance().reInitThreadPool();
+                ToastUtil.showText(TaskSettingFragment.this.getActivity(), "已经恢复默认");
+            }
+        });
+        contentView.findViewById(R.id.config_confirm).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SpfConfig.getInstance().putInt(R.id.config_threadpool_num + "", Integer.valueOf(etThreadpoolNum.getText().toString()));
+                SpfConfig.getInstance().putInt(R.id.config_request_num + "", Integer.valueOf(etRequestNum.getText().toString()));
+                TaskManager.getInstance().reInitThreadPool();
+                ToastUtil.showText(TaskSettingFragment.this.getActivity(), "设置完成");
+            }
+        });
+        
+        config_threadpool_num_text = (TextView) contentView.findViewById(R.id.config_threadpool_num_text);
+        config_threadpool_num_seekbar = (SeekBar) contentView.findViewById(R.id.config_threadpool_num_seekbar);
+        config_threadpool_num_seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            /**
+             * 拖动条停止拖动的时候调用
+             */
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+            /**
+             * 拖动条开始拖动的时候调用
+             */
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            /**
+             * 拖动条进度改变的时候调用
+             */
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            	config_threadpool_num_text.setText("并发任务：" + (progress+1) + "个");
+            }
+        });
+        
+        
+        
+        
+        config_request_num_text = (TextView) contentView.findViewById(R.id.config_request_num_text);
+        config_request_num_seekbar = (SeekBar) contentView.findViewById(R.id.config_request_num_seekbar);
+        config_request_num_seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            /**
+             * 拖动条停止拖动的时候调用
+             */
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+            /**
+             * 拖动条开始拖动的时候调用
+             */
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            /**
+             * 拖动条进度改变的时候调用
+             */
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            	config_request_num_text.setText("模拟任务总数：" + (progress+1) + "个");
+            }
+        });
+        
+        return contentView;
+    }
+}

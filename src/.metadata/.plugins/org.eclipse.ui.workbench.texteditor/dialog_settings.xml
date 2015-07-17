@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="httpdns_api_data" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="httpdns_api_data"/>
+			<item value="speedTest"/>
+			<item value="FIXME"/>
+			<item value="DNSCacheConfig.getLocalConfig()"/>
+			<item value="DNSCacheConfig.Data.getInstance()"/>
+			<item value="//TODO"/>
+			<item value="mRunningTasks"/>
+			<item value="CheckUpdates"/>
+		</list>
+		<list key="replacehistory">
+			<item value="DNSCacheConfig.Data.getInstance()"/>
+			<item value="android:screenOrientation=&quot;portrait&quot;"/>
+			<item value=""/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="265" key="DIALOG_WIDTH"/>
+		<item value="1|.Helvetica Neue DeskInterface|11.0|0|COCOA|1|.HelveticaNeueDeskInterface-Regular" key="DIALOG_FONT_NAME"/>
+		<item value="399" key="DIALOG_HEIGHT"/>
+		<item value="1133" key="DIALOG_X_ORIGIN"/>
+		<item value="173" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

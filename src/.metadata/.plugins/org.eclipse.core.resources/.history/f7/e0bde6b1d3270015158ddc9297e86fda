@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/all_taskspeed_bi_but"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dip"
+                android:layout_marginTop="2dip"
+                android:background="#e8e8e8"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#dedede"
+                    android:paddingBottom="7dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="7dip"
+                    android:text="全部任务"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/all_taskspeed_bi_fast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="10dip"
+                    android:text="加速：XX个                         👌"
+                    android:textColor="#252525"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/all_taskspeed_bi_slow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="5dip"
+                    android:text="延迟：XX个"
+                    android:textColor="#252525"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/httpdnslib_expendtime_but"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dip"
+                android:layout_marginTop="1dip"
+                android:background="#e8e8e8"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#dedede"
+                    android:paddingBottom="7dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="7dip"
+                    android:text="Lib库耗时"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/httpdnslib_expendtime_max"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="10dip"
+                    android:text="最快：XX毫秒"
+                    android:textColor="#252525"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/httpdnslib_expendtime_min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="5dip"
+                    android:text="最慢：XX毫秒"
+                    android:textColor="#252525"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/alltask_expendtime_but"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dip"
+                android:layout_marginTop="1dip"
+                android:background="#e8e8e8"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#dedede"
+                    android:paddingBottom="7dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="7dip"
+                    android:text="任务速度对比"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/alltask_expendtime_max"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="10dip"
+                    android:text="最大速度提升：XX毫秒"
+                    android:textColor="#252525"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/alltask_expendtime_average"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="5dip"
+                    android:text="平均速度提升：XX毫秒"
+                    android:textColor="#252525"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/server_speed_but"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dip"
+                android:layout_marginTop="1dip"
+                android:background="#e8e8e8"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#dedede"
+                    android:paddingBottom="7dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="7dip"
+                    android:text="服务器速度对比"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/server_speed_fast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="10dip"
+                    android:text="最快服务器IP：xxx.xxx.xxx.xxx"
+                    android:textColor="#252525"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/server_speed_slow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dip"
+                    android:paddingLeft="14dip"
+                    android:paddingTop="5dip"
+                    android:text="最慢服务器IP：xxx.xxx.xxx.xxx"
+                    android:textColor="#252525"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

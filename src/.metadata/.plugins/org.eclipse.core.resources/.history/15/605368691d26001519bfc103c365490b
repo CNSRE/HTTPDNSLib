@@ -1,0 +1,310 @@
+package com.sina.util.dnscache.httpdns;
+
+import java.net.InetAddress;
+import java.util.ArrayList;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+
+import android.util.Log;
+
+import com.sina.util.dnscache.DNSCacheConfig;
+import com.sina.util.dnscache.httpdns.requests.ApacheHttpClientNetworkRequests;
+import com.sina.util.dnscache.httpdns.requests.INetworkRequests;
+import com.sina.util.dnscache.model.HttpDnsPack;
+import com.sina.util.networktype.NetworkManager;
+
+/**
+ * Created by fenglei on 15/4/21.
+ */
+public class HttpDnsManager implements IHttpDns {
+
+	private ArrayList<String> debugInfo = new ArrayList<String>();
+
+	private INetworkRequests netWork = null;
+	private IJsonParser jsonObj = null;
+
+	public HttpDnsManager() {
+
+		netWork = new ApacheHttpClientNetworkRequests();
+		jsonObj = new IJsonParser.JavaJSON_SINAHTTPDNS();
+	}
+
+	@Override
+	public HttpDnsPack requestHttpDns(String domain) {
+
+		String jsonDataStr = null;
+		HttpDnsPack dnsPack = null;
+
+		if (HttpDnsConfig.isSinaHttpDns) {
+			try {
+				// 使用新浪自己的httpdns服务器请求数据
+				Log.d("TAG", "httpdns 服务器请求开始");
+				String sina_httpdns_api_url = HttpDnsConfig.HTTPDNS_SERVER_API
+						+ domain;
+				jsonDataStr = netWork.requests(sina_httpdns_api_url);
+				if (DNSCacheConfig.DEBUG)
+					debugInfo.add(jsonDataStr);
+				Log.d("TAG", "HttpDnsPack Requests URL = "
+						+ sina_httpdns_api_url);
+				Log.d("TAG", "HttpDnsPack Requests jsonDataStr = "
+						+ jsonDataStr);
+				dnsPack = jsonObj.JsonStrToObj(jsonDataStr);
+				Log.d("TAG", "httpdns 服务器请求成功");
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+
+		// 如果新浪自家的服务器没有拿到数据，或者数据有问题，则使用 dnspod 提供的接口获取数据
+		if (dnsPack == null) {
+			Log.d("TAG", "启用备用方案，访问dnspod接口开始");
+
+			String dnspod_httpdns_api_url = HttpDnsConfig.DNSPOD_SERVER_API + Encryption( domain );
+			jsonDataStr = netWork.requests(dnspod_httpdns_api_url);
+			if (jsonDataStr == null || jsonDataStr.equals(""))
+				return null; // 如果dnspod 也没提取到数据 则返回空
+			
+			jsonDataStr = Decryption(jsonDataStr) ;
+			
+			if (DNSCacheConfig.DEBUG)
+				debugInfo.add(jsonDataStr);
+			
+			dnsPack = new HttpDnsPack();
+			try {
+				String IP_TTL[] = jsonDataStr.split(",");
+				String IPArr[] = IP_TTL[0].split(";");
+				String TTL = IP_TTL[1];
+				dnsPack.domain = domain;
+				dnsPack.device_ip = NetworkManager.Util.getLocalIpAddress();
+				dnsPack.device_sp = String
+						.valueOf(NetworkManager.getInstance().SP_TYPE);
+
+				dnsPack.dns = new HttpDnsPack.IP[IPArr.length];
+				for (int i = 0; i < IPArr.length; i++) {
+					dnsPack.dns[i] = new HttpDnsPack.IP();
+					dnsPack.dns[i].ip = IPArr[i];
+					dnsPack.dns[i].ttl = TTL;
+					dnsPack.dns[i].priority = "0";
+				}
+			} catch (Exception e) {
+				dnsPack = null;
+			}
+
+			Log.d("TAG", "启用备用方案，访问dnspod接口完成");
+		}
+
+		// 如果前两个策略都没有拿到数据，就先返回null吧， 后期加上从本地dns获取数据可以 和 直接发送udp包到权威dns服务器获取a记录
+		if (dnsPack == null) {
+
+			String[] ipList = null;
+			try {
+				InetAddress[] addresses = InetAddress.getAllByName(domain);
+				ipList = new String[addresses.length];
+				for (int i = 0; i < addresses.length; i++) {
+					ipList[i] = addresses[i].getHostAddress();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			return null;
+		}
+
+		// NetworkManager.getInstance().Init();
+
+		// 如果是 wifi 网络 sp 则为 ssid 名字
+		if (NetworkManager.getInstance().NETWORK_TYPE == NetworkManager.NETWORK_TYPE_WIFI) {
+			dnsPack.localhostSp = NetworkManager.getInstance().SP_TYPE_STR;
+		} else {
+			// 如果是 0 就是未知运营商
+			dnsPack.localhostSp = dnsPack.device_sp;
+		}
+
+		return dnsPack;
+	}
+
+	private String Encryption(String domain) {
+
+		if (DNSCacheConfig.Data.DNSPOD_ID == null
+				|| DNSCacheConfig.Data.DNSPOD_ID.equals(""))
+			return domain;
+
+		if (DNSCacheConfig.Data.DNSPOD_KEY == null
+				|| DNSCacheConfig.Data.DNSPOD_KEY.equals(""))
+			return domain;
+
+		String v = "";
+
+		try {
+
+			byte[] encryptedString = null;
+
+			// 初始化密钥
+			SecretKeySpec keySpec = new SecretKeySpec(DNSCacheConfig.Data.DNSPOD_KEY.getBytes("utf-8"), "DES");
+
+			// 选择使用 DES 算法，ECB 方式，填充方式为 PKCS5Padding
+			Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
+
+			// 初始化
+			cipher.init(Cipher.ENCRYPT_MODE, keySpec);
+
+			// 获取加密后的字符串
+			encryptedString = cipher.doFinal(domain.getBytes("utf-8"));
+
+			v = new String(encryptedString);
+			
+			Log.d("TAG_NET", "decryptedString" + byteToStr(encryptedString)) ; 
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
+		Log.d("TAG_NET", "Encryption = " + v + "     domain = " + domain);
+
+		return v;
+	}
+
+	
+	
+	private String Decryption(String data) {
+
+		if (DNSCacheConfig.Data.DNSPOD_ID == null
+				|| DNSCacheConfig.Data.DNSPOD_ID.equals(""))
+			return data;
+
+		if (DNSCacheConfig.Data.DNSPOD_KEY == null
+				|| DNSCacheConfig.Data.DNSPOD_KEY.equals(""))
+			return data;
+		
+		String v = "";
+
+		try {
+
+			byte[] decryptedString = null;
+
+			// 初始化密钥
+			SecretKeySpec keySpec = new SecretKeySpec(DNSCacheConfig.Data.DNSPOD_KEY.getBytes("utf-8"), "DES");
+			// 选择使用 DES 算法，ECB 方式，填充方式为 PKCS5Padding
+			Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
+			// 初始化
+			cipher.init(Cipher.DECRYPT_MODE, keySpec);
+			// 获取解密后的字符串
+			decryptedString = cipher.doFinal(data.getBytes());
+			
+			v = new String(decryptedString) ;
+			
+			Log.d("TAG_NET", "decryptedString" + byteToStr(decryptedString)) ; 
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		Log.d("TAG_NET", "Decryption = " + v + "     data = " + data);
+
+		return v;
+	}
+	
+	private String byteToStr( byte[] b){
+		
+		StringBuffer buffer = new StringBuffer() ;
+		
+		for( int i = 0 ; i < b.length ; i++ ){
+			buffer.append(b[i]) ;
+		}
+		
+		return buffer.toString() ;
+	}
+
+	
+	class DNSPodCipher{
+		
+		public static String Encryption(String str, String key) {
+
+			try {
+				// 初始化密钥
+				SecretKeySpec keySpec = new SecretKeySpec(key.getBytes("utf-8"),
+						"DES");
+				// 选择使用 DES 算法，ECB 方式，填充方式为 PKCS5Padding
+				Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
+				// 初始化
+				cipher.init(Cipher.ENCRYPT_MODE, keySpec);
+				// 获取加密后的字符串
+				byte[] encryptedString = cipher.doFinal(str.getBytes("utf-8"));
+
+				return bytesToHexString(encryptedString);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			return "";
+		}
+
+		public static String Decryption(String str, String key) {
+
+			try {
+				// 初始化密钥
+				SecretKeySpec keySpec = new SecretKeySpec(key.getBytes("utf-8"),"DES");
+				// 选择使用 DES 算法，ECB 方式，填充方式为 PKCS5Padding
+				Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
+				// 初始化
+				cipher.init(Cipher.DECRYPT_MODE, keySpec);
+				// 获取解密后的字符串
+				byte[] decryptedString = cipher.doFinal(hexStringToBytes(str));
+				
+				System.out.println( new String(decryptedString) );
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			return "";
+		}
+
+		public static String bytesToHexString(byte[] src) {
+			StringBuilder stringBuilder = new StringBuilder("");
+			if (src == null || src.length <= 0) {
+				return null;
+			}
+			for (int i = 0; i < src.length; i++) {
+				int v = src[i] & 0xFF;
+				String hv = Integer.toHexString(v);
+				if (hv.length() < 2) {
+					stringBuilder.append(0);
+				}
+				stringBuilder.append(hv);
+			}
+			return stringBuilder.toString();
+		}
+
+		public static byte[] hexStringToBytes(String hexString) {
+			if (hexString == null || hexString.equals("")) {
+				return null;
+			}
+			hexString = hexString.toUpperCase();
+			int length = hexString.length() / 2;
+			char[] hexChars = hexString.toCharArray();
+			byte[] d = new byte[length];
+			for (int i = 0; i < length; i++) {
+				int pos = i * 2;
+				d[i] = (byte) (charToByte(hexChars[pos]) << 4 | charToByte(hexChars[pos + 1]));
+			}
+			return d;
+		}
+
+		/**
+		 * Convert char to byte
+		 * 
+		 * @param c
+		 *            char
+		 * @return byte
+		 */
+		private static byte charToByte(char c) {
+			return (byte) "0123456789ABCDEF".indexOf(c);
+		}
+		
+	}
+	
+}
