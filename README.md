@@ -1,11 +1,11 @@
 该项目是手机微博研发团队和手机微博技术保障部共同努力的成果。 <br>
 在此特别感谢： <br>
-张杰 <br>
+张杰 微博:[@木泽水](http://weibo.com/klans)<br>
 王春生 微博:[@平凡的香草](http://weibo.com/chunshengster)<br>
 胡波 微博:[@胡波_](http://weibo.com/coolbor) <br>
-韩超<br>
-赵星宇<br>
-聂钰<br>
+韩超 微博:[@超朝炒觘](http://weibo.com/weibochao) <br>
+赵星宇 微博:[@淘淘不逃008 ](http://weibo.com/5251978872) <br>
+聂钰 微博:[@古夜](http://weibo.com/206541012) <br>
 冯磊 微博:[@冯磊424](http://weibo.com/myfenglei) <br>
 
 等同学的支持。
@@ -44,42 +44,6 @@ apk文件夹下内有打包好的对httpDNS库进行测试的程序。 该测试
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
- 
- 
- 
-###初始化配置文件
-com.sina.util.dnscache.Data createDefault 方法。 这是一套针对自己工程的配置文件。 
-
-            model.IS_MY_HTTP_SERVER = "";  // 是否开启 私有HTTPDNS SERVER  1为开启 0为不开启
-            model.HTTPDNS_SERVER_API = "";  // 私有 HTTPDNS SERVER API 接口
- 
-            model.IS_DNSPOD_SERVER = "1"; // 开始DNSPOD SERVER 1为开启 0为不开启
-            model.DNSPOD_SERVER_API = "http://119.29.29.29/d?ttl=1&dn=";  // 开始DNSPOD SERVER API接口 
-            model.DNSPOD_ID = "";  //如果是DNSPOD企业版本只需要配置上ID 和KEY就可以使用企业版了，默认为空
-            model.DNSPOD_KEY = ""; //如果是DNSPOD企业版本只需要配置上ID 和KEY就可以使用企业版了，默认为空
-
-            model.IS_SORT = "1"; // 开启智能排序算法 1为开启 0为不开启
-            model.SPEEDTEST_PLUGIN_NUM = "40";  // 速度排序占比值 40
-            model.PRIORITY_PLUGIN_NUM = "30"; // 服务器推荐排序占比值 30
-            model.SUCCESSNUM_PLUGIN_NUM = "10"; // 历史成功数排序占比值 10
-            model.ERRNUM_PLUGIN_NUM = "10"; // 历史错误数排序占比值 10
-            model.SUCCESSTIME_PLUGIN_NUM = "10"; // 最近一次连接成功占比值 10
-
-	    //下面是为每个域名配置一个静态的测速文件， 该测速文件能够让智能算法判断服务器速度质量。 
-	    //关于测速具体 请参考测速模块代码。  
-	    // 域名;测试文件路径 （以这样的格式分别添加）
-            model.SPEEDPATH_LIST.add("api.weibo.cn;index.html");
-            model.SPEEDPATH_LIST.add("ww1.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
-            model.SPEEDPATH_LIST.add("ww2.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
-            model.SPEEDPATH_LIST.add("ww3.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
-            model.SPEEDPATH_LIST.add("ww4.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
-            model.SPEEDPATH_LIST.add("ww5.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
-
-另外关于方法设定参数 请参照测试工程 TaskSettingFragment 类。支持全部参数动态设定。 
-
-
-
-
  
 ### 在使用 http dns前 需要初始化一次 
 DNSCache.Init(this);
@@ -309,7 +273,7 @@ PS:给出一副算法计算分数时的细节图，有兴趣的朋友可以一�
 [HttpHook](https://github.com/feglei/httphook)是一个转发http请求工具库。<br>
 他可以让你在不修改工程源代码的情况下对网络层进行修改、替换、等更多的操作。 <br> <br>
 
-为了测试微博客户端是否可以正常使用httpdns库，才诞生的这个项目。<br>
+由于我没有微博客户端的源码，为了测试微博客户端是否可以正常使用httpdns库，才诞生的这个项目。<br>
 HttpHook 截取 api.weibo.cn 的所有请求，提取到url。<br>
 将url中的host域名，传入httpdns库中，使用返回的a记录替换host，进行访问。<br>
 访问服务器成功后，在将服务器返回的数据传给 客户端，从而完成一次访问请求。 <br>
