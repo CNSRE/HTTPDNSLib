@@ -291,13 +291,13 @@ public class DNSCacheConfig {
 
         public static Data createDefault() {
             Data model = new Data();
-            model.IS_MY_HTTP_SERVER = "1";
-            model.HTTPDNS_SERVER_API = "http://202.108.7.153/dns?domain=";
+            model.IS_MY_HTTP_SERVER = "0";
+            model.HTTPDNS_SERVER_API = "";
 
             model.IS_DNSPOD_SERVER = "1";
             model.DNSPOD_SERVER_API = "http://119.29.29.29/d?ttl=1&dn=";
-            model.DNSPOD_ID = "22";
-            model.DNSPOD_KEY = "j2cjxCp2";
+            model.DNSPOD_ID = "";
+            model.DNSPOD_KEY = "";
 
             model.IS_SORT = "1";
             model.SPEEDTEST_PLUGIN_NUM = "40";
