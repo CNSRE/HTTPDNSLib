@@ -117,7 +117,9 @@ public class DNSCacheDatabaseHelper extends SQLiteOpenHelper implements DBConsta
 	                
 	                IpModel temp = model.ipModelArr.get(i) ;
 	                temp.d_id = model.id;
+	                
 	                IpModel ipModel = getIpModel(temp.ip, sp) ;
+	                
 	                
 	                if( ipModel == null ){
 	                    cv = new ContentValues();
@@ -285,17 +287,14 @@ public class DNSCacheDatabaseHelper extends SQLiteOpenHelper implements DBConsta
 			SQLiteDatabase db = getReadableDatabase();
 	        StringBuilder where = new StringBuilder();
 	        where.append(IP_COLUMN_ID);
-	        where.append(" = ? AND ");
-	        where.append(IP_COLUMN_DOMAIN_ID);
-	        where.append(" = ? AND ");
-	        where.append(IP_COLUMN_IP);
 	        where.append(" = ? ");
 			ContentValues cv = new ContentValues();
+			cv.put(IP_COLUMN_DOMAIN_ID, model.d_id);
 			cv.put(IP_COLUMN_FINALLY_SPEED, model.finally_speed);
 			cv.put(IP_COLUMN_SUCCESS_NUM, model.success_num);
 			cv.put(IP_COLUMN_ERR_NUM, model.err_num);
 			cv.put(IP_COLUMN_FINALLY_SUCCESS_TIME, model.finally_success_time);
-			String[] args = new String[]{String.valueOf(model.id), String.valueOf(model.d_id), model.ip};
+			String[] args = new String[]{String.valueOf(model.id)};
 	        db.update(TABLE_NAME_IP, cv, where.toString(), args);
 			return model;
 		}

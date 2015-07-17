@@ -26,8 +26,8 @@ public class ScoreManager implements IScore {
 		String[] IpArr = null ;
 
 		if( IS_SORT ){
-			// 数据库中得数据，进行排序
-			if( domainModel.id != -1 ){
+			// 数据库中得数据，进行排序 , 当ipmodelSize 大于1个的时候在参与排序
+			if( domainModel.id != -1 && domainModel.ipModelArr.size() > 1){
 				plugInManager.run(domainModel.ipModelArr);
 			}
 		}
