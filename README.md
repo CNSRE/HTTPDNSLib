@@ -12,7 +12,7 @@
 感谢大家提出的宝贵意见，感谢大家为该项目付出的努力！
 
 项目中有任何问题欢迎大家来吐槽，一起完善、一起提高、一起使用！<br>
-email：xingyu10@staff.weibo.com    fenglei1@staff.sina.com.cn <br>
+email：xingyu10@staff.weibo.com        fenglei1@staff.sina.com.cn <br>
 
 <br>
 
