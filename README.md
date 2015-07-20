@@ -199,8 +199,8 @@ HttpDns sdk （android版本）
 
 
 ### 目录结构说明：
-	HttpDns/code/DNSCache --- HttpDns lib库主工程。
-	HttpDns/code/DNSCacheTest --- HttpDns库测试工程。
+	HttpDns/src/DNSCache --- HttpDns lib库主工程。
+	HttpDns/src/DNSCacheTest --- HttpDns库测试工程。
 	HttpDns/doc --- 项目相关的一些文档、流程图、结构图等。
 	HttpDns/ui/DNSCacheTest --- 存放HttpDns测试项目UI源文件以及切图文件。
 
