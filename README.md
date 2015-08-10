@@ -46,6 +46,7 @@ email： xingyu10@staff.weibo.com fenglei1@staff.sina.com.cn
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 <uses-permission android:name="android.permission.WAKE_LOCK" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 ```
 
 ### 使用`http dns`前初始化
