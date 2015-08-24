@@ -4,10 +4,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import com.sina.util.dnscache.Tools;
-
 import android.content.Context;
-import android.util.Log;
+
+import com.sina.util.dnscache.Tools;
 
 public class FileTools {
 

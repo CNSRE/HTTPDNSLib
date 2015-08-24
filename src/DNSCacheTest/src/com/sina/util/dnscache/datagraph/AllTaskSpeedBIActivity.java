@@ -2,6 +2,15 @@ package com.sina.util.dnscache.datagraph;
 
 import java.util.ArrayList;
 
+import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
+
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.Entry;
@@ -14,15 +23,6 @@ import com.github.mikephil.charting.utils.PercentFormatter;
 import com.sina.util.dnscache.R;
 import com.sina.util.dnscache.simulationtask.TaskManager;
 import com.sina.util.dnscache.simulationtask.TaskModel;
-
-import android.app.Activity;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.SeekBar;
-import android.widget.SeekBar.OnSeekBarChangeListener;
 
 public class AllTaskSpeedBIActivity extends Activity implements
 		OnSeekBarChangeListener, OnChartValueSelectedListener {

@@ -5,8 +5,6 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import android.util.Log;
-
 import com.sina.util.dnscache.DNSCache;
 import com.sina.util.dnscache.DomainInfo;
 import com.sina.util.dnscache.Tools;

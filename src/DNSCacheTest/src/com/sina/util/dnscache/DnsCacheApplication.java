@@ -1,9 +1,9 @@
 package com.sina.util.dnscache;
 
-import com.sina.util.dnscache.tasksetting.SpfConfig;
-
 import android.app.Application;
 import android.content.Context;
+
+import com.sina.util.dnscache.tasksetting.SpfConfig;
 
 public class DnsCacheApplication extends Application{
     public static Context mGlobalInstance;
