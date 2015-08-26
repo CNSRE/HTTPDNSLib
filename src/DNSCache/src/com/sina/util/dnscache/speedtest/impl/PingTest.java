@@ -4,11 +4,10 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import com.sina.util.dnscache.speedtest.BaseSpeedTest;
-import com.sina.util.dnscache.speedtest.ISpeedtest;
-import com.sina.util.dnscache.speedtest.SpeedtestManager;
-
 import android.text.TextUtils;
+
+import com.sina.util.dnscache.speedtest.BaseSpeedTest;
+import com.sina.util.dnscache.speedtest.SpeedtestManager;
 
 public class PingTest extends BaseSpeedTest{
 
@@ -70,6 +69,6 @@ public class PingTest extends BaseSpeedTest{
 
     @Override
     public boolean isActivate() {
-        return true;
+        return false;
     }
 }
