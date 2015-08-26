@@ -6,7 +6,9 @@ import java.util.concurrent.Callable;
 import android.os.Handler;
 import android.os.Message;
 
+import com.sina.util.dnscache.R;
 import com.sina.util.dnscache.tasksetting.Config;
+import com.sina.util.dnscache.tasksetting.SpfConfig;
 
 public class TaskManager {
 

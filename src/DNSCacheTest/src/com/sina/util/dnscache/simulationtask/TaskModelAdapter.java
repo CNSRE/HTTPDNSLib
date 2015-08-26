@@ -2,6 +2,11 @@ package com.sina.util.dnscache.simulationtask;
 
 import java.util.ArrayList;
 
+import com.sina.util.dnscache.R;
+import com.sina.util.dnscache.Tools;
+import com.sina.util.dnscache.R.id;
+import com.sina.util.dnscache.R.layout;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,9 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
-import com.sina.util.dnscache.R;
-import com.sina.util.dnscache.Tools;
 
 @SuppressLint("InflateParams")
 public class TaskModelAdapter extends BaseAdapter {

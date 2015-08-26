@@ -1,17 +1,25 @@
 package com.sina.util.dnscache.log;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map.Entry;
-import java.util.Set;
+import java.io.IOException;
 
 import org.json.JSONException;
 import org.json.JSONStringer;
+
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
 
 import com.sina.util.dnscache.AppConfigUtil;
 
 public class HttpDnsLogManager implements IDnsLog {
 
+    /**
+     * 配置文件更新地址
+     */
+    public static String LOG_UPLOAD_API = "http://202.108.7.153/uplog.php";
+    
+    public static int sample_rate = 50;
     /**
      * 错误类型
      */
@@ -36,92 +44,153 @@ public class HttpDnsLogManager implements IDnsLog {
      * 日志文件
      */
     private File mLogFile;
-    
+
     private static HttpDnsLogManager mDnsLogManager;
 
-    public static synchronized HttpDnsLogManager getInstance() {
+    /**
+     * 调试信息分类中的domain信息
+     */
+    public static final String ACTION_INFO_DOMAIN = "httpdns_domaininfo";
+    /**
+     * 调试信息分类中的pack信息
+     */
+    public static final String ACTION_INFO_PACK = "httpdns_packinfo";
+    
+    /**
+     * 调试信息分类中的config信息
+     */
+    public static final String ACTION_INFO_CONFIG = "httpdns_configinfo";
+    
+    /**
+     * 设备sp 和 server识别出口sp 不一致错误信息
+     */
+    public static final String ACTION_ERR_SPINFO = "httpdns_errspinfo";
+
+    /**
+     * 设备sp 和 server识别出口sp 不一致错误信息
+     */
+    public static final String ACTION_ERR_DOMAININFO = "httpdns_errdomaininfo";
+    
+    
+    
+    private static final Object lock = new Object();
+    private static Handler mLogHandler;
+    /**设置日志上报的间隔为1小时*/
+    public static long time_interval = 1 * 60 * 60 * 1000;
+
+    public static HttpDnsLogManager getInstance() {
+
         if (null == mDnsLogManager) {
-            mDnsLogManager = new HttpDnsLogManager();
+            synchronized (lock) {
+                if (null == mDnsLogManager) {
+                    mDnsLogManager = new HttpDnsLogManager();
+                    HandlerThread ht = new HandlerThread("logThread");
+                    ht.start();
+                    Looper looper = ht.getLooper();
+                    mLogHandler = new Handler(looper);
+                }
+            }
         }
         return mDnsLogManager;
     }
 
-    private HttpDnsLogManager(){
+    private HttpDnsLogManager() {
         tryCreateLogFile();
     }
-    
+
     private void tryCreateLogFile() {
         if (FileUtil.haveFreeSpaceInSD()) {
             mLogFile = new File(AppConfigUtil.getExternalCacheDir(), "httpdns.log");
+            if (null != mLogFile && !mLogFile.exists()) {
+                try {
+                    mLogFile.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         } else {
             mLogFile = null;
         }
-    }
-    @Override
-    public synchronized void writeLog(int type, String body) {
-        if (null != mLogFile && !mLogFile.exists()) {
-            tryCreateLogFile();
-        }
-        if (null == mLogFile) {
-            return;
-        }
-        adjustFileSize(mLogFile);
-        String line = generateJsonStr(type, body);
-        FileUtil.writeFileLine(mLogFile, true, line);
     }
 
     private void adjustFileSize(File file) {
         FileUtil.adjustFileSize(file, DEFAULT_MAX_SIZE, DEFAULT_FACTOR);
     }
 
-    private String generateJsonStr(int type,String body) {
-        JSONStringer jsonStringer = new JSONStringer();
-        try {
-            jsonStringer.object()
-            .key("type").value(type)
-            .key("logInfo").value(body)
-            .key("versionName").value(AppConfigUtil.getAppVersionName())
-            .key("timestamp").value(System.currentTimeMillis())
-            .endObject();
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return "{}";
-        }
-        return jsonStringer.toString();
-    }
     @Override
-    public synchronized File getLogFile() {
-        return mLogFile;
+    public File getLogFile() {
+        synchronized (lock) {
+            return mLogFile;
+        }
     }
 
     @Override
-    public synchronized boolean deleteLogFile() {
-        if (null != mLogFile) {
-            return mLogFile.delete();
-        }
-        return false;
-    }
-
-    private String generateJsonStrFromMap(HashMap<String, String> map) {
-        JSONStringer jsonStringer = new JSONStringer();
-        try {
-            jsonStringer = jsonStringer.object();
-            Set<Entry<String, String>> entrySet = map.entrySet();
-            for (Entry<String, String> entry : entrySet) {
-                jsonStringer = jsonStringer.key(entry.getKey()).value(entry.getValue());
+    public boolean deleteLogFile() {
+        synchronized (lock) {
+            if (null != mLogFile) {
+                return mLogFile.delete();
             }
-            jsonStringer = jsonStringer.endObject();
+            return false;
+        }
+    }
+
+    private String generateJsonStr(int type, String action, String body) {
+        JSONStringer jsonStringer = new JSONStringer();
+        try {
+            jsonStringer.object()//
+                    .key("type").value(type)//
+                    .key("action").value(action)//
+                    .key("content").value(body)//
+                    .key("versionName").value(AppConfigUtil.getVersionName())//
+                    .key("did").value(AppConfigUtil.getDeviceId())//
+                    .key("appkey").value(AppConfigUtil.getAppKey())//
+                    .key("timestamp").value(System.currentTimeMillis())//
+                    .endObject();
         } catch (JSONException e) {
             e.printStackTrace();
             return "{}";
         }
         return jsonStringer.toString();
+    }
+
+    @Override
+    public void writeLog(int type, String action, String body) {
+        writeLog(type, action, body, false);
     }
     
     @Override
-    public void writeLog(int type, HashMap<String, String> map) {
-        String body = generateJsonStrFromMap(map);
-        writeLog(type, body);
+    public void writeLog(final int type, final String action, final String body, final boolean enableSample) {
+        writeLog(type, action, body, enableSample, -1);
     }
 
+    @Override
+    public void writeLog(final int type, final String action, final String body, final boolean enableSample, final int sampleRate) {
+        mLogHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                synchronized (lock) {
+                    // 做一个采样操作
+                    boolean succ = true;
+                    if (enableSample) {
+                        if (sampleRate == -1) {
+                            succ = (int) (Math.random() * sample_rate) == 0;
+                        } else {
+                            succ = (int) (Math.random() * sampleRate) == 0;
+                        }
+                    }
+                    if (succ) {
+                        if (null != mLogFile && !mLogFile.exists()) {
+                            tryCreateLogFile();
+                        }
+                        if (null == mLogFile) {
+                            return;
+                        }
+                        adjustFileSize(mLogFile);
+                        String line = generateJsonStr(type, action, body);
+                        FileUtil.writeFileLine(mLogFile, true, line);
+                    }
+                }
+            }
+        });
+    }
 }

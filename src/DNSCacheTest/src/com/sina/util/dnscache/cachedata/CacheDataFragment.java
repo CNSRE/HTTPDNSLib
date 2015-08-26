@@ -58,7 +58,7 @@ public class CacheDataFragment extends Fragment {
 				ToastUtil.showText(CacheDataFragment.this.getActivity(),
 						"数据清理完毕");
 				
-				DNSCache.getInstance().httpdnsManager.initDebugInfo();
+				DNSCache.getInstance().dnsManager.initDebugInfo();
 				
 				// ////////////////////////////////
 			}
@@ -149,7 +149,7 @@ public class CacheDataFragment extends Fragment {
 		ip_table_data.setText(tableIpStr);
 		
 		
-		ArrayList<String> httpdnsDatalist = DNSCache.getInstance().httpdnsManager.getDebugInfo() ;
+		ArrayList<String> httpdnsDatalist = DNSCache.getInstance().dnsManager.getDebugInfo() ;
 		String res = "" ; 
 		for( String str : httpdnsDatalist ){
 			res += "*\n" + str + "\n\n" ;

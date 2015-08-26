@@ -3,6 +3,7 @@ package com.sina.util.dnscache.tasksetting;
 import java.util.ArrayList;
 
 import com.sina.util.dnscache.R;
+import com.sina.util.dnscache.R.id;
 
 public class Config {
 	

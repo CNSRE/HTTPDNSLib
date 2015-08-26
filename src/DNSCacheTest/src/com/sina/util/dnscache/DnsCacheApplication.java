@@ -1,9 +1,9 @@
 package com.sina.util.dnscache;
 
+import com.sina.util.dnscache.tasksetting.SpfConfig;
+
 import android.app.Application;
 import android.content.Context;
-
-import com.sina.util.dnscache.tasksetting.SpfConfig;
 
 public class DnsCacheApplication extends Application{
     public static Context mGlobalInstance;
@@ -13,5 +13,6 @@ public class DnsCacheApplication extends Application{
         mGlobalInstance = this;
         SpfConfig.init(this.getApplicationContext());
         DNSCache.Init(this);
+        DNSCache.getInstance().preLoadDomains(new String[]{"api.weibo.cn","api.camera.weibo.com"});
     }
 }

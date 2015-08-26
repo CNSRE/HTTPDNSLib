@@ -3,14 +3,18 @@ package com.sina.util.dnscache;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONStringer;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.sina.util.dnscache.httpdns.HttpDnsConfig;
-import com.sina.util.dnscache.httpdns.requests.ApacheHttpClientNetworkRequests;
-import com.sina.util.dnscache.httpdns.requests.INetworkRequests;
+import com.sina.util.dnscache.cache.DnsCacheManager;
+import com.sina.util.dnscache.dnsp.DnsConfig;
+import com.sina.util.dnscache.log.HttpDnsLogManager;
+import com.sina.util.dnscache.net.ApacheHttpClientNetworkRequests;
+import com.sina.util.dnscache.net.INetworkRequests;
 import com.sina.util.dnscache.score.PlugInManager;
 import com.sina.util.dnscache.score.ScoreManager;
 import com.sina.util.dnscache.speedtest.SpeedtestManager;
@@ -35,11 +39,18 @@ public class DNSCacheConfig {
      * 调试 开关
      */
     public static boolean DEBUG = true;
+    
+    /**
+     * 是否启用云端更新配置策略
+     */
+    private static final boolean ENABLE_UPDATE_CONFIG = false;
 
     /**
      * 配置文件更新地址
      */
-    private static String ConfigText_API = "";
+    private static String ConfigText_API = "http://202.108.7.153/config";
+    
+    public static ArrayList<String> domainSupportList = new ArrayList<String>();
 
     /**
      * 设置 动态更新配置参数服务器url连接
@@ -90,10 +101,18 @@ public class DNSCacheConfig {
     private static void syncConfig(Data data) {
     	
         if (null != data) {
-            HttpDnsConfig.isSinaHttpDns = data.IS_MY_HTTP_SERVER.equals("1") == true;
-            HttpDnsConfig.IS_DNSPOD_HTTPDNS = data.IS_DNSPOD_SERVER.equals("1") == true;
-            HttpDnsConfig.HTTPDNS_SERVER_API = data.HTTPDNS_SERVER_API;
-            HttpDnsConfig.DNSPOD_SERVER_API = data.DNSPOD_SERVER_API;
+            DNSCache.timer_interval = Integer.valueOf(data.SCHEDULE_TIMER_INTERVAL);
+            SpeedtestManager.time_interval = Integer.valueOf(data.SCHEDULE_SPEED_INTERVAL);
+            HttpDnsLogManager.time_interval = Integer.valueOf(data.SCHEDULE_LOG_INTERVAL);
+            HttpDnsLogManager.sample_rate = Integer.valueOf(data.HTTPDNS_LOG_SAMPLE_RATE);
+            DnsCacheManager.ip_overdue_delay = Integer.valueOf(data.IP_OVERDUE_DELAY);
+            DNSCache.isEnable = data.HTTPDNS_SWITCH.equals("1") ? true : false;
+            
+            DnsConfig.enableSinaHttpDns = data.IS_MY_HTTP_SERVER.equals("1") == true;
+            DnsConfig.enableDnsPod = data.IS_DNSPOD_SERVER.equals("1") == true;
+            DnsConfig.enableUdpDns = data.IS_UDPDNS_SERVER.equals("1") == true;
+            DnsConfig.DNSPOD_SERVER_API = data.DNSPOD_SERVER_API;
+            DnsConfig.UDPDNS_SERVER_API = data.UDPDNS_SERVER_API;
             
             //
             ScoreManager.IS_SORT = data.IS_SORT.equals("1") == true;
@@ -119,15 +138,12 @@ public class DNSCacheConfig {
                 PlugInManager.SuccessTimePluginNum = Float.valueOf(SUCCESSTIME_PLUGIN_NUM);
             }
             
-            //
-            ArrayList<String> speedPaths = data.SPEEDPATH_LIST;
-            for (int i = 0; i < speedPaths.size(); i++) {
-                String temp = speedPaths.get(i);
-                String[] keyV = temp.split(";");
-                if (keyV.length == 2) {
-                    SpeedtestManager.ServerSpeedPaht.put(keyV[0], keyV[1]);
-                }
-            }
+            // arraylist
+            domainSupportList.clear();
+            DnsConfig.SINA_HTTPDNS_SERVER_API.clear();
+            
+            domainSupportList.addAll(data.DOMAIN_SUPPORT_LIST);
+            DnsConfig.SINA_HTTPDNS_SERVER_API.addAll(data.HTTPDNS_SERVER_API);
         }
     }
 
@@ -135,16 +151,33 @@ public class DNSCacheConfig {
      * 更新配置文件
      */
     private static void pullConfigFromServer(final Context ctx) {
-        if (ConfigText_API == null || ConfigText_API.equals(""))
+        if (!ENABLE_UPDATE_CONFIG || ConfigText_API == null || ConfigText_API.equals("")){
             return;
+        }
         new Thread(new Runnable() {
             @Override
             public void run() {
-                INetworkRequests netWork = new ApacheHttpClientNetworkRequests();
-                String str = netWork.requests(ConfigText_API);
-                Data data = Data.fromJson(str);
-                if (null != data) {
-                    saveLocalConfigAndSync(ctx, data);
+                try {
+                    INetworkRequests netWork = new ApacheHttpClientNetworkRequests();
+                    String url = ConfigText_API + "?k=" + AppConfigUtil.getAppKey() + "&v=" + AppConfigUtil.getVersionName();
+                    String responseStr = netWork.requests(url);
+//                    responseStr = createMockJsonStr();
+                    Data data = Data.fromJson(responseStr);
+                    if (null != data) {
+                        saveLocalConfigAndSync(ctx, data);
+                    }
+                    HttpDnsLogManager.getInstance().writeLog(HttpDnsLogManager.TYPE_INFO, HttpDnsLogManager.ACTION_INFO_CONFIG, responseStr);
+                } catch (Exception e) {
+                    String message = e.toString();
+                    JSONStringer stringer = new JSONStringer();
+                    try {
+                        stringer.object()//
+                        .key("errorMsg").value(message)//
+                        .endObject();
+                    } catch (JSONException e1) {
+                        e1.printStackTrace();
+                    }
+                    HttpDnsLogManager.getInstance().writeLog(HttpDnsLogManager.TYPE_ERROR, HttpDnsLogManager.ACTION_INFO_CONFIG, stringer.toString());
                 }
             }
         }).start();
@@ -204,7 +237,39 @@ public class DNSCacheConfig {
     		return Instance ; 
     	}
     	
-    	
+    	/**
+         * 是否启用udpdns服务器 默认不启用 | 1启用 0不启用
+         */
+        public String IS_UDPDNS_SERVER = "";
+        /**
+         * udp dnsserver的地址
+         */
+        public String UDPDNS_SERVER_API = "";
+    	/**
+    	 * 日志采样率
+    	 */
+    	public String HTTPDNS_LOG_SAMPLE_RATE = "";
+    	/**
+    	 * lib库开关
+    	 */
+    	public String HTTPDNS_SWITCH = "";
+    	/**
+    	 * 测速间隔时间
+    	 */
+    	public String SCHEDULE_SPEED_INTERVAL = "";
+    	/**
+    	 * 日志上传的间隔时间
+    	 */
+    	public String SCHEDULE_LOG_INTERVAL = "";
+    	/**
+    	 * timer轮询器的间隔时间
+    	 */
+    	public String SCHEDULE_TIMER_INTERVAL = "";
+    	/**
+    	 * ip数据过期延迟差值
+    	 */
+    	public String IP_OVERDUE_DELAY = "";
+    	/**************************************以上部分是新加配置，共8个********************************************/
         /**
          * 是否启用自己家的HTTP_DNS服务器 默认不启用 | 1启用 0不启用
          */
@@ -213,7 +278,7 @@ public class DNSCacheConfig {
          * 自己家HTTP_DNS服务API地址 使用时直接在字符串后面拼接domain地址 |
          * 示例（http://202.108.7.153/dns?domain=）+ domain
          */
-        public String HTTPDNS_SERVER_API = null;
+        public ArrayList<String> HTTPDNS_SERVER_API = new ArrayList<String>();
         /**
          * 是否启用dnspod服务器 默认不启用 | 1启用 0不启用
          */
@@ -256,9 +321,9 @@ public class DNSCacheConfig {
          */
         public String SUCCESSTIME_PLUGIN_NUM = null;
         /**
-         * domain对应的测速文件，如果需要对服务器进行测速请给domain设置一个可以下载的资源文件来计算服务器速度
+         * 白名单
          */
-        public ArrayList<String> SPEEDPATH_LIST = new ArrayList<String>();
+        public ArrayList<String> DOMAIN_SUPPORT_LIST = new ArrayList<String>();
 
         /**
          * 返回配置文件 json
@@ -267,9 +332,16 @@ public class DNSCacheConfig {
             // 为了节约lib库的大小直接拼接 json 字符串吧，就不适用第三方库了
             StringBuffer buffer = new StringBuffer();
             buffer.append("{");
+            buffer.append("\"IS_UDPDNS_SERVER\":" + "\"" + IS_UDPDNS_SERVER + "\",");
+            buffer.append("\"UDPDNS_SERVER_API\":" + "\"" + UDPDNS_SERVER_API + "\",");
+            buffer.append("\"HTTPDNS_LOG_SAMPLE_RATE\":" + "\"" + HTTPDNS_LOG_SAMPLE_RATE + "\",");
+            buffer.append("\"HTTPDNS_SWITCH\":" + "\"" + HTTPDNS_SWITCH + "\",");
+            buffer.append("\"SCHEDULE_LOG_INTERVAL\":" + "\"" + SCHEDULE_LOG_INTERVAL + "\",");
+            buffer.append("\"SCHEDULE_SPEED_INTERVAL\":" + "\"" + SCHEDULE_SPEED_INTERVAL + "\",");
+            buffer.append("\"SCHEDULE_TIMER_INTERVAL\":" + "\"" + SCHEDULE_TIMER_INTERVAL + "\",");
+            buffer.append("\"IP_OVERDUE_DELAY\":" + "\"" + IP_OVERDUE_DELAY + "\",");
             buffer.append("\"IS_MY_HTTP_SERVER\":" + "\"" + IS_MY_HTTP_SERVER + "\",");
             buffer.append("\"IS_DNSPOD_SERVER\":" + "\"" + IS_DNSPOD_SERVER + "\",");
-            buffer.append("\"HTTPDNS_SERVER_API\":" + "\"" + HTTPDNS_SERVER_API + "\",");
             buffer.append("\"DNSPOD_SERVER_API\":" + "\"" + DNSPOD_SERVER_API + "\",");
             // 测试阶段暂时先把 dnspod的ID和KEY加上
             buffer.append("\"DNSPOD_ID\":" + "\"" + DNSPOD_ID + "\",");
@@ -280,9 +352,15 @@ public class DNSCacheConfig {
             buffer.append("\"SUCCESSNUM_PLUGIN_NUM\":" + "\"" + SUCCESSNUM_PLUGIN_NUM + "\",");
             buffer.append("\"ERRNUM_PLUGIN_NUM\":" + "\"" + ERRNUM_PLUGIN_NUM + "\",");
             buffer.append("\"SUCCESSTIME_PLUGIN_NUM\":" + "\"" + SUCCESSTIME_PLUGIN_NUM + "\",");
-            buffer.append("\"SPEEDPATH_LIST\":" + "[");
-            for (int i = 0; i < SPEEDPATH_LIST.size(); i++) {
-                buffer.append("\"" + SPEEDPATH_LIST.get(i) + "\"" + (i != SPEEDPATH_LIST.size() - 1 ? "," : ""));
+            buffer.append("\"DOMAIN_SUPPORT_LIST\":" + "[");
+            for (int i = 0; i < DOMAIN_SUPPORT_LIST.size(); i++) {
+                buffer.append("\"" + DOMAIN_SUPPORT_LIST.get(i) + "\"" + (i != DOMAIN_SUPPORT_LIST.size() - 1 ? "," : ""));
+            }
+            buffer.append("]");
+            buffer.append(",");
+            buffer.append("\"HTTPDNS_SERVER_API\":" + "[");
+            for (int i = 0; i < HTTPDNS_SERVER_API.size(); i++) {
+                buffer.append("\"" + HTTPDNS_SERVER_API.get(i) + "\"" + (i != HTTPDNS_SERVER_API.size() - 1 ? "," : ""));
             }
             buffer.append("]");
             buffer.append("}");
@@ -291,42 +369,68 @@ public class DNSCacheConfig {
 
         public static Data createDefault() {
             Data model = new Data();
+            model.HTTPDNS_LOG_SAMPLE_RATE = "50";
+            model.HTTPDNS_SWITCH = "1";
+            model.SCHEDULE_LOG_INTERVAL = "3600000";
+            model.SCHEDULE_SPEED_INTERVAL = "60000";
+            model.SCHEDULE_TIMER_INTERVAL = "60000";
+            model.IP_OVERDUE_DELAY = "60";
+            
             model.IS_MY_HTTP_SERVER = "0";
-            model.HTTPDNS_SERVER_API = "";
+            model.HTTPDNS_SERVER_API.add("http://202.108.7.153/dns?domain=");
 
             model.IS_DNSPOD_SERVER = "1";
             model.DNSPOD_SERVER_API = "http://119.29.29.29/d?ttl=1&dn=";
             model.DNSPOD_ID = "";
             model.DNSPOD_KEY = "";
 
+            model.IS_UDPDNS_SERVER = "1";
+            model.UDPDNS_SERVER_API = "114.114.114.114";
+            
             model.IS_SORT = "1";
-            model.SPEEDTEST_PLUGIN_NUM = "40";
-            model.PRIORITY_PLUGIN_NUM = "30";
+            model.SPEEDTEST_PLUGIN_NUM = "50";
+            model.PRIORITY_PLUGIN_NUM = "50";
             model.SUCCESSNUM_PLUGIN_NUM = "10";
             model.ERRNUM_PLUGIN_NUM = "10";
             model.SUCCESSTIME_PLUGIN_NUM = "10";
 
-            model.SPEEDPATH_LIST.add("api.weibo.cn;index.html");
-            model.SPEEDPATH_LIST.add("ww1.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
-            model.SPEEDPATH_LIST.add("ww2.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
-            model.SPEEDPATH_LIST.add("ww3.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
-            model.SPEEDPATH_LIST.add("ww4.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
-            model.SPEEDPATH_LIST.add("ww5.sinaimg.cn;bmiddle/c260f7abjw1et6exmrh3vj20c808gmxl.jpg");
             return model;
         }
 
         public static Data fromJson(String json) {
-            Data model = new Data();
+            Data model = createDefault();
             try {
                 JSONObject jsonObj = new JSONObject(json);
+                //new
+                if (jsonObj.isNull("HTTPDNS_LOG_SAMPLE_RATE") == false) {
+                    model.HTTPDNS_LOG_SAMPLE_RATE = jsonObj.getString("HTTPDNS_LOG_SAMPLE_RATE");
+                }
+                if (jsonObj.isNull("HTTPDNS_SWITCH") == false) {
+                    model.HTTPDNS_SWITCH = jsonObj.getString("HTTPDNS_SWITCH");
+                }
+                if (jsonObj.isNull("SCHEDULE_LOG_INTERVAL") == false) {
+                    model.SCHEDULE_LOG_INTERVAL = jsonObj.getString("SCHEDULE_LOG_INTERVAL");
+                }
+                if (jsonObj.isNull("SCHEDULE_SPEED_INTERVAL") == false) {
+                    model.SCHEDULE_SPEED_INTERVAL = jsonObj.getString("SCHEDULE_SPEED_INTERVAL");
+                }
+                if (jsonObj.isNull("SCHEDULE_TIMER_INTERVAL") == false) {
+                    model.SCHEDULE_TIMER_INTERVAL = jsonObj.getString("SCHEDULE_TIMER_INTERVAL");
+                }
+                if (jsonObj.isNull("IP_OVERDUE_DELAY") == false) {
+                    model.IP_OVERDUE_DELAY = jsonObj.getString("IP_OVERDUE_DELAY");
+                }
+                if (jsonObj.isNull("IS_UDPDNS_SERVER") == false) {
+                    model.IS_UDPDNS_SERVER = jsonObj.getString("IS_UDPDNS_SERVER");
+                }
+                if (jsonObj.isNull("UDPDNS_SERVER_API") == false) {
+                    model.UDPDNS_SERVER_API = jsonObj.getString("UDPDNS_SERVER_API");
+                }
+                //----------------------------------------
                 // httpdns
                 if (jsonObj.isNull("IS_MY_HTTP_SERVER") == false) {
                     model.IS_MY_HTTP_SERVER = jsonObj.getString("IS_MY_HTTP_SERVER");
                 }
-                if (jsonObj.isNull("HTTPDNS_SERVER_API") == false) {
-                    model.HTTPDNS_SERVER_API = jsonObj.getString("HTTPDNS_SERVER_API");
-                }
-
                 // dnspod
                 if (jsonObj.isNull("IS_DNSPOD_SERVER") == false) {
                     model.IS_DNSPOD_SERVER = jsonObj.getString("IS_DNSPOD_SERVER");
@@ -363,12 +467,23 @@ public class DNSCacheConfig {
                     model.SUCCESSTIME_PLUGIN_NUM = jsonObj.getString("SUCCESSTIME_PLUGIN_NUM");
                 }
 
-                // speedtest
-                if (jsonObj.isNull("SPEEDPATH_LIST") == false) {
-                    JSONArray jsonArr = jsonObj.getJSONArray("SPEEDPATH_LIST");
+                // 白名单
+                model.DOMAIN_SUPPORT_LIST.clear();
+                if (jsonObj.isNull("DOMAIN_SUPPORT_LIST") == false) {
+                    JSONArray jsonArr = jsonObj.getJSONArray("DOMAIN_SUPPORT_LIST");
                     for (int i = 0; i < jsonArr.length(); i++) {
                         String temp = jsonArr.getString(i);
-                        model.SPEEDPATH_LIST.add(temp);
+                        model.DOMAIN_SUPPORT_LIST.add(temp);
+                    }
+                }
+                
+                // 新浪httpdns服务地址
+                model.HTTPDNS_SERVER_API.clear();
+                if (jsonObj.isNull("HTTPDNS_SERVER_API") == false) {
+                    JSONArray jsonArr = jsonObj.getJSONArray("HTTPDNS_SERVER_API");
+                    for (int i = 0; i < jsonArr.length(); i++) {
+                        String temp = jsonArr.getString(i);
+                        model.HTTPDNS_SERVER_API.add(temp);
                     }
                 }
             } catch (Exception e) {
@@ -377,5 +492,38 @@ public class DNSCacheConfig {
             }
             return model;
         }
+    }
+    //FOR TEST ！！！
+    static String createMockJsonStr() {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("{");
+        buffer.append("\"HTTPDNS_LOG_SAMPLE_RATE\":" + "\"" + 10 + "\",");
+        buffer.append("\"HTTPDNS_SWITCH\":" + "\"" + 1 + "\",");
+        buffer.append("\"SCHEDULE_LOG_INTERVAL\":" + "\"" + 60 * 60 * 1000 + "\",");
+        buffer.append("\"SCHEDULE_SPEED_INTERVAL\":" + "\"" + 10 * 1000 + "\",");
+        buffer.append("\"SCHEDULE_TIMER_INTERVAL\":" + "\"" + 10 * 1000 + "\",");
+        buffer.append("\"IS_MY_HTTP_SERVER\":" + "\"" + 1 + "\",");
+        buffer.append("\"IS_SORT\":" + "\"" + 1 + "\",");
+        buffer.append("\"SPEEDTEST_PLUGIN_NUM\":" + "\"" + 50 + "\",");
+        buffer.append("\"PRIORITY_PLUGIN_NUM\":" + "\"" + 50 + "\",");
+        
+        ArrayList<String> whiteList = new ArrayList<String>();
+        whiteList.add("api.camera.weibo.com");
+        whiteList.add("ww4.sinaimg.cn");
+        whiteList.add("api.weibo.cn");
+        whiteList.add("m.weibo.cn");
+        buffer.append("\"DOMAIN_SUPPORT_LIST\":" + "[");
+        for (int i = 0; i < whiteList.size(); i++) {
+            buffer.append("\"" + whiteList.get(i) + "\"" + (i != whiteList.size() - 1 ? "," : ""));
+        }
+        buffer.append("]");
+        buffer.append(",");
+        buffer.append("\"HTTPDNS_SERVER_API\":" + "[");
+        for (int i = 0; i < 1; i++) {
+            buffer.append("\"" + "http://202.108.7.153/dns?domain=" + "\"");
+        }
+        buffer.append("]");
+        buffer.append("}");
+        return buffer.toString();
     }
 }

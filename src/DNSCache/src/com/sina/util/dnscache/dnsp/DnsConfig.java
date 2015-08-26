@@ -1,4 +1,6 @@
-package com.sina.util.dnscache.httpdns;
+package com.sina.util.dnscache.dnsp;
+
+import java.util.ArrayList;
 
 /**
 *
@@ -14,27 +16,37 @@ package com.sina.util.dnscache.httpdns;
 * 
 * @version V1.0
 */
-public class HttpDnsConfig {
+public class DnsConfig {
 
 	/**
 	 * 是否使用 自己的httpdns 服务器
 	 */
-	public static boolean isSinaHttpDns = true ; 
+	public static boolean enableSinaHttpDns = true ; 
 	
 	/**
 	 * DNSPOD http dns 开端
 	 */
-	public static boolean IS_DNSPOD_HTTPDNS = true ; 
+	public static boolean enableDnsPod = true ; 
+	
+	/**
+	 * DNSPOD http dns 开端
+	 */
+	public static boolean enableUdpDns = true ; 
 	
     /**
      * httpdns 服务器地址
      */
-    public static String HTTPDNS_SERVER_API = "" ;
-
+    public static ArrayList<String> SINA_HTTPDNS_SERVER_API = new ArrayList<String>();
+    
     /**
      * DNSPOD 服务器地址
      */
     public static String DNSPOD_SERVER_API = "" ;
+    
+    /**
+     * dns 服务器地址
+     */
+    public static String UDPDNS_SERVER_API = "" ;
     
     
 }

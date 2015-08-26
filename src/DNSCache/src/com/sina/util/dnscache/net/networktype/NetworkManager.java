@@ -1,4 +1,4 @@
-package com.sina.util.networktype;
+package com.sina.util.dnscache.net.networktype;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;

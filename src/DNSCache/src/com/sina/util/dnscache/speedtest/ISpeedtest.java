@@ -5,8 +5,6 @@ package com.sina.util.dnscache.speedtest;
  */
 public interface ISpeedtest {
 
-    public float speedTest(String ip, String host);
+    public int speedTest(String ip, String host);
 
-
-   public float speedFormula(long startTime , long stopTime,  int size);
 }

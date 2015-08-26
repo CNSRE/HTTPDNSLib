@@ -1,4 +1,4 @@
-package com.sina.util.networktype;
+package com.sina.util.dnscache.net.networktype;
 
 public class Constants {
 

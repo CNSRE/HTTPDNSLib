@@ -1,17 +1,16 @@
-package com.sina.util.networktype;
-
-import com.sina.util.dnscache.DNSCache;
+package com.sina.util.dnscache.net.networktype;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 
-public class NetworkStateReceiver extends BroadcastReceiver {
+import com.sina.util.dnscache.DNSCache;
 
-	public static final String CONNECTIVITY_CHANGE_ACTION = "android.net.conn.CONNECTIVITY_CHANGE";
+public class NetworkStateReceiver extends BroadcastReceiver {
 
 	public String TAG = "TAG_NET" ; 
 	
@@ -19,14 +18,15 @@ public class NetworkStateReceiver extends BroadcastReceiver {
 	public void onReceive(Context context, Intent intent) {
 
 		String action = intent.getAction();
-		if (TextUtils.equals(action, CONNECTIVITY_CHANGE_ACTION)) {
-			if( getActiveNetwork(context) != null ){ 
+		if (TextUtils.equals(action, ConnectivityManager.CONNECTIVITY_ACTION)) {
+		    NetworkInfo networkInfo = getActiveNetwork(context);
+			if( networkInfo != null ){ 
 				
 				// 刷新网络环境
 				if( NetworkManager.getInstance() != null ) {
 					NetworkManager.getInstance().Init(); 
 					if( DNSCache.getInstance() != null ){
-						DNSCache.getInstance().upDataDNSCache(); 
+						DNSCache.getInstance().onNetworkStatusChanged(networkInfo); 
 					}
 				}
 			}
@@ -44,5 +44,10 @@ public class NetworkStateReceiver extends BroadcastReceiver {
 		NetworkInfo aActiveInfo = mConnMgr.getActiveNetworkInfo(); // 获取活动网络连接信息
 		return aActiveInfo;
 	}
-
+	
+    public static void register(Context context) {
+        IntentFilter mFilter = new IntentFilter();
+        mFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+        context.registerReceiver(new NetworkStateReceiver(), mFilter);
+    }
 }

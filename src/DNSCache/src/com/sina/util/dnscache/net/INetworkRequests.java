@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.sina.util.dnscache.httpdns.requests;
+package com.sina.util.dnscache.net;
 
 import java.util.HashMap;
 

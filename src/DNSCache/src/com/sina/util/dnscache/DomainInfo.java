@@ -80,7 +80,7 @@ public class DomainInfo {
     /**
      * 需要设置到 http head 里面的主机头
      */
-    public String host = null;
+    public String host = "";
 
 
 

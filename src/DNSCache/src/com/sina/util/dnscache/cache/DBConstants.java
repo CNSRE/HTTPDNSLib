@@ -27,7 +27,7 @@ public interface DBConstants {
 	/**
 	 * db 版本
 	 */
-	public static final int DATABASE_VERSION = 2 ; 
+	public static final int DATABASE_VERSION = 4 ; 
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
@@ -95,9 +95,9 @@ public interface DBConstants {
 	 */
 	public static final String IP_COLUMN_PRIORITY = "priority" ;
 	/**
-	 * 最后测速下行速度值
+	 * ip服务器访问延时时间(可用ping或http发送空包实现)。单位ms
 	 */
-	public static final String IP_COLUMN_FINALLY_SPEED = "finally_speed" ;
+	public static final String IP_COLUMN_RTT = "rtt" ;
 	/**
 	 * ip服务器链接产生的成功数
 	 */
@@ -110,6 +110,10 @@ public interface DBConstants {
 	 * ip服务器最后成功链接时间
 	 */
 	public static final String IP_COLUMN_FINALLY_SUCCESS_TIME = "finally_success_time" ; 
+	/**
+	 * ip服务器最后失败链接时间
+	 */
+	public static final String IP_COLUMN_FINALLY_FAIL_TIME = "finally_fail_time" ; 
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -180,10 +184,11 @@ public interface DBConstants {
 					IP_COLUMN_SP + " TEXT," +
 					IP_COLUMN_TTL + " TEXT," +
 					IP_COLUMN_PRIORITY + " INTEGER," +
-					IP_COLUMN_FINALLY_SPEED + " INTEGER," +
+					IP_COLUMN_RTT + " INTEGER," +
 					IP_COLUMN_SUCCESS_NUM + " INTEGER," +
 					IP_COLUMN_ERR_NUM + " INTEGER," +
-					IP_COLUMN_FINALLY_SUCCESS_TIME + " TEXT" +
+					IP_COLUMN_FINALLY_SUCCESS_TIME + " TEXT," +
+					IP_COLUMN_FINALLY_FAIL_TIME + " TEXT" +
 			");";
 	
 	/**

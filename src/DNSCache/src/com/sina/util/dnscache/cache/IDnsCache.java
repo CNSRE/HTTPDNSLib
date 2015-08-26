@@ -1,6 +1,7 @@
 package com.sina.util.dnscache.cache;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.sina.util.dnscache.model.DomainModel;
 import com.sina.util.dnscache.model.HttpDnsPack;
@@ -38,11 +39,12 @@ public interface IDnsCache {
      */
     public DomainModel insertDnsCache(HttpDnsPack dnsPack) ;
 
+    
     /**
-     * 设置测速后信息
-     * @param ipModel
+     * 批量更新测速后信息，保证事务的原子性。即保持一个域名下的所有ip都同时修改。
+     * @param ipModels
      */
-    public IpModel setSpeedInfo(IpModel ipModel) ;
+    public void setSpeedInfo(List<IpModel> ipModels) ;
 
 
     /**
@@ -78,9 +80,11 @@ public interface IDnsCache {
 
 
     /**
-     * 获取数据库 domain 表
+     * 获取数据库 domain 表，默认不追加ip表的数据
      */
     public ArrayList<DomainModel> getAllTableDomain();
+    
+    public ArrayList<DomainModel> getAllTableDomain(boolean appendIpinfo);
 
 
     /**

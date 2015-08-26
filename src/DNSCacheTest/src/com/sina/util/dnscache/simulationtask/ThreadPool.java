@@ -8,9 +8,9 @@ import java.util.concurrent.Executors;
 import com.sina.util.dnscache.DNSCache;
 import com.sina.util.dnscache.DomainInfo;
 import com.sina.util.dnscache.Tools;
-import com.sina.util.dnscache.httpdns.requests.ApacheHttpClientNetworkRequests;
-import com.sina.util.dnscache.httpdns.requests.INetworkRequests;
-import com.sina.util.networktype.NetworkManager;
+import com.sina.util.dnscache.net.ApacheHttpClientNetworkRequests;
+import com.sina.util.dnscache.net.INetworkRequests;
+import com.sina.util.dnscache.net.networktype.NetworkManager;
 
 public class ThreadPool {
 
@@ -93,7 +93,7 @@ public class ThreadPool {
 						model.domainInfo[0].code = String.valueOf(model.domainCode) ;
 						model.domainInfo[0].data = model.domainResult ;
 						model.domainInfo[0].startTime = String.valueOf(startDomainRequests) ;
-						DNSCache.getInstance().setDomainServerIpInfo( model.domainInfo[0] );
+//						DNSCache.getInstance().setDomainServerIpInfo( model.domainInfo[0] );
 						
 						model.netType = NetworkManager.getInstance().NETWORK_TYPE_STR ;
 						model.spName = NetworkManager.getInstance().SP_TYPE_STR ; 

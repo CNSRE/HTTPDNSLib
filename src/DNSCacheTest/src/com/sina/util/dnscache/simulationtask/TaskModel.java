@@ -1,5 +1,7 @@
 package com.sina.util.dnscache.simulationtask;
 
+import java.io.InputStream;
+
 import com.sina.util.dnscache.DomainInfo;
 
 public class TaskModel {

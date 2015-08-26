@@ -5,6 +5,11 @@ package com.sina.util.dnscache.model;
 
 import java.util.ArrayList;
 
+import org.json.JSONException;
+import org.json.JSONStringer;
+
+import com.sina.util.dnscache.AppConfigUtil;
+import com.sina.util.dnscache.DNSCacheConfig;
 import com.sina.util.dnscache.Tools;
 
 /**
@@ -89,4 +94,32 @@ public class DomainModel {
         return str ;
     }
 
+    public String tojson(){
+        JSONStringer jsonStringer = new JSONStringer();
+        try {
+            StringBuilder ipmodelStr = new StringBuilder();
+            ipmodelStr.append("[");
+            if (null != ipModelArr) {
+                for (IpModel ipModel : ipModelArr) {
+                    ipmodelStr.append(ipModel.toJson() + ",");
+                }
+            }
+            if (ipmodelStr.toString().endsWith(",")) {
+                ipmodelStr.deleteCharAt(ipmodelStr.length() - 1);
+            }
+            ipmodelStr.append("]");
+            
+            jsonStringer.object()//
+                    .key("domain").value(domain)//
+                    .key("sp").value(sp)//
+                    .key("ttl").value(ttl)//
+                    .key("time").value(time)//
+                    .key("ipModelArr").value(ipmodelStr.toString())//
+                    .endObject();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "{}";
+        }
+        return jsonStringer.toString();
+    }
 }

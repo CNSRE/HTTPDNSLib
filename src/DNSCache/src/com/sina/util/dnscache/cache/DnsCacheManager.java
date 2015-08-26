@@ -4,10 +4,13 @@
 package com.sina.util.dnscache.cache;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
+
 import com.sina.util.dnscache.model.DomainModel;
 import com.sina.util.dnscache.model.HttpDnsPack;
 import com.sina.util.dnscache.model.IpModel;
@@ -49,9 +52,9 @@ public class DnsCacheManager extends DNSCacheDatabaseHelper implements IDnsCache
     private final int MAX_CACHE_SIZE = 32;
 
     /**
-     * 延迟差值
+     * 延迟差值，单位s
      */
-    private final long DIFFERENCE = 120 ;
+    public static int ip_overdue_delay = 20 ;
 
     /**
      * 缓存链表
@@ -84,17 +87,10 @@ public class DnsCacheManager extends DNSCacheDatabaseHelper implements IDnsCache
 	        if( model != null )addMemoryCache(url, model) ;
 			
 		}
-		
-		if( model != null){
-			// 匹配数据 sp
-			if( model.sp.equals(sp) == false ){
-				model = null ; 
-			}
-		}
-		
+
 		if( model != null){
 			//检测是否过期  
-            if( isExpire(model, DIFFERENCE) ){
+            if( isExpire(model, ip_overdue_delay) ){
                 model = null ;
             }
 		}
@@ -118,31 +114,24 @@ public class DnsCacheManager extends DNSCacheDatabaseHelper implements IDnsCache
 
         domainModel.ipModelArr = new ArrayList<IpModel>();
 
-        int t = 120 ;
+        int domainTTL = 60 ;
         for( HttpDnsPack.IP temp : dnsPack.dns ){
 
             IpModel ipModel = new IpModel() ;
             ipModel.ip = temp.ip ;
             ipModel.ttl = temp.ttl ;
             ipModel.priority = temp.priority ;
-            ipModel.finally_speed = String.valueOf(temp.speed) ;
 
             ipModel.port = 80 ;
             ipModel.sp = domainModel.sp ;
-            ipModel.success_num = String.valueOf(1) ;
             
-            ipModel.err_num = String.valueOf(0) ;
-            ipModel.finally_success_time = String.valueOf( System.currentTimeMillis() );
-
             domainModel.ipModelArr.add(ipModel) ;
 
-            if( Integer.parseInt( ipModel.ttl )  <= t ){
-                t = Integer.parseInt( ipModel.ttl ) ;
-            }
+            domainTTL = Math.min(domainTTL, Integer.valueOf(ipModel.ttl));
 
         }
 
-        domainModel.ttl = String.valueOf(t) ;
+        domainModel.ttl = String.valueOf(domainTTL);
 
         if( domainModel != null && domainModel.ipModelArr != null && domainModel.ipModelArr.size() > 0){
 	        // 插入数据库
@@ -152,33 +141,6 @@ public class DnsCacheManager extends DNSCacheDatabaseHelper implements IDnsCache
         }
 
         return domainModel ;
-    }
-
-
-    /**
-     * 设置反馈信息
-     * @param ipModel
-     * @return
-     */
-    public IpModel setSpeedInfo(IpModel ipModel){
-
-    	IpModel tempModel = null ;
-    	
-		for (Entry<String, DomainModel> entry : data.entrySet()) {
-			DomainModel temp = data.get(entry.getKey());
-			for( IpModel ip : temp.ipModelArr ){
-				if( ip.ip.equals(ipModel.ip) ){
-					tempModel = ip;
-					ip.finally_speed = ipModel.finally_speed ;
-					ip.finally_success_time = ipModel.finally_success_time ;
-					ip.success_num = ipModel.success_num; //String.valueOf( ( Integer.parseInt( ip.success_num ) + Integer.parseInt( ipModel.success_num ) ) );
-					ip.err_num = ipModel.err_num; //String.valueOf( Integer.parseInt( ip.err_num ) + Integer.parseInt( ipModel.err_num ) );
-					break ;
-				}
-			}
-		}
-    	
-        return upDateIpModelSpeedInfo(tempModel);
     }
 
     /**
@@ -255,31 +217,33 @@ public class DnsCacheManager extends DNSCacheDatabaseHelper implements IDnsCache
 
 
     /**
-     * 检测是否过期
+     * 检测是否过期，提前3秒刷一下
      * @param domainModel
      * @return
      */
-    private boolean isExpire(DomainModel domainModel){
-
-        return isExpire( domainModel, 0 );
+    private boolean isExpire(DomainModel domainModel) {
+        return isExpire(domainModel, -3);
     }
 
     /**
      * 检测是否过期
+     * 
      * @param domainModel
      * @return
      */
-    private boolean isExpire(DomainModel domainModel, long difference){
-
-        long queryTime = Long.parseLong( domainModel.time ) / 1000 ;
-        long ttl = Long.parseLong( domainModel.ttl ) ;
+    private boolean isExpire(DomainModel domainModel, long difference) {
+        long queryTime = Long.parseLong(domainModel.time) / 1000;
+        long ttl = Long.parseLong(domainModel.ttl);
         long newTime = System.currentTimeMillis() / 1000;
-
-        if( ( newTime - queryTime ) > ( ttl + difference ) ){
+        if ((newTime - queryTime) > (ttl + difference)) {
             return true;
         }
+        return false;
+    }
 
-        return false ;
+    @Override
+    public void setSpeedInfo(List<IpModel> ipModels) {
+        updateIpInfo(ipModels);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////

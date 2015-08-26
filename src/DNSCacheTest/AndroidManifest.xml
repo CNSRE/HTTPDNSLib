@@ -15,6 +15,9 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        
+        <meta-data android:name="DNSCACHE_APP_KEY" android:value="a0438af0d595438c2a193f905f98484b"/>
+        
         <activity
             android:name="com.sina.util.dnscache.DNSCacheTestActivityTabMain"
             android:label="@string/app_name"
@@ -41,14 +44,6 @@
             android:name="com.sina.util.dnscache.datagraph.ServerSpeedActivity"
             android:screenOrientation="portrait" />
 
-        <receiver
-            android:name="com.sina.util.networktype.NetworkStateReceiver"
-            android:label="NetworkConnection" >
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                <action android:name="android.intent.action.USER_PRESENT" />
-            </intent-filter>
-        </receiver>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -56,5 +51,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
 </manifest>

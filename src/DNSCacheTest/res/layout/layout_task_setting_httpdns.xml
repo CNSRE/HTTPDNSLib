@@ -11,7 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dip"
         android:background="#e8e8e8"
-        android:orientation="horizontal" >
+        android:orientation="horizontal" 
+        android:visibility="gone"
+        >
 
         <TextView
             android:layout_width="wrap_content"
@@ -48,7 +50,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#e8e8e8"
-        android:orientation="vertical" >
+        android:orientation="vertical" 
+        android:visibility="gone"
+        >
 
         <TextView
             android:layout_width="wrap_content"
@@ -163,7 +167,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#e8e8e8"
-        android:orientation="vertical" >
+        android:orientation="vertical" 
+        android:visibility="gone"
+        >
 
         <TextView
             android:layout_width="wrap_content"
@@ -204,7 +210,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#e8e8e8"
-        android:orientation="vertical" >
+        android:orientation="vertical" 
+        android:visibility="gone"
+        >
 
         <TextView
             android:layout_width="wrap_content"
@@ -278,7 +286,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#e8e8e8"
-        android:orientation="vertical" >
+        android:orientation="vertical" 
+        >
 
         <TextView
             android:id="@+id/sort_speed"
@@ -567,7 +576,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dip"
         android:background="#e8e8e8"
-        android:orientation="vertical" >
+        android:orientation="vertical" 
+        android:visibility="gone"
+        >
 
         <TextView
             android:layout_width="wrap_content"
