@@ -88,12 +88,12 @@ public class TaskSettingFragment extends Fragment {
         //find view
         CheckBox checkBox1 = (CheckBox) contentView.findViewById(R.id.checkbox_httpdns);
         CheckBox checkBox2 = (CheckBox) contentView.findViewById(R.id.checkbox_dnspod);
-        CheckBox checkBox3 = (CheckBox) contentView.findViewById(R.id.checkbox_sort);
+        CheckBox checkBox3 = (CheckBox) contentView.findViewById(R.id.checkbox_udpdns);
+        CheckBox checkBox4 = (CheckBox) contentView.findViewById(R.id.checkbox_sort);
 
         EditText editText1 = (EditText) contentView.findViewById(R.id.editText_httpdns_api);
         EditText editText2 = (EditText) contentView.findViewById(R.id.editText_dnspod_api);
-        EditText editText3 = (EditText) contentView.findViewById(R.id.editText_dnspod_id);
-        EditText editText4 = (EditText) contentView.findViewById(R.id.editText_dnspod_key);
+        EditText editText3 = (EditText) contentView.findViewById(R.id.editText_udpdns_api);
 
         SeekBar seekBar1 = ((SeekBar) contentView.findViewById(R.id.seekbar_threadpool_concurrent_num));
         SeekBar seekBar2 = ((SeekBar) contentView.findViewById(R.id.seekbar_threadpool_request_num));
@@ -111,7 +111,6 @@ public class TaskSettingFragment extends Fragment {
         editText1.addTextChangedListener(new EditTextWatcher(editText1.getId()));
         editText2.addTextChangedListener(new EditTextWatcher(editText2.getId()));
         editText3.addTextChangedListener(new EditTextWatcher(editText3.getId()));
-        editText4.addTextChangedListener(new EditTextWatcher(editText4.getId()));
         
         seekBar1.setOnSeekBarChangeListener(seekBarChangeListener);
         seekBar2.setOnSeekBarChangeListener(seekBarChangeListener);
@@ -124,7 +123,8 @@ public class TaskSettingFragment extends Fragment {
         //set value
         checkBox1.setChecked(mEditConfig.IS_MY_HTTP_SERVER.equals("1"));
         checkBox2.setChecked(mEditConfig.IS_DNSPOD_SERVER.equals("1"));
-        checkBox3.setChecked(mEditConfig.IS_SORT.equals("1"));
+        checkBox3.setChecked(mEditConfig.IS_UDPDNS_SERVER.equals("1"));
+        checkBox4.setChecked(mEditConfig.IS_SORT.equals("1"));
 
         StringBuilder sinaServerApiInfo = new StringBuilder();
         for (int i = 0; i < mEditConfig.HTTPDNS_SERVER_API.size(); i++) {
@@ -137,8 +137,7 @@ public class TaskSettingFragment extends Fragment {
         }
         editText1.setText(sinaServerApiInfo.toString());
         editText2.setText(mEditConfig.DNSPOD_SERVER_API);
-        editText3.setText(mEditConfig.DNSPOD_ID);
-        editText4.setText(mEditConfig.DNSPOD_KEY);
+        editText3.setText(mEditConfig.UDPDNS_SERVER_API);
        
         mSeekBarInfoMapping.put(seekBar1, new SeekBarInfo((TextView) contentView.findViewById(R.id.config_threadpool_concurrent_num),
                 "并发任务" + TAG_COLON + "%d" + "个", Config.concurrencyNum, 10, 1));
@@ -300,11 +299,8 @@ public class TaskSettingFragment extends Fragment {
             case R.id.editText_dnspod_api:
                 mEditConfig.DNSPOD_SERVER_API = value;
                 break;
-            case R.id.editText_dnspod_id:
-                mEditConfig.DNSPOD_ID = value;
-                break;
-            case R.id.editText_dnspod_key:
-                mEditConfig.DNSPOD_KEY = value;
+            case R.id.editText_udpdns_api:
+                mEditConfig.UDPDNS_SERVER_API = value;
                 break;
             default:
                 break;
@@ -322,6 +318,9 @@ public class TaskSettingFragment extends Fragment {
                 break;
             case R.id.checkbox_dnspod:
                 mEditConfig.IS_DNSPOD_SERVER = value;
+                break;
+            case R.id.checkbox_udpdns:
+                mEditConfig.IS_UDPDNS_SERVER = value;
                 break;
             case R.id.checkbox_sort:
                 mEditConfig.IS_SORT = value;

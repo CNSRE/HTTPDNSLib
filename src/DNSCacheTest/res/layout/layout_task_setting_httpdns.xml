@@ -11,9 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dip"
         android:background="#e8e8e8"
-        android:orientation="horizontal" 
-        android:visibility="gone"
-        >
+        android:orientation="horizontal" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -23,7 +21,7 @@
             android:layout_marginRight="10dip"
             android:layout_marginTop="10dip"
             android:layout_weight="1"
-            android:text="新浪HTTPDNS服务"
+            android:text="自家HTTPDNS服务"
             android:textColor="#4b4a4a"
             android:textSize="16sp" />
 
@@ -35,9 +33,8 @@
             android:layout_marginLeft="10dip"
             android:layout_marginRight="10dip"
             android:layout_marginTop="10dip"
-            android:textColor="#4b4a4a" 
             android:button="@drawable/checkbox_btn_selector"
-            />
+            android:textColor="#4b4a4a" />
     </LinearLayout>
 
     <LinearLayout
@@ -50,9 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#e8e8e8"
-        android:orientation="vertical" 
-        android:visibility="gone"
-        >
+        android:orientation="vertical" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,7 +56,7 @@
             android:layout_marginRight="10dip"
             android:layout_marginTop="10dip"
             android:layout_weight="1"
-            android:text="新浪HTTPDNS接口"
+            android:text="自家HTTPDNS接口"
             android:textColor="#4b4a4a"
             android:textSize="16sp" />
 
@@ -74,12 +69,11 @@
             android:layout_marginRight="10dip"
             android:layout_marginTop="5dip"
             android:layout_weight="1"
+            android:background="@drawable/edit_text_bg_selector"
             android:ems="1"
             android:focusable="true"
-            android:focusableInTouchMode="true" 
-            android:background="@drawable/edit_text_bg_selector"
-            android:textColor="#4b4a4a"
-            >
+            android:focusableInTouchMode="true"
+            android:textColor="#4b4a4a" >
         </EditText>
     </LinearLayout>
 
@@ -148,13 +142,43 @@
             android:layout_marginRight="10dip"
             android:layout_marginTop="5dip"
             android:layout_weight="1"
+            android:background="@drawable/edit_text_bg_selector"
             android:ems="1"
             android:focusable="true"
-            android:focusableInTouchMode="true" 
-            android:background="@drawable/edit_text_bg_selector"
-            android:textColor="#4b4a4a"
-            >
+            android:focusableInTouchMode="true"
+            android:textColor="#4b4a4a" >
         </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dip"
+        android:background="#e8e8e8"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="10dip"
+            android:layout_weight="1"
+            android:text="公共DNS服务"
+            android:textColor="#4b4a4a"
+            android:textSize="16sp" />
+
+        <CheckBox
+            android:id="@+id/checkbox_udpdns"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="10dip"
+            android:button="@drawable/checkbox_btn_selector"
+            android:textColor="#4b4a4a" />
     </LinearLayout>
 
     <LinearLayout
@@ -167,9 +191,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#e8e8e8"
-        android:orientation="vertical" 
-        android:visibility="gone"
-        >
+        android:orientation="vertical" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -178,12 +200,12 @@
             android:layout_marginRight="10dip"
             android:layout_marginTop="10dip"
             android:layout_weight="1"
-            android:text="DNSPOD ID"
+            android:text="公共DNS服务接口"
             android:textColor="#4b4a4a"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/editText_dnspod_id"
+            android:id="@+id/editText_udpdns_api"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dip"
@@ -191,58 +213,13 @@
             android:layout_marginRight="10dip"
             android:layout_marginTop="5dip"
             android:layout_weight="1"
+            android:background="@drawable/edit_text_bg_selector"
             android:ems="1"
             android:focusable="true"
-            android:focusableInTouchMode="true" 
-            android:background="@drawable/edit_text_bg_selector"
-            android:textColor="#4b4a4a"
-            >
+            android:focusableInTouchMode="true"
+            android:textColor="#4b4a4a" >
         </EditText>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="2dip"
-        android:background="#ebebeb" >
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#e8e8e8"
-        android:orientation="vertical" 
-        android:visibility="gone"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dip"
-            android:layout_marginRight="10dip"
-            android:layout_marginTop="10dip"
-            android:layout_weight="1"
-            android:text="DNSPOD KEY"
-            android:textColor="#4b4a4a"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/editText_dnspod_key"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dip"
-            android:layout_marginLeft="10dip"
-            android:layout_marginRight="10dip"
-            android:layout_weight="1"
-            android:ems="1"
-            android:focusable="true"
-            android:focusableInTouchMode="true" 
-            android:layout_marginTop="5dip"
-            android:background="@drawable/edit_text_bg_selector"
-            android:textColor="#4b4a4a"
-            >
-        </EditText>
-    </LinearLayout>
-
     <!--  -->
 
     <LinearLayout
@@ -272,8 +249,7 @@
             android:layout_marginLeft="10dip"
             android:layout_marginRight="10dip"
             android:layout_marginTop="10dip"
-            android:button="@drawable/checkbox_btn_selector"
-            />
+            android:button="@drawable/checkbox_btn_selector" />
     </LinearLayout>
 
     <LinearLayout
@@ -286,8 +262,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#e8e8e8"
-        android:orientation="vertical" 
-        >
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/sort_speed"
@@ -576,9 +551,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dip"
         android:background="#e8e8e8"
-        android:orientation="vertical" 
-        android:visibility="gone"
-        >
+        android:orientation="vertical"
+        android:visibility="gone" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -600,14 +574,13 @@
             android:layout_marginRight="10dip"
             android:layout_marginTop="5dip"
             android:layout_weight="1"
+            android:background="@drawable/edit_text_bg_selector"
             android:ems="10"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:inputType="textMultiLine" 
-            android:background="@drawable/edit_text_bg_selector"
+            android:inputType="textMultiLine"
             android:text="api.weibo.com;index.html\napi.weibo.com;index.html\napi.weibo.com;index.html\napi.weibo.com;index.html\napi.weibo.com;index.html\napi.weibo.com;index.html\n"
-            android:textColor="#4b4a4a"
-            />
+            android:textColor="#4b4a4a" />
     </LinearLayout>
 
 </LinearLayout>

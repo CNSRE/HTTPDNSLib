@@ -377,7 +377,7 @@ public class DNSCacheConfig {
             model.IP_OVERDUE_DELAY = "60";
             
             model.IS_MY_HTTP_SERVER = "0";
-            model.HTTPDNS_SERVER_API.add("http://202.108.7.153/dns?domain=");
+            model.HTTPDNS_SERVER_API.add("http://xxx/dns?domain=");
 
             model.IS_DNSPOD_SERVER = "1";
             model.DNSPOD_SERVER_API = "http://119.29.29.29/d?ttl=1&dn=";
