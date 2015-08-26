@@ -41,7 +41,7 @@ public class SuccessNumPlugin implements IPlugIn {
 
     @Override
     public boolean isActivated() {
-        return false;
+        return true;
     }
 
 }

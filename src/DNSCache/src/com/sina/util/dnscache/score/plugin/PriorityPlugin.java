@@ -41,7 +41,7 @@ public class PriorityPlugin implements IPlugIn {
 
     @Override
     public boolean isActivated() {
-        return false;
+        return true;
     }
 
 }
