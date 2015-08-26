@@ -19,6 +19,8 @@ public class HttpDnsLogManager implements IDnsLog {
      */
     public static String LOG_UPLOAD_API = "http://202.108.7.153/uplog.php";
     
+    public static final boolean LOG_UPLOAD_SWITCH = false; 
+    
     public static int sample_rate = 50;
     /**
      * 错误类型

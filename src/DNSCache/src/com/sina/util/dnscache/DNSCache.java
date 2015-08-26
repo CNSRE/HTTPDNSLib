@@ -326,7 +326,7 @@ public class DNSCache {
 
             /************************* 日志上报相关 ********************************/
             now = System.currentTimeMillis();
-            if (now - lastLogTime > HttpDnsLogManager.time_interval) {
+            if (HttpDnsLogManager.LOG_UPLOAD_SWITCH && now - lastLogTime > HttpDnsLogManager.time_interval) {
                 lastLogTime = now;
                 // 判断当前是wifi网络才能上传
                 if (NetworkManager.Util.getNetworkType() == Constants.NETWORK_TYPE_WIFI) {
