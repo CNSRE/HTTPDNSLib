@@ -30,17 +30,17 @@ email： xingyu10@staff.weibo.com fenglei1@staff.sina.com.cn
 ###以下配置请按照顺序进行：
 
 1.配置清单文件 - AndroidManifest.xml
- ```xml
-    <!-- 权限信息 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+```xml
+<!-- 权限信息 -->
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 ```
-2. 初始化调用 - 【建议放在Application中处理】
+2.初始化调用 - 【建议放在Application中处理】
 ```java
 DNSCache.Init(context);
 ```
@@ -75,58 +75,84 @@ HttpResponse response = httpClient.execute(getMethod);
 
 ```java
 /**
- * 是否启用自己家的HTTP_DNS服务器 默认不启用 | 1启用 0不启用
- */
+* 是否启用udpdns服务器 默认不启用 | 1启用 0不启用
+*/
+public String IS_UDPDNS_SERVER = "";
+/**
+* udp dnsserver的地址，如8.8.8.8
+*/
+public String UDPDNS_SERVER_API = "";
+/**
+* 日志采样率。如设为50，则为50次数据采样一次
+*/
+public String HTTPDNS_LOG_SAMPLE_RATE = "";
+/**
+* lib库开关，“1”启用，“0”不启用。默认启用
+*/
+public String HTTPDNS_SWITCH = "";
+/**
+* 测速间隔时间
+*/
+public String SCHEDULE_SPEED_INTERVAL = "";
+
+/**
+* timer轮询器的间隔时间
+*/
+public String SCHEDULE_TIMER_INTERVAL = "";
+/**
+* ip数据过期延迟差值
+*/
+public String IP_OVERDUE_DELAY = "";
+/**
+* 是否启用自己家的HTTP_DNS服务器 默认不启用 | 1启用 0不启用
+*/
 public String IS_MY_HTTP_SERVER = null;
 /**
- * 自己家HTTP_DNS服务API地址 使用时直接在字符串后面拼接domain地址 |
- * 示例（http://xxx.xxx.xxx.xxx/dns?domain=）+ domain
- */
-public String HTTPDNS_SERVER_API = null;
+* 自己家HTTP_DNS服务API地址 使用时直接在字符串后面拼接domain地址 |
+* 示例（http://202.108.7.153/dns?domain=）+ domain
+*/
+public ArrayList<String> HTTPDNS_SERVER_API = new ArrayList<String>();
 /**
- * 是否启用dnspod服务器 默认不启用 | 1启用 0不启用
- */
+* 是否启用dnspod服务器 默认不启用 | 1启用 0不启用
+*/
 public String IS_DNSPOD_SERVER = null;
 /**
- * DNSPOD HTTP_DNS 服务器API地址 | 默认（http://119.29.29.29/d?ttl=1&dn=）
- */
+* DNSPOD HTTP_DNS 服务器API地址 | 默认（http://119.29.29.29/d?ttl=1&dn=）
+*/
 public String DNSPOD_SERVER_API = null;
 /**
- * DNSPOD 企业级ID配置选项 
- */
+* DNSPOD 企业级ID配置选项 
+*/
 public String DNSPOD_ID = null;
 /**
- * DNSPOD 企业级KEY配置选项 
- */
+* DNSPOD 企业级KEY配置选项 
+*/
 public String DNSPOD_KEY = null;
+
 /**
- * 是否开启 本地排序插件算法 默认开启 | 1开启 0不开启
- */
+* 是否开启 本地排序插件算法 默认开启 | 1开启 0不开启
+*/
 public String IS_SORT = null;
 /**
- * 速度插件 比重分配值：默认40%
- */
+* 速度插件 比重分配值：默认40%
+*/
 public String SPEEDTEST_PLUGIN_NUM = null;
 /**
- * 服务器推荐优先级插件 比重分配：默认30% （需要自家HTTP_DNS服务器支持）
- */
+* 服务器推荐优先级插件 比重分配：默认30% （需要自家HTTP_DNS服务器支持）
+*/
 public String PRIORITY_PLUGIN_NUM = null;
 /**
- * 历史成功次数计算插件 比重分配：默认10%
- */
+* 历史成功次数计算插件 比重分配：默认10%
+*/
 public String SUCCESSNUM_PLUGIN_NUM = null;
 /**
- * 历史错误次数计算插件 比重分配：默认10%
- */
+* 历史错误次数计算插件 比重分配：默认10%
+*/
 public String ERRNUM_PLUGIN_NUM = null;
 /**
- * 最后一次成功时间计算插件 比重分配：默认10%
- */
+* 最后一次成功时间计算插件 比重分配：默认10%
+*/
 public String SUCCESSTIME_PLUGIN_NUM = null;
-/**
- * domain对应的测速文件，如果需要对服务器进行测速请给domain设置一个可以下载的资源文件来计算服务器速度
- */
-public ArrayList<String> SPEEDPATH_LIST = new ArrayList<String>();
 ```
 
 ### 动态更新参数
