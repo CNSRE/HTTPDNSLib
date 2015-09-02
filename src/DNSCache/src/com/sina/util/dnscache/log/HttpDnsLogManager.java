@@ -85,11 +85,11 @@ public class HttpDnsLogManager implements IDnsLog {
         if (null == mDnsLogManager) {
             synchronized (lock) {
                 if (null == mDnsLogManager) {
-                    mDnsLogManager = new HttpDnsLogManager();
                     HandlerThread ht = new HandlerThread("logThread");
                     ht.start();
                     Looper looper = ht.getLooper();
                     mLogHandler = new Handler(looper);
+                    mDnsLogManager = new HttpDnsLogManager();
                 }
             }
         }
