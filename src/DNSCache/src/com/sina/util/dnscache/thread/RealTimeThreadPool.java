@@ -26,7 +26,7 @@ public class RealTimeThreadPool {
     }
 
     public void execute(Runnable command) {
-        if (null != executorService) {
+        if (null != executorService && !executorService.isShutdown()) {
             executorService.execute(command);
         } else {
             Thread thread = new Thread(command);

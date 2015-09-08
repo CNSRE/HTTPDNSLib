@@ -22,7 +22,19 @@ import java.util.Map.Entry;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.params.ClientPNames;
+import org.apache.http.conn.ClientConnectionManager;
+import org.apache.http.conn.params.ConnManagerParams;
+import org.apache.http.conn.params.ConnPerRouteBean;
+import org.apache.http.conn.scheme.PlainSocketFactory;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 
 import com.sina.util.dnscache.Tools;
 
@@ -36,10 +48,40 @@ import com.sina.util.dnscache.Tools;
  * @version V1.0
  */
 public class ApacheHttpClientNetworkRequests implements INetworkRequests {
+    private static final int SOCKET_OPERATION_TIMEOUT = 60 * 1000;
+    private static final int CONNECTION_TIMEOUT = 30 * 1000;
+    private static final int SOCKET_BUFFER_SIZE = 8192;
+    private static SSLSocketFactory sSSLSocketFactory;
 
     public String requests(String url) {
 
         return requests(url, "");
+    }
+    
+    public static HttpClient newInstance() {
+        HttpParams params = new BasicHttpParams();
+        //不自动处理重定向请求
+        params.setParameter(ClientPNames.HANDLE_REDIRECTS, false);
+        HttpConnectionParams.setStaleCheckingEnabled(params, true);
+        HttpConnectionParams.setConnectionTimeout(params, CONNECTION_TIMEOUT);
+        HttpConnectionParams.setSoTimeout(params, SOCKET_OPERATION_TIMEOUT);
+        HttpConnectionParams.setSocketBufferSize(params, SOCKET_BUFFER_SIZE);
+        HttpConnectionParams.setTcpNoDelay(params, true);
+        ConnManagerParams.setMaxTotalConnections(params, 50);
+        ConnPerRouteBean connPerRoute = new ConnPerRouteBean();
+        connPerRoute.setDefaultMaxPerRoute(4);
+        ConnManagerParams.setMaxConnectionsPerRoute(params, connPerRoute);
+
+        SchemeRegistry schemeRegistry = new SchemeRegistry();
+        schemeRegistry.register(new Scheme("http", PlainSocketFactory
+                .getSocketFactory(), 80));
+        schemeRegistry.register(new Scheme("https",
+                getSSLSocketFactory(), 443));
+        ClientConnectionManager manager = new ThreadSafeClientConnManager(
+                params, schemeRegistry);
+        // We use a factory method to modify superclass initialization
+        // parameters without the funny call-a-static-method dance.
+        return new DefaultHttpClient(manager, params);
     }
 
     @Override
@@ -62,7 +104,7 @@ public class ApacheHttpClientNetworkRequests implements INetworkRequests {
         BufferedReader reader = null;
 
         try {
-            HttpClient client = new DefaultHttpClient();
+            HttpClient client = newInstance();
             HttpGet request = new HttpGet();
 
             if (head != null) {
@@ -106,7 +148,7 @@ public class ApacheHttpClientNetworkRequests implements INetworkRequests {
         byte[] result = null;
 
         try {
-            HttpClient client = new DefaultHttpClient();
+            HttpClient client = newInstance();
             HttpGet request = new HttpGet();
 
             if (head != null) {
@@ -218,8 +260,15 @@ public class ApacheHttpClientNetworkRequests implements INetworkRequests {
             }
         } catch (Exception e) {
             e.printStackTrace();
-
         }
         return result;
+    }
+    
+    public static SSLSocketFactory getSSLSocketFactory() {
+        if (sSSLSocketFactory == null) {
+            sSSLSocketFactory = SSLSocketFactory.getSocketFactory();
+            sSSLSocketFactory.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+        }
+        return sSSLSocketFactory;
     }
 }
