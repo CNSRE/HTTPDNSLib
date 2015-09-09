@@ -40,27 +40,30 @@ import com.sina.util.dnscache.Tools;
 
 /**
  * 
- * 项目名称: DNSCache 类名称: ApacheHttpClientNetworkRequests 类描述: 创建人: 使用 Apache
- * HttpClient 实现网络请求 fenglei 创建时间: 2015-3-30 上午11:50:49
+ * 项目名称: DNSCache 类名称: ApacheHttpClientNetworkRequests 
+ * 类描述: 轻量级的网络请求库 
+ * 创建人: fenglei 
+ * 使用 Apache HttpClient 实现网络请求 
+ * 创建时间: 2015-3-30 上午11:50:49
  * 
- * 修改人: 修改时间: 修改备注:
+ * 修改人: xingyu10 
+ * 修改时间: 2015-9-9 
+ * 修改备注: HTTPS不进行域名校验
  * 
- * @version V1.0
+ * @version V2.0
  */
 public class ApacheHttpClientNetworkRequests implements INetworkRequests {
     private static final int SOCKET_OPERATION_TIMEOUT = 60 * 1000;
     private static final int CONNECTION_TIMEOUT = 30 * 1000;
     private static final int SOCKET_BUFFER_SIZE = 8192;
-    private static SSLSocketFactory sSSLSocketFactory;
 
     public String requests(String url) {
-
         return requests(url, "");
     }
-    
+
     public static HttpClient newInstance() {
         HttpParams params = new BasicHttpParams();
-        //不自动处理重定向请求
+        // 不自动处理重定向请求
         params.setParameter(ClientPNames.HANDLE_REDIRECTS, false);
         HttpConnectionParams.setStaleCheckingEnabled(params, true);
         HttpConnectionParams.setConnectionTimeout(params, CONNECTION_TIMEOUT);
@@ -73,14 +76,11 @@ public class ApacheHttpClientNetworkRequests implements INetworkRequests {
         ConnManagerParams.setMaxConnectionsPerRoute(params, connPerRoute);
 
         SchemeRegistry schemeRegistry = new SchemeRegistry();
-        schemeRegistry.register(new Scheme("http", PlainSocketFactory
-                .getSocketFactory(), 80));
-        schemeRegistry.register(new Scheme("https",
-                getSSLSocketFactory(), 443));
-        ClientConnectionManager manager = new ThreadSafeClientConnManager(
-                params, schemeRegistry);
-        // We use a factory method to modify superclass initialization
-        // parameters without the funny call-a-static-method dance.
+        schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
+        SSLSocketFactory socketFactory = SSLSocketFactory.getSocketFactory();
+        socketFactory.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+        schemeRegistry.register(new Scheme("https", socketFactory, 443));
+        ClientConnectionManager manager = new ThreadSafeClientConnManager(params, schemeRegistry);
         return new DefaultHttpClient(manager, params);
     }
 
@@ -253,7 +253,7 @@ public class ApacheHttpClientNetworkRequests implements INetworkRequests {
             out.write(foot);
             out.flush();
             out.close();
-            
+
             int statusCode = con.getResponseCode();
             if (statusCode == 200) {
                 result = true;
@@ -262,13 +262,5 @@ public class ApacheHttpClientNetworkRequests implements INetworkRequests {
             e.printStackTrace();
         }
         return result;
-    }
-    
-    public static SSLSocketFactory getSSLSocketFactory() {
-        if (sSSLSocketFactory == null) {
-            sSSLSocketFactory = SSLSocketFactory.getSocketFactory();
-            sSSLSocketFactory.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
-        }
-        return sSSLSocketFactory;
     }
 }
