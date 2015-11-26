@@ -17,7 +17,7 @@ public class HttpDnsLogManager implements IDnsLog {
     /**
      * 配置文件更新地址
      */
-    public static String LOG_UPLOAD_API = "http://202.108.7.153/uplog.php";
+    public static String LOG_UPLOAD_API = "";
     
     public static final boolean LOG_UPLOAD_SWITCH = false; 
     
